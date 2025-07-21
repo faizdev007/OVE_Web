@@ -1,39 +1,54 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [darkmod, setdarkmod] = useState(false);
+
+  useEffect(() => {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setdarkmod(isDarkMode);
+  }, []);
 
   return (
     <header className="bg-white dark:bg-gray-800 text-black dark:text-white shadow-md sticky top-0 z-50">
-      <div className="mx-auto flex items-center justify-between px-2 py-1 md:py-2">
+      <div className="mx-auto flex items-center justify-between px-4 py-2 relative">
         {/* Logo */}
         <div className="flex items-center">
-          <img src="/assets/logo.webp" width={150} alt="OVE" />
+          {darkmod ? (
+            <img src="/assets/logo2.webp" width={150} alt="OVE" />
+          ) : (
+            <img src="/assets/logo.webp" width={150} alt="OVE" />
+          )}
         </div>
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex gap-6 items-center">
-          <a href="#home" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
-            Services
-          </a>
-          <a href="#about" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
+          <div className="" onMouseEnter={() => setShowDropdown(true)}>
+            <button className="hover:text-blue-600 dark:hover:text-blue-400 transition">
+              Services ▼
+            </button>
+          </div>
+
+          <a href="#testimonials" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
             Testimonials
           </a>
-          <a href="#services" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
+          <a href="#case-studies" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
             Case Studies
           </a>
-          <a href="#services" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
-            About Us
+          <a href="#about" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
+            About
           </a>
-          <a href="#services" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
+          <a href="#career" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
             Career
           </a>
-          <a href="#contact">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">
-              Contact Us
-            </button>
+          <a href="#contact" className="border-2 border-black hover:bg-gray-200 hover:dark:bg-gray-700 text-black dark:border-white dark:text-white px-4 py-2 rounded-md transition">
+              Get Started
+          </a>
+          <a href="#contact" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition">
+              Hire Developer
           </a>
         </nav>
 
@@ -45,34 +60,72 @@ export default function Header() {
         >
           ☰
         </button>
+        {/* Full-width dropdown */}
+        {showDropdown && (
+          <div onMouseLeave={() => setShowDropdown(false)} className="absolute z-50 left-0 top-full w-screen bg-white dark:bg-gray-700 shadow-lg z-40 py-4">
+            <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-4">
+              <a href="#web-dev" className="hover:text-blue-600 dark:hover:text-blue-300 block">
+                Web Development
+              </a>
+              <a href="#mobile-app" className="hover:text-blue-600 dark:hover:text-blue-300 block">
+                Mobile Apps
+              </a>
+              <a href="#ui-ux" className="hover:text-blue-600 dark:hover:text-blue-300 block">
+                UI/UX Design
+              </a>
+              <a href="#cloud" className="hover:text-blue-600 dark:hover:text-blue-300 block">
+                Cloud Services
+              </a>
+            </div>
+          </div>
+        )}
       </div>
 
-      {/* Mobile Menu with Smooth Transition */}
+      {/* Mobile Menu with Dropdown */}
       <div
-        className={`overflow-hidden transition-all duration-500 md:hidden ${
-          menuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        className={`transition-all duration-500 md:hidden overflow-hidden ${
+          menuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
         <div className="px-4 pb-4 space-y-2 bg-white dark:bg-gray-800">
-          <a href="#home" className="block hover:text-blue-600 dark:hover:text-blue-400">
-            Services
-          </a>
-          <a href="#about" className="block hover:text-blue-600 dark:hover:text-blue-400">
+          {/* Services Dropdown - Mobile */}
+          <details className="group">
+            <summary className="cursor-pointer hover:text-blue-600 dark:hover:text-blue-400">
+              Services
+            </summary>
+            <div className="ml-4 mt-2 space-y-1 text-sm">
+              <a href="#web-dev" className="block hover:text-blue-600 dark:hover:text-blue-300">
+                Web Development
+              </a>
+              <a href="#mobile-app" className="block hover:text-blue-600 dark:hover:text-blue-300">
+                Mobile Apps
+              </a>
+              <a href="#ui-ux" className="block hover:text-blue-600 dark:hover:text-blue-300">
+                UI/UX Design
+              </a>
+              <a href="#cloud" className="block hover:text-blue-600 dark:hover:text-blue-300">
+                Cloud Services
+              </a>
+            </div>
+          </details>
+
+          <a href="#testimonials" className="block hover:text-blue-600 dark:hover:text-blue-400">
             Testimonials
           </a>
-          <a href="#services" className="block hover:text-blue-600 dark:hover:text-blue-400">
+          <a href="#case-studies" className="block hover:text-blue-600 dark:hover:text-blue-400">
             Case Studies
           </a>
-          <a href="#services" className="block hover:text-blue-600 dark:hover:text-blue-400">
+          <a href="#about" className="block hover:text-blue-600 dark:hover:text-blue-400">
             About Us
           </a>
-          <a href="#services" className="block hover:text-blue-600 dark:hover:text-blue-400">
+          <a href="#career" className="block hover:text-blue-600 dark:hover:text-blue-400">
             Career
           </a>
-          <a href="#contact">
-            <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition">
-              Contact Us
-            </button>
+          <a href="#contact" className="block text-center border-2 border-black hover:bg-gray-200 hover:dark:bg-gray-700 text-black dark:border-white dark:text-white px-4 py-2 rounded-md transition">
+              Get Started
+          </a>
+          <a href="#contact" className="block text-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition">
+              Hire Developer
           </a>
         </div>
       </div>
