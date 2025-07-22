@@ -1,11 +1,14 @@
 import DevelopersSlider from "@/components/Homepage/Developers";
+import FaqSection from "@/components/Homepage/FAQ";
 import Herosection from "@/components/Homepage/Hero";
 import HiringProcess from "@/components/Homepage/HiringProcess";
+import OurProjectsSlider from "@/components/Homepage/Projects";
 import TrustedBySection from "@/components/Homepage/TrustedBy2";
 import WhyChooseUs from "@/components/Homepage/WhyUs";
 import Image from "next/image";
 
 export default function Home() {
+    
   return (
     <>
     <div className="absolute top-0 w-full">
@@ -14,6 +17,8 @@ export default function Home() {
       <HiringProcess/>
       <TrustedBySection/>
       <WhyChooseUs/>
+      <OurProjectsSlider/>
+      <FaqSection/>
     </div>
     </>
   );

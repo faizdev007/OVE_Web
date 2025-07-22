@@ -19,7 +19,7 @@ const stats = [
 
 export default function TrustedBySection() {
   return (
-    <section className="bg-black text-white py-16 px-4 text-center">
+    <section className="bg-black dark:bg-gray-800 text-white py-16 px-4 text-center">
       {/* Heading */}
       <h2 className="text-4xl font-bold mb-4">
         <span className="text-orange-400">Trusted by</span>
@@ -33,7 +33,7 @@ export default function TrustedBySection() {
       <div className="flex flex-wrap justify-center gap-10 items-center mb-16">
         {companies.map((company, i) => (
           <div key={i} className="flex items-center gap-2">
-            <Image src={company.logo} alt={company.name} width={150} height={150} className="grayscale" />
+            <Image src={company.logo} alt={company.name} width={150} height={150} className="grayscale object-container" />
           </div>
         ))}
       </div>

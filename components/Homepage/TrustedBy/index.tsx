@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import './trustby.css';
 
 const logos = [
   '/assets/trustedby/spotify.webp',
@@ -29,14 +30,14 @@ export default function TrustedBy() {
         {/* Marquee Section */}
         <div className="flex-1 px-4 overflow-hidden relative">
           <div className="flex animate-marquee gap-10 w-max">
-            {[...logos, ...logos].map((src, index) => (
+            {[...logos, ...logos, ...logos, ...logos].map((src, index) => (
               <Image
                 key={index}
                 src={src}
                 alt="logo"
-                width={80}
-                height={40}
-                className="object-contain grayscale w-auto h-auto opacity-80 hover:opacity-100 transition"
+                width={150}
+                height={150}
+                className="object-contain grayscale opacity-80 hover:opacity-100 transition"
               />
             ))}
           </div>

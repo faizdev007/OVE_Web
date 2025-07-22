@@ -13,23 +13,23 @@ export default function DevelopersSlider() {
   const nextRef = useRef(null);
 
   const developers = [
-    { name: 'Dev 1', image: '/dev1.png' },
-    { name: 'Dev 2', image: '/dev2.png' },
-    { name: 'Dev 3', image: '/dev3.png' },
-    { name: 'Dev 4', image: '/dev4.png' },
-    { name: 'Dev 5', image: '/dev5.png' },
+    { name: 'Dev 1', image: '/assets/developer/dev1.webp' },
+    { name: 'Dev 2', image: '/assets/developer/dev2.webp' },
+    { name: 'Dev 3', image: '/assets/developer/dev3.webp' },
+    { name: 'Dev 4', image: '/assets/developer/dev4.webp' },
+    { name: 'Dev 5', image: '/assets/developer/dev5.webp' },
   ];
 
   return (
     <section className="bg-white dark:bg-gray-700 text-white py-12">
-      <div className="container py-10 bg-black p-4 mx-auto">
+      <div className="container py-10 bg-black dark:bg-gray-800 rounded-md p-4 mx-auto">
         <h2 className="text-3xl font-bold text-center mb-8">Meet Our Developers</h2>
 
         <Swiper
           modules={[Navigation, Autoplay]}
           spaceBetween={30}
           slidesPerView={3}
-          loop={true}
+          loop={false}
           autoplay={{ delay: 3000 }}
           navigation={{
             prevEl: prevRef.current,
@@ -62,7 +62,7 @@ export default function DevelopersSlider() {
         </Swiper>
 
         {/* Custom Navigation Arrows */}
-        <div className="flex justify-center items-center gap-6 mt-6">
+        <div className="hidden md:flex justify-center items-center gap-6 mt-6">
           <button ref={prevRef}>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-10 cursor-pointer">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />

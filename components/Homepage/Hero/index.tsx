@@ -6,7 +6,7 @@ import TrustedBy from '../TrustedBy';
 export default function Herosection()
 {
     return(<>
-    <div className='bg-black dark:bg-gray-700 text-white'>
+    <div className='bg-black dark:bg-gray-800 text-white'>
         <div className='flex items-center pt-20'>
             <div className='container mx-auto h-full grid lg:grid-cols-3 md:grid-cols-2 '>  
                 <div className='p-4 flex flex-col justify-center 2xl:gap-20 lg:gap-10 gap-5 text-center md:text-start'>
