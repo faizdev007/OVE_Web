@@ -35,8 +35,8 @@ export default function DevelopersSlider() {
             nextEl: nextRef.current,
           }}
           onInit={(swiper) => {
-            swiper?.params?.navigation.prevEl = prevRef.current;
-            swiper?.params?.navigation.nextEl = nextRef.current;
+            swiper.params.navigation.prevEl = prevRef.current;
+            swiper.params.navigation.nextEl = nextRef.current;
             swiper.navigation.init();
             swiper.navigation.update();
           }}
