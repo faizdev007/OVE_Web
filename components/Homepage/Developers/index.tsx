@@ -34,12 +34,12 @@ export default function DevelopersSlider() {
             prevEl: prevRef.current,
             nextEl: nextRef.current,
           }}
-          onInit={(swiper) => {
-            swiper.params.navigation.prevEl = prevRef.current;
-            swiper.params.navigation.nextEl = nextRef.current;
-            swiper.navigation.init();
-            swiper.navigation.update();
-          }}
+          // onInit={(swiper) => {
+          //   swiper.params.navigation.prevEl = prevRef.current;
+          //   swiper.params.navigation.nextEl = nextRef.current;
+          //   swiper.navigation.init();
+          //   swiper.navigation.update();
+          // }}
           breakpoints={{
             320: { slidesPerView: 1 },
             640: { slidesPerView: 2 },
