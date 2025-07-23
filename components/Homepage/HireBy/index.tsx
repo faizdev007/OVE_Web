@@ -30,6 +30,12 @@ export default function HireBy() {
                         </div>
                     </div>
                 ))}
+                <div key='action1' className="bg-gray-600 rounded shadow-md">
+                    <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
+                        <h4>Looking for Other role?</h4>
+                        <button className='border border-green-600 text-green-600 font-bold md:text-lg text-sm rounded p-2 cursor-pointer'>Pleace Request</button>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -50,6 +56,12 @@ export default function HireBy() {
                         </div>
                     </div>
                 ))}
+                <div key='action2' className="bg-gray-600 rounded shadow-md">
+                    <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
+                        <h4>Looking for Other Skill?</h4>
+                        <button className='border border-green-600 text-green-600 font-bold md:text-lg text-sm rounded p-2 cursor-pointer'>Pleace Request</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
