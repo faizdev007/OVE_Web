@@ -5,7 +5,7 @@ import { Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 // import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 
 const projects = [
   {
@@ -47,8 +47,8 @@ export default function OurProjectsSlider() {
           autoplay={{ delay: 4000 }}
           navigation={{ prevEl: prevProj.current, nextEl: nextProj.current }}
           onInit={(swiper) => {
-            swiper.params.navigation.prevEl = prevProj.current;
-            swiper.params.navigation.nextEl = nextProj.current;
+            swiper?.params?.navigation.prevEl = prevProj.current;
+            swiper?.params?.navigation.nextEl = nextProj.current;
             swiper.navigation.init();
             swiper.navigation.update();
           }}
@@ -86,7 +86,7 @@ export default function OurProjectsSlider() {
 
         {/* Arrows */}
         <div className="hidden md:flex justify-center items-center gap-6 mt-6">
-          <button ref={prevProj}>
+          <button ref={prevProj} aria-label='prevproj'>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-10 cursor-pointer">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
             </svg>
@@ -96,7 +96,7 @@ export default function OurProjectsSlider() {
              <path strokeLinecap="round" strokeLinejoin="round" d="m9 20.247 6-16.5" />
             </svg>
           </div>
-          <button ref={nextProj}>
+          <button ref={nextProj} aria-label='nextproj'>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-10 cursor-pointer">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
             </svg>

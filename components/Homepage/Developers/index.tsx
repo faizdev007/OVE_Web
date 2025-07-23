@@ -5,8 +5,7 @@ import { Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-import Image from 'next/image';
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 
 export default function DevelopersSlider() {
   const prevRef = useRef(null);
@@ -21,7 +20,7 @@ export default function DevelopersSlider() {
   ];
 
   return (
-    <section className="bg-white dark:bg-gray-700 text-white py-12">
+    <section className="bg-white dark:bg-gray-700 text-white py-12 transition-all duration-500 slide-in">
       <div className="container py-10 bg-black dark:bg-gray-800 rounded-md p-4 mx-auto">
         <h2 className="text-3xl font-bold text-center mb-8">Meet Our Developers</h2>
 
@@ -29,15 +28,15 @@ export default function DevelopersSlider() {
           modules={[Navigation, Autoplay]}
           spaceBetween={30}
           slidesPerView={3}
-          loop={false}
+          loop={true}
           autoplay={{ delay: 3000 }}
           navigation={{
             prevEl: prevRef.current,
             nextEl: nextRef.current,
           }}
           onInit={(swiper) => {
-            swiper.params.navigation.prevEl = prevRef.current;
-            swiper.params.navigation.nextEl = nextRef.current;
+            swiper?.params?.navigation.prevEl = prevRef.current;
+            swiper?.params?.navigation.nextEl = nextRef.current;
             swiper.navigation.init();
             swiper.navigation.update();
           }}
@@ -63,7 +62,7 @@ export default function DevelopersSlider() {
 
         {/* Custom Navigation Arrows */}
         <div className="hidden md:flex justify-center items-center gap-6 mt-6">
-          <button ref={prevRef}>
+          <button ref={prevRef} aria-label='prevref'>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-10 cursor-pointer">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
             </svg>
@@ -73,7 +72,7 @@ export default function DevelopersSlider() {
              <path strokeLinecap="round" strokeLinejoin="round" d="m9 20.247 6-16.5" />
             </svg>
           </div>
-          <button ref={nextRef}>
+          <button ref={nextRef} aria-label='nextref'>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-10 cursor-pointer">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
             </svg>

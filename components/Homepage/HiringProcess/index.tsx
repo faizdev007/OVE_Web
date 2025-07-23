@@ -1,15 +1,12 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import TrustedBy from '../TrustedBy';
-
 export default function HiringProcess()
 {
-    return(<>
-    <div className='bg-white dark:bg-gray-700'>
+    return(
+    <section className='bg-white dark:bg-gray-700'>
         <div className='flex items-center pt-20'>
-            <div className='container mx-auto h-full grid md:grid-cols-2 '>  
-                <div className='p-4 flex flex-col justify-center 2xl:gap-20 lg:gap-10 gap-5 text-center md:text-start'>
+            <div className='container mx-auto h-full md:flex'>  
+                <div className='p-4 md:w-[60%] flex flex-col justify-center 2xl:gap-20 lg:gap-10 gap-5 text-center md:text-start'>
                     <h1 className='flex xl:text-4xl 2xl:text-5xl text-3xl 2xl:gap-6 gap-3 2xl:text-5xl font-bold flex-col'>
                         <span>Our Comprehensive</span>
                         <span>Hiring Process</span>
@@ -19,7 +16,7 @@ export default function HiringProcess()
                         <button className='w-1/2 bg-green-600 text-white lg:p-3 p-2 xl:text-3xl font-bold rounded'>Hire a talent</button>
                     </div>
                 </div>
-                <div className='p-4 grid grid-cols-2 space-2 flex items-center rounded-md gap-8 w-full h-full'>
+                <div className='p-4 md:w-[40%] flex-1 grid grid-cols-2 space-2 flex items-center rounded-md gap-8 w-full h-full'>
                     <div className="bg-[#77BEF0] rounded-lg aspect-[1/1] relative">
                         <div className='bg-white relative overflow-hidden dark:bg-gray-700 border border-gray-500 rounded-lg object-container absolute w-full h-full top-3 start-3'>
                             <div className='flex flex-col gap-2 justify-between h-full w-full p-2'>
@@ -92,6 +89,5 @@ export default function HiringProcess()
                 </div>
             </div>
         </div>
-    </div>
-    </>);
+    </section>);
 }
