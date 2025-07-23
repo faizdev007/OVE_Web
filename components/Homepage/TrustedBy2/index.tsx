@@ -32,8 +32,8 @@ export default function TrustedBySection() {
       {/* Logos */}
       <div className="flex flex-wrap justify-center gap-10 items-center mb-16">
         {companies.map((company, i) => (
-          <div key={i} className="flex items-center gap-2">
-            <Image src={company.logo} alt={company.name} width={150} height={150} className="grayscale object-container" />
+          <div key={i} className="aspect-[4/1] flex justify-center items-center">
+            <Image src={company.logo} alt={company.name} width={120} height={120} className="grayscale object-container h-auto w-auto" />
           </div>
         ))}
       </div>

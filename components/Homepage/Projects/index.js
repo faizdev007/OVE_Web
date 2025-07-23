@@ -46,12 +46,12 @@ export default function OurProjectsSlider() {
           modules={[Autoplay, Navigation]}
           autoplay={{ delay: 4000 }}
           navigation={{ prevEl: prevProj.current, nextEl: nextProj.current }}
-          // onInit={(swiper) => {
-          //   swiper.params.navigation.prevEl = prevProj.current;
-          //   swiper.params.navigation.nextEl = nextProj.current;
-          //   swiper.navigation.init();
-          //   swiper.navigation.update();
-          // }}
+          onInit={(swiper) => {
+            swiper.params.navigation.prevEl = prevProj.current;
+            swiper.params.navigation.nextEl = nextProj.current;
+            swiper.navigation.init();
+            swiper.navigation.update();
+          }}
           loop={true}
         >
           {projects.map((project, index) => (

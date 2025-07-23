@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import TrustedBy from '../TrustedBy';
 
 export default function Herosection()
