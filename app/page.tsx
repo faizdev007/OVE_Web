@@ -12,7 +12,7 @@ export default function Home() {
     
   return (
     <>
-    <div className="absolute top-0 w-full">
+    {/* <div className="absolute top-0 w-full"> */}
       <Herosection/>
       <DevelopersSlider/>
       <HiringProcess/>
@@ -21,7 +21,7 @@ export default function Home() {
       <OurProjectsSlider/>
       <HireBy/>
       <FaqSection/>
-    </div>
+    {/* </div> */}
     </>
   );
 }
