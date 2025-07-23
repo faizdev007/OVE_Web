@@ -3,7 +3,7 @@
 export default function HiringProcess()
 {
     return(
-    <section className='bg-white dark:bg-gray-700'>
+    <section className='bg-white py-10 dark:bg-gray-700'>
         <div className='flex items-center pt-20'>
             <div className='container mx-auto h-full md:flex'>  
                 <div className='p-4 md:w-[60%] flex flex-col justify-center 2xl:gap-20 lg:gap-10 gap-5 text-center md:text-start'>

@@ -27,7 +27,7 @@ const items = [
 export default function WhyChooseUs() {
   return (
     <section className="py-16 px-4 text-center bg-white dark:bg-gray-700 dark:text-white">
-      <h2 className="text-4xl font-bold mb-4">Why choose us</h2>
+      <h2 className="text-5xl font-bold mb-4">Why choose us</h2>
       <p className="text-gray-600 dark:text-white max-w-3xl mx-auto mb-12">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit seed eiusmod tempor incididunt labore
         dolore magna aliqua enim minim veniam quis nostrud exercitation ullamco laboris.
@@ -38,7 +38,7 @@ export default function WhyChooseUs() {
           <div key={i} className="flex flex-col items-center">
             <div className="rounded-t-full w-full border-2 border-b-0 p-3 border-dashed border-black dark:border-white overflow-hidden">
               <div className={`bg-[${item.color}] pt-6 flex flex-col pb-28 justify-center items-center relative aspect-[1/1] pb-2 px-4 rounded-t-full`}>
-                <h3 className="text-white/50 font-bold text-2xl md:text-4xl">{item.title}</h3>
+                <h3 className="text-white/50 font-bold text-2xl lg:text-4xl">{item.title}</h3>
                 {item.subtitle && (
                   <p className="text-white text-sm tracking-widest mt-1">{item.subtitle}</p>
                 )}

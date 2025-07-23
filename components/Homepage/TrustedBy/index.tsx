@@ -1,10 +1,8 @@
 'use client';
 
-import Image from 'next/image';
 import './trustby.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
-import { useRef, useEffect } from 'react';
 
 const logos = [
   '/assets/trustedby/spotify.webp',
@@ -25,12 +23,6 @@ const logos = [
 ];
 
 export default function TrustedBy() {
-// if (
-//     window.top === window.self || // not in an iframe
-//     document.hasFocus()          // iframe is active
-// ) {
-//     navigator.vibrate?.(200);
-// }
   return (
     <section className="py-10 px-2 text-center">
       <div className="container mx-auto flex items-center overflow-hidden">

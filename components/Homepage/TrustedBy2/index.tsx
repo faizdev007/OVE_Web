@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import './customhome.css';
 
 const companies = [
   { name: 'Spotify', logo: '/assets/trustedby/spotify.webp'},
@@ -19,10 +20,10 @@ const stats = [
 
 export default function TrustedBySection() {
   return (
-    <section className="bg-black dark:bg-gray-800 text-white py-16 px-4 text-center">
+    <section className="bg-black py-10 dark:bg-gray-800 text-white py-16 px-4 text-center flex flex-col gap-10">
       {/* Heading */}
-      <h2 className="text-4xl font-bold mb-4">
-        <span className="text-orange-400">Trusted by</span>
+      <h2 className="text-5xl font-bold mb-4">
+        <span className="gradiantorg">Trusted by</span>
       </h2>
       <p className="text-lg max-w-3xl mx-auto text-gray-300 mb-12">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, seed eiusmod tempor incididunt labore
