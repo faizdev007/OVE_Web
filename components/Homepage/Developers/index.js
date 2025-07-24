@@ -38,8 +38,8 @@ export default function DevelopersSlider() {
   },[]);
 
   return (
-    <section className="bg-white dark:bg-gray-700 text-white py-12 transition-all p-4 duration-500 slide-in">
-      <div className="container py-10 bg-black dark:bg-gray-800 rounded-md md:px-30 px-10 mx-auto">
+    <section className="bg-white dark:bg-gray-700 text-white py-12 p-4 animate-fade-up animate-ease-in">
+      <div className="container transform transition-all duration-300 opacity-100 py-10 bg-black dark:bg-gray-800 rounded-md md:px-30 px-10 mx-auto">
         <h2 className="text-3xl font-bold text-center mb-8">Meet Our Developers</h2>
 
         <Swiper

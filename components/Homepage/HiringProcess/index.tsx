@@ -1,10 +1,40 @@
 'use client';
 
+import { useEffect, useRef, useState } from "react";
+
 export default function HiringProcess()
 {
+    const sectionRef = useRef<HTMLDivElement | null>(null);
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+        ([entry]) => {
+            if (entry.isIntersecting) {
+            setIsVisible(true);
+            // observer.disconnect(); // Remove if you want it to trigger only once
+            }else{
+            setIsVisible(false);
+            // observer.disconnect();
+            }
+        },
+        {
+            threshold: 0.1, // Trigger when 10% of the section is visible
+        }
+        );
+
+        if (sectionRef.current) {
+        observer.observe(sectionRef.current);
+        }
+
+        return () => {
+        observer.disconnect();
+        };
+    }, []);
+
     return(
-    <section className='bg-white py-10 dark:bg-gray-700'>
-        <div className='flex items-center pt-20'>
+    <section ref={sectionRef} className='bg-white py-10 dark:bg-gray-700' style={{ minHeight: "500px", border: "1px solid gray" }}>
+        <div className={`animate-fade-left animate-ease-in flex items-center pt-20 ${isVisible ? 'block' : 'hidden'}`}>
             <div className='container mx-auto h-full md:flex'>  
                 <div className='p-4 md:w-[60%] flex flex-col justify-center 2xl:gap-20 lg:gap-10 gap-5 text-center md:text-start'>
                     <h1 className='flex xl:text-4xl 2xl:text-5xl text-3xl 2xl:gap-6 gap-3 2xl:text-5xl font-bold flex-col'>

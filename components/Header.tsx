@@ -86,7 +86,7 @@ export default function Header() {
 
       {/* Mobile Menu with Dropdown */}
       <div
-        className={`transition-all duration-500 md:hidden overflow-hidden ${
+        className={`transition-all duration-500 md:hidden overflow-hidden absolute top-full start-0 end-0 ${
           menuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
