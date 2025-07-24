@@ -8,21 +8,8 @@ import HiringProcess from "@/components/Homepage/HiringProcess";
 import OurProjectsSlider from "@/components/Homepage/Projects";
 import TrustedBySection from "@/components/Homepage/TrustedBy2";
 import WhyChooseUs from "@/components/Homepage/WhyUs";
-import Modal from "@/components/modal";
-import Image from "next/image";
-import { useState } from "react";
 
 export default function Home() {
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
     
   return (
     <>
