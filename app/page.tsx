@@ -26,7 +26,6 @@ export default function Home() {
     
   return (
     <>
-    {/* <div className="absolute top-0 w-full"> */}
       <Herosection/>
       <DevelopersSlider/>
       <HiringProcess/>
@@ -35,16 +34,6 @@ export default function Home() {
       <OurProjectsSlider/>
       <HireBy/>
       <FaqSection/>
-    {/* </div> */}
-
-    <button onClick={openModal}>Open Modal</button>
-
-      {/* Modal Component */}
-    <Modal isOpen={isModalOpen} onClose={closeModal}>
-      <h2>Modal Title</h2>
-      <p>This is a simple modal in Next.js</p>
-      <button onClick={closeModal}>Close Modal</button>
-    </Modal>
     </>
   );
 }

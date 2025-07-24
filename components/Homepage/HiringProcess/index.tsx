@@ -11,11 +11,9 @@ export default function HiringProcess()
         const observer = new IntersectionObserver(
         ([entry]) => {
             if (entry.isIntersecting) {
-            setIsVisible(true);
-            // observer.disconnect(); // Remove if you want it to trigger only once
+                setIsVisible(true);
             }else{
-            setIsVisible(false);
-            // observer.disconnect();
+                setIsVisible(false);
             }
         },
         {
@@ -24,16 +22,16 @@ export default function HiringProcess()
         );
 
         if (sectionRef.current) {
-        observer.observe(sectionRef.current);
+            observer.observe(sectionRef.current);
         }
 
         return () => {
-        observer.disconnect();
+            observer.disconnect();
         };
     }, []);
 
     return(
-    <section ref={sectionRef} className='bg-white py-10 dark:bg-gray-700' style={{ minHeight: "500px", border: "1px solid gray" }}>
+    <section ref={sectionRef} className='bg-white py-10 dark:bg-gray-700' style={{ minHeight: "500px"}}>
         <div className={`animate-fade-left animate-ease-in flex items-center pt-20 ${isVisible ? 'block' : 'hidden'}`}>
             <div className='container mx-auto h-full md:flex'>  
                 <div className='p-4 md:w-[60%] flex flex-col justify-center 2xl:gap-20 lg:gap-10 gap-5 text-center md:text-start'>
