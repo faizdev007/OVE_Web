@@ -1,13 +1,15 @@
 'use client';
 
-import DevelopersSlider from "@/components/Homepage/Developers";
-import FaqSection from "@/components/Homepage/FAQ";
-import Herosection from "@/components/Homepage/Hero";
-import HireBy from "@/components/Homepage/HireBy";
-import HiringProcess from "@/components/Homepage/HiringProcess";
-import OurProjectsSlider from "@/components/Homepage/Projects";
-import TrustedBySection from "@/components/Homepage/TrustedBy2";
-import WhyChooseUs from "@/components/Homepage/WhyUs";
+import '../components/Homepage/customstyle.css';
+
+import DevelopersSlider from "@/components/Homepage/developer";
+import FaqSection from "@/components/Homepage/faq";
+import Herosection from "@/components/Homepage/hero";
+import HireBy from "@/components/Homepage/hireby";
+import HiringProcess from "@/components/Homepage/hiringprocess";
+import OurProjectsSlider from "@/components/Homepage/projects";
+import TrustedBySection from "@/components/Homepage/trustedby2";
+import WhyChooseUs from "@/components/Homepage/whyus";
 
 export default function Home() {
     
