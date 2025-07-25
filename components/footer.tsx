@@ -1,5 +1,6 @@
 'use client';
 
+import Image from "next/image";
 import Footerlinks from "./Homepage/footerlinks";
 
 export default function Footer()
@@ -33,9 +34,9 @@ export default function Footer()
                 <h3 className="text-center text-2xl md:text-3xl lg:text-4xl xl-text-5xl 2xl:text-6xl font-bold mb-8">OUR OFFICE LOCATIONS</h3>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 lg:divide-x-2 divide-y-2 md:divide-y-0 px-4">
                     {officelocation.map((location,key)=>(
-                        <div className="flex flex-col px-4 py-6" aria-labelledby={location.name}>
+                        <div key={key} className="flex flex-col px-4 py-6" aria-labelledby={location.name}>
                             <div className="flex gap-2 mb-4 items-center">
-                                <img loading="lazy" src={location.image} alt={location.name} className="aspect-[2/1] w-12 object-cover"/>
+                                <Image loading="lazy" src={location.image} alt={location.name} className="aspect-[2/1] w-12 object-cover"/>
                                 <h2 className="xl:text-xl font-bold">{location.name}</h2>
                             </div>
                             <p className="text-sm">{location.address}</p>

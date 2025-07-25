@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 export default function Header() {
@@ -18,9 +19,9 @@ export default function Header() {
         {/* Logo */}
         <a href={'/'} className="flex items-center">
           {darkmod ? (
-            <img src="/assets/logo2.webp" width={150} alt="OVE" />
+            <Image src="/assets/logo2.webp" width={150} alt="OVE" />
           ) : (
-            <img src="/assets/logo.webp" width={150} alt="OVE" />
+            <Image src="/assets/logo.webp" width={150} alt="OVE" />
           )}
         </a>
 
