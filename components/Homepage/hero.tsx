@@ -8,21 +8,23 @@ export default function Herosection()
     const { elementRef, isVisible } = useInView();
     return(<section className="bg-black dark:bg-gray-800 text-white relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
     <div ref={elementRef}>
-        <div className='flex items-center'>
-            <div className={`w-full mx-auto h-full md:flex gap-2`}>  
-                <div className='p-4 lg:w-[50%] md:w-[40%] flex flex-col justify-center 2xl:gap-20 lg:gap-10 gap-5 text-center md:text-start'>
-                    <h1 className='flex xl:text-4xl 2xl:text-5xl text-xl 2xl:gap-6 gap-3 2xl:text-5xl font-bold flex-col'>
-                        <span>Hire the world’s</span>
-                        <span className='text-[#3AA0FF]'>top remote talent</span>
-                        <span>without the search</span>
-                    </h1>
-                    <p className='text-sm lg:text-lg xl:text-xl'>Lorem ipsum dolor amet consectetur adipis elitsed do eiusmod tempor incididunt labore et dolore magna aliqua.</p>
+        <div className='flex items-center xl:py-18'>
+            <div className={`w-full mx-auto h-full md:grid grid-cols-2 items-center`}>  
+                <div className='p-4 flex flex-col h-full md:justify-between justify-center gap-3 text-center md:text-start'>
+                    <div className="flex flex-col gap-6 2xl:gap-18">
+                        <h1 className='flex 2xl:gap-8 xl:gap-2 gap-1 xl:text-5xl lg:text-4xl text-2xl font-bold flex-col'>
+                            <span>Hire the world’s</span>
+                            <span className='text-[#3AA0FF]'>top remote talent</span>
+                            <span>without the search</span>
+                        </h1>
+                        <p className='text-sm lg:text-lg xl:text-xl 2xl:text-2xl'>Lorem ipsum dolor amet consectetur adipis elitsed do eiusmod tempor incididunt labore et dolore magna aliqua.</p>
+                    </div>
                     <div className='text-center max-w-auto'>  
-                        <button className='w-1/2 bg-green-600 lg:p-3 p-2 2xl:text-3xl font-bold rounded' aria-label='Hire a talent'>Hire a talent</button>
-                        <div className='mt-2'>👆🏼 $0 until you hire</div>
+                        <button className='w-full bg-green-600 lg:p-3 p-2 2xl:text-3xl font-bold rounded cursor-pointer' aria-label='Hire a talent'>Hire a talent</button>
+                        <div className='mt-2'>👆🏼 $0 until you Hire</div>
                     </div>
                 </div>
-                <div className='p-4 lg:w-[50%] md:w-[60%] lg:col-span-2 flex items-center h-full'>
+                <div className='p-4 flex items-center h-full'>
                     <div style={{ position: 'relative', width:'100%', aspectRatio: '16 / 9' }}>
                         <iframe 
                                 loading="lazy" title="Gumlet video player"

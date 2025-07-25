@@ -13,24 +13,8 @@ const logos = [
   '/assets/companies/company8.webp',
   '/assets/companies/company9.webp',
   '/assets/companies/company10.webp',
-  '/assets/companies/company11.webp',
   '/assets/companies/company12.webp',
   '/assets/companies/company14.webp',
-  // '/assets/trustedby/spotify.webp',
-  // '/assets/trustedby/disney.webp',
-  // '/assets/trustedby/uber.webp',
-  // '/assets/trustedby/spotify.webp',
-  // '/assets/trustedby/disney.webp',
-  // '/assets/trustedby/spotify.webp',
-  // '/assets/trustedby/disney.webp',
-  // '/assets/trustedby/uber.webp',
-  // '/assets/trustedby/spotify.webp',
-  // '/assets/trustedby/disney.webp',
-  // '/assets/trustedby/spotify.webp',
-  // '/assets/trustedby/disney.webp',
-  // '/assets/trustedby/uber.webp',
-  // '/assets/trustedby/spotify.webp',
-  // '/assets/trustedby/disney.webp',
 ];
 
 export default function TrustedBy() {
@@ -69,7 +53,7 @@ export default function TrustedBy() {
                   alt="logo"
                   width={150}
                   height={150}
-                  className="object-contain px-2 opacity-80 hover:opacity-100 transition"
+                  className="object-contain px-2 grayscale opacity-80 hover:opacity-100 transition"
                 />
               </div>
             </SwiperSlide>

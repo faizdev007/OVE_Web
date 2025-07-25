@@ -10,7 +10,6 @@ const companies = [
   { name: 'Commanwealth Bank', logo: '/assets/companies/company8.webp'},
   { name: 'Property Webmasters', logo: '/assets/companies/company9.webp'},
   { name: 'Plutora', logo: '/assets/companies/company10.webp'},
-  { name: 'David Jones', logo: '/assets/companies/company11.webp'},
   { name: 'Colesgroup', logo: '/assets/companies/company12.webp'},
   { name: 'Qantas', logo: '/assets/companies/company14.webp'},
   // { name: 'Spotify', logo: '/assets/trustedby/spotify.webp'},

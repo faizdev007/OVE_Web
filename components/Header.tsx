@@ -13,7 +13,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="bg-white dark:bg-gray-700 text-black dark:text-white shadow-md sticky top-0 z-50">
+    <header className="bg-white font-bold dark:bg-gray-700 text-black dark:text-white shadow-md sticky top-0 z-50">
       <div className="mx-auto flex items-center justify-between px-4 py-2 relative">
         {/* Logo */}
         <a href={'/'} className="flex items-center">
@@ -39,10 +39,7 @@ export default function Header() {
             Case Studies
           </a>
           <a href="#about" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
-            About Us
-          </a>
-          <a href="#about" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
-            Contact Us
+            About
           </a>
           <a href="#career" className="hidden hover:text-blue-600 dark:hover:text-blue-400 transition">
             Career

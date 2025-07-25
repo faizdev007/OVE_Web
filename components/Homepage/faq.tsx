@@ -31,7 +31,7 @@ export default function FaqSection() {
 
   return (
     <div className='py-10 dark:bg-gray-700'>
-        <section className="text-white relative px-4 py-12 sm:px-6 lg:px-8 mx-auto flex flex-col lg:flex-row items-center gap-12">
+        <section className="relative px-4 py-12 sm:px-6 lg:px-8 mx-auto flex flex-col lg:flex-row items-center gap-12">
         {/* Left Image */}
         <div className="w-full lg:w-1/3 flex justify-center">
             <Image
