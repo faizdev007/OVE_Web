@@ -2,28 +2,29 @@
 
 import Image from "next/image";
 import Footerlinks from "./Homepage/footerlinks";
+import { lazy } from "react";
 
 export default function Footer()
 {
     const officelocation = [
                 {
                     name:'Australia',
-                    image:'assets/offices/AUSTRALIA.webp',
+                    image:'/assets/offices/AUSTRALIA.webp',
                     address: 'Level 15, 333 Collins St, Melbourne 3000, Victoria, Australia'
                 },
                 {
                     name:'USA',
-                    image:'assets/offices/USA.webp',
+                    image:'/assets/offices/USA.webp',
                     address: '109 Mojonera Court, Los Gatos, CA, USA 95032'
                 },
                 {
                     name:'UK',
-                    image:'assets/offices/UK.webp',
+                    image:'/assets/offices/UK.webp',
                     address: '4TH Floor, Rex House, 4-12 Regent Street, London SW1Y 4PE(UK)'
                 },
                 {
                     name:'India',
-                    image:'assets/offices/INDIA.webp',
+                    image:'/assets/offices/INDIA.webp',
                     address: 'B27, Sector 132, Noida, Uttar Pradesh 201301.'
                 }
             ];
@@ -36,19 +37,23 @@ export default function Footer()
                     {officelocation.map((location,key)=>(
                         <div key={key} className="flex flex-col px-4 py-6" aria-labelledby={location.name}>
                             <div className="flex gap-2 mb-4 items-center">
-                                <Image loading="lazy" src={location.image} alt={location.name} className="aspect-[2/1] w-12 object-cover"/>
+                                <Image loading="lazy" width={100} height={50} src={location.image} alt={location.name} className="aspect-[2/1] w-12 object-cover"/>
                                 <h2 className="xl:text-xl font-bold">{location.name}</h2>
                             </div>
                             <p className="text-sm">{location.address}</p>
                         </div>
                     ))}
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between mt-8">
                     <div className="">
-                        @ Copywrite
+                        @ Copywrite {new Date().getUTCFullYear()} OVE
                     </div>
                     <div className="">
-                        social linke
+                        <nav className="flex gap-3">
+                            <a href="" aria-label="facebook"><Image src={'/assets/sociallinks/facebook.png'} width={100} className="transform transition-all duration-300 hover:scale-105 object-container grayscale h-8 w-8" height={100} alt="facebook"/></a>
+                            <a href="" aria-label="linkedin"><Image src={'/assets/sociallinks/linkedin.png'} className="transform transition-all duration-300 hover:scale-105 object-container grayscale h-8 w-8" width={100} height={100} alt="linkedin"/></a>
+                            <a href="" aria-label="youtube"><Image src={'/assets/sociallinks/youtube.png'} className="transform transition-all duration-300 hover:scale-105 object-container grayscale h-8 w-8" width={100} height={100} alt="youtube"/></a>
+                        </nav>
                     </div>
                 </div>
             </section>

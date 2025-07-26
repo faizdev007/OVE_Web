@@ -19,9 +19,9 @@ export default function Header() {
         {/* Logo */}
         <a href={'/'} className="flex items-center">
           {darkmod ? (
-            <Image src="/assets/logo2.webp" width={150} alt="OVE" />
+            <Image src="/assets/logo2.webp" width={150} height={60} alt="OVE" />
           ) : (
-            <Image src="/assets/logo.webp" width={150} alt="OVE" />
+            <Image src="/assets/logo.webp" width={150} height={60} alt="OVE" />
           )}
         </a>
 

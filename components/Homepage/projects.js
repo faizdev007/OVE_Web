@@ -5,7 +5,7 @@ import { Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 // import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 const projects = [
   {
@@ -31,11 +31,12 @@ const projects = [
 export default function OurProjectsSlider() {
   const prevProj = useRef(null);
   const nextProj = useRef(null);
+  const [isSectionVisible, setIsSectionVisible] = useState(true);
 
   return (
-    <section className="text-white relative px-4 py-12 sm:px-6 lg:px-8 mx-auto dark:bg-gray-700 text-center">
+    <section className="relative px-4 py-12 sm:px-6 lg:px-8 mx-auto dark:bg-gray-700 text-center">
       {/* Heading */}
-      <h2 className="text-4xl font-bold mb-4">Our Projects</h2>
+      <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center mb-5">Our Projects</h2>
       <p className="max-w-4xl mx-auto text-gray-600 dark:text-white mb-12">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit sed iusmod tempor incididunt ut labore et dolore magna aliqua.
         Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -51,6 +52,7 @@ export default function OurProjectsSlider() {
             swiper.params.navigation.nextEl = nextProj.current;
             swiper.navigation.init();
             swiper.navigation.update();
+            setIsSectionVisible(swiper.allowSlideNext);
           }}
           loop={true}
         >
@@ -58,7 +60,7 @@ export default function OurProjectsSlider() {
             <SwiperSlide key={index}>
               <div className="flex flex-col md:flex-row gap-6 items-stretch justify-center">
                 {/* Left Box */}
-                <div className="border border-gray-300 rounded-md p-6 w-full md:w-1/3 text-left">
+                <div className="border border-black rounded-md p-6 w-full md:w-1/3 text-left">
                   <div className="mb-4">
                     <span className="text-sm font-semibold bg-blue-600 text-white px-3 py-1 rounded-full inline-block mb-6">
                       {project.tag}
@@ -76,32 +78,34 @@ export default function OurProjectsSlider() {
                 </div>
 
                 {/* Right Image */}
-                <div className="bg-gray-300 w-full md:w-2/3 aspect-[2/1] flex items-center justify-center rounded-md text-2xl font-bold text-black">
+                <div className="bg-gray-300 w-full md:w-2/3 aspect-[2/1] flex items-center justify-center rounded-md border border-black text-2xl font-bold text-black">
                   {project.image}
                 </div>
               </div>
             </SwiperSlide>
           ))}
+          {/* Arrows */}
+          {isSectionVisible && 
+          <div className="hidden md:flex relative justify-center z-20 items-center gap-6 mt-6">
+            <button ref={prevProj} aria-label='prevproj'>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-10 cursor-pointer">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
+              </svg>
+            </button>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-10">
+              <path strokeLinecap="round" strokeLinejoin="round" d="m9 20.247 6-16.5" />
+              </svg>
+            </div>
+            <button ref={nextProj} aria-label='nextproj'>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-10 cursor-pointer">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+              </svg>
+            </button>
+          </div>
+          }
         </Swiper>
 
-        {/* Arrows */}
-        <div className="hidden md:flex justify-center items-center gap-6 mt-6">
-          <button ref={prevProj} aria-label='prevproj'>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-10 cursor-pointer">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
-            </svg>
-          </button>
-          <div>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-10">
-             <path strokeLinecap="round" strokeLinejoin="round" d="m9 20.247 6-16.5" />
-            </svg>
-          </div>
-          <button ref={nextProj} aria-label='nextproj'>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-10 cursor-pointer">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
-            </svg>
-          </button>
-        </div>
       </div>
     </section>
   );

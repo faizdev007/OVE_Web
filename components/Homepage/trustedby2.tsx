@@ -30,10 +30,10 @@ export default function TrustedBySection() {
   return (
     <section className="bg-black dark:bg-gray-800 text-white relative px-4 py-12 sm:px-6 lg:px-8 mx-auto text-center flex flex-col gap-10">
       {/* Heading */}
-      <h2 className="text-5xl font-bold mb-4">
+      <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center">
         <span className="gradiantorg">Trusted by</span>
       </h2>
-      <p className="text-lg max-w-3xl mx-auto text-gray-300 mb-12">
+      <p className="max-w-4xl mx-auto text-white dark:text-white mb-12">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, seed eiusmod tempor incididunt labore
         et dolore magna aliqua enim ad minim veniam quis nostrud exercitation ullamco laboris.
       </p>
