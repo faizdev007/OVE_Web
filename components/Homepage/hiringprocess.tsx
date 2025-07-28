@@ -28,21 +28,29 @@ export default function HiringProcess()
                 <div className="hidden aspect-[1/1] flex items-center justify-center">
                     <img loading="lazy" src={'/assets/hirprocess.webp'} className="object-cover md:h-1/2 md:w-1/2" alt="steps"/>
                 </div>
-                <div className='md:p-4 md:w-100 w-auto h-auto mx-auto'>
-                    <div className="aspect-[1/1] w-full h-full grid grid-cols-2 md:gap-8 gap-6">
+                <div className='md:p-4 md:w-100 2xl:w-130 w-auto h-auto mx-auto'>
+                    <div className="aspect-[1/1] w-full h-full grid grid-cols-2 gap-6">
                         {stepsdata.map((item,key)=>(
-                            <div key={key} className={`rounded-lg aspect-[1/1] ${key == 2 ? 'order-last':''} relative`} style={{ transform: `rotate(${90 * key}deg)`, 'background':item.color }}>
-                                <div className='bg-white relative overflow-hidden dark:bg-gray-700 border border-gray-500 rounded-lg object-container absolute w-full h-full md:top-3 md:start-3 top-2 start-2' style={{ transform: `rotate(${90 * (stepsdata.length-key)}deg)` }}>
-                                    <div className='flex flex-col gap-2 justify-between h-full w-full md:p-2 p-1'>
-                                        <h4 className='font-bold 2xl:text-lg lg:text-sm text-xs'>{item.title}</h4>
-                                        <p className='2xl:text-sm text-xs'>{item.info}</p>
-                                        <img src={'#'} alt="img"/>
-                                        <div className="relative w-full h-16">
-                                            <div className='absolute -bottom-18 -end-18 flex flex-col text-center bg-[#77BEF0] rounded-full w-32 h-32 items-center justify-center'>
-                                                <div className='absolute top-5 start-6 text-sm flex flex-col items-center'>
-                                                    <span>Step</span>
-                                                    <strong className='font-bold'>{item.step}</strong>
-                                                </div>
+                            <div key={key} className={`rounded-lg relative aspect-[1/1] ${key == 2 ? 'order-last':''} relative`} style={{ transform: `rotate(${90 * key}deg)`, 'background':item.color }}>
+                                <div className='bg-white relative overflow-hidden dark:bg-gray-700 border border-gray-500 rounded-lg object-container absolute w-full h-full top-2 start-2'>
+                                    <div className='flex flex-col gap-2 justify-between h-full w-full md:p-2 p-1' style={{ transform: `rotate(${90 * (stepsdata.length-key)}deg)` }}>
+                                        <div className="flex h-full justify-between" style={{ flexDirection: key > 1 ? 'column-reverse' : 'column' }}>
+                                            <div>
+                                                <h4 className='font-bold 2xl:text-lg lg:text-sm text-xs'>{item.title}</h4>
+                                                <p className='2xl:text-sm text-xs'>{item.info}</p>
+                                            </div>
+                                            <div className="flex" style={{'color':item.color , justifyContent: key === 1 || key ===  2 ? 'end' : 'start'}}>
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="absolute bottom-0 z-40 w-full">
+                                        <div className='absolute -bottom-16.5 -end-16.5 flex flex-col text-center rounded-full w-32 h-32 items-center justify-center' style={{'background':item.color}}>
+                                            <div className='absolute top-5 start-6 md:text-sm text-xs flex flex-col items-center' style={{ transform: `rotate(${90 * (stepsdata.length-key)}deg)` }}>
+                                                <span>Step</span>
+                                                <strong className='font-bold'>{item.step}</strong>
                                             </div>
                                         </div>
                                     </div>
@@ -50,58 +58,6 @@ export default function HiringProcess()
 
                             </div>
                         ))}
-                        
-                        {/* <div className="bg-[#FFCB61] rounded-lg aspect-[1/1] relative">
-                            <div className='bg-white relative overflow-hidden dark:bg-gray-700 border border-gray-500 rounded-lg object-container absolute w-full h-full end-3 top-3'>
-                                <div className='flex flex-col gap-2 justify-between h-full w-full p-2'>
-                                    <h4 className='font-bold md:text-lg text-sm'>Heading Goes Here</h4>
-                                    <p className='md:text-sm text-xs'>Lorem ipsum door amet consectetur adipiscing sededo eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam.</p>
-                                    <img src={'#'} alt="img"/>
-                                    <div className="relative w-full h-16">
-                                        <div className='absolute -bottom-18 -start-18 flex flex-col text-center bg-[#FFCB61] rounded-full w-32 h-32 items-center justify-center'>
-                                            <div className='absolute top-5 end-6 text-sm flex flex-col items-center'>
-                                                <span>Step</span>
-                                                <strong className='font-bold'>02</strong>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="bg-[#FF894F] rounded-lg aspect-[1/1] relative">
-                            <div className='bg-white relative overflow-hidden dark:bg-gray-700 border border-gray-500 rounded-lg object-container absolute w-full h-full start-3 bottom-3'>
-                                <div className='flex flex-col gap-2 justify-between h-full w-full p-2 rounded-lg'>
-                                    <div className="relative w-full h-16">
-                                        <div className='absolute -top-18 -end-18 flex flex-col text-center bg-[#FF894F] rounded-full w-32 h-32 items-center justify-center'>
-                                            <div className='absolute bottom-5 start-6 text-sm flex flex-col'>
-                                                <span>Step</span>
-                                                <strong className='font-bold'>04</strong>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <img src={'#'} alt="img"/>
-                                    <h4 className='font-bold md:text-lg text-sm'>Heading Goes Here</h4>
-                                    <p className='md:text-sm text-xs'>Lorem ipsum door amet consectetur adipiscing sededo eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="bg-[#EA5B6F] rounded-lg aspect-[1/1] relative">
-                            <div className='relative overflow-hidden bg-white dark:bg-gray-700 border border-gray-500 rounded-lg object-container absolute w-full h-full end-3 bottom-3'>
-                                <div className='flex flex-col gap-2 justify-between h-full w-full p-2'>
-                                    <div className="relative w-full h-16">
-                                        <div className='absolute -top-18 -start-18 flex flex-col bg-[#EA5B6F] rounded-full w-32 h-32'>
-                                            <div className='absolute bottom-5 end-6 text-sm flex flex-col items-center'>
-                                                <span>Step</span>
-                                                <strong className='font-bold'>03</strong>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <img src={'#'} alt="img"/>
-                                    <h4 className='font-bold md:text-lg text-sm'>Heading Goes Here</h4>
-                                    <p className='md:text-sm text-xs'>Lorem ipsum door amet consectetur adipiscing sededo eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam.</p>
-                                </div>
-                            </div>
-                        </div> */}
                     </div>
                 </div>
             </div>

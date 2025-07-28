@@ -32,7 +32,7 @@ export default function DevelopersSlider() {
 
   return (
     <section  ref={elementRef} className={`bg-white dark:bg-gray-700 text-white relative px-4 py-12 sm:px-6 lg:px-8 mx-auto`}>
-      <div className={`transform relative transition-all duration-300 opacity-100 py-10 bg-black dark:bg-gray-800 rounded-md xl:px-30 px-4 mx-auto animate-fade-up animate-ease-in`}>
+      <div className={`transform relative transition-all duration-300 opacity-100 py-10 bg-black dark:bg-gray-800 rounded-md xl:px-30 px-4 mx-auto`}>
         <Image loading='lazy' width={100} height={100} className='absolute object-cover bottom-0 w-full start-0 end-0' src={'/assets/cloudbg.webp'} alt="cloudbg"/>
         <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center mb-12">Meet Our Developers</h2>
 
@@ -58,12 +58,12 @@ export default function DevelopersSlider() {
             640: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
             1450: { slidesPerView: 4 },
-            1850: { slidesPerView: 5 },
+            1850: { slidesPerView: 4 },
           }}
         >
           {developers.map((dev, index) => (
             <SwiperSlide key={index}>
-              <div className={`dev bg-white aspect-[1/1.3] text-black relative rounded-xl shadow-lg transition-transform duration-300 transform hover:shadow-2xl`} style={{border:`5px solid ${dev.color}`}}>
+              <div className={`dev bg-white aspect-[1/1.3] text-black relative rounded-xl shadow-lg animate-fade animate-duration-1000 animate-delay-${index}00 animate-ease-linear hover:shadow-2xl ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} style={{border:`5px solid ${dev.color}`}}>
                 <div className="relative mb-4 w-2/3 mx-auto overflow-hidden rounded-full absolute top-0 aspect-[1/1] mt-4" style={{border:`3px solid ${dev.color}`}}>
                   {/* Profile Image with Border and Hover Effect */}
                   <img

@@ -37,7 +37,7 @@ export default function WhyChooseUs() {
         {items.map((item, i) => (
           <div key={i} className="flex flex-col items-center">
             <div className="rounded-t-full w-full border-2 border-b-0 p-3 border-dashed border-black dark:border-white overflow-hidden">
-              <div className={`bg-[${item.color}] pt-6 flex flex-col pb-28 justify-center items-center relative aspect-[1/1] pb-2 px-4 rounded-t-full`}>
+              <div className={`pt-6 flex flex-col pb-28 justify-center items-center relative aspect-[1/1] pb-2 px-4 rounded-t-full`} style={{backgroundColor:item.color}}>
                 <h3 className="text-white/50 font-bold text-2xl lg:text-4xl">{item.title}</h3>
                 {item.subtitle && (
                   <p className="text-white text-sm tracking-widest mt-1">{item.subtitle}</p>

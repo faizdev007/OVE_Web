@@ -32,10 +32,10 @@ export default function Footerlinks()
     ];
 
     const importantlinks = [
-        {name:'Privacy Policy',url:'#'},
+        {name:'Privacy Policy',url:'/privacy_policy'},
         {name:'Sitemap',url:'#'},
         {name:'Contact Us',url:'#'},
-        {name:'Terms of Use',url:'#'},
+        {name:'Terms of Use',url:'/use_terms'},
         {name:'Careers',url:'#'},
         {name:'Blog',url:'#'},
     ];
