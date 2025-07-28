@@ -6,25 +6,37 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 // import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { useRef, useState } from 'react';
+import Image from 'next/image';
 
 const projects = [
   {
-    tag: 'ECOMMERCE 🛍️',
+    tag: 'BUSINESS INTELLIGENCE',
     features: [
-      { icon: '🌍', heading: 'Heading goes here', text: 'Lorem ipsum amet consectetur adipiscing elit.' },
-      { icon: '🚀', heading: 'Heading goes here', text: 'Lorem ipsum amet consectetur adipiscing elit.' },
-      { icon: '📱', heading: 'Heading goes here', text: 'Lorem ipsum amet consectetur adipiscing elit.' },
+      { heading: 'The President’s Club" BI System for Flow', text: 'Flow, a major Caribbean telco operating across 15 markets, lacked visibility into retail performance following its merger. We developed a smart Business Intelligence platform' },
     ],
-    image: 'IMAGE 1',
+    lists:[
+      'Unified KPIs across 200+ retail locations',
+      'Executive BI dashboard for real-time insights',
+      'Store & staff performance tracking',
+      'Visual reports for faster decisions',
+      'Data-driven coaching & resource allocation',
+    ],
+    image: '/assets/projects/mapleware.webp',
   },
   {
-    tag: 'FINTECH 💰',
+    tag: 'ENTERPRISE DEVOPS',
     features: [
-      { icon: '🔒', heading: 'Secure Payments', text: 'Encryption-based secure transactions for users.' },
-      { icon: '📊', heading: 'Real-time Reports', text: 'Live insights into user finances and transactions.' },
-      { icon: '💳', heading: 'Multi-Currency', text: 'Supports transactions in 15+ global currencies.' },
+      { heading: 'End-to-End Software Delivery Hub for Global Enterprises', text: 'We helped Plutora build a robust enterprise DevOps platform to unify release management, deployment planning, and test environment oversight. Designed for large-scale organizations' },
     ],
-    image: 'IMAGE 2',
+    lists:[
+      'Centralized release & deployment',
+      'Real-time dashboards & insights',
+      'Automated testing with Cypress',
+      'CI/CD integrated (Git, Jira, Jenkins)',
+      'Cloud-native (AWS, Docker, K8s)',
+      '2.5× releases, 85% faster coordination',
+    ],
+    image: '/assets/projects/plutora.webp',
   },
 ];
 
@@ -38,8 +50,7 @@ export default function OurProjectsSlider() {
       {/* Heading */}
       <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center mb-5">Our Projects</h2>
       <p className="max-w-4xl mx-auto text-gray-600 dark:text-white mb-12">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit sed iusmod tempor incididunt ut labore et dolore magna aliqua.
-        Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        From rapid MVPs to enterprise-grade systems—here’s what happens when great teams build right.
       </p>
 
       <div className="relative container mx-auto">
@@ -67,19 +78,24 @@ export default function OurProjectsSlider() {
                     </span>
 
                     {project.features.map((feature, i) => (
-                      <div key={i} className="mb-4">
+                      <div key={i} className="mb-4 flex flex-col gap-4">
                         <h3 className="font-semibold text-md mb-1">
                           {feature.icon} {feature.heading}
                         </h3>
                         <p className="text-sm text-gray-600 dark:text-white">{feature.text}</p>
+                        <ul className="list-disc ml-6 space-y-1">
+                          {project.lists.map((item, index) => (
+                            <li key={index}>{item}</li>
+                          ))}
+                        </ul>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 {/* Right Image */}
-                <div className="bg-gray-300 w-full md:w-2/3 aspect-[2/1] flex items-center justify-center rounded-md border border-black text-2xl font-bold text-black">
-                  {project.image}
+                <div className="bg-white w-full md:w-2/3 aspect-[2/1] flex items-center justify-center rounded-md border border-black text-2xl font-bold text-black">
+                  <Image src={project.image} width={1000} height={800} className="object-contain h-full w-full" />
                 </div>
               </div>
             </SwiperSlide>

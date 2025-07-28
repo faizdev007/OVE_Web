@@ -39,8 +39,8 @@ export default function Header() {
           <a href="#case-studies" className="hidden hover:text-blue-600 dark:hover:text-blue-400 transition">
             Case Studies
           </a>
-          <a href="#about" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
-            About
+          <a href="/contact" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
+            Contact
           </a>
           <a href="#career" className="hidden hover:text-blue-600 dark:hover:text-blue-400 transition">
             Career
@@ -116,8 +116,8 @@ export default function Header() {
           <a href="#case-studies" className="hidden hover:text-blue-600 dark:hover:text-blue-400">
             Case Studies
           </a>
-          <a href="#about" className="block hover:text-blue-600 dark:hover:text-blue-400">
-            About Us
+          <a href="/contact" className="block hover:text-blue-600 dark:hover:text-blue-400">
+            contact
           </a>
           <a href="#about" className="block hover:text-blue-600 dark:hover:text-blue-400">
             Contact Us

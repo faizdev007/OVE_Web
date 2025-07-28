@@ -55,18 +55,18 @@ export default function HireBy() {
             {/* Logos */}
             <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 space-2 gap-2">
                 {roles.map((role, i) => (
-                    <div key={i} className="bg-gray-800 dark:bg-gray-700 rounded shadow-md">
+                    <div key={i} className="bg-[#1b1b1b] dark:bg-gray-700 rounded shadow-md">
                         <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
                             <div className='aspect-[3/1] flex items-center justify-center'>
                                 <Image src={role.logo} alt={role.name} width={60} height={60} className="grayscale object-container h-auto w-auto" />
                             </div>
-                            <h4>{role.name}</h4>
+                            <h4 className='capitalize font-bold'>{role.name}</h4>
                         </div>
                     </div>
                 ))}
-                <div key='action1' className="bg-gray-800 dark:bg-gray-700 rounded shadow-md">
+                <div key='action1' className="bg-[#1b1b1b] dark:bg-gray-700 rounded shadow-md">
                     <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
-                        <h4>Looking for Other role?</h4>
+                        <h4 className='font-bold'>Looking for Other role?</h4>
                         <button className='border border-green-600 text-green-600 font-bold md:text-lg text-sm rounded p-2 cursor-pointer'>Pleace Request</button>
                     </div>
                 </div>
@@ -81,19 +81,19 @@ export default function HireBy() {
             {/* Logos */}
             <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 space-2 gap-2">
                 {hirebyskill.map((skill, i) => (
-                    <div key={i} className="bg-gray-800 dark:bg-gray-700 rounded shadow-md">
+                    <div key={i} className="bg-[#1b1b1b] dark:bg-gray-700 rounded shadow-md">
                         <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
                             <div className='aspect-[3/1] flex items-center justify-center'>
                                 <Image src={skill.logo} alt={skill.name} width={60} height={60} className="object-container h-auto w-auto" />
                             </div>
-                            <h4>{skill.name}</h4>
+                            <h4 className='capitalize font-bold'>{skill.name}</h4>
                         </div>
                     </div>
                 ))}
-                <div key='action2' className="bg-gray-800 dark:bg-gray-700 rounded shadow-md">
+                <div key='action2' className="bg-[#1b1b1b] dark:bg-gray-700 rounded shadow-md">
                     <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
-                        <h4>Looking for Other Skill?</h4>
-                        <button className='border border-green-600 text-green-600 font-bold md:text-lg text-sm rounded p-2 cursor-pointer'>Pleace Request</button>
+                        <h4 className='font-bold'>Looking for Other Skill?</h4>
+                        <button className='border capitalize border-green-600 text-green-600 font-bold md:text-lg text-sm rounded p-2 cursor-pointer'>Pleace Request</button>
                     </div>
                 </div>
             </div>
