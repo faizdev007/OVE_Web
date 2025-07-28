@@ -11,7 +11,6 @@ const logos = [
   '/assets/companies/company5.webp',
   '/assets/companies/company6.webp',
   '/assets/companies/company7.webp',
-  '/assets/companies/company8.webp',
   '/assets/companies/company9.webp',
   '/assets/companies/company10.webp',
   '/assets/companies/company12.webp',
