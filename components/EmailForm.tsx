@@ -26,12 +26,12 @@ const EmailForm = () => {
     e.preventDefault();
     setStatus('Sending...');
 
-    const response = await fetch('/api/sendEmail', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, message }),
+    const response = await fetch('/', {
+      // method: 'POST',
+      // headers: {
+      //   'Content-Type': 'application/json',
+      // },
+      // body: JSON.stringify({ email, message }),
     });
 
     if (response.ok) {
