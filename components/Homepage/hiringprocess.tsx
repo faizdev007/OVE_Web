@@ -6,10 +6,10 @@ export default function HiringProcess()
 {
     const { elementRef, isVisible } = useInView();
     const stepsdata = [
-        {step:'01',title:'Heading Goes Here',info:'Lorem ipsum door amet consectetur adipiscing sededo eiusmod tempor incididunt ut labore et dolore magna aliqua',color:'#77BEF0',svg:'#'},
-        {step:'02',title:'Heading Goes Here',info:'Lorem ipsum door amet consectetur adipiscing sededo eiusmod tempor incididunt ut labore et dolore magna aliqua',color:'#FFCB61',svg:'#'},
-        {step:'03',title:'Heading Goes Here',info:'Lorem ipsum door amet consectetur adipiscing sededo eiusmod tempor incididunt ut labore et dolore magna aliqua',color:'#FF894F',svg:'#'},
-        {step:'04',title:'Heading Goes Here',info:'Lorem ipsum door amet consectetur adipiscing sededo eiusmod tempor incididunt ut labore et dolore magna aliqua',color:'#EA5B6F',svg:'#'},
+        {step:'01',title:'Share Your Requirements',info:"Tell us what you're looking for — from tech stack to experience level. Whether it’s a frontend developer, DevOps engineer, or full-stack team, we tailor the search to your exact needs.",color:'#77BEF0',svg:'#'},
+        {step:'02',title:'Get Vetted Profiles',info:'Within 48 hours, receive a shortlist of handpicked, pre-vetted developers who meet your criteria — assessed for technical skill, communication, and cultural fit.',color:'#FFCB61',svg:'#'},
+        {step:'03',title:'Interview & Assess',info:'You interview the shortlisted candidates directly. Test their skills, evaluate their mindset, and ensure they align with your team dynamics and vision.',color:'#FF894F',svg:'#'},
+        {step:'04',title:'Onboard & Scale',info:'Once you’ve selected your resource(s), onboarding is swift and supported by us. Scale up or down flexibly — no long-term contracts, just results-driven collaboration.',color:'#EA5B6F',svg:'#'},
     ];
     return(
     <section className='bg-white relative px-4 py-10 sm:px-6 lg:px-8 mx-auto dark:bg-gray-700'>
@@ -20,7 +20,7 @@ export default function HiringProcess()
                         <span>Our Comprehensive</span>
                         <span>Hiring Process</span>
                     </h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing eliton  eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim venia nostrud exercitation ullamco laboris nisiut aliquip commodo consequat. Duis aute irure dolor in reprehenderit.</p>
+                    <p>We make hiring remote IT talent seamless, fast, and transparent. Our structured 4-step process ensures you get the right developer with the right skills at the right time — without the guesswork or hidden costs.</p>
                     <div className='max-w-auto'>  
                         <button className='w-1/2 bg-green-600 text-white lg:p-3 p-2 xl:text-3xl font-bold rounded'>Hire a talent</button>
                     </div>

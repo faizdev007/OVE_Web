@@ -34,8 +34,8 @@ export default function TrustedBySection() {
         <span className="gradiantorg">Trusted by</span>
       </h2>
       <p className="max-w-4xl mx-auto text-white dark:text-white mb-12">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, seed eiusmod tempor incididunt labore
-        et dolore magna aliqua enim ad minim veniam quis nostrud exercitation ullamco laboris.
+        Trusted by Companies That Shape the Future
+From Fortune 500 leaders to next-gen disruptors, our developers power innovation across industries — with speed, skill, and accountability at the core
       </p>
 
       {/* Logos */}

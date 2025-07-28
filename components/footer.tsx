@@ -29,34 +29,36 @@ export default function Footer()
                 }
             ];
     return(
-        <>
+        <div className="gird divide-y-2 divide-gray-600">
             <Footerlinks/>
             <section className="bg-black dark:bg-gray-800 text-white relative px-4 py-2 sm:px-6 lg:px-8 mx-auto pt-10">
-                <h3 className="text-center text-2xl md:text-3xl lg:text-4xl xl-text-5xl 2xl:text-6xl font-bold mb-8">OUR OFFICE LOCATIONS</h3>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 lg:divide-x-2 divide-y-2 md:divide-y-0 px-4">
-                    {officelocation.map((location,key)=>(
-                        <div key={key} className="flex flex-col px-4 py-6" aria-labelledby={location.name}>
-                            <div className="flex gap-2 mb-4 items-center">
-                                <Image loading="lazy" width={100} height={50} src={location.image} alt={location.name} className="aspect-[2/1] w-12 object-cover"/>
-                                <h2 className="xl:text-xl font-bold">{location.name}</h2>
+                <div className="">
+                    <h3 className="text-center text-2xl md:text-3xl lg:text-4xl xl-text-5xl 2xl:text-6xl font-bold mb-8">OUR OFFICE LOCATIONS</h3>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 lg:divide-x-2 divide-y-2 divide-gray-600 md:divide-y-0 px-4">
+                        {officelocation.map((location,key)=>(
+                            <div key={key} className="flex flex-col px-4 py-6" aria-labelledby={location.name}>
+                                <div className="flex gap-2 mb-4 items-center">
+                                    <Image loading="lazy" width={100} height={50} src={location.image} alt={location.name} className="aspect-[2/1] w-12 object-cover"/>
+                                    <h2 className="xl:text-xl font-bold">{location.name}</h2>
+                                </div>
+                                <p className="text-sm">{location.address}</p>
                             </div>
-                            <p className="text-sm">{location.address}</p>
-                        </div>
-                    ))}
-                </div>
-                <div className="flex justify-between mt-8">
-                    <div className="">
-                        @ Copywrite {new Date().getUTCFullYear()} OVE
-                    </div>
-                    <div className="">
-                        <nav className="flex gap-3">
-                            <a href="" aria-label="facebook"><Image src={'/assets/sociallinks/facebook.png'} width={100} className="transform transition-all duration-300 hover:scale-105 object-container grayscale h-8 w-8" height={100} alt="facebook"/></a>
-                            <a href="" aria-label="linkedin"><Image src={'/assets/sociallinks/linkedin.png'} className="transform transition-all duration-300 hover:scale-105 object-container grayscale h-8 w-8" width={100} height={100} alt="linkedin"/></a>
-                            <a href="" aria-label="youtube"><Image src={'/assets/sociallinks/youtube.png'} className="transform transition-all duration-300 hover:scale-105 object-container grayscale h-8 w-8" width={100} height={100} alt="youtube"/></a>
-                        </nav>
+                        ))}
                     </div>
                 </div>
             </section>
-        </>
+            <div className="bg-black dark:bg-gray-800 flex flex-col md:flex-row gap-4 text-center md:text-start justify-between items-center text-white relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+                <div className="">
+                    @ Copywrite {new Date().getUTCFullYear()} Optimal Virtual Employee. All Rights Reserved.
+                </div>
+                <div className="">
+                    <nav className="flex gap-3">
+                        <a href="" aria-label="facebook"><Image src={'/assets/sociallinks/facebook.png'} width={100} className="transform transition-all duration-300 hover:scale-105 object-container h-8 w-8" height={100} alt="facebook"/></a>
+                        <a href="" aria-label="linkedin"><Image src={'/assets/sociallinks/linkedin.png'} className="transform transition-all duration-300 hover:scale-105 object-container h-8 w-8" width={100} height={100} alt="linkedin"/></a>
+                        <a href="" aria-label="youtube"><Image src={'/assets/sociallinks/youtube.png'} className="transform transition-all duration-300 hover:scale-105 object-container h-8 w-8" width={100} height={100} alt="youtube"/></a>
+                    </nav>
+                </div>
+            </div>
+        </div>
     );
 }

@@ -13,14 +13,14 @@ export default function Herosection()
                 <div className='p-4 flex flex-col h-full md:justify-between justify-center gap-3 text-center md:text-start'>
                     <div className="flex flex-col gap-6 2xl:gap-18">
                         <h1 className='flex 2xl:gap-8 xl:gap-2 gap-1 xl:text-5xl lg:text-4xl text-2xl font-bold flex-col'>
-                            <span>Hire the world’s</span>
-                            <span className='text-[#3AA0FF]'>top remote talent</span>
-                            <span>without the search</span>
+                            <span>Need Developers On Demand?</span>
+                            <span className='text-[#3AA0FF]'>We’re Your Augmentation Partner</span>
+                            <span className="hidden">without the search</span>
                         </h1>
-                        <p className='text-sm lg:text-lg xl:text-xl 2xl:text-2xl'>Lorem ipsum dolor amet consectetur adipis elitsed do eiusmod tempor incididunt labore et dolore magna aliqua.</p>
+                        <p className='text-sm lg:text-lg xl:text-xl 2xl:text-2xl'>Reduce your time to hire from months to days. Our remote staff augmentation connects you with pre-vetted developers who onboard quickly and start delivering real value from day one.</p>
                     </div>
                     <div className='text-center max-w-auto'>  
-                        <button className='w-full bg-green-600 lg:p-3 p-2 2xl:text-3xl font-bold rounded cursor-pointer' aria-label='Hire a talent'>Hire a talent</button>
+                        <button className='w-full bg-green-600 lg:p-3 p-2 2xl:text-3xl font-bold rounded cursor-pointer' aria-label='Hire a talent'>📅 Book a 15-min Call</button>
                         <div className='mt-2'>👆🏼 $0 until you Hire</div>
                     </div>
                 </div>

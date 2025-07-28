@@ -5,20 +5,48 @@ import Image from 'next/image';
 
 const faqs = [
   {
-    question: 'What services do you provide?',
-    answer: 'We offer full-cycle development services including UI/UX design, backend, frontend, and cloud infrastructure setup.',
+    question: 'How quickly can I hire a developer?',
+    answer: 'We can share vetted developer profiles within 48 hours. Most clients finalize and onboard talent within 3–5 business days.',
   },
   {
-    question: 'How does billing work?',
-    answer: 'We offer flat monthly billing or per-project pricing with no hidden charges.',
+    question: 'What tech stacks do you support?',
+    answer: 'We cover all major stacks — including MERN, MEAN, LAMP, Python, Java, .NET, mobile (iOS/Android/Flutter), DevOps, and cloud (AWS, Azure, GCP).',
   },
   {
-    question: 'Do you support after delivery?',
-    answer: 'Yes! We offer post-launch support, including maintenance, feature upgrades, and bug fixes.',
+    question: 'Are your developers full-time employees or freelancers?',
+    answer: 'All our resources are full-time, committed team members working exclusively on your project — not freelancers juggling multiple clients.',
   },
   {
-    question: 'How can I get started?',
-    answer: 'Just fill out the contact form or book a free consultation to get started.',
+    question: 'Can I interview and test the developer before hiring?',
+    answer: 'Absolutely. You can conduct interviews, assign test tasks, and choose only the developers who meet your expectations.',
+  },
+  {
+    question: 'What’s included in the AUD 999 management fee?',
+    answer: 'Everything: dedicated support, performance reviews, developer retention, reporting, time tracking',
+  },
+  {
+    question: 'How do I communicate with my developer?',
+    answer: 'Directly via Slack, Zoom, or your preferred tools. You’re in full control — we’re here to support, not interfere.',
+  },
+  {
+    question: 'What happens if I’m not satisfied with a developer?',
+    answer: 'No problem — we offer a free replacement within 7 days, no questions asked.',
+  },
+  {
+    question: 'How do you ensure code quality and accountability?',
+    answer: 'We provide access to Git repos, regular code reviews, and project management tools like Jira, Trello, or ClickUp for full transparency.',
+  },
+  {
+    question: 'Can I scale the team up or down anytime?',
+    answer: 'Yes — our model allows you to scale on demand with no penalties or long-term contracts.',
+  },
+  {
+    question: 'Do you sign NDAs and contracts?',
+    answer: 'Of course. We sign NDAs, MoUs, and project-specific agreements to ensure full confidentiality and legal compliance.',
+  },
+  {
+    question: 'Where are your developers located?',
+    answer: 'Our talent is based across India and Southeast Asia — fluent in English and overlapping your working hours.',
   },
 ];
 
