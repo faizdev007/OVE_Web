@@ -48,7 +48,7 @@ export default function Header() {
           <a href="#contact" className="hidden border-2 border-black hover:bg-gray-200 hover:dark:bg-gray-800 text-black dark:border-white dark:text-white px-4 py-2 rounded-md transition">
               Get Started
           </a>
-          <a href="#contact" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition text-xl">
+          <a href="/contact_us" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition text-xl">
               Hire Developer
           </a>
         </nav>

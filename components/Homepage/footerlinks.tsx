@@ -34,7 +34,7 @@ export default function Footerlinks()
     const importantlinks = [
         {name:'Privacy Policy',url:'/privacy_policy'},
         {name:'Sitemap',url:'#'},
-        {name:'Contact Us',url:'#'},
+        {name:'Contact Us',url:'/contact_us'},
         {name:'Terms of Use',url:'/use_terms'},
         {name:'Careers',url:'#'},
         {name:'Blog',url:'#'},
@@ -52,11 +52,11 @@ export default function Footerlinks()
 
     return(
         <section className="bg-black dark:bg-gray-800 text-white relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-            <div className="grid md:grid-cols-3 md:divide-x-3 divide-gray-600">
-                <div className="grid gap-10">
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 md:divide-x-3 divide-gray-600">
+                <div className="grid p-4">
                     <div className="mb-6">
                         <h3 className="font-bold text-2xl text-center mb-8">Hire by Role</h3>
-                        <div className="grid grid-cols-2 text-center gap-2">
+                        <div className="grid lg:grid-cols-2 w-max mx-auto md:gap-x-10 gap-4">
                             {hirebyrole.map((link,key)=>(
                                 <a href={link.url} key={key} aria-label={link.name}>{link.name}</a>
                             ))}
@@ -64,7 +64,7 @@ export default function Footerlinks()
                     </div>
                     <div className="mb-6">
                         <h3 className="font-bold text-2xl text-center mb-8">Hire by Skill</h3>
-                        <div className="grid grid-cols-2 text-center gap-2">
+                        <div className="grid lg:grid-cols-2 w-max mx-auto md:gap-x-10 gap-4">
                             {hirebyskills.map((link,key)=>(
                                 <a href={link.url} key={key} aria-label={link.name}>{link.name}</a>
                             ))}
@@ -74,7 +74,7 @@ export default function Footerlinks()
                 <div className="grid p-4">
                     <div className="mb-6">
                         <h3 className="font-bold text-2xl text-center mb-8">Menu Links</h3>
-                        <div className="grid grid-cols-2 text-center gap-2">
+                        <div className="grid lg:grid-cols-2 w-max mx-auto md:gap-x-10 gap-4">
                             {manulinks.map((link,key)=>(
                                 <a href={link.url} key={key} aria-label={link.name}>{link.name}</a>
                             ))}
@@ -82,12 +82,14 @@ export default function Footerlinks()
                     </div>
                     <div className="mb-6">
                         <h3 className="font-bold text-2xl text-center mb-8">Dedicated Support</h3>
-                        <div className="grid md:px-20 gap-4">
+                        <div className="grid xl:px-20 px-10 gap-4">
                             {supportlinks.map((link,key)=>(
-                                <a className="flex gap-2" href={`tel:${link.number}`} key={key} aria-label={link.name}>
+                                <a className="md:flex gap-2" href={`tel:${link.number}`} key={key} aria-label={link.name}>
                                     <Image alt={'link.name'} className="h-6 w-9 rounded shadow-sm shadow-gray-500" width={100} height={100} src={link.flag}/>
-                                    <span>{link.name}</span>
-                                    {link.tel}
+                                    <div className="flex gap-2">
+                                        <div>{link.name}</div>
+                                        <div className="flex gap-2">{link.tel}</div>
+                                    </div>
                                 </a>
                             ))}
                         </div>
@@ -96,7 +98,7 @@ export default function Footerlinks()
                 <div className="grid p-4">
                     <div className="mb-6">
                         <h3 className="font-bold text-2xl text-center mb-8">Important Links</h3>
-                        <div className="grid grid-cols-2 text-center gap-2">
+                        <div className="grid md:grid-cols-2 w-max mx-auto md:gap-x-10 gap-4">
                             {importantlinks.map((link,key)=>(
                                 <a href={link.url} key={key} aria-label={link.name}>{link.name}</a>
                             ))}
