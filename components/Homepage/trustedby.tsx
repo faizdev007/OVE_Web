@@ -53,9 +53,9 @@ export default function TrustedBy() {
                 <img
                   src={src}
                   alt="logo"
-                  width={150}
-                  height={150}
-                  className="object-cover px-2 grayscale opacity-80 hover:opacity-100 transition"
+                  width={120}
+                  height={120}
+                  className="object-container px-2 opacity-80 hover:opacity-100 transition"
                 />
               </div>
             </SwiperSlide>
