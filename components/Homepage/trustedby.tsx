@@ -52,8 +52,8 @@ export default function TrustedBy() {
                 <img
                   src={src}
                   alt="logo"
-                  width={120}
-                  height={120}
+                  width={130}
+                  height={130}
                   className="object-container px-2 opacity-80 hover:opacity-100 transition"
                 />
               </div>

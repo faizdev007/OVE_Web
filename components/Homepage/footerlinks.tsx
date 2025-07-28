@@ -46,6 +46,10 @@ export default function Footerlinks()
         {name:'USA', tel:'(+1) 2028499199',flag:'/assets/flags/USA.webp',number:'+12028499199'},
     ];
 
+    const trustedbages = [
+        {name:'Award', image:'/assets/trustedbages/award.webp'},
+    ];
+
     return(
         <section className="bg-black dark:bg-gray-800 text-white relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
             <div className="grid md:grid-cols-3 md:divide-x-3 divide-gray-600">
@@ -95,6 +99,16 @@ export default function Footerlinks()
                         <div className="grid grid-cols-2 text-center gap-2">
                             {importantlinks.map((link,key)=>(
                                 <a href={link.url} key={key} aria-label={link.name}>{link.name}</a>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="mb-6">
+                        <h3 className="font-bold text-2xl text-center mb-8">Trusted Badges</h3>
+                        <div className="flex flex-wrap justify-center text-center gap-2">
+                            {trustedbages.map((link,key)=>(
+                                <div key={key}>
+                                    <Image src={link.image} width={100} height={100} className="h-20 w-20" alt={link.name}/>
+                                </div>
                             ))}
                         </div>
                     </div>

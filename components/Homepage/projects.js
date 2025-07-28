@@ -48,7 +48,7 @@ export default function OurProjectsSlider() {
   return (
     <section className="relative px-4 py-12 sm:px-6 lg:px-8 mx-auto dark:bg-gray-700 text-center">
       {/* Heading */}
-      <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center mb-5">Our Projects</h2>
+      <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center mb-5">Things We’ve Shipped</h2>
       <p className="max-w-4xl mx-auto text-gray-600 dark:text-white mb-12">
         From rapid MVPs to enterprise-grade systems—here’s what happens when great teams build right.
       </p>
@@ -95,7 +95,7 @@ export default function OurProjectsSlider() {
 
                 {/* Right Image */}
                 <div className="bg-white w-full md:w-2/3 aspect-[2/1] flex items-center justify-center rounded-md border border-black text-2xl font-bold text-black">
-                  <Image src={project.image} width={1000} height={800} className="object-contain h-full w-full" />
+                  <Image src={project.image} width={1000} height={800} alt={project.tag} className="object-contain h-full w-full" />
                 </div>
               </div>
             </SwiperSlide>

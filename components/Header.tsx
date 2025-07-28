@@ -39,7 +39,7 @@ export default function Header() {
           <a href="#case-studies" className="hidden hover:text-blue-600 dark:hover:text-blue-400 transition">
             Case Studies
           </a>
-          <a href="/contact" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
+          <a href="/contact" className="hidden hover:text-blue-600 dark:hover:text-blue-400 transition">
             Contact
           </a>
           <a href="#career" className="hidden hover:text-blue-600 dark:hover:text-blue-400 transition">
@@ -48,7 +48,7 @@ export default function Header() {
           <a href="#contact" className="hidden border-2 border-black hover:bg-gray-200 hover:dark:bg-gray-800 text-black dark:border-white dark:text-white px-4 py-2 rounded-md transition">
               Get Started
           </a>
-          <a href="#contact" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition">
+          <a href="#contact" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition text-xl">
               Hire Developer
           </a>
         </nav>
@@ -116,10 +116,10 @@ export default function Header() {
           <a href="#case-studies" className="hidden hover:text-blue-600 dark:hover:text-blue-400">
             Case Studies
           </a>
-          <a href="/contact" className="block hover:text-blue-600 dark:hover:text-blue-400">
-            contact
+          <a href="/contact" className="hidden block hover:text-blue-600 dark:hover:text-blue-400">
+            About Us
           </a>
-          <a href="#about" className="block hover:text-blue-600 dark:hover:text-blue-400">
+          <a href="#about" className="hidden block hover:text-blue-600 dark:hover:text-blue-400">
             Contact Us
           </a>
           <a href="#career" className="hidden hover:text-blue-600 dark:hover:text-blue-400">

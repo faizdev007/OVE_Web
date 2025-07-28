@@ -58,8 +58,11 @@ export default function FaqSection() {
   };
 
   return (
-    <div className='py-10 dark:bg-gray-700'>
-        <section className="relative px-4 py-12 sm:px-6 lg:px-8 mx-auto flex flex-col lg:flex-row items-center gap-12">
+    <div className='py-10 dark:bg-gray-700 py-12'>
+        <h2 className="xl:text-5xl md:text-3xl text-2xl font-bold mb-6 text-center">
+          Frequently Asked Questions
+        </h2>
+        <section className="relative px-4 py-6 sm:px-6 lg:px-8 mx-auto flex flex-col lg:flex-row items-center gap-12">
         {/* Left Image */}
         <div className="w-full lg:w-1/3 flex justify-center">
             <Image
@@ -72,11 +75,7 @@ export default function FaqSection() {
         </div>
 
         {/* Right FAQ */}
-        <div className="w-full lg:w-2/3">
-            <h2 className="xl:text-5xl md:text-3xl text-2xl font-bold mb-6 text-center lg:text-end">
-            Frequently Asked <br /> Questions
-            </h2>
-
+        <div className="w-full">
             <div className="space-y-4">
             {faqs.map((item, index) => (
                 <div
