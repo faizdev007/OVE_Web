@@ -66,9 +66,6 @@ export default function Header() {
             </button>
           </div>
 
-          <a href="#testimonials" className="hidden hover:text-blue-600 dark:hover:text-blue-400 transition">
-            Testimonials
-          </a>
           <a href="#case-studies" className="hidden hover:text-blue-600 dark:hover:text-blue-400 transition">
             Case Studies
           </a>
