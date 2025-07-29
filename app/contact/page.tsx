@@ -18,21 +18,14 @@ export default function ContactPage() {
     ];
 
     const contactinfo = [
-        {name:'India',flag:'/assets/flags/INDIA.webp',numbers: [
-            { number: '+91 888 210 8080', label: 'Sales' },
-            { number: '+91 704 202 0782', label: 'HR' },
-        ]},
         {name:'UK',flag:'/assets/flags/UK.webp',numbers: [
-            { number: '+91 888 210 8080', label: 'Sales' },
-            { number: '+91 704 202 0782', label: 'HR' },
+            { number: '+61 489921411', label: 'Sales' },
         ],},
         {name:'Australia',flag:'/assets/flags/AUSTRALIA.webp',numbers: [
-            { number: '+91 888 210 8080', label: 'Sales' },
-            { number: '+91 704 202 0782', label: 'HR' },
+            { number: '+44 7411118134', label: 'Sales' },
         ],},
         {name:'USA',flag:'/assets/flags/USA.webp',numbers: [
-            { number: '+91 888 210 8080', label: 'Sales' },
-            { number: '+91 704 202 0782', label: 'HR' },
+            { number: '+1 2028499199', label: 'Sales' },
         ],},
     ];
 
@@ -47,7 +40,30 @@ export default function ContactPage() {
         '/assets/companies/company10.webp',
         '/assets/companies/company12.webp',
         '/assets/companies/company14.webp',
-        ];
+    ];
+
+    const officelocation = [
+        {
+            name:'Australia',
+            image:'/assets/offices/AUSTRALIA.webp',
+            address: 'Level 15, 333 Collins St, Melbourne 3000, Victoria, Australia'
+        },
+        {
+            name:'USA',
+            image:'/assets/offices/USA.webp',
+            address: '109 Mojonera Court, Los Gatos, CA, USA 95032'
+        },
+        {
+            name:'UK',
+            image:'/assets/offices/UK.webp',
+            address: '4TH Floor, Rex House, 4-12 Regent Street, London SW1Y 4PE(UK)'
+        },
+        {
+            name:'India',
+            image:'/assets/offices/INDIA.webp',
+            address: 'B27, Sector 132, Noida, Uttar Pradesh 201301.'
+        }
+    ];
 
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -139,7 +155,7 @@ export default function ContactPage() {
                     <h2 className='text-3xl lg:text-5xl font-bold mb-4'>Serving Clients in 38+ Countries</h2>
                     <p className='text-gray-600 mb-8'>We are making an impact worldwide with our global presence and exceptional software solutions.</p>
                 </div>
-                <div className='md:flex gap-6 justify-center'>
+                <div className='md:flex gap-6 justify-center items-center'>
                     <div className='border border-gray-300 p-3 rounded-xl'>
                         <table className="">
                             <tbody>
@@ -179,8 +195,24 @@ export default function ContactPage() {
                             </tbody>
                         </table>
                     </div>
-                    <div className=''>
-                        
+                    <div className='border border-gray-300 p-3 rounded-xl'>
+                        <table className="">
+                            <tbody>
+                                {officelocation.map((location, index) => (
+                                <tr key={index} className={`${officelocation.length > index+1 ? 'border-b' : ''} border-gray-300`}>
+                                    <td className="">
+                                        <div className='flex gap-2 p-4 items-center'>
+                                            <Image src={location.image} width={100} height={100} className='object-container w-16 h-10 rounded' alt={location.name}/>
+                                            <div className=''>
+                                                <h3>{location.name} :</h3>
+                                                <p>{location.address}</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                ))}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </section>
