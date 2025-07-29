@@ -53,7 +53,7 @@ export default function HireBy() {
                 <span>Hire Developers by role</span>
             </h2>
             {/* Logos */}
-            <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 space-2 gap-2">
+            <div className="gap-2 grid grid-cols-2 lg:grid-cols-5 md:grid-cols-3 md:text-sm space-2 text-xs">
                 {roles.map((role, i) => (
                     <div key={i} className="bg-[#1b1b1b] dark:bg-gray-700 rounded shadow-md">
                         <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
@@ -79,7 +79,7 @@ export default function HireBy() {
                 <span>Hire Developers by skill</span>
             </h2>
             {/* Logos */}
-            <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 space-2 gap-2">
+            <div className="gap-2 grid grid-cols-2 lg:grid-cols-5 md:grid-cols-3 md:text-sm space-2 text-xs">
                 {hirebyskill.map((skill, i) => (
                     <div key={i} className="bg-[#1b1b1b] dark:bg-gray-700 rounded shadow-md">
                         <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>

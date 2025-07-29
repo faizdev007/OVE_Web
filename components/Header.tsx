@@ -7,6 +7,34 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [darkmod, setdarkmod] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(false);
+
+  const toggle = () => {
+    setShowDropdown(showDropdown === true ? false : true);
+    setActiveIndex(activeIndex === true ? false : true);
+  };
+
+  const hiremenu = [{
+    menuTitle:'Hire by role',
+    menuCategory:'Hire',
+    urls:[
+      {name:'Full-stack Developer',url:'/full_stack_developer'},
+      {name:'Front-End Developer',url:'/front_end_developer'},
+      {name:'Back-End Developer',url:'/back_end_developer'},
+      {name:'Mobile Developer',url:'/mobile_developer'},
+    ]
+  },
+  {
+    menuTitle:'Hire by Skill',
+    menuCategory:'Hire',
+    urls:[
+      {name:'Full-stack Developer',url:'/full_stack_developer'},
+      {name:'Front-End Developer',url:'/front_end_developer'},
+      {name:'Back-End Developer',url:'/back_end_developer'},
+      {name:'Mobile Developer',url:'/mobile_developer'},
+    ]
+  }
+];
 
   useEffect(() => {
     const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -26,10 +54,15 @@ export default function Header() {
         </a>
 
         {/* Desktop Menu */}
-        <nav className="hidden md:flex gap-6 items-center">
-          <div className="hidden" onMouseEnter={() => setShowDropdown(true)}>
-            <button className="hover:text-blue-600 dark:hover:text-blue-400 transition">
-              Services ▼
+        <nav className="md:flex gap-6 items-center">
+          <div className="" onMouseEnter={() => toggle()}>
+            <button className="hover:text-blue-600 dark:hover:text-blue-400 transition hidden md:flex gap-2">
+              <span>Services</span> 
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className={`size-6 transition-transform duration-300 ${
+                    activeIndex ? 'rotate-180' : ''
+                }`}>
+                <path fillRule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
+              </svg>
             </button>
           </div>
 
@@ -63,21 +96,19 @@ export default function Header() {
         </button>
         {/* Full-width dropdown */}
         {showDropdown && (
-          <div onMouseLeave={() => setShowDropdown(false)} className="absolute z-50 left-0 top-full w-screen bg-white dark:bg-gray-700 shadow-lg z-40 py-4">
-            <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-4">
-              <a href="#web-dev" className="hover:text-blue-600 dark:hover:text-blue-300 block">
-                Web Development
-              </a>
-              <a href="#mobile-app" className="hover:text-blue-600 dark:hover:text-blue-300 block">
-                Mobile Apps
-              </a>
-              <a href="#ui-ux" className="hover:text-blue-600 dark:hover:text-blue-300 block">
-                UI/UX Design
-              </a>
-              <a href="#cloud" className="hover:text-blue-600 dark:hover:text-blue-300 block">
-                Cloud Services
-              </a>
-            </div>
+          <div onMouseLeave={() => toggle()} className="absolute border-t z-50 left-0 top-full w-screen bg-white dark:bg-gray-700 shadow-lg z-40 py-4">
+            {hiremenu.map((single,key)=>(
+              <div className='relative px-4 py-2 sm:px-6 lg:px-8 mx-auto' key={key}>
+                <h2 className='border-b-2 font-bold md:text-2xl text-sm'>{single.menuTitle}</h2>
+                <div className='grid md:grid-cols-4 gap-2'>
+                    {single.urls.map((url,key2)=>(
+                      <a href={url.name} key={key2} className="hover:text-blue-600 dark:hover:text-blue-300 block py-4">
+                        <span className='text-black/60'>{single.menuCategory}</span>-{url.name}
+                      </a>
+                    ))}
+                </div>
+              </div>
+            ))}
           </div>
         )}
       </div>
