@@ -76,13 +76,13 @@ export default function Footerlinks()
                 </div>
             </div>
             <div className="grid md:grid-cols-2">
-                <div className="mb-6">
-                    <h3 className="font-bold text-2xl text-center mb-8">Dedicated Support</h3>
-                    <div className="grid xl:px-20 px-10 gap-4">
+                <div className="mb-6 flex border w-max rounded-xl overflow-hidden bg-gray-900">
+                    <h3 className="font-bold text-2xl text-center mb-8 bg-gray-800 flex items-center justify-center p-3 h-full">Dedicated <br></br> Support</h3>
+                    <div className="flex flex-col justify-around divide-y divide-gray-500 px-2">
                         {supportlinks.map((link,key)=>(
                             <a className="md:flex gap-2" href={`tel:${link.number}`} key={key} aria-label={link.name}>
-                                <Image alt={'link.name'} className="h-6 w-9 rounded shadow-sm shadow-gray-500" width={100} height={100} src={link.flag}/>
-                                <div className="flex gap-2">
+                                <Image alt={'link.name'} className="m-2 w-14 rounded shadow-sm shadow-gray-500" width={100} height={100} src={link.flag}/>
+                                <div className="gap-2 text-sm">
                                     <div>{link.name}</div>
                                     <div className="flex gap-2">{link.tel}</div>
                                 </div>
@@ -91,7 +91,7 @@ export default function Footerlinks()
                     </div>
                 </div>
                 <div className="mb-6">
-                    <h3 className="font-bold text-2xl text-center mb-8">Trusted Badges</h3>
+                    <h3 className="font-bold text-2xl text-center mb-8 hidden">Trusted Badges</h3>
                     <div className="flex flex-wrap justify-center text-center gap-2">
                         {trustedbages.map((link,key)=>(
                             <div key={key}>

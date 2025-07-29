@@ -110,7 +110,7 @@ export default function ContactPage() {
                         </div>
                         <div className="grid sm:grid-cols-2 gap-4">
                         <input type="text" name="country" placeholder="Country (Optional)" value={formData.country} onChange={handleChange} className="p-3 border rounded w-full" />
-                        <input type="tel" name="phone" onInput={onlyNumber} maxLength={15} placeholder="Phone Number (Optional)" value={formData.phone} onChange={handleChange} className="p-3 border rounded w-full" />
+                        <input type="tel" name="phone" onInput={onlyNumber} maxLength={15} placeholder="Phone Number *" value={formData.phone} onChange={handleChange} className="p-3 border rounded w-full" required/>
                         </div>
                         <select name="service" value={formData.service} onChange={handleChange} className="p-3 border rounded w-full" required>
                         <option value="">Please select from the dropdown</option>
