@@ -20,13 +20,13 @@ export default function Herosection()
                         <p className='text-sm lg:text-lg xl:text-xl 2xl:text-2xl'>Reduce your time to hire from months to days. Our remote staff augmentation connects you with pre-vetted developers who onboard quickly and start delivering real value from day one.</p>
                     </div>
                     <div className='text-center max-w-auto'>
-                        <div className="flex gap-2 items-start">
+                        <div className="flex gap-2 md:flex-row flex-col-reverse items-start">
                             <div className="w-full">
                                 <button className='w-full bg-green-600 hover:bg-green-700 lg:p-3 p-2 2xl:text-3xl font-bold rounded cursor-pointer' aria-label='Get Started'>🚀 Get Started </button>
                                 <div className='mt-6'>👆🏼 $0 until you Hire</div>
                             </div>
-                            <span className="font-bold md:text-2xl text-lg mt-[1.3%]">OR</span>
-                            <button className='w-full bg-gray-600 hover:bg-gray-700 lg:p-3 p-2 2xl:text-3xl font-bold rounded cursor-pointer' aria-label='Book a 15-min Call'>📅 Book a 15-min Call</button>
+                            <span className="font-bold md:text-2xl text-lg mt-[1.3%] w-full flex-1">OR</span>
+                            <button className='w-full bg-gray-600 hover:bg-gray-700 lg:p-3 p-2 2xl:text-3xl font-bold rounded cursor-pointer' aria-label='Book a 15-min Call'>📅 Book a Call</button>
                         </div>
                     </div>
                 </div>
