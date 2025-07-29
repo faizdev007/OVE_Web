@@ -64,7 +64,7 @@ export default function FaqSection() {
         </h2>
         <section className="relative px-4 py-6 sm:px-6 lg:px-8 mx-auto flex flex-col lg:flex-row items-center gap-12">
         {/* Left Image */}
-        <div className="w-full lg:w-1/3 flex justify-center">
+        <div className="w-full hidden lg:w-1/3 flex justify-center">
             <Image
             src="/assets/faqvector.webp"
             alt="FAQ Character"
@@ -80,17 +80,22 @@ export default function FaqSection() {
             {faqs.map((item, index) => (
                 <div
                 key={index}
-                className={`border border-gray-300 px-10 py-4 shadow-sm transition-all duration-20 cursor-pointer ${
-                    activeIndex === index ? 'rounded-2xl' : 'rounded-full'
+                className={`border-1 border-gray-800 px-10 py-4 shadow-sm transition-all duration-20 cursor-pointer ${
+                    activeIndex === index ? 'rounded-2xl border-b-4' : 'rounded-full'
                 }`}
                 onClick={() => toggle(index)}
                 >
                 <div className="flex justify-between items-center">
                     <p className="font-bold md:text-xl">{item.question}</p>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={`size-6 transition-transform duration-300 ${
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={`size-6 hidden transition-transform duration-300 ${
                             activeIndex === index ? 'rotate-180' : ''
                         }`}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={`size-6 transition-transform duration-300 ${
+                            activeIndex === index ? 'rotate-135' : ''
+                        }`}>
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                         </svg>
                 </div>
                 

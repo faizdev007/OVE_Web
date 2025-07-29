@@ -47,7 +47,7 @@ export default function Footerlinks()
                 <div className="grid p-4">
                     <div className="mb-6">
                         <h3 className="font-bold text-2xl text-center mb-8">Hire by Role</h3>
-                        <div className="grid lg:grid-cols-2 w-max mx-auto md:gap-x-10 gap-4">
+                        <div className="grid lg:grid-cols-2 mx-auto md:gap-x-10 gap-4">
                             {hirebyrole.map((link,key)=>(
                                 <a href={link.url} key={key} aria-label={link.name}>{link.name}</a>
                             ))}
@@ -57,7 +57,7 @@ export default function Footerlinks()
                 <div className="grid p-4">
                     <div className="mb-6">
                         <h3 className="font-bold text-2xl text-center mb-8">Hire by Skill</h3>
-                        <div className="grid lg:grid-cols-2 w-max mx-auto md:gap-x-10 gap-4">
+                        <div className="grid lg:grid-cols-2 mx-auto md:gap-x-10 gap-4">
                             {hirebyskills.map((link,key)=>(
                                 <a href={link.url} key={key} aria-label={link.name}>{link.name}</a>
                             ))}
@@ -67,7 +67,7 @@ export default function Footerlinks()
                 <div className="grid p-4">
                     <div className="mb-6">
                         <h3 className="font-bold text-2xl text-center mb-8">Important Links</h3>
-                        <div className="grid md:grid-cols-2 w-max mx-auto md:gap-x-10 gap-4">
+                        <div className="grid md:grid-cols-2 mx-auto md:gap-x-10 gap-4">
                             {importantlinks.map((link,key)=>(
                                 <a href={link.url} key={key} aria-label={link.name}>{link.name}</a>
                             ))}
@@ -75,12 +75,12 @@ export default function Footerlinks()
                     </div>
                 </div>
             </div>
-            <div className="grid md:grid-cols-2">
-                <div className="mb-6 flex border w-max rounded-xl overflow-hidden bg-gray-900">
-                    <h3 className="font-bold text-2xl text-center mb-8 bg-gray-800 flex items-center justify-center p-3 h-full">Dedicated <br></br> Support</h3>
-                    <div className="flex flex-col justify-around divide-y divide-gray-500 px-2">
+            <div className="md:flex items-center justify-between">
+                <div className="mb-6 md:grid md:grid-cols-3 border md:w-max rounded-xl overflow-hidden bg-gray-900">
+                    <h3 className="font-bold text-2xl text-center bg-gray-800 flex items-center justify-center border-e p-3 h-full">Dedicated <br></br> Support</h3>
+                    <div className="col-span-2 flex flex-col justify-around divide-y divide-gray-500">
                         {supportlinks.map((link,key)=>(
-                            <a className="md:flex gap-2" href={`tel:${link.number}`} key={key} aria-label={link.name}>
+                            <a className="flex gap-2 py-2" href={`tel:${link.number}`} key={key} aria-label={link.name}>
                                 <Image alt={'link.name'} className="m-2 w-14 rounded shadow-sm shadow-gray-500" width={100} height={100} src={link.flag}/>
                                 <div className="gap-2 text-sm">
                                     <div>{link.name}</div>
