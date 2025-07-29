@@ -61,7 +61,7 @@ export default function ContactPage() {
 
     return (
         <>
-            <main className="bg-black/90 text-white grid md:grid-cols-2 gap-8 px-4 py-12">
+            <main className="bg-black/90 dark:bg-gray-800 text-white grid md:grid-cols-2 gap-8 px-4 py-12">
                 <div className="bg-white text-black w-full max-w-6xl p-8 rounded-xl shadow-md">
                     {/* Left Panel */}
                     <div>
@@ -72,7 +72,7 @@ export default function ContactPage() {
                         </div>
                         <div className='flex flex-wrap justify-center'>
                             {trustedbages.map((link,key)=>(
-                                <div key={key} className='aspect-[1/1]'>
+                                <div key={key} className='aspect-[1/1] '>
                                     <Image src={link.image} width={120} height={120} className="h-20 object-container w-20" alt={link.name}/>
                                 </div>
                             ))}
@@ -118,18 +118,18 @@ export default function ContactPage() {
                     </div>
 
                     {/* Logo List */}
-                    <div className="grid grid-cols-3 sm:grid-cols-4 gap-3 mt-8">
+                    <div className="grid grid-cols-3 xl:grid-cols-4 gap-3 mt-8">
                         {logos.map((logo, i) => (
-                        <div key={i} className="h-10 bg-black rounded-md border p-6 shadow flex items-center justify-center">
-                            <img
-                                src={logo}
-                                alt="logo"
-                                width={130}
-                                height={130}
-                                className="object-container px-2 opacity-80 hover:opacity-100 transition"
-                            />
-                            <span className="text-xs hidden font-medium">{logo}</span>
-                        </div>
+                            <div key={i} className="lg:aspect-[2/1] lg:h-20 bg-black rounded-md p-6 shadow border border-gray-900 shadow-gray-800 flex items-center justify-center">
+                                <img
+                                    src={logo}
+                                    alt="logo"
+                                    width={130}
+                                    height={130}
+                                    className="object-container px-2 opacity-80 hover:opacity-100 transition"
+                                />
+                                <span className="text-xs hidden font-medium">{logo}</span>
+                            </div>
                         ))}
                     </div>
                 </div>
