@@ -80,23 +80,20 @@ export default function FaqSection() {
             {faqs.map((item, index) => (
                 <div
                 key={index}
-                className={`border-1 border-gray-800 px-10 rounded-2xl py-4 shadow-sm transition-all duration-20 cursor-pointer ${
+                className={`border-1 border-gray-800 px-4 rounded-2xl py-4 shadow-sm transition-all duration-20 cursor-pointer ${
                     activeIndex === index ? 'border-b-4' : ''
                 }`}
                 onClick={() => toggle(index)}
                 >
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center gap-2">
                     <p className="font-bold md:text-xl">{item.question}</p>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={`size-6 hidden transition-transform duration-300 ${
-                            activeIndex === index ? 'rotate-180' : ''
-                        }`}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={`size-6 transition-transform duration-300 ${
-                            activeIndex === index ? 'rotate-135' : ''
-                        }`}>
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                        </svg>
+                    <div className=''>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={`size-6 transition-transform duration-300 ${
+                          activeIndex === index ? 'rotate-135' : ''
+                      }`}>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                      </svg>
+                    </div>
                 </div>
                 
                 <div
