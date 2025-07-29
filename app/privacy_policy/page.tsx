@@ -54,7 +54,7 @@ export default function PrivacyPolicy()
                         <p className="mb-2" key={key2}>{para}</p>
                     ))}
                     <ul className="list-disc list-inside text-base/7 mb-4">
-                        {single.lists?.length > 0 && single.lists?.map((litem,key3)=>(
+                        {single.lists?.length && single.lists?.length > 0 && single.lists?.map((litem,key3)=>(
                             <li key={key3}>{litem}</li>
                         ))}
                     </ul>
