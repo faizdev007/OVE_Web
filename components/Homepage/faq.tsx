@@ -80,8 +80,8 @@ export default function FaqSection() {
             {faqs.map((item, index) => (
                 <div
                 key={index}
-                className={`border-1 border-gray-800 px-10 py-4 shadow-sm transition-all duration-20 cursor-pointer ${
-                    activeIndex === index ? 'rounded-2xl border-b-4' : 'rounded-full'
+                className={`border-1 border-gray-800 px-10 rounded-2xl py-4 shadow-sm transition-all duration-20 cursor-pointer ${
+                    activeIndex === index ? 'border-b-4' : ''
                 }`}
                 onClick={() => toggle(index)}
                 >
