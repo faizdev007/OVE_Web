@@ -34,7 +34,20 @@ export default function ContactPage() {
             { number: '+91 888 210 8080', label: 'Sales' },
             { number: '+91 704 202 0782', label: 'HR' },
         ],},
-    ]
+    ];
+
+    const logos = [
+        '/assets/companies/company1.webp',
+        '/assets/companies/company2.webp',
+        '/assets/companies/company3.webp',
+        '/assets/companies/company5.webp',
+        '/assets/companies/company6.webp',
+        '/assets/companies/company7.webp',
+        '/assets/companies/company9.webp',
+        '/assets/companies/company10.webp',
+        '/assets/companies/company12.webp',
+        '/assets/companies/company14.webp',
+        ];
 
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -106,13 +119,16 @@ export default function ContactPage() {
 
                     {/* Logo List */}
                     <div className="grid grid-cols-3 sm:grid-cols-4 gap-3 mt-8">
-                        {[
-                        'infosys', 'panasonic', 'happyhr', 'aromeo',
-                        'dubai-police', 'chillifactor', 'hellopeter', 'reuters',
-                        'yale', 'reaua', 'eazytap', 'signEasy'
-                        ].map((logo, i) => (
+                        {logos.map((logo, i) => (
                         <div key={i} className="h-10 bg-black rounded-md border p-6 shadow flex items-center justify-center">
-                            <span className="text-xs font-medium">{logo}</span>
+                            <img
+                                src={logo}
+                                alt="logo"
+                                width={130}
+                                height={130}
+                                className="object-container px-2 opacity-80 hover:opacity-100 transition"
+                            />
+                            <span className="text-xs hidden font-medium">{logo}</span>
                         </div>
                         ))}
                     </div>
@@ -163,7 +179,9 @@ export default function ContactPage() {
                             </tbody>
                         </table>
                     </div>
-                    <div className=''></div>
+                    <div className=''>
+                        
+                    </div>
                 </div>
             </section>
         </>
