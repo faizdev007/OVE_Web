@@ -7,27 +7,32 @@ import { lazy } from "react";
 export default function Footer()
 {
     const officelocation = [
-                {
-                    name:'Australia',
-                    image:'/assets/offices/AUSTRALIA.webp',
-                    address: 'Level 15, 333 Collins St, Melbourne 3000, Victoria, Australia'
-                },
-                {
-                    name:'USA',
-                    image:'/assets/offices/USA.webp',
-                    address: '109 Mojonera Court, Los Gatos, CA, USA 95032'
-                },
-                {
-                    name:'UK',
-                    image:'/assets/offices/UK.webp',
-                    address: '4TH Floor, Rex House, 4-12 Regent Street, London SW1Y 4PE(UK)'
-                },
-                {
-                    name:'India',
-                    image:'/assets/offices/INDIA.webp',
-                    address: 'B27, Sector 132, Noida, Uttar Pradesh 201301.'
-                }
-            ];
+        {
+            name:'Australia',
+            image:'/assets/offices/AUSTRALIA.webp',
+            address: 'Level 15, 333 Collins St, Melbourne 3000, Victoria, Australia',
+            tel:'+44 7411118134'
+        },
+        {
+            name:'USA',
+            image:'/assets/offices/USA.webp',
+            address: '109 Mojonera Court, Los Gatos, CA, USA 95032',
+            tel:'+1 2028499199'
+            
+        },
+        {
+            name:'UK',
+            image:'/assets/offices/UK.webp',
+            address: '4TH Floor, Rex House, 4-12 Regent Street, London SW1Y 4PE(UK)',
+            tel:'+61 489921411'
+        },
+        {
+            name:'India',
+            image:'/assets/offices/INDIA.webp',
+            address: 'B27, Sector 132, Noida, Uttar Pradesh 201301.',
+            tel:'+98 9999979934'
+        }
+    ];
     return(
         <div className="gird divide-y-2 divide-gray-600">
             <Footerlinks/>
@@ -37,12 +42,18 @@ export default function Footer()
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 divide-gray-600 md:divide-y-0 px-4">
                         {/* lg:divide-x-2 divide-y-2 */}
                         {officelocation.map((location,key)=>(
-                            <div key={key} className="flex flex-col px-4 py-6" aria-labelledby={location.name}>
+                            <div key={key} className="flex flex-col justify-between px-4 py-6 gap-2" aria-labelledby={location.name}>
                                 <div className="flex gap-2 mb-4 items-center">
                                     <Image loading="lazy" width={100} height={50} src={location.image} alt={location.name} className="aspect-[2/1] w-12 object-cover"/>
                                     <h2 className="xl:text-xl font-bold">{location.name}</h2>
                                 </div>
                                 <p className="text-sm">{location.address}</p>
+                                <a className="flex gap-2 items-center hover:underline" href={`tel:${location.tel}`} aria-label={location.tel}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                        <path fill-rule="evenodd" d="m3.855 7.286 1.067-.534a1 1 0 0 0 .542-1.046l-.44-2.858A1 1 0 0 0 4.036 2H3a1 1 0 0 0-1 1v2c0 .709.082 1.4.238 2.062a9.012 9.012 0 0 0 6.7 6.7A9.024 9.024 0 0 0 11 14h2a1 1 0 0 0 1-1v-1.036a1 1 0 0 0-.848-.988l-2.858-.44a1 1 0 0 0-1.046.542l-.534 1.067a7.52 7.52 0 0 1-4.86-4.859Z" clip-rule="evenodd" />
+                                    </svg>
+                                    {location.tel}
+                                </a>
                             </div>
                         ))}
                     </div>

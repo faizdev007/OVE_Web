@@ -3,20 +3,20 @@
 import Image from 'next/image';
 
 const roles = [
-  { name: 'analistics', logo: '/assets/hireby/roles/analistics.webp'},
-  { name: 'app-settings', logo: '/assets/hireby/roles/app-settings.webp'},
-  { name: 'automation', logo: '/assets/hireby/roles/automation.webp'},
-  { name: 'backend', logo: '/assets/hireby/roles/backend.webp'},
-  { name: 'blockchain', logo: '/assets/hireby/roles/blockchain.webp'},
-  { name: 'cloud', logo: '/assets/hireby/roles/cloud.webp'},
-  { name: 'coding', logo: '/assets/hireby/roles/coding.webp'},
-  { name: 'computer', logo: '/assets/hireby/roles/computer.webp'},
-  { name: 'computer-scientist', logo: '/assets/hireby/roles/computer-scientist.webp'},
-  { name: 'configuration', logo: '/assets/hireby/roles/configuration.webp'},
-  { name: 'data-management', logo: '/assets/hireby/roles/data-management.webp'},
-  { name: 'devops', logo: '/assets/hireby/roles/devops.webp'},
-  { name: 'game-development', logo: '/assets/hireby/roles/game-development.webp'},
-  { name: 'ux', logo: '/assets/hireby/roles/ux.webp'},
+  { name: 'Hire Data Analyst', logo: '/assets/hireby/roles/analistics.webp'},
+  { name: 'Hire Mobile Developer', logo: '/assets/hireby/roles/app-settings.webp'},
+  { name: 'Hire Automation QA', logo: '/assets/hireby/roles/automation.webp'},
+  { name: 'Hire Back-End Developer', logo: '/assets/hireby/roles/backend.webp'},
+  { name: 'Hire Blockchain Developer', logo: '/assets/hireby/roles/blockchain.webp'},
+  { name: 'Hire AI Developer', logo: '/assets/hireby/roles/cloud.webp'},
+  { name: 'Hire Mechine Learning Engineer', logo: '/assets/hireby/roles/coding.webp'},
+  { name: 'Hire Full-Stack Developer', logo: '/assets/hireby/roles/computer.webp'},
+  { name: 'Hire Data Scientist', logo: '/assets/hireby/roles/computer-scientist.webp'},
+  { name: 'Hire Cloud Engineer', logo: '/assets/hireby/roles/configuration.webp'},
+  { name: 'Hire Data Engineer', logo: '/assets/hireby/roles/data-management.webp'},
+  { name: 'Hire DevOps', logo: '/assets/hireby/roles/devops.webp'},
+  { name: 'Hire Game Developer', logo: '/assets/hireby/roles/game-development.webp'},
+  { name: 'Hire Front-End Developer', logo: '/assets/hireby/roles/ux.webp'},
 ];
 
 
@@ -58,7 +58,7 @@ export default function HireBy() {
                     <div key={i} className="bg-[#1b1b1b] dark:bg-gray-700 rounded shadow-md">
                         <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
                             <div className='aspect-[3/1] flex items-center justify-center'>
-                                <Image src={role.logo} alt={role.name} width={60} height={60} className="grayscale object-container h-auto w-auto" />
+                                <Image src={role.logo} alt={role.name} width={60} height={60} className="hover:grayscale object-container h-auto w-auto" />
                             </div>
                             <h4 className='capitalize font-bold'>{role.name}</h4>
                         </div>

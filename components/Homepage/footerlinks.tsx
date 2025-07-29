@@ -75,7 +75,7 @@ export default function Footerlinks()
                     </div>
                 </div>
             </div>
-            <div className="md:flex items-center justify-between">
+            <div className="hidden items-center justify-between">
                 <div className="mb-6 md:grid md:grid-cols-3 border md:w-max rounded-xl overflow-hidden bg-gray-900">
                     <h3 className="font-bold text-2xl text-center bg-gray-800 flex items-center justify-center border-e p-3 h-full">Dedicated <br></br> Support</h3>
                     <div className="col-span-2 flex flex-col justify-around divide-y divide-gray-500">

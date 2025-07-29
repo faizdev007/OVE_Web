@@ -25,7 +25,7 @@ export default function Herosection()
                                 <button className='w-full bg-green-600 hover:bg-green-700 lg:p-3 p-2 2xl:text-3xl font-bold rounded cursor-pointer' aria-label='Get Started'>🚀 Get Started </button>
                                 <div className='mt-6'>👆🏼 $0 until you Hire</div>
                             </div>
-                            <span className="font-bold md:text-2xl text-lg">OR</span>
+                            <span className="font-bold md:text-2xl text-lg mt-[1.3%]">OR</span>
                             <button className='w-full bg-gray-600 hover:bg-gray-700 lg:p-3 p-2 2xl:text-3xl font-bold rounded cursor-pointer' aria-label='Book a 15-min Call'>📅 Book a 15-min Call</button>
                         </div>
                     </div>
