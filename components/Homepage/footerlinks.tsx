@@ -22,19 +22,10 @@ export default function Footerlinks()
         {name:'ReactJs Developer',url:'#'},
     ];
 
-    const manulinks = [
-        {name:'Menu Link 1',url:'#'},
-        {name:'Menu Link 1',url:'#'},
-        {name:'Menu Link 2',url:'#'},
-        {name:'Menu Link 3',url:'#'},
-        {name:'Menu Link 4',url:'#'},
-        {name:'Menu Link 5',url:'#'},
-    ];
-
     const importantlinks = [
         {name:'Privacy Policy',url:'/privacy_policy'},
         {name:'Sitemap',url:'#'},
-        {name:'Contact Us',url:'/contact_us'},
+        {name:'Contact Us',url:'/contact'},
         {name:'Terms of Use',url:'/use_terms'},
         {name:'Careers',url:'#'},
         {name:'Blog',url:'#'},
@@ -62,35 +53,13 @@ export default function Footerlinks()
                             ))}
                         </div>
                     </div>
+                </div>
+                <div className="grid p-4">
                     <div className="mb-6">
                         <h3 className="font-bold text-2xl text-center mb-8">Hire by Skill</h3>
                         <div className="grid lg:grid-cols-2 w-max mx-auto md:gap-x-10 gap-4">
                             {hirebyskills.map((link,key)=>(
                                 <a href={link.url} key={key} aria-label={link.name}>{link.name}</a>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-                <div className="grid p-4">
-                    <div className="mb-6">
-                        <h3 className="font-bold text-2xl text-center mb-8">Menu Links</h3>
-                        <div className="grid lg:grid-cols-2 w-max mx-auto md:gap-x-10 gap-4">
-                            {manulinks.map((link,key)=>(
-                                <a href={link.url} key={key} aria-label={link.name}>{link.name}</a>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="mb-6">
-                        <h3 className="font-bold text-2xl text-center mb-8">Dedicated Support</h3>
-                        <div className="grid xl:px-20 px-10 gap-4">
-                            {supportlinks.map((link,key)=>(
-                                <a className="md:flex gap-2" href={`tel:${link.number}`} key={key} aria-label={link.name}>
-                                    <Image alt={'link.name'} className="h-6 w-9 rounded shadow-sm shadow-gray-500" width={100} height={100} src={link.flag}/>
-                                    <div className="flex gap-2">
-                                        <div>{link.name}</div>
-                                        <div className="flex gap-2">{link.tel}</div>
-                                    </div>
-                                </a>
                             ))}
                         </div>
                     </div>
@@ -104,15 +73,31 @@ export default function Footerlinks()
                             ))}
                         </div>
                     </div>
-                    <div className="mb-6">
-                        <h3 className="font-bold text-2xl text-center mb-8">Trusted Badges</h3>
-                        <div className="flex flex-wrap justify-center text-center gap-2">
-                            {trustedbages.map((link,key)=>(
-                                <div key={key}>
-                                    <Image src={link.image} width={100} height={100} className="h-20 w-20" alt={link.name}/>
+                </div>
+            </div>
+            <div className="grid md:grid-cols-2">
+                <div className="mb-6">
+                    <h3 className="font-bold text-2xl text-center mb-8">Dedicated Support</h3>
+                    <div className="grid xl:px-20 px-10 gap-4">
+                        {supportlinks.map((link,key)=>(
+                            <a className="md:flex gap-2" href={`tel:${link.number}`} key={key} aria-label={link.name}>
+                                <Image alt={'link.name'} className="h-6 w-9 rounded shadow-sm shadow-gray-500" width={100} height={100} src={link.flag}/>
+                                <div className="flex gap-2">
+                                    <div>{link.name}</div>
+                                    <div className="flex gap-2">{link.tel}</div>
                                 </div>
-                            ))}
-                        </div>
+                            </a>
+                        ))}
+                    </div>
+                </div>
+                <div className="mb-6">
+                    <h3 className="font-bold text-2xl text-center mb-8">Trusted Badges</h3>
+                    <div className="flex flex-wrap justify-center text-center gap-2">
+                        {trustedbages.map((link,key)=>(
+                            <div key={key}>
+                                <Image src={link.image} width={100} height={100} className="h-20 w-20" alt={link.name}/>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>

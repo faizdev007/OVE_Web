@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
+import { onlyNumber } from '@/app/globals'; // adjust path if needed
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
@@ -26,6 +27,9 @@ export default function ContactPage() {
         ],},
         {name:'USA',flag:'/assets/flags/USA.webp',numbers: [
             { number: '+1 2028499199', label: 'Sales' },
+        ],},
+        {name:'India',flag:'/assets/flags/INDIA.webp',numbers: [
+            { number: '+98 9999979934', label: 'Sales' },
         ],},
     ];
 
@@ -105,8 +109,8 @@ export default function ContactPage() {
                         <input type="email" name="email" placeholder="Email Address *" value={formData.email} onChange={handleChange} className="p-3 border rounded w-full" required />
                         </div>
                         <div className="grid sm:grid-cols-2 gap-4">
-                        <input type="text" name="country" placeholder="Country *" value={formData.country} onChange={handleChange} className="p-3 border rounded w-full" required />
-                        <input type="tel" name="phone" placeholder="Phone Number (Optional)" value={formData.phone} onChange={handleChange} className="p-3 border rounded w-full" />
+                        <input type="text" name="country" placeholder="Country (Optional)" value={formData.country} onChange={handleChange} className="p-3 border rounded w-full" />
+                        <input type="tel" name="phone" onInput={onlyNumber} maxLength={15} placeholder="Phone Number (Optional)" value={formData.phone} onChange={handleChange} className="p-3 border rounded w-full" />
                         </div>
                         <select name="service" value={formData.service} onChange={handleChange} className="p-3 border rounded w-full" required>
                         <option value="">Please select from the dropdown</option>
