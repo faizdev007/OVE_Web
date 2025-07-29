@@ -11,7 +11,7 @@ const items = [
   },
   {
     title: 'FLAT FEES',
-    // subtitle: 'NO HIDDEN COST',
+    subtitle: 'NO HIDDEN COST',
     color: '#FF894F',
     img: '/assets/whyus/vector2.webp',
     text: 'Say goodbye to surprise charges. With our flat AUD 999/month management fee, you get predictable pricing and peace of mind every billing cycle.',
