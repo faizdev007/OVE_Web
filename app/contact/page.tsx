@@ -72,8 +72,8 @@ export default function ContactPage() {
                         </div>
                         <div className='flex flex-wrap justify-center'>
                             {trustedbages.map((link,key)=>(
-                                <div key={key}>
-                                    <Image src={link.image} width={120} height={120} className="h-20 w-20" alt={link.name}/>
+                                <div key={key} className='aspect-[1/1]'>
+                                    <Image src={link.image} width={120} height={120} className="h-20 object-container w-20" alt={link.name}/>
                                 </div>
                             ))}
                         </div>
@@ -99,7 +99,7 @@ export default function ContactPage() {
                         <option value="UI/UX Design">UI/UX Design</option>
                         </select>
                         <textarea name="message" value={formData.message} onChange={handleChange} rows={5} placeholder="How Can We Help?*" className="p-3 border rounded w-full" required />
-                        <input type="file" className="w-full border rounded p-2 text-sm" />
+                        <input type="file" className="w-full hidden border rounded p-2 text-sm" disabled={true} />
                         <button type="submit" className="bg-lime-500 text-white font-semibold px-6 py-3 rounded-full hover:bg-lime-600 transition-all">Send Your Query</button>
                     </form>
                     </div>
