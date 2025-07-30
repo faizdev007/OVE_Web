@@ -10,29 +10,33 @@ export default function Header() {
   const [darkmod, setdarkmod] = useState(false);
   const [activeIndex, setActiveIndex] = useState(false);
 
-  const toggle = () => {
-    setShowDropdown(showDropdown === true ? false : true);
-    setActiveIndex(activeIndex === true ? false : true);
-  };
-
   const hiremenu = [{
-    menuTitle:'Hire by role',
+    menuTitle:'Role Base Hiring',
     menuCategory:'Hire',
     urls:[
       {name:'Full-stack Developer',url:'/full_stack_developer'},
       {name:'Front-End Developer',url:'/front_end_developer'},
       {name:'Back-End Developer',url:'/back_end_developer'},
-      {name:'Mobile Developer',url:'/mobile_developer'},
+      {name:'Database Engineer',url:'/database_engineer'},
     ]
   },
   {
-    menuTitle:'Hire by Skill',
+    menuTitle:'Skill Base Hiring',
     menuCategory:'Hire',
     urls:[
-      {name:'Full-stack Developer',url:'/full_stack_developer'},
-      {name:'Front-End Developer',url:'/front_end_developer'},
-      {name:'Back-End Developer',url:'/back_end_developer'},
+      {name:'React Developer',url:'/react_developer'},
+      {name:'Laravel Developer',url:'/laravel_developer'},
+      {name:'AI Developer',url:'/ai_developer'},
       {name:'Mobile Developer',url:'/mobile_developer'},
+    ]
+  },{
+    menuTitle:'Quick Solution',
+    menuCategory:'',
+    urls:[
+      {name:'Staff Agumentation',url:'/staff_agumentation'},
+      {name:'Project Teams',url:'/project_teams'},
+      {name:'Dedicated Teams',url:'/dedicated_teams'},
+      {name:'Contact to Hire',url:'/contact'},
     ]
   }
 ];
@@ -56,7 +60,7 @@ export default function Header() {
 
         {/* Desktop Menu */}
         <nav className="md:flex gap-6 items-center hidden">
-          <div className="" onMouseEnter={() => toggle()}>
+          <div className={'p-3'} onMouseEnter={()=>{setShowDropdown(true); setActiveIndex(true); }} onMouseLeave={() => { setShowDropdown(false); setActiveIndex(false); }}>
             <button className="hover:text-blue-600 dark:hover:text-blue-400 transition flex gap-2">
               <span>Services</span> 
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className={`size-6 transition-transform duration-300 ${
@@ -70,7 +74,7 @@ export default function Header() {
           <a href="#case-studies" className="hidden hover:text-blue-600 dark:hover:text-blue-400 transition">
             Case Studies
           </a>
-          <a href="/contact" className="hidden hover:text-blue-600 dark:hover:text-blue-400 transition">
+          <a href="/contact" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
             Contact
           </a>
           <a href="#career" className="hidden hover:text-blue-600 dark:hover:text-blue-400 transition">
@@ -79,10 +83,12 @@ export default function Header() {
           <a href="#contact" className="hidden border-2 border-black hover:bg-gray-200 hover:dark:bg-gray-800 text-black dark:border-white dark:text-white px-4 py-2 rounded-md transition">
               Get Started
           </a>
-          <a href="/contact" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition text-xl">
-              Hire Developer
-          </a>
         </nav>
+        <div className='md:flex gap-6 items-center hidden'>
+            <a href="/contact" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition text-xl">
+                Hire Developer
+            </a>
+        </div>
 
         {/* Mobile Hamburger */}
         <button
@@ -92,24 +98,28 @@ export default function Header() {
         >
           ☰
         </button>
-        {/* Full-width dropdown */}
+      </div>
+      {/* Full-width dropdown */}
         {showDropdown && (
-          <div onMouseLeave={() => toggle()} className="absolute border-t z-50 left-0 top-full w-screen bg-white dark:bg-gray-700 shadow-lg z-40 py-4">
-            {hiremenu.map((single,key)=>(
-              <div className='relative px-4 py-2 sm:px-6 lg:px-8 mx-auto' key={key}>
-                <h2 className='border-b-2 font-bold md:text-2xl text-sm'>{single.menuTitle}</h2>
-                <div className='grid md:grid-cols-4 gap-2'>
-                    {single.urls.map((url,key2)=>(
-                      <a href={url.name} key={key2} className="hover:text-blue-600 dark:hover:text-blue-300 block py-4 hover:underline">
-                        <span className='text-black/60'>{single.menuCategory}</span> {url.name}
-                      </a>
-                    ))}
-                </div>
+          <div className='max-w-5xl grid mx-auto block relative -top-3'>
+            <div onMouseEnter={()=>{setShowDropdown(true); setActiveIndex(true); }} onMouseLeave={() => { setShowDropdown(false); setActiveIndex(false); }} className="absolute rounded-md w-full drop-shadow z-50 left-0 top-full bg-white dark:bg-gray-700 shadow-lg z-40 py-4">
+              <div className='relative px-4 py-2 grid md:grid-cols-3 gap-4 sm:px-6 lg:px-8 mx-auto' >
+                {hiremenu.map((single,key)=>(
+                  <div key={key}>
+                    <h2 className='border-b-2 font-bold'>{single.menuTitle}</h2>
+                    <div className='grid gap-2 h-[200] overflow-y-hidden py-2'>
+                        {single.urls.map((url,key2)=>(
+                          <a href={url.name} key={key2} className="hover:text-blue-600 dark:hover:text-blue-300 text-sm block py-2 hover:underline">
+                            {url.name}
+                          </a>
+                        ))}
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         )}
-      </div>
 
       {/* Mobile Menu with Dropdown */}
       <div
@@ -123,32 +133,22 @@ export default function Header() {
             <summary onClick={() => setdropmenuOpen(!dropmenuOpen)} className="cursor-pointer hover:text-blue-600 dark:hover:text-blue-400">
               Services
             </summary>
-            <div className={`ml-4 mt-2 space-y-1 text-sm ${dropmenuOpen ? 'animate-flip-down animate-ease-in-out block' : 'animate-flip-up animate-ease-in-out hidden'}`}>
-              {hiremenu.map((single,key)=>(
-                <div className='relative py-2 sm:px-6 lg:px-8 mx-auto' key={key}>
-                  <h2 className='border-b-2 font-bold md:text-2xl text-sm'>{single.menuTitle}</h2>
-                  <div className='grid gap-2'>
-                      {single.urls.map((url,key2)=>(
-                        <a href={url.name} key={key2} className="block hover:text-blue-600 dark:hover:text-blue-300">
-                          <span className='text-black/60'>{single.menuCategory}</span> {url.name}
-                        </a>
-                      ))}
+            <div className='max-h-32 overflow-y-auto'>
+              <div className={`ml-4 mt-2 space-y-1 text-sm animate-flip-down animate-ease-in-out overflow-y-auto  ${dropmenuOpen ? 'block' : 'hidden'}`}>
+                {hiremenu.map((single,key)=>(
+                  <div className='relative py-2 sm:px-6 lg:px-8 mx-auto' key={key}>
+                    <h2 className='border-b-2 font-bold md:text-2xl text-sm'>{single.menuTitle}</h2>
+                    <div className='grid gap-2'>
+                        {single.urls.map((url,key2)=>(
+                          <a href={url.name} key={key2} className="block hover:text-blue-600 dark:hover:text-blue-300">
+                            <span className='text-black/60'>{single.menuCategory}</span> {url.name}
+                          </a>
+                        ))}
+                    </div>
                   </div>
-                </div>
-              ))}
-              {/* <a href="#web-dev" className="block hover:text-blue-600 dark:hover:text-blue-300">
-                Web Development
-              </a>
-              <a href="#mobile-app" className="block hover:text-blue-600 dark:hover:text-blue-300">
-                Mobile Apps
-              </a>
-              <a href="#ui-ux" className="block hover:text-blue-600 dark:hover:text-blue-300">
-                UI/UX Design
-              </a>
-              <a href="#cloud" className="block hover:text-blue-600 dark:hover:text-blue-300">
-                Cloud Services
-              </a> */}
-            </div>
+                ))}
+              </div>
+              </div>
           </details>
 
           <a href="#testimonials" className="hidden hover:text-blue-600 dark:hover:text-blue-400">
@@ -160,8 +160,8 @@ export default function Header() {
           <a href="/contact" className="hidden block hover:text-blue-600 dark:hover:text-blue-400">
             About Us
           </a>
-          <a href="#about" className="hidden block hover:text-blue-600 dark:hover:text-blue-400">
-            Contact Us
+          <a href="/contact" className="block hover:text-blue-600 dark:hover:text-blue-400">
+            Contact
           </a>
           <a href="#career" className="hidden hover:text-blue-600 dark:hover:text-blue-400">
             Career
