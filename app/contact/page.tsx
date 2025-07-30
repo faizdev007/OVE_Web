@@ -14,6 +14,9 @@ export default function ContactPage() {
         message: ''
     });
 
+    const [resMessage, setresMessage] = useState('');
+    const [status, setStatus] = useState(false);
+
     const trustedbages = [
         {name:'Award', image:'/assets/trustedbages/award.webp'},
     ];
@@ -74,15 +77,39 @@ export default function ContactPage() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setStatus(true);
+        try {
+        const res = await fetch('/api/hello', {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            headers: {
+            'Content-Type': 'application/json',
+            },
+        });
+
+        const result = await res.json();
+            if (res.ok) {
+                setresMessage('Message Send Successfully!');
+                setStatus(false);
+                setFormData({ name: '', email: '', country: '', phone: '', service: '', message: '' });
+            } else {
+                setStatus(false);
+            }
+        } catch (err) {
+            setStatus(false);
+        }
+        setTimeout(()=>{
+            setresMessage('');
+        },2000)
         console.log('Form Submitted:', formData);
     };
 
     return (
         <>
-            <main className="bg-black/90 dark:bg-gray-800 text-white grid md:grid-cols-2 gap-8 px-4 py-12">
-                <div className="bg-white text-black w-full max-w-6xl p-8 rounded-xl shadow-md">
+            <main className="bg-black/90 dark:bg-gray-800 text-white grid lg:grid-cols-2 gap-8 lg:px-4 px-2 py-12">
+                <div className="bg-white text-black w-full max-w-6xl lg:p-8 p-3 rounded-xl shadow-md">
                     {/* Left Panel */}
                     <div>
                     <div className='md:flex justify-between'>
@@ -90,7 +117,7 @@ export default function ContactPage() {
                             <h1 className="text-3xl lg:text-5xl font-bold mb-2">Get In Touch</h1>
                             <p className="text-gray-600 mb-4">Our team will get back to you within 8 business hours or less.</p>
                         </div>
-                        <div className='flex flex-wrap justify-center'>
+                        <div className='hidden flex-wrap justify-center'>
                             {trustedbages.map((link,key)=>(
                                 <div key={key} className='aspect-[1/1] '>
                                     <Image src={link.image} width={120} height={120} className="h-20 object-container w-20" alt={link.name}/>
@@ -102,7 +129,7 @@ export default function ContactPage() {
                         <a href={'tel:+12028499199'} aria-label={"12028499199"} className="hover:underline">📞 Book A Call</a>
                         <a href={'mailto:enquiry@optimalvirtualemployee.com'} aria-label={"enquiry@optimalvirtualemployee.com"} className="hover:underline">✉️ Email us</a>
                     </div>
-
+                    
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div className="grid sm:grid-cols-2 gap-4">
                         <input type="text" name="name" placeholder="Full Name *" value={formData.name} onChange={handleChange} className="p-3 border rounded w-full" required />
@@ -120,7 +147,30 @@ export default function ContactPage() {
                         </select>
                         <textarea name="message" value={formData.message} onChange={handleChange} rows={5} placeholder="How Can We Help?*" className="p-3 border rounded w-full" required />
                         <input type="file" className="w-full hidden border rounded p-2 text-sm" disabled={true} />
-                        <button type="submit" className="bg-lime-500 text-white font-semibold px-6 py-3 rounded-full hover:bg-lime-600 transition-all">Send Your Query</button>
+                        <div className=''>{resMessage}</div>
+                        <button type="submit" className="bg-lime-500 text-white font-semibold px-6 py-3 rounded-full hover:bg-lime-600 transition-all cursor-pointer" disabled={status}>
+                            {status ? (
+                                <span className="flex items-center gap-2">
+                                    <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth="1.5"
+                                    stroke="currentColor"
+                                    className="size-5 animate-spin"
+                                    >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"
+                                    />
+                                    </svg>
+                                    Sending...
+                                </span>
+                                ) : (
+                                'Send Your Query'
+                                )}
+                        </button>
                     </form>
                     </div>
                 </div>
@@ -159,14 +209,14 @@ export default function ContactPage() {
                     <h2 className='text-3xl lg:text-5xl font-bold mb-4'>Serving Clients in 38+ Countries</h2>
                     <p className='text-gray-600 mb-8'>We are making an impact worldwide with our global presence and exceptional software solutions.</p>
                 </div>
-                <div className='md:flex gap-6 justify-center items-center'>
-                    <div className='border border-gray-300 p-3 rounded-xl'>
+                <div className='md:flex gap-6 justify-center items-center p-2'>
+                    <div className='border lg:w-auto w-full border-gray-300 p-3 rounded-xl mb-2'>
                         <table className="">
                             <tbody>
                                 {contactinfo.map((country, index) => (
                                 <tr key={index} className={`${contactinfo.length > index+1 ? 'border-b' : ''} border-gray-300`}>
                                     <td className="border-e border-gray-300">
-                                        <div className='flex gap-3 p-2 items-center'>
+                                        <div className='lg:flex gap-3 p-2 items-center'>
                                             <Image
                                                 src={country.flag}
                                                 alt={country.name}
@@ -199,13 +249,13 @@ export default function ContactPage() {
                             </tbody>
                         </table>
                     </div>
-                    <div className='border border-gray-300 p-3 rounded-xl'>
+                    <div className='border lg:w-auto w-full border-gray-300 p-3 rounded-xl'>
                         <table className="">
                             <tbody>
                                 {officelocation.map((location, index) => (
                                 <tr key={index} className={`${officelocation.length > index+1 ? 'border-b' : ''} border-gray-300`}>
                                     <td className="">
-                                        <div className='flex gap-2 p-4 items-center'>
+                                        <div className='md:flex gap-2 p-2 items-center'>
                                             <Image src={location.image} width={100} height={100} className='object-container w-16 h-10 rounded' alt={location.name}/>
                                             <div className=''>
                                                 <h3>{location.name} :</h3>

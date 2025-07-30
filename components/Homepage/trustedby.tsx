@@ -48,7 +48,7 @@ export default function TrustedBy() {
         >
           {logos.map((src, index) => (
             <SwiperSlide key={index}>
-              <div className="aspect-[4/1] h-16 flex justify-center items-center">
+              <div className="aspect-[4/1] h-16 flex items-center">
                 <img
                   src={src}
                   alt="logo"

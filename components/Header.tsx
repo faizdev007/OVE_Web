@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dropmenuOpen, setdropmenuOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [darkmod, setdarkmod] = useState(false);
   const [activeIndex, setActiveIndex] = useState(false);
@@ -54,9 +55,9 @@ export default function Header() {
         </a>
 
         {/* Desktop Menu */}
-        <nav className="md:flex gap-6 items-center">
+        <nav className="md:flex gap-6 items-center hidden">
           <div className="" onMouseEnter={() => toggle()}>
-            <button className="hover:text-blue-600 dark:hover:text-blue-400 transition hidden md:flex gap-2">
+            <button className="hover:text-blue-600 dark:hover:text-blue-400 transition flex gap-2">
               <span>Services</span> 
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className={`size-6 transition-transform duration-300 ${
                     activeIndex ? 'rotate-180' : ''
@@ -99,8 +100,8 @@ export default function Header() {
                 <h2 className='border-b-2 font-bold md:text-2xl text-sm'>{single.menuTitle}</h2>
                 <div className='grid md:grid-cols-4 gap-2'>
                     {single.urls.map((url,key2)=>(
-                      <a href={url.name} key={key2} className="hover:text-blue-600 dark:hover:text-blue-300 block py-4">
-                        <span className='text-black/60'>{single.menuCategory}</span>-{url.name}
+                      <a href={url.name} key={key2} className="hover:text-blue-600 dark:hover:text-blue-300 block py-4 hover:underline">
+                        <span className='text-black/60'>{single.menuCategory}</span> {url.name}
                       </a>
                     ))}
                 </div>
@@ -116,14 +117,26 @@ export default function Header() {
           menuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="px-4 py-4 space-y-2 bg-white dark:bg-gray-800">
+        <div className="px-4 py-4 space-y-2 border-t bg-white dark:bg-gray-800">
           {/* Services Dropdown - Mobile */}
-          <details className="group hidden">
-            <summary className="cursor-pointer hover:text-blue-600 dark:hover:text-blue-400">
+          <details className="group md:hidden">
+            <summary onClick={() => setdropmenuOpen(!dropmenuOpen)} className="cursor-pointer hover:text-blue-600 dark:hover:text-blue-400">
               Services
             </summary>
-            <div className="ml-4 mt-2 space-y-1 text-sm">
-              <a href="#web-dev" className="block hover:text-blue-600 dark:hover:text-blue-300">
+            <div className={`ml-4 mt-2 space-y-1 text-sm ${dropmenuOpen ? 'animate-flip-down animate-ease-in-out block' : 'animate-flip-up animate-ease-in-out hidden'}`}>
+              {hiremenu.map((single,key)=>(
+                <div className='relative py-2 sm:px-6 lg:px-8 mx-auto' key={key}>
+                  <h2 className='border-b-2 font-bold md:text-2xl text-sm'>{single.menuTitle}</h2>
+                  <div className='grid gap-2'>
+                      {single.urls.map((url,key2)=>(
+                        <a href={url.name} key={key2} className="block hover:text-blue-600 dark:hover:text-blue-300">
+                          <span className='text-black/60'>{single.menuCategory}</span> {url.name}
+                        </a>
+                      ))}
+                  </div>
+                </div>
+              ))}
+              {/* <a href="#web-dev" className="block hover:text-blue-600 dark:hover:text-blue-300">
                 Web Development
               </a>
               <a href="#mobile-app" className="block hover:text-blue-600 dark:hover:text-blue-300">
@@ -134,7 +147,7 @@ export default function Header() {
               </a>
               <a href="#cloud" className="block hover:text-blue-600 dark:hover:text-blue-300">
                 Cloud Services
-              </a>
+              </a> */}
             </div>
           </details>
 
