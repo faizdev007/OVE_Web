@@ -109,7 +109,7 @@ export default function Header() {
                     <h2 className='border-b-2 font-bold'>{single.menuTitle}</h2>
                     <div className='grid gap-2 h-[200] overflow-y-hidden py-2'>
                         {single.urls.map((url,key2)=>(
-                          <a href={url.name} key={key2} className="hover:text-blue-600 dark:hover:text-blue-300 text-sm block py-2 hover:underline">
+                          <a href={url.url} key={key2} className="hover:text-blue-600 dark:hover:text-blue-300 text-sm block py-2 hover:underline">
                             {url.name}
                           </a>
                         ))}
