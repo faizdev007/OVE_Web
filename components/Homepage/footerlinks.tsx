@@ -43,11 +43,11 @@ export default function Footerlinks()
 
     return(
         <section className="bg-black dark:bg-gray-800 text-white relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-            <div className="grid lg:grid-cols-3 md:grid-cols-2 md:divide-x-3 divide-gray-600">
+            <div className="grid lg:grid-cols-3 md:grid-cols-3 md:divide-x-3 divide-gray-600">
                 <div className="grid p-4">
                     <div className="mb-6">
                         <h3 className="font-bold text-2xl text-center mb-8">Hire by Role</h3>
-                        <div className="grid lg:grid-cols-2 mx-auto md:gap-x-10 gap-4">
+                        <div className="grid xl:grid-cols-2 mx-auto px-4 md:gap-x-10 gap-4">
                             {hirebyrole.map((link,key)=>(
                                 <a href={link.url} key={key} aria-label={link.name}>{link.name}</a>
                             ))}
@@ -57,7 +57,7 @@ export default function Footerlinks()
                 <div className="grid p-4">
                     <div className="mb-6">
                         <h3 className="font-bold text-2xl text-center mb-8">Hire by Skill</h3>
-                        <div className="grid lg:grid-cols-2 mx-auto md:gap-x-10 gap-4">
+                        <div className="grid xl:grid-cols-2 mx-auto px-4 md:gap-x-10 gap-4">
                             {hirebyskills.map((link,key)=>(
                                 <a href={link.url} key={key} aria-label={link.name}>{link.name}</a>
                             ))}
@@ -67,7 +67,7 @@ export default function Footerlinks()
                 <div className="grid p-4">
                     <div className="mb-6">
                         <h3 className="font-bold text-2xl text-center mb-8">Important Links</h3>
-                        <div className="grid md:grid-cols-2 mx-auto md:gap-x-10 gap-4">
+                        <div className="grid xl:grid-cols-2 mx-auto px-4 md:gap-x-10 gap-4">
                             {importantlinks.map((link,key)=>(
                                 <a href={link.url} key={key} aria-label={link.name}>{link.name}</a>
                             ))}
