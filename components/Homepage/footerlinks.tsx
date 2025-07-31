@@ -42,11 +42,11 @@ export default function Footerlinks()
     ];
 
     return(
-        <section className="bg-black dark:bg-gray-800 text-white relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-            <div className="grid lg:grid-cols-3 md:grid-cols-3 md:divide-x-3 divide-gray-600">
+        <section className="dark:bg-gray-800 text-white relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+            <div className="grid lg:grid-cols-3 py-10 md:grid-cols-3 md:divide-x-3 divide-gray-300">
                 <div className="grid p-4">
                     <div className="mb-6">
-                        <h3 className="font-bold text-2xl text-center mb-8">Hire by Role</h3>
+                        <h3 className="font-bold text-2xl text-center mb-10">Hire by Role</h3>
                         <div className="grid xl:grid-cols-2 mx-auto px-4 md:gap-x-10 gap-4">
                             {hirebyrole.map((link,key)=>(
                                 <a href={link.url} key={key} aria-label={link.name}>{link.name}</a>
@@ -56,7 +56,7 @@ export default function Footerlinks()
                 </div>
                 <div className="grid p-4">
                     <div className="mb-6">
-                        <h3 className="font-bold text-2xl text-center mb-8">Hire by Skill</h3>
+                        <h3 className="font-bold text-2xl text-center mb-10">Hire by Skill</h3>
                         <div className="grid xl:grid-cols-2 mx-auto px-4 md:gap-x-10 gap-4">
                             {hirebyskills.map((link,key)=>(
                                 <a href={link.url} key={key} aria-label={link.name}>{link.name}</a>
@@ -66,7 +66,7 @@ export default function Footerlinks()
                 </div>
                 <div className="grid p-4">
                     <div className="mb-6">
-                        <h3 className="font-bold text-2xl text-center mb-8">Important Links</h3>
+                        <h3 className="font-bold text-2xl text-center mb-10">Important Links</h3>
                         <div className="grid xl:grid-cols-2 mx-auto px-4 md:gap-x-10 gap-4">
                             {importantlinks.map((link,key)=>(
                                 <a href={link.url} key={key} aria-label={link.name}>{link.name}</a>
@@ -75,7 +75,7 @@ export default function Footerlinks()
                     </div>
                 </div>
             </div>
-            <div className="hidden items-center justify-between">
+            <div className="hidden items-center py-10 justify-between">
                 <div className="mb-6 md:grid md:grid-cols-3 border md:w-max rounded-xl overflow-hidden bg-gray-900">
                     <h3 className="font-bold text-2xl text-center bg-gray-800 flex items-center justify-center border-e p-3 h-full">Dedicated <br></br> Support</h3>
                     <div className="col-span-2 flex flex-col justify-around divide-y divide-gray-500">
