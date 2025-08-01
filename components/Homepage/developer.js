@@ -16,11 +16,11 @@ export default function DevelopersSlider() {
   const [isSectionVisible, setIsSectionVisible] = useState(true);
 
   const developers = [
-    { name: 'Dev 1', profile:'Software Developer', image: '/assets/developer/dev1.webp', color: '#FF894F', techstack: ['/assets/hireby/skills/Angular.webp','/assets/hireby/skills/Fedora.webp','/assets/hireby/skills/JavaScript.webp'] },
+    { name: 'Dev 1', profile:'Software Developer', image: '/assets/developer/dev1.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/Angular.webp','/assets/hireby/skills/Fedora.webp','/assets/hireby/skills/JavaScript.webp'] },
     { name: 'Dev 2', profile:'DevOps Developer', image: '/assets/developer/dev2.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/GraphQL.webp','/assets/hireby/skills/FileZilla.webp','/assets/hireby/skills/Docker.webp'] },
-    { name: 'Dev 3', profile:'Backend Developer', image: '/assets/developer/dev3.webp', color: '#EA5B6F', techstack: ['/assets/hireby/skills/Livewire.webp','/assets/hireby/skills/GraphQL.webp','/assets/hireby/skills/MongoDB.webp'] },
-    { name: 'Dev 4', profile:'FullStack Developer', image: '/assets/developer/dev4.webp', color: '#2c98d6ff', techstack: ['/assets/hireby/skills/React.webp','/assets/hireby/skills/Slack.webp','/assets/hireby/skills/Postman.webp'] },
-    { name: 'Dev 5', profile:'Angular Developer', image: '/assets/developer/dev5.webp', color: '#579b7eff', techstack: ['/assets/hireby/skills/Angular.webp','/assets/hireby/skills/Tailwind-CSS.webp','/assets/hireby/skills/Visual-Studio.webp'] },
+    { name: 'Dev 3', profile:'Backend Developer', image: '/assets/developer/dev3.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/Livewire.webp','/assets/hireby/skills/GraphQL.webp','/assets/hireby/skills/MongoDB.webp'] },
+    { name: 'Dev 4', profile:'FullStack Developer', image: '/assets/developer/dev4.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/React.webp','/assets/hireby/skills/Slack.webp','/assets/hireby/skills/Postman.webp'] },
+    { name: 'Dev 5', profile:'Angular Developer', image: '/assets/developer/dev5.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/Angular.webp','/assets/hireby/skills/Tailwind-CSS.webp','/assets/hireby/skills/Visual-Studio.webp'] },
   ];
 
   // Monitor Swiper slide visibility and compare with card limit
@@ -31,8 +31,8 @@ export default function DevelopersSlider() {
   const { elementRef, isVisible } = useInView();
 
   return (
-    <section  ref={elementRef} className={`bg-white dark:bg-gray-700 text-white relative px-4 py-12 sm:px-6 lg:px-8 mx-auto`}>
-      <div className={`transform relative transition-all duration-300 opacity-100 py-10 bg-black dark:bg-gray-800 rounded-md xl:px-30 px-4 mx-auto`}>
+    <section  ref={elementRef} className={`bg-white dark:bg-gray-700 relative px-4 py-12 sm:px-6 lg:px-8 mx-auto`}>
+      <div className={`transform relative transition-all duration-300 opacity-100 py-10 dark:bg-gray-800 rounded-md xl:px-30 px-4 mx-auto`}>
         <Image loading='lazy' width={100} height={100} className='absolute hidden object-cover bottom-0 w-full start-0 end-0' src={'/assets/cloudbg.webp'} alt="cloudbg"/>
         <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center mb-12">Meet Our Developers</h2>
 
