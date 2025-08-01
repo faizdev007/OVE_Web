@@ -37,7 +37,7 @@ export default function DevelopersSlider() {
         <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center mb-12">Meet Our Developers</h2>
 
         <Swiper
-          modules={[Navigation,Autoplay]}
+          modules={[Navigation]}
           spaceBetween={30}
           slidesPerView={5}
           loop={true}
@@ -64,26 +64,26 @@ export default function DevelopersSlider() {
         >
           {developers.map((dev, index) => (
             <SwiperSlide key={index}>
-              <div className={`dev bg-white aspect-[1/1.3] text-black relative rounded-xl shadow-lg animate-fade animate-duration-1000 animate-delay-${index}00 animate-ease-linear hover:shadow-2xl ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} style={{border:`5px solid ${dev.color}`}}>
-                <div className="relative mb-4 w-2/3 mx-auto overflow-hidden rounded-full absolute top-0 aspect-[1/1] mt-4" style={{border:`3px solid ${dev.color}`}}>
-                  {/* Profile Image with Border and Hover Effect */}
-                  <img
-                    src={dev.image}
-                    alt={dev.name}
-                    className="w-full h-full mx-auto object-cover transform transition-all duration-300 hover:scale-105"
-                  />
+              <div className={`dev bg-black aspect-[1/1.3] text-white relative rounded-xl shadow-lg animate-fade animate-duration-1000 animate-delay-${index}00 animate-ease-linear hover:shadow-2xl ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} style={{border:`5px solid ${dev.color}`}}>
+                <div className="relative w-2/3 aspect-[1/1] mx-auto mb-4">
+                  <div className='overflow-hidden absolute rounded-full absolute aspect-[1/1] mt-4' style={{border:`3px solid ${dev.color}`}}>
+                    {/* Profile Image with Border and Hover Effect */}
+                    <img
+                      src={dev.image}
+                      alt={dev.name}
+                      className="w-full h-full mx-auto object-cover transform transition-all duration-300 hover:scale-105"
+                    />
+                  </div>
                 </div>
                 <div className='p-4 flex flex-col gap-3'>
                   <div className='grid space-y-2 gap-4'>
                     <div className='flex flex-col text-center gap-2 md:gap-0'>
-                      <h3 className="font-semibold text-gray-900 text-ellipsis overflow-hidden text-clip">{dev.name}</h3>
-                      <p className="text-sm text-gray-500 overflow-hidden text-ellipsis text-clip">{dev.profile}</p>
+                      <h3 className="font-semibold text-ellipsis overflow-hidden text-clip">{dev.name}</h3>
+                      <p className="text-sm overflow-hidden text-ellipsis text-clip">{dev.profile}</p>
                     </div>
-                    <div className="flex gap-1 items-center justify-around">
+                    <div className="flex flex-wrap gap-1 items-center justify-around">
                       {dev.techstack.length > 0 && dev.techstack.map((items, index)=>(
-                        <div key={index} className='aspect-[1/1]'>
-                          <img src={items} alt='icon' className='object-cover h-8 w-8'/>
-                        </div>
+                        <span key={index} className='bg-white text-black border rounded-full px-4'>{items.split('/').pop().replace('.webp', '')}</span>
                       ))}
                     </div>
                   </div>

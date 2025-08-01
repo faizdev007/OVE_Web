@@ -74,15 +74,18 @@ const companyM = [{
       <div className="mx-auto flex items-center justify-between px-4 py-2 relative">
         {/* Logo */}
         <a href={'/'} className="flex items-center">
-          {darkmod ? (
-            <Image src={"/assets/logo2.webp"} width={150} height={100} alt="OVE" />
+          { darkmod ? (
+            <Image src={"/assets/logo2.webp"} width={125} height={100} className='h-auto w-auto' alt="OVE" />
           ) : (
-            <Image src={"/assets/logo.webp"} width={150} height={100} alt="OVE" />
-          )}
+            <Image src={"/assets/logo.webp"} width={125} height={100} className='h-auto w-auto' alt="OVE" />
+          ) }
         </a>
 
         {/* Desktop Menu */}
         <nav className="lg:flex gap-6 items-center hidden">
+          <a href="/" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
+            Home
+          </a>
           <div className={'p-3'} onMouseEnter={()=>{setShowDropdown(true); setActiveIndex(true); }} onMouseLeave={() => { setShowDropdown(false); setActiveIndex(false); }}>
             <button className="hover:text-blue-600 dark:hover:text-blue-400 transition flex gap-2">
               <span>Services</span> 
@@ -127,10 +130,10 @@ const companyM = [{
           </a>
         </nav>
         <div className='lg:flex gap-6 items-center hidden'>
-            <a href="/contact" className="border-2 border-blue-600 hover:bg-blue-700 text-blue-700 hover:text-white px-4 py-2 rounded-md transition text-xl">
+            <a href="/contact" className="border-2 border-blue-600 hover:bg-blue-700 text-blue-700 hover:text-white px-4 py-2 rounded-md transition">
                 Schedule A Call
             </a>
-            <a href="/contact" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition text-xl">
+            <a href="/contact" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition">
                 Start Hiring
             </a>
         </div>
@@ -173,6 +176,9 @@ const companyM = [{
         }`}
       >
         <div className="px-4 py-4 space-y-2 border-t bg-white dark:bg-gray-800">
+          <a href="/" className="block hover:text-blue-600 dark:hover:text-blue-400">
+            Home
+          </a>
           {/* Services Dropdown - Mobile */}
           <details className="group lg:hidden">
             <summary onClick={() => setServiceOpen(!serviceOpen)} className="cursor-pointer hover:text-blue-600 dark:hover:text-blue-400">
