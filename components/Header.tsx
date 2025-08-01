@@ -9,6 +9,8 @@ export default function Header() {
   const [showDropdown, setShowDropdown] = useState(false);
   const [darkmod, setdarkmod] = useState(false);
   const [activeIndex, setActiveIndex] = useState(false);
+  const [serviceOpen, setServiceOpen] = useState(false);
+  const [companyOpen, setCompanyOpen] = useState(false);
 
   const hiremenu = [{
     menuTitle:'Role Base Hiring',
@@ -52,6 +54,16 @@ export default function Header() {
   }
 ];
 
+const companyM = [{
+    urls:[
+      {name:'Full-stack Developer',url:'/full_stack_developer'},
+      {name:'Front-End Developer',url:'/front_end_developer'},
+      {name:'Back-End Developer',url:'/back_end_developer'},
+      {name:'Database Engineer',url:'/database_engineer'},
+    ]
+  },
+];
+
   useEffect(() => {
     const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     setdarkmod(isDarkMode);
@@ -70,7 +82,7 @@ export default function Header() {
         </a>
 
         {/* Desktop Menu */}
-        <nav className="md:flex gap-6 items-center hidden">
+        <nav className="lg:flex gap-6 items-center hidden">
           <div className={'p-3'} onMouseEnter={()=>{setShowDropdown(true); setActiveIndex(true); }} onMouseLeave={() => { setShowDropdown(false); setActiveIndex(false); }}>
             <button className="hover:text-blue-600 dark:hover:text-blue-400 transition flex gap-2">
               <span>Services</span> 
@@ -82,31 +94,50 @@ export default function Header() {
             </button>
           </div>
 
-          <a href="#case-studies" className="hidden hover:text-blue-600 dark:hover:text-blue-400 transition">
-            Case Studies
-          </a>
-          <a href="/about" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
-            About
-          </a>
+          <div
+            className="relative p-3 group"
+            onMouseEnter={() => setShowDropdown(false)}
+          >
+            <button className="hover:text-blue-600 dark:hover:text-blue-400 transition flex gap-2">
+              <span>Company</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="size-6 transition-transform duration-300 group-hover:rotate-180">
+                <path fillRule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
+              </svg>
+            </button>
+
+            {/* Simple dropdown */}
+            <div className="absolute left-0 top-full -top-3 w-48 bg-white dark:bg-gray-800 shadow-md rounded-md hidden overflow-hidden group-hover:block z-40">
+              <a href="/about" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+                About Us
+              </a>
+              <a href="/guides" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+                Success Stories
+              </a>
+              <a href="/whitepapers" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+                FAQs for Companies
+              </a>
+              <a href="/whitepapers" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+                How We Vet Developers
+              </a>
+            </div>
+          </div>
+
           <a href="/contact" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
-            Contact
-          </a>
-          <a href="#career" className="hidden hover:text-blue-600 dark:hover:text-blue-400 transition">
-            Career
-          </a>
-          <a href="#contact" className="hidden border-2 border-black hover:bg-gray-200 hover:dark:bg-gray-800 text-black dark:border-white dark:text-white px-4 py-2 rounded-md transition">
-              Get Started
+            Contact Us
           </a>
         </nav>
-        <div className='md:flex gap-6 items-center hidden'>
+        <div className='lg:flex gap-6 items-center hidden'>
+            <a href="/contact" className="border-2 border-blue-600 hover:bg-blue-700 text-blue-700 hover:text-white px-4 py-2 rounded-md transition text-xl">
+                Schedule A Call
+            </a>
             <a href="/contact" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition text-xl">
-                Hire Developer
+                Start Hiring
             </a>
         </div>
 
         {/* Mobile Hamburger */}
         <button
-          className="md:hidden text-2xl focus:outline-none"
+          className="lg:hidden text-2xl focus:outline-none"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle Menu"
         >
@@ -137,50 +168,63 @@ export default function Header() {
 
       {/* Mobile Menu with Dropdown */}
       <div
-        className={`transition-all duration-500 md:hidden overflow-hidden absolute top-full start-0 end-0 ${
+        className={`transition-all duration-500 lg:hidden overflow-hidden absolute top-full start-0 end-0 ${
           menuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
         <div className="px-4 py-4 space-y-2 border-t bg-white dark:bg-gray-800">
           {/* Services Dropdown - Mobile */}
-          <details className="group md:hidden">
-            <summary onClick={() => setdropmenuOpen(!dropmenuOpen)} className="cursor-pointer hover:text-blue-600 dark:hover:text-blue-400">
+          <details className="group lg:hidden">
+            <summary onClick={() => setServiceOpen(!serviceOpen)} className="cursor-pointer hover:text-blue-600 dark:hover:text-blue-400">
               Services
             </summary>
             <div className='max-h-32 overflow-y-auto'>
-              <div className={`ml-4 mt-2 space-y-1 text-sm animate-flip-down animate-ease-in-out overflow-y-auto  ${dropmenuOpen ? 'block' : 'hidden'}`}>
-                {hiremenu.map((single,key)=>(
+              <div className={`ml-4 mt-2 space-y-1 text-sm animate-flip-down animate-ease-in-out overflow-y-auto ${serviceOpen ? 'block' : 'hidden'}`}>
+                {hiremenu.map((single, key) => (
                   <div className='relative py-2 sm:px-6 lg:px-8 mx-auto' key={key}>
-                    <h2 className='border-b-2 font-bold md:text-2xl text-sm flex gap-2'><span>{single.icon && single.icon}</span>{single.menuTitle}</h2>
+                    <h2 className='border-b-2 font-bold md:text-2xl text-sm flex gap-2'>
+                      <span>{single.icon && single.icon}</span>{single.menuTitle}
+                    </h2>
                     <div className='grid gap-2'>
-                        {single.urls.map((url,key2)=>(
-                          <a href={url.name} key={key2} className="block hover:text-blue-600 dark:hover:text-blue-300">
-                            <span className='text-black/60'>{single.menuCategory}</span> {url.name}
-                          </a>
-                        ))}
+                      {single.urls.map((url, key2) => (
+                        <a href={url.name} key={key2} className="block hover:text-blue-600 dark:hover:text-blue-300">
+                          <span className='text-black/60'>{single.menuCategory}</span> {url.name}
+                        </a>
+                      ))}
                     </div>
                   </div>
                 ))}
               </div>
-              </div>
+            </div>
           </details>
 
-          <a href="#testimonials" className="hidden hover:text-blue-600 dark:hover:text-blue-400">
-            Testimonials
-          </a>
-          <a href="#case-studies" className="hidden hover:text-blue-600 dark:hover:text-blue-400">
-            Case Studies
-          </a>
-          <a href="/contact" className="hidden block hover:text-blue-600 dark:hover:text-blue-400">
-            About Us
-          </a>
+          {/* company area */}
+          <details className="group lg:hidden">
+            <summary onClick={() => setCompanyOpen(!companyOpen)} className="cursor-pointer hover:text-blue-600 dark:hover:text-blue-400">
+              Company
+            </summary>
+            <div className='max-h-32 overflow-y-auto'>
+              <div className={`ml-4 mt-2 space-y-1 text-sm animate-flip-down animate-ease-in-out overflow-y-auto ${companyOpen ? 'block' : 'hidden'}`}>
+                <a href="/about" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+                  About Us
+                </a>
+                <a href="/guides" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+                  Success Stories
+                </a>
+                <a href="/whitepapers" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+                  FAQs for Companies
+                </a>
+                <a href="/whitepapers" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
+                  How We Vet Developers
+                </a>
+              </div>
+            </div>
+          </details>
+
           <a href="/contact" className="block hover:text-blue-600 dark:hover:text-blue-400">
             Contact
           </a>
-          <a href="#career" className="hidden hover:text-blue-600 dark:hover:text-blue-400">
-            Career
-          </a>
-          <a href="#contact" className="hidden text-center border-2 border-black hover:bg-gray-200 hover:dark:bg-gray-700 text-black dark:border-white dark:text-white px-4 py-2 rounded-md transition">
+          <a href="#contact" className="block text-center border-2 border-blue-600 hover:bg-blue-700 hover:dark:bg-gray-700 text-blue-700 hover:text-white dark:border-white dark:text-white px-4 py-2 rounded-md transition">
               Get Started
           </a>
           <a href="#contact" className="block text-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition">

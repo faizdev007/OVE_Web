@@ -59,7 +59,7 @@ export default function Hire()
             <section className="blackgradiant pt-16 md:flex dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
                 <div className="flex w-full flex-col gap-8 items-center md:items-start py-6">
                     <h1 className="text-blue-700 xl:text-7xl text-3xl font-bold">Hire Full-Stack Developer</h1>
-                    <p className="md:text-xl text-sm">Develop fast, dynamic user interfaces with vetted React developers. Scale your front-end team today. Lorem ipsum dolor sit amete consectetur adipiscing elit seedo eiusmod tempor incididunt labore dolore magna aliqua eneom minim veniam quos nostrud exercitation ullamco laboris nisi ut aliquip. Lorem ipsum dolor sit amete consectetur adipiscing elit seedo eiusmod tempor incididunt labore dolore magna aliqua eneom minim veniam quos nostrud exercitation ullamco laboris nisi ut aliquip. </p>
+                    <p className="md:text-xl text-sm">Develop fast, dynamic user interfaces with vetted React developers. Scale your front-end team today. Lorem ipsum dolor sit amete consectetur adipiscing elit seedo eiusmod tempor incididunt labore dolore magna aliqua eneom minim veniam quos nostrud exercitation ullamco laboris nisi ut aliquip. </p>
                     <button className="bg-blue-600 p-2 rounded w-max xl:text-3xl md:text-xl px-6 font-bold cursor-pointer">Hire Full-Stack Developer</button>
                     <div className="grid md:grid-cols-3 gap-2">
                         <div className="bg-gray-800 p-4 rounded-md border border-white">
@@ -91,7 +91,7 @@ export default function Hire()
             </section>
             <section className="py-12 flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
                 <h2 className="text-blue-700 mb-18 capitalize text-center font-bold text-4xl">How to Hire Python developer through OVE</h2>
-                <div className="grid 2xl:grid-cols-4 md:grid-cols-2 mb-6">
+                <div className="grid 2xl:grid-cols-4 md:grid-cols-2 gap-6 mb-6">
                     <div className="flex flex-col items-center gap-3">
                         <Image alt="imge" src={'/assets/hire/step1.webp'} width={300} height={300}/>
                         <h3 className="md:text-2xl text-center text-xl font-bold">Place a free Request</h3>
@@ -190,70 +190,72 @@ export default function Hire()
             <section className="blackgradiant text-white py-12 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
                 <h2 className="text-[42px] font-bold">Still Wasting Weeks Recruiting Python Developer ?</h2>
                 <p className="text-[16px]">Skip the hiring mess. Get top-tier python talent from us under 48 hours</p>
-                <div className="overflow-x-auto bg-gray-900 text-white p-6 rounded-lg shadow">
-                    <table className="min-w-[900px] w-full table-auto table-auto border-collapse">
-                        <thead>
-                        <tr>
-                            {data.headers.map((header, i) => (
-                            <th
-                                key={i}
-                                className={`py-4 px-6 text-left text-lg font-bold ${
-                                i === 0
-                                ? 'text-white relative border-gray-800 bg-gray-700 rounded-t-md'
-                                :
-                                i === 1 ? 'bg-blue-600 text-white border-blue-700 rounded-t-lg relative' : 'border-x border-t rounded-t-lg relative bg-gray-700 border-gray-800'
-                                }`}
-                            >
-                                {i === 1 && (
-                                <span className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-green-500 text-xs px-2 py-1 rounded-full text-white font-semibold">
-                                    {data.badge}
-                                </span>
-                                )}
-                                {header}
-                            </th>
-                            ))}
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {data.rows.map((row, idx) => (
-                            <tr key={idx} className="border-t">
-                            {row.map((col, i) => (
-                                <td
-                                key={i}
-                                className={`py-4 px-6 align-top text-sm whitespace-pre-line ${
-                                    i === 0
-                                    ? ' font-semibold border-s border-b border-gray-700'
-                                    : i === 1
-                                    ? 'text-md border-x-2 border-blue-600 border-b font-bold'
-                                    : 'border-x border-b border-gray-700'
-                                } ${
-                                    idx === data.rows.length - 1
-                                    ? 'bg-gray-100 text-black font-bold'
-                                    : ''
-                                }`}
-                                >
-                                {col}
-                                </td>
-                            ))}
-                            </tr>
-                        ))}
-                        </tbody>
-                        <tfoot>
+                <div className="overflow-x-hidden w-full table-auto">
+                    <div className="overflow-x-auto bg-gray-900 text-white p-6 rounded-lg shadow">
+                        <table className="min-w-[900px] w-full table-auto border-collapse">
+                            <thead>
                             <tr>
-                                <td className="font-semibold border-s border-b text-white border-gray-700"></td>
-                                <td className="text-black border-x-2 border-blue-600 border-b-2 font-medium rounded-b">
-                                    <div className="p-4 flex justify-center">
-                                        <button className="bg-blue-600 text-white text-sm font-semibold px-4 py-2">
-                                            Build Your Team!
-                                        </button>
-                                    </div>
-                                </td>
-                                <td className="text-white border-x border-b border-gray-700"></td>
-                                <td className="text-white border-x border-b border-gray-700"></td>
-                                <td className="text-white border-x border-b border-gray-700"></td>
+                                {data.headers.map((header, i) => (
+                                <th
+                                    key={i}
+                                    className={`py-4 px-6 text-left text-lg font-bold ${
+                                    i === 0
+                                    ? 'text-white relative border-gray-800 bg-gray-700 rounded-t-md'
+                                    :
+                                    i === 1 ? 'bg-blue-600 text-white border-blue-700 rounded-t-lg relative' : 'border-x border-t rounded-t-lg relative bg-gray-700 border-gray-800'
+                                    }`}
+                                >
+                                    {i === 1 && (
+                                    <span className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-green-500 text-xs px-2 py-1 rounded-full text-white font-semibold">
+                                        {data.badge}
+                                    </span>
+                                    )}
+                                    {header}
+                                </th>
+                                ))}
                             </tr>
-                        </tfoot>
-                    </table>
+                            </thead>
+                            <tbody>
+                            {data.rows.map((row, idx) => (
+                                <tr key={idx} className="border-t">
+                                {row.map((col, i) => (
+                                    <td
+                                    key={i}
+                                    className={`py-4 px-6 align-top text-sm whitespace-pre-line ${
+                                        i === 0
+                                        ? ' font-semibold border-s border-b border-gray-700'
+                                        : i === 1
+                                        ? 'text-md border-x-2 border-blue-600 border-b font-bold'
+                                        : 'border-x border-b border-gray-700'
+                                    } ${
+                                        idx === data.rows.length - 1
+                                        ? 'bg-gray-100 text-black font-bold'
+                                        : ''
+                                    }`}
+                                    >
+                                    {col}
+                                    </td>
+                                ))}
+                                </tr>
+                            ))}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td className="font-semibold border-s border-b text-white border-gray-700"></td>
+                                    <td className="text-black border-x-2 border-blue-600 border-b-2 font-medium rounded-b">
+                                        <div className="p-4 flex justify-center">
+                                            <button className="bg-blue-600 text-white text-sm font-semibold px-4 py-2">
+                                                Build Your Team!
+                                            </button>
+                                        </div>
+                                    </td>
+                                    <td className="text-white border-x border-b border-gray-700"></td>
+                                    <td className="text-white border-x border-b border-gray-700"></td>
+                                    <td className="text-white border-x border-b border-gray-700"></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
                 </div>
             </section>
             <section>
