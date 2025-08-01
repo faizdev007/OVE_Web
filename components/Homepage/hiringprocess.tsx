@@ -39,7 +39,7 @@ export default function HiringProcess()
     ];
     return(
     <>
-    <section className='bg-white relative px-4 py-10 sm:px-6 lg:px-8 mx-auto dark:bg-gray-700'>
+    <section className='bg-white hidden relative px-4 py-10 sm:px-6 lg:px-8 mx-auto dark:bg-gray-700'>
         <div className={`animate-fade-left animate-ease-in animate-alternate animate-fill-both flex items-center`}>
             <div className='mx-auto w-full h-full grid md:grid-cols-2'>  
                 <div className='mb-6 flex flex-col justify-center 2xl:gap-15 lg:gap-10 gap-5 text-center md:text-start'>
@@ -120,7 +120,7 @@ export default function HiringProcess()
             ))}
         </div>
         <div className='w-full flex justify-center mt-10'>  
-            <button className='w-1/3 cursor-pointer hover:bg-green-700 drop-shadow shadow hover:shadow-xl bg-green-600 text-white lg:p-3 p-2 xl:text-3xl font-bold rounded'>Hire a talent</button>
+            <button className='md:w-1/3 w-1/2 cursor-pointer hover:bg-green-700 drop-shadow shadow hover:shadow-xl bg-green-600 text-white lg:p-3 p-2 xl:text-3xl text-nowarp font-bold rounded'>Hire a talent</button>
         </div>
     </section>
     </>
