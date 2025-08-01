@@ -91,7 +91,7 @@ export default function Hire()
             </section>
             <section className="py-12 flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
                 <h2 className="text-blue-700 mb-18 capitalize text-center font-bold text-4xl">How to Hire Python developer through OVE</h2>
-                <div className="grid xl:grid-cols-4 md:grid-cols-2 mb-6">
+                <div className="grid 2xl:grid-cols-4 md:grid-cols-2 mb-6">
                     <div className="flex flex-col items-center gap-3">
                         <Image alt="imge" src={'/assets/hire/step1.webp'} width={300} height={300}/>
                         <h3 className="md:text-2xl text-center text-xl font-bold">Place a free Request</h3>
@@ -113,7 +113,9 @@ export default function Hire()
                         <p>Our dedicated Python developers, skilled at engineering robust web solutions for clients, helped different types and sizes of businesses in diverse industries.</p>
                     </div>
                 </div>
-                <button className="bg-blue-600 p-2 rounded w-max xl:text-3xl md:text-xl text-white px-6 font-bold cursor-pointer">Hire With Confidence</button>
+                <div className="flex justify-center">
+                    <button className="bg-blue-600 p-2 rounded w-max xl:text-3xl md:text-xl text-white px-6 font-bold cursor-pointer">Hire With Confidence</button>
+                </div>
             </section>
 
             <section className="py-12 flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
@@ -197,9 +199,9 @@ export default function Hire()
                                 key={i}
                                 className={`py-4 px-6 text-left text-lg font-bold ${
                                 i === 0
-                                ? 'text-white relative'
+                                ? 'text-white relative border-gray-800 bg-gray-700 rounded-t-md'
                                 :
-                                i === 1 ? 'bg-blue-600 text-white rounded-t-lg relative' : ' border-b rounded-t-lg relative bg-gray-100'
+                                i === 1 ? 'bg-blue-600 text-white border-blue-700 rounded-t-lg relative' : 'border-x border-t rounded-t-lg relative bg-gray-700 border-gray-800'
                                 }`}
                             >
                                 {i === 1 && (
@@ -220,10 +222,10 @@ export default function Hire()
                                 key={i}
                                 className={`py-4 px-6 align-top text-sm whitespace-pre-line ${
                                     i === 0
-                                    ? ' font-semibold border-s border-b'
+                                    ? ' font-semibold border-s border-b border-gray-700'
                                     : i === 1
                                     ? 'text-md border-x-2 border-blue-600 border-b font-bold'
-                                    : 'border-x border-b'
+                                    : 'border-x border-b border-gray-700'
                                 } ${
                                     idx === data.rows.length - 1
                                     ? 'bg-gray-100 text-black font-bold'
@@ -238,7 +240,7 @@ export default function Hire()
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td className="font-semibold border-s border-b text-white"></td>
+                                <td className="font-semibold border-s border-b text-white border-gray-700"></td>
                                 <td className="text-black border-x-2 border-blue-600 border-b-2 font-medium rounded-b">
                                     <div className="p-4 flex justify-center">
                                         <button className="bg-blue-600 text-white text-sm font-semibold px-4 py-2">
@@ -246,9 +248,9 @@ export default function Hire()
                                         </button>
                                     </div>
                                 </td>
-                                <td className="text-white border-x border-b"></td>
-                                <td className="text-white border-x border-b"></td>
-                                <td className="text-white border-x border-b"></td>
+                                <td className="text-white border-x border-b border-gray-700"></td>
+                                <td className="text-white border-x border-b border-gray-700"></td>
+                                <td className="text-white border-x border-b border-gray-700"></td>
                             </tr>
                         </tfoot>
                     </table>
