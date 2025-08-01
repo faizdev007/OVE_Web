@@ -11,7 +11,34 @@ export default function HiringProcess()
         {step:'03',title:'Interview & Assess',info:'You interview the shortlisted candidates directly. Test their skills, evaluate their mindset, and ensure they align with your team dynamics and vision.',color:'#FF894F',svg:'#'},
         {step:'04',title:'Onboard & Scale',info:'Once you’ve selected your resource(s), onboarding is swift and supported by us. Scale up or down flexibly — no long-term contracts, just results-driven collaboration.',color:'#EA5B6F',svg:'#'},
     ];
+    const steps = [
+        {
+        step: '01',
+        title: 'Share Your Requirements',
+        color:'#77BEF0',
+        description: `Tell us what you're looking for — from tech stack to experience level. Whether it’s a frontend developer, DevOps engineer, or full-stack team, we tailor the search to your exact needs.`,
+        },
+        {
+        step: '02',
+        title: 'Get Vetted Profiles',
+        color:'#FFCB61',
+        description: `Within 48 hours, receive a shortlist of handpicked, pre-vetted developers who meet your criteria — assessed for technical skill, communication, and cultural fit.`,
+        },
+        {
+        step: '03',
+        title: 'Interview & Assess',
+        color:'#FF894F',
+        description: `You interview the shortlisted candidates directly. Test their skills, evaluate their mindset, and ensure they align with your team dynamics and vision.`,
+        },
+        {
+        step: '04',
+        title: 'Onboard & Scale',
+        color:'#EA5B6F',
+        description: `Once you’ve selected your resource(s), onboarding is swift and supported by us. Scale up or down flexibly — no long-term contracts, just results-driven collaboration.`,
+        },
+    ];
     return(
+    <>
     <section className='bg-white relative px-4 py-10 sm:px-6 lg:px-8 mx-auto dark:bg-gray-700'>
         <div className={`animate-fade-left animate-ease-in animate-alternate animate-fill-both flex items-center`}>
             <div className='mx-auto w-full h-full grid md:grid-cols-2'>  
@@ -55,12 +82,44 @@ export default function HiringProcess()
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         ))}
                     </div>
                 </div>
             </div>
         </div>
-    </section>);
+    </section>
+    <section className="bg-white dark:bg-gray-900 py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto text-center">
+        <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          Our Comprehensive Hiring Process
+        </h2>
+        <p className="text-lg text-gray-600 dark:text-gray-300 mb-12">
+          We make hiring remote IT talent seamless, fast, and transparent. Our structured 4-step process ensures you get the right developer with the right skills at the right time — without the guesswork or hidden costs.
+        </p>
+      </div>
+
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
+        {steps.map((stepItem, index) => (
+          <div
+            key={index}
+            className="relative overflow-hidden bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition duration-300"
+            style={{ borderBottom: `3px solid ${stepItem.color}` }}
+          >
+            <div className="absolute top-4 right-4 text-5xl font-bold text-blue-600 opacity-10">
+              {stepItem.step}
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+              {stepItem.title}
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 text-sm">
+              {stepItem.description}
+            </p>
+            <div className="absolute -top-3 -start-3 rounded-full h-10 w-10" style={{'background':stepItem.color}}></div>
+          </div>
+        ))}
+      </div>
+    </section>
+    </>
+    );
 }
