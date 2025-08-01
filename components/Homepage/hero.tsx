@@ -8,7 +8,7 @@ export default function Herosection()
     const { elementRef, isVisible } = useInView();
     return(<section className="bg-black dark:bg-gray-800 text-white relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
     <div ref={elementRef}>
-        <div className='flex items-center xl:py-18'>
+        <div className='flex items-center pt-8'>
             <div className={`w-full mx-auto h-full md:grid grid-cols-2 items-center`}>  
                 <div className='p-4 flex flex-col h-full md:justify-between justify-center gap-3 text-center md:text-start'>
                     <div className="flex flex-col gap-6 2xl:gap-18">
@@ -23,7 +23,7 @@ export default function Herosection()
                         <div className="flex gap-2 md:flex-row flex-col-reverse items-start">
                             <div className="w-full">
                                 <button className='w-full bg-green-600 hover:bg-green-700 lg:p-3 p-2 2xl:text-3xl text-sm font-bold rounded cursor-pointer' aria-label='Get Started'>🚀 Get Started </button>
-                                <div className='mt-6 text-sm'>👆🏼 $0 until you Hire</div>
+                                <div className='mt-2 text-sm'>👆🏼 $0 until you Hire</div>
                             </div>
                             <span className="font-bold md:text-2xl text-lg mt-[1.3%] w-full flex-1">OR</span>
                             <button className='w-full bg-gray-600 hover:bg-gray-700 lg:p-3 p-2 2xl:text-3xl text-sm font-bold rounded cursor-pointer' aria-label='Book a 15-min Call'>📅 Book a Call</button>

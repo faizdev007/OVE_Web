@@ -39,6 +39,21 @@ export default function Hire()
             "description": "Migrating applications to Python and integrating with other systems and platforms."
             }
         ];
+    
+    const data = {
+        headers: ['Factors', 'Optimal Virtual Employee', 'Arc.dev', 'Uplers', 'Toptal'],
+        badge: 'BEST VALUE',
+        rows: [
+        ['Starting Salary (Monthly)', '$1,500–$3,000', '$6,000–$10,000', '$4,000–$8,000', '$8,000–$12,000'],
+        ['Licensing Cost\n(Hardware/Software)', 'Zero', 'Extra Cost', 'Extra Cost', 'Extra Cost'],
+        ['Project Management Fee', 'Free', '$20–$35/hour', '$15–$30/hour', '$25–$45/hour'],
+        ['Timesheet/Proof of Work', 'Advanced timesheet with screenshots', 'Advanced timesheet with screenshots', 'Advanced timesheet with screenshots', 'Advanced timesheet with screenshots'],
+        ['AI & Human Vetting', 'AI screening + human evaluation', 'AI screening + human review', 'AI screening + human review', 'AI screening + human review'],
+        ['Support & Timezone', 'Business hours support', 'Business hours support', 'Business hours support', 'Business hours support'],
+        ['Time to Hire', '1–2 weeks', '2–4 weeks', '2–3 weeks', '1–3 weeks'],
+        ['Management Fee', '$799 (Fixed Fee)', '15–30% of total bill', '10–25% of total bill', '20–40% of total bill']
+        ]
+    };
     return(
         <>
             <section className="blackgradiant pt-16 md:flex dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
@@ -173,52 +188,74 @@ export default function Hire()
             <section className="blackgradiant text-white py-12 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
                 <h2 className="text-[42px] font-bold">Still Wasting Weeks Recruiting Python Developer ?</h2>
                 <p className="text-[16px]">Skip the hiring mess. Get top-tier python talent from us under 48 hours</p>
-                <div className="gap-3 items-center">
-                    <div className="shadow-lg shadow-gray-800 drop-shadow  overflow-hidden rounded-md">
-                        <table className="min-w-full border-collapse">
-                            <thead className="bg-gray-900">
-                                <tr className="text-center">
-                                    <th className="p-8 px-12 text-left text-white">Factor</th>
-                                    <th className="p-8 px-12 border-x border-gray-300  text-white">OVE</th>
-                                    <th className="p-8 px-12 border-x border-gray-300 text-white">IN-house</th>
-                                    <th className="p-8 px-12 text-white">Freelancer</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr className="bg-gray-600">
-                                    <td className="p-6 px-8 border-b text-no-warp">Time to get right developer</td>
-                                    <td className="p-6 px-8 border-b text-no-warp bg-blue-600/50 font-bold shadow drop-shadow border-x">1 day - 2 weeks</td>
-                                    <td className="p-6 px-8 border-b text-no-warp border-x">4 - 12 weeks</td>
-                                    <td className="p-6 px-8 border-b text-no-warp">1 - 12 weeks</td>
-                                </tr>
-                                <tr className="bg-gray-700">
-                                    <td className="p-6 px-8 border-b text-no-warp">Time to start a project</td>
-                                    <td className="p-6 px-8 border-b text-no-warp bg-blue-700/50 font-bold shadow drop-shadow border-x">1 day - 2 weeks</td>
-                                    <td className="p-6 px-8 border-b text-no-warp border-x">2 - 10 weeks</td>
-                                    <td className="p-6 px-8 border-b text-no-warp">1 - 10 weeks</td>
-                                </tr>
-                                <tr className="bg-gray-600">
-                                    <td className="p-6 px-8 border-b text-no-warp">Recurring cost of training</td>
-                                    <td className="p-6 px-8 border-b text-no-warp bg-blue-600/50 font-bold shadow drop-shadow border-x">0</td>
-                                    <td className="p-6 px-8 border-b text-no-warp border-x">$10,000 - $30,000</td>
-                                    <td className="p-6 px-8 border-b text-no-warp">0</td>
-                                </tr>
-                                <tr className="bg-gray-700">
-                                    <td className="p-6 px-8 border-b text-no-warp">Time to scale size of the team</td>
-                                    <td className="p-6 px-8 border-b text-no-warp bg-blue-700/50 font-bold shadow drop-shadow border-x">48 Hours - 1 weeks</td>
-                                    <td className="p-6 px-8 border-b text-no-warp border-x">4 weeks - 16 weeks</td>
-                                    <td className="p-6 px-8 border-b text-no-warp">1 weeks - 12 weeks</td>
-                                </tr>
-                                <tr className="bg-gray-600">
-                                    <td className="p-6 px-8">Pricing (Weekly average)</td>
-                                    <td className="p-6 px-8 bg-blue-600/50 font-bold shadow drop-shadow border-x">1.5x</td>
-                                    <td className="p-6 px-8 border-x">2x</td>
-                                    <td className="p-6 px-8">2x</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                <div className="overflow-x-auto bg-gray-900 text-white p-6 rounded-lg shadow">
+                    <table className="min-w-[900px] w-full table-auto table-auto border-collapse">
+                        <thead>
+                        <tr>
+                            {data.headers.map((header, i) => (
+                            <th
+                                key={i}
+                                className={`py-4 px-6 text-left text-lg font-bold ${
+                                i === 0
+                                ? 'text-white relative'
+                                :
+                                i === 1 ? 'bg-blue-600 text-white rounded-t-lg relative' : ' border-b rounded-t-lg relative bg-gray-100'
+                                }`}
+                            >
+                                {i === 1 && (
+                                <span className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-green-500 text-xs px-2 py-1 rounded-full text-white font-semibold">
+                                    {data.badge}
+                                </span>
+                                )}
+                                {header}
+                            </th>
+                            ))}
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {data.rows.map((row, idx) => (
+                            <tr key={idx} className="border-t">
+                            {row.map((col, i) => (
+                                <td
+                                key={i}
+                                className={`py-4 px-6 align-top text-sm whitespace-pre-line ${
+                                    i === 0
+                                    ? ' font-semibold border-s border-b'
+                                    : i === 1
+                                    ? 'text-md border-x-2 border-blue-600 border-b font-bold'
+                                    : 'border-x border-b'
+                                } ${
+                                    idx === data.rows.length - 1
+                                    ? 'bg-gray-100 text-black font-bold'
+                                    : ''
+                                }`}
+                                >
+                                {col}
+                                </td>
+                            ))}
+                            </tr>
+                        ))}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td className="font-semibold border-s border-b text-white"></td>
+                                <td className="text-black border-x-2 border-blue-600 border-b-2 font-medium rounded-b">
+                                    <div className="p-4 flex justify-center">
+                                        <button className="bg-blue-600 text-white text-sm font-semibold px-4 py-2">
+                                            Build Your Team!
+                                        </button>
+                                    </div>
+                                </td>
+                                <td className="text-white border-x border-b"></td>
+                                <td className="text-white border-x border-b"></td>
+                                <td className="text-white border-x border-b"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
                 </div>
+            </section>
+            <section>
+                
             </section>
         </>
     );

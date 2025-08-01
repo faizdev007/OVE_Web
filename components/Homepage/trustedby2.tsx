@@ -11,11 +11,6 @@ const companies = [
   { name: 'Plutora', logo: '/assets/companies/company10.webp'},
   { name: 'Colesgroup', logo: '/assets/companies/company12.webp'},
   { name: 'Qantas', logo: '/assets/companies/company14.webp'},
-  // { name: 'Spotify', logo: '/assets/trustedby/spotify.webp'},
-  // { name: 'Disney', logo: '/assets/trustedby/disney.webp'},
-  // { name: 'Uber', logo: '/assets/trustedby/uber.webp'},
-  // { name: 'Disney', logo: '/assets/trustedby/disney.webp'},
-  // { name: 'Spotify', logo: '/assets/trustedby/spotify.webp'},
 ];
 
 const stats = [
@@ -32,13 +27,13 @@ export default function TrustedBySection() {
       <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center">
         <span className="gradiantorg">Trusted by</span>
       </h2>
-      <p className="max-w-4xl mx-auto text-white dark:text-white mb-12">
+      <p className="max-w-4xl mx-auto text-white dark:text-white">
         Trusted by Companies That Shape the Future
 From Fortune 500 leaders to next-gen disruptors, our developers power innovation across industries — with speed, skill, and accountability at the core
       </p>
 
       {/* Logos */}
-      <div className="flex flex-wrap justify-center gap-10 items-center mb-16">
+      <div className="flex flex-wrap justify-center gap-10 items-center">
         {companies.map((company, i) => (
           <div key={i} className="aspect-[4/1] flex justify-center items-center">
             <Image src={company.logo} alt={company.name} width={120} height={120} className="object-container h-auto w-auto" />
