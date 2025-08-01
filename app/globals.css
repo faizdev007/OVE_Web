@@ -57,7 +57,3 @@ body {
   white-space: nowrap;
   animation: marquee 15s linear infinite;
 }
-
-.swiper {
-  overflow-y: visible!important;
-}
