@@ -42,9 +42,9 @@ export default function Hire()
     return(
         <>
             <section className="blackgradiant pt-16 md:flex dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
-                <div className="flex w-full flex-col gap-8 items-center md:items-start">
+                <div className="flex w-full flex-col gap-8 items-center md:items-start py-6">
                     <h1 className="text-blue-700 xl:text-7xl text-3xl font-bold">Hire Full-Stack Developer</h1>
-                    <p className="md:text-xl text-sm">Develop fast, dynamic user interfaces with vetted React developers. Scale your front-end team today.</p>
+                    <p className="md:text-xl text-sm">Develop fast, dynamic user interfaces with vetted React developers. Scale your front-end team today. Lorem ipsum dolor sit amete consectetur adipiscing elit seedo eiusmod tempor incididunt labore dolore magna aliqua eneom minim veniam quos nostrud exercitation ullamco laboris nisi ut aliquip. Lorem ipsum dolor sit amete consectetur adipiscing elit seedo eiusmod tempor incididunt labore dolore magna aliqua eneom minim veniam quos nostrud exercitation ullamco laboris nisi ut aliquip. </p>
                     <button className="bg-blue-600 p-2 rounded w-max xl:text-3xl md:text-xl px-6 font-bold cursor-pointer">Hire Full-Stack Developer</button>
                     <div className="grid md:grid-cols-3 gap-2">
                         <div className="bg-gray-800 p-4 rounded-md border border-white">
@@ -65,7 +65,7 @@ export default function Hire()
                     <div className="absolute z-20 bottom-0">
                         <Image src={'/assets/hire/Pbg.webp'} alt="PBG" width={500} height={500} className=""/>
                     </div>
-                    <div className="aspect-[1/1] z-30">
+                    <div className="aspect-[1/1] bottom-0 absolute z-30">
                         <Image src={'/assets/hire/anjali.png'} alt="developer" width={500} height={500} className=""/>
                     </div>
                     <div className="absolute text-center bottom-0 z-40 bg-gray-800 p-4 rounded-t-xl shadow-sm drop-shadow">
