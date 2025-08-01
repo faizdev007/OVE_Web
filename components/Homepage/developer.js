@@ -41,7 +41,8 @@ export default function DevelopersSlider() {
           spaceBetween={30}
           slidesPerView={5}
           loop={true}
-          autoplay={{ delay: 3000 }}
+          autoplay={{ delay: 3000, disableOnInteraction: true  }}
+          speed={1000}
           navigation={{
             prevEl: prevRef.current,
             nextEl: nextRef.current,
@@ -94,7 +95,7 @@ export default function DevelopersSlider() {
           ))}
           {/* Custom Navigation Arrows */}
           {isSectionVisible && 
-            <div className="hidden md:flex justify-center items-center gap-6 mt-6 text-black relative z-20">
+            <div className="hidden md:flex justify-center items-center gap-6 mt-6 relative z-20">
               <button ref={prevRef} aria-label='prevref'>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-10 cursor-pointer">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />

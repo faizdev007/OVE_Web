@@ -35,11 +35,12 @@ export default function TrustedBy() {
           spaceBetween={30}
           slidesPerView={3}
           loop={true}
-          autoplay={{ delay: 1000 }}
+          autoplay={{ delay: 1000, disableOnInteraction: false }}
           onInit={(swiper) => {
             swiper.navigation.init();
             swiper.navigation.update();
           }}
+          speed={1000}
           breakpoints={{
             320: { slidesPerView: 1 },
             640: { slidesPerView: 3 },

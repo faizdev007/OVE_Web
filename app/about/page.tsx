@@ -77,7 +77,7 @@ export default function About()
                 </div>
             </section>
             <section className="p-12 relative md:flex md:flex-rows flex-col-reverse dark:bg-gray-800 text-white px-4 sm:px-6 lg:px-8 mx-auto">
-
+                <h2 className="text-blue-700 mb-18 capitalize text-center font-bold text-4xl">Here are a few words shared by our Employees</h2>
             </section>
         </>
     );
