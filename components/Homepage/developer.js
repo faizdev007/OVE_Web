@@ -64,9 +64,9 @@ export default function DevelopersSlider() {
         >
           {developers.map((dev, index) => (
             <SwiperSlide key={index}>
-              <div className={`dev bg-black aspect-[1/1.3] text-white relative rounded-xl shadow-lg animate-fade animate-duration-1000 animate-delay-${index}00 animate-ease-linear hover:shadow-2xl ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} style={{border:`5px solid ${dev.color}`}}>
+              <div className={`dev bg-black aspect-[1/1.3] text-white relative rounded-xl shadow-lg animate-fade animate-duration-1000 animate-delay-${index}00 animate-ease-linear hover:shadow-2xl ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} style={{border:`3px solid ${dev.color}`}}>
                 <div className="relative w-2/3 aspect-[1/1] mx-auto mb-4">
-                  <div className='overflow-hidden absolute rounded-full absolute aspect-[1/1] mt-4' style={{border:`3px solid ${dev.color}`}}>
+                  <div className='overflow-hidden absolute rounded-full absolute aspect-[1/1] mt-4'>
                     {/* Profile Image with Border and Hover Effect */}
                     <img
                       src={dev.image}
@@ -77,6 +77,14 @@ export default function DevelopersSlider() {
                 </div>
                 <div className='p-4 flex flex-col gap-3'>
                   <div className='grid space-y-2 gap-4'>
+                    <div className='flex text-center gap-2 md:gap-0 justify-center'>
+                      <div className='border border-white flex gap-2 px-4 rounded-full py-1 bg-white text-black'>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />
+                        </svg>
+                        Microsoft
+                      </div>
+                    </div>
                     <div className='flex flex-col text-center gap-2 md:gap-0'>
                       <h3 className="font-semibold text-ellipsis overflow-hidden text-clip">{dev.name}</h3>
                       <p className="text-sm overflow-hidden text-ellipsis text-clip">{dev.profile}</p>
