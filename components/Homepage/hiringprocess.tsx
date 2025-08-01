@@ -90,35 +90,38 @@ export default function HiringProcess()
         </div>
     </section>
     <section className="bg-white dark:bg-gray-900 py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-          Our Comprehensive Hiring Process
-        </h2>
-        <p className="text-lg text-gray-600 dark:text-gray-300 mb-12">
-          We make hiring remote IT talent seamless, fast, and transparent. Our structured 4-step process ensures you get the right developer with the right skills at the right time — without the guesswork or hidden costs.
-        </p>
-      </div>
-
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
-        {steps.map((stepItem, index) => (
-          <div
-            key={index}
-            className="relative overflow-hidden bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition duration-300"
-            style={{ borderBottom: `3px solid ${stepItem.color}` }}
-          >
-            <div className="absolute top-4 right-4 text-5xl font-bold text-blue-600 opacity-10">
-              {stepItem.step}
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-              {stepItem.title}
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300 text-sm">
-              {stepItem.description}
+        <div className="max-w-5xl mx-auto text-center">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Our Comprehensive Hiring Process
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-12">
+            We make hiring remote IT talent seamless, fast, and transparent. Our structured 4-step process ensures you get the right developer with the right skills at the right time — without the guesswork or hidden costs.
             </p>
-            <div className="absolute -top-3 -start-3 rounded-full h-10 w-10" style={{'background':stepItem.color}}></div>
-          </div>
-        ))}
-      </div>
+        </div>
+
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
+            {steps.map((stepItem, index) => (
+            <div
+                key={index}
+                className="relative overflow-hidden bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition duration-300"
+                style={{ borderBottom: `3px solid ${stepItem.color}` }}
+            >
+                <div className="absolute top-4 right-4 text-5xl font-bold text-blue-600 opacity-10">
+                {stepItem.step}
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                {stepItem.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                {stepItem.description}
+                </p>
+                <div className="absolute -top-3 -start-3 rounded-full h-10 w-10" style={{'background':stepItem.color}}></div>
+            </div>
+            ))}
+        </div>
+        <div className='w-full flex justify-center mt-10'>  
+            <button className='w-1/3 cursor-pointer hover:bg-green-700 drop-shadow shadow hover:shadow-xl bg-green-600 text-white lg:p-3 p-2 xl:text-3xl font-bold rounded'>Hire a talent</button>
+        </div>
     </section>
     </>
     );
