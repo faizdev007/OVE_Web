@@ -56,12 +56,17 @@ export default function Hire()
     };
     return(
         <>
-            <section className="blackgradiant pt-16 md:flex dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
-                <div className="flex w-full flex-col gap-8 items-center md:items-start py-6">
-                    <h1 className="text-blue-700 xl:text-7xl text-3xl font-bold">Hire Full-Stack Developer</h1>
-                    <p className="md:text-xl text-sm">Develop fast, dynamic user interfaces with vetted React developers. Scale your front-end team today. Lorem ipsum dolor sit amete consectetur adipiscing elit seedo eiusmod tempor incididunt labore dolore magna aliqua eneom minim veniam quos nostrud exercitation ullamco laboris nisi ut aliquip. </p>
-                    <button className="bg-blue-600 p-2 rounded w-max xl:text-3xl md:text-xl px-6 font-bold cursor-pointer">Hire Full-Stack Developer</button>
-                    <div className="grid md:grid-cols-3 gap-2">
+        <div className="relative -top-15 2xl:top-0">
+            <section className="blackgradiant md:h-screen 2xl:h-[600] pt-16 lg:flex gap-2 dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
+                <div className="flex w-full flex-col justify-between gap-8 items-center md:items-start py-6">
+                    <h1 className="text-blue-700 md:text-6xl text-3xl font-bold">Hire Full-Stack Developer</h1>
+                    <p className="md:text-xl text-sm">Lorem ipsum dolor sit amete consectetur adipiscing elit seedo eiusmod tempor incididunt labore dolore magna aliqua eneom minim veniam quos nostrud exercitation ullamco laboris nisi ut aliquip. </p>
+                    <button className="bg-blue-600 p-2 rounded w-max md:text-xl px-6 font-bold cursor-pointer flex gap-2 items-center">Hire Full-Stack Developer
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-7 font-bold">
+                            <path fillRule="evenodd" d="M2 10a.75.75 0 0 1 .75-.75h12.59l-2.1-1.95a.75.75 0 1 1 1.02-1.1l3.5 3.25a.75.75 0 0 1 0 1.1l-3.5 3.25a.75.75 0 1 1-1.02-1.1l2.1-1.95H2.75A.75.75 0 0 1 2 10Z" clipRule="evenodd" />
+                        </svg>
+                    </button>
+                    <div className="grid md:grid-cols-3 gap-2 w-full">
                         <div className="bg-gray-800 p-4 rounded-md border border-white">
                             <h3 className="xl:text-4xl text-3xl font-bold">1.5+</h3>
                             <p>Fully vetted Developer</p>
@@ -76,39 +81,51 @@ export default function Hire()
                         </div>
                     </div>
                 </div>
-                <div className="w-full flex relative justify-center">
-                    <div className="absolute z-20 bottom-0">
-                        <Image src={'/assets/hire/Pbg.webp'} alt="PBG" width={500} height={500} className=""/>
-                    </div>
-                    <div className="aspect-[1/1] bottom-0 absolute z-30">
-                        <Image src={'/assets/hire/anjali.png'} alt="developer" width={500} height={500} className=""/>
-                    </div>
-                    <div className="absolute text-center bottom-0 z-40 bg-gray-800 p-4 rounded-t-xl shadow-sm drop-shadow">
-                        <h3 className="md:text-3xl font-bold">AnJali</h3>
-                        <span>Senior Full-Stack Developer</span>
+                <div className="w-full lg:flex items-center hidden relative justify-center">
+                    <div className="aspect-[1/1] md:absolute z-30">
+                        <div className="absolute z-20 bottom-0">
+                            <Image src={'/assets/hire/Pbg.webp'} alt="PBG" width={500} height={500} className="h-auto w-auto"/>
+                        </div>
+                        <Image src={'/assets/hire/anjali.png'} alt="developer" width={500} height={500} className="relative z-40"/>
+                        <div className="absolute text-center z-40 bg-gray-800 bottom-0 w-full p-4 rounded-t-xl shadow-sm drop-shadow">
+                            <h3 className="md:text-3xl font-bold">AnJali</h3>
+                            <span>Senior Full-Stack Developer</span>
+                        </div>
                     </div>
                 </div>
             </section>
             <section className="py-12 flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
                 <h2 className="text-blue-700 mb-18 capitalize text-center font-bold text-4xl">How to Hire Python developer through OVE</h2>
                 <div className="grid 2xl:grid-cols-4 md:grid-cols-2 gap-6 mb-6">
-                    <div className="flex flex-col items-center gap-3">
-                        <Image alt="imge" src={'/assets/hire/step1.webp'} width={300} height={300}/>
+                    <div className="flex relative flex-col items-center gap-3">
+                        <div className="relative z-10 w-full flex flex-col justify-center items-center">
+                            <span className="text-[170px] z-20 text-gray-300/90 absolute start-0 w-full h-full flex items-center ">1</span>
+                            <Image alt="imge" src={'/assets/hire/step1.webp'} width={300} height={300}/>
+                        </div>
                         <h3 className="md:text-2xl text-center text-xl font-bold">Place a free Request</h3>
                         <p>Our dedicated Python developers, skilled at engineering robust web solutions for clients, helped different types and sizes of businesses in diverse industries.</p>
                     </div>
-                    <div className="flex flex-col items-center gap-3">
-                        <Image alt="imge" src={'/assets/hire/step2.webp'} width={300} height={300}/>
+                    <div className="flex flex-col relative items-center gap-3">
+                        <div className="relative w-full z-10 flex flex-col justify-center items-center">
+                            <span className="text-[170px] z-20 text-gray-300/90 absolute start-0 w-full h-full flex items-center ">2</span>
+                            <Image alt="imge" src={'/assets/hire/step2.webp'} width={300} height={300}/>
+                        </div>
                         <h3 className="md:text-2xl text-center text-xl font-bold">Tell us about your needs</h3>
                         <p>Our dedicated Python developers, skilled at engineering robust web solutions for clients, helped different types and sizes of businesses in diverse industries.</p>
                     </div>
-                    <div className="flex flex-col items-center gap-3">
-                        <Image alt="imge" src={'/assets/hire/step3.webp'} width={300} height={300}/>
+                    <div className="flex flex-col relative items-center gap-3">
+                        <div className="relative w-full z-10 flex flex-col justify-center items-center">
+                            <span className="text-[170px] z-20 text-gray-300/90 absolute start-0 w-full h-full flex items-center ">3</span>
+                            <Image alt="imge" src={'/assets/hire/step3.webp'} width={300} height={300}/>
+                        </div>
                         <h3 className="md:text-2xl text-center text-xl font-bold">Interview the best</h3>
                         <p>Our dedicated Python developers, skilled at engineering robust web solutions for clients, helped different types and sizes of businesses in diverse industries.</p>
                     </div>
-                    <div className="flex flex-col items-center gap-3">
-                        <Image alt="imge" src={'/assets/hire/step4.webp'} width={300} height={300}/>
+                    <div className="flex flex-col relative items-center gap-3">
+                        <div className="relative w-full z-10 flex flex-col justify-center items-center">
+                            <span className="text-[170px] z-20 text-gray-300/90 absolute start-0 w-full h-full flex items-center ">4</span>
+                            <Image alt="imge" src={'/assets/hire/step4.webp'} width={300} height={300}/>
+                        </div>
                         <h3 className="md:text-2xl text-center text-xl font-bold">Onboard the choosen one</h3>
                         <p>Our dedicated Python developers, skilled at engineering robust web solutions for clients, helped different types and sizes of businesses in diverse industries.</p>
                     </div>
@@ -261,6 +278,7 @@ export default function Hire()
             <section>
                 
             </section>
+        </div>
         </>
     );
 }
