@@ -33,10 +33,10 @@ export default function Herosection()
                 <div className='p-4 flex items-start h-full'>
                     <div style={{ position: 'relative', width:'100%', aspectRatio: '16 / 9' }}>
                         <iframe 
-                                loading="lazy" title="Gumlet video player"
-                                src="https://play.gumlet.io/embed/682435ae1eaff0ba85e6bd2c?background=false&autoplay=true&loop=true&disableControls=false"
-                                style={{border:'3px solid #c8c8c8', borderRadius:'4px', position: 'absolute', top: '0', left: '0', height: '100%', width: '100%'}}
-                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;">
+                            loading="lazy" title="Gumlet video player"
+                            src="https://play.gumlet.io/embed/682435ae1eaff0ba85e6bd2c?background=false&autoplay=true&loop=true&disableControls=false"
+                            style={{border:'3px solid #c8c8c8', borderRadius:'4px', position: 'absolute', top: '0', left: '0', height: '100%', width: '100%'}}
+                            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;">
                         </iframe>
                     </div>
                 </div>

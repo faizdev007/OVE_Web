@@ -46,10 +46,10 @@ export default function OurProjectsSlider() {
   const [isSectionVisible, setIsSectionVisible] = useState(true);
 
   return (
-    <section className="relative px-4 py-12 sm:px-6 lg:px-8 mx-auto dark:bg-gray-700 text-center">
+    <section className="relative blackgradiant px-4 py-12 sm:px-6 lg:px-8 mx-auto dark:bg-gray-800 text-center">
       {/* Heading */}
-      <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center mb-5">Things We’ve Shipped</h2>
-      <p className="max-w-4xl mx-auto text-gray-600 dark:text-white mb-12">
+      <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center mb-5 text-white">Things We’ve Shipped</h2>
+      <p className="max-w-4xl mx-auto text-white mb-12">
         From rapid MVPs to enterprise-grade systems—here’s what happens when great teams build right.
       </p>
 
@@ -71,7 +71,7 @@ export default function OurProjectsSlider() {
             <SwiperSlide key={index}>
               <div className="lg:flex flex-col md:flex-row gap-6 items-stretch justify-center">
                 {/* Left Box */}
-                <div className="border border-black rounded-md p-3 mb-2 lg:mb-0 w-full lg:w-1/3 aspect-[1/1] md:aspect-auto text-left">
+                <div className="border border-gray-100 bg-white text-black rounded-md p-3 mb-2 lg:mb-0 w-full lg:w-1/3 aspect-[1/1] md:aspect-auto text-left">
                   <div className="h-full overflow-auto">
                     <span className="text-sm font-semibold bg-blue-600 text-white px-3 py-1 rounded-full inline-block mb-6">
                       {project.tag}
@@ -82,9 +82,9 @@ export default function OurProjectsSlider() {
                           <h3 className="font-semibold text-md mb-1">
                             {feature.icon} {feature.heading}
                           </h3>
-                          <p className="text-sm text-gray-600 dark:text-white">{feature.text}</p>
+                          <p className="text-sm text-gray-600 dark:text-black">{feature.text}</p>
                           <div className=''>
-                            <ul className="list-disc ml-6 space-y-1">
+                            <ul className="list-disc ml-6 space-y-2">
                               {project.lists.map((item, index) => (
                                 <li key={index}>{item}</li>
                               ))}
@@ -105,7 +105,7 @@ export default function OurProjectsSlider() {
           ))}
           {/* Arrows */}
           {isSectionVisible && 
-          <div className="hidden md:flex relative justify-center z-20 items-center gap-6 mt-6">
+          <div className="hidden md:flex relative justify-center z-20 items-center text-white gap-6 mt-6">
             <button ref={prevProj} aria-label='prevproj'>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-10 cursor-pointer">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
