@@ -17,11 +17,11 @@ export default function Home() {
     <>
       <Herosection/>
       <DevelopersSlider/>
+      <HireBy/>
       <HiringProcess/>
       <TrustedBySection/>
       <WhyChooseUs/>
       <OurProjectsSlider/>
-      <HireBy/>
       <FaqSection/>
     </>
   );
