@@ -233,7 +233,7 @@ export default function ContactPage() {
                                                 <a
                                                 key={i}
                                                 href={`tel:${item.number.replace(/\s+/g, '')}`}
-                                                className="text-blue-900 font-semibold hover:underline"
+                                                className="text-blue-900 font-semibold dark:text-white hover:underline"
                                                 aria-label={item.number}
                                                 >
                                                 {item.number}{' '}

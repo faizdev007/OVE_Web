@@ -22,11 +22,11 @@ export default function Herosection()
                     <div className='text-center max-w-auto'>
                         <div className="flex gap-2 md:flex-row flex-col-reverse items-start">
                             <div className="w-full">
-                                <button className='w-full bg-green-600 hover:bg-green-700 lg:p-3 p-2 2xl:text-3xl text-sm font-bold rounded cursor-pointer' aria-label='Get Started'>🚀 Get Started </button>
+                                <button className='w-full bg-green-600 hover:bg-green-700 lg:p-3 p-2 2xl:text-xl text-sm font-bold rounded cursor-pointer' aria-label='Get Started'>🚀 Get Started </button>
                                 <div className='mt-2 text-sm'>👆🏼 $0 until you Hire</div>
                             </div>
                             <span className="font-bold md:text-2xl text-lg mt-[1.3%] w-full flex-1">OR</span>
-                            <button className='w-full bg-gray-600 hover:bg-gray-700 lg:p-3 p-2 2xl:text-3xl text-sm font-bold rounded cursor-pointer' aria-label='Book a 15-min Call'>📅 Book a Call</button>
+                            <button className='w-full bg-gray-600 hover:bg-gray-700 lg:p-3 p-2 2xl:text-xl text-sm font-bold rounded cursor-pointer' aria-label='Book a 15-min Call'>📅 Book a Call</button>
                         </div>
                     </div>
                 </div>
