@@ -19,7 +19,7 @@ export default function Header() {
           </svg>),
     menuCategory:'Hire',
     urls:[
-      {name:'Full-stack Developer',url:'/full_stack_developer'},
+      {name:'Full-stack Developer',url:'/hire'},
       {name:'Front-End Developer',url:'/front_end_developer'},
       {name:'Back-End Developer',url:'/back_end_developer'},
       {name:'Database Engineer',url:'/database_engineer'},
