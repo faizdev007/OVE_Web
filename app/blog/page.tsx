@@ -1,5 +1,3 @@
-import EmailForm from "@/components/EmailForm";
-import FaqSection from "@/components/Homepage/faq";
 import Image from "next/image";
 import React from 'react';
 
@@ -22,7 +20,7 @@ export default async function Contact()
                                 post.jetpack_featured_media_url &&
                                 <Image src={post.jetpack_featured_media_url} width={300} height={300} alt="image" className="h-auto w-auto object-cover"/>
                             }
-                            <a href={`/blog/${post.slug}`}>
+                            <a href="#">
                                 <h2>{post.title.rendered}</h2>
                                 <div dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
                             </a>
