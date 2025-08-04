@@ -97,7 +97,7 @@ export default function AboutPage()
                     </div>
                 </div>
             </section>
-            <section className="p-12 dark:bg-gray-800 text-white px-4 sm:px-6 lg:px-8 mx-auto">
+            <section className="p-12 hidden dark:bg-gray-800 text-white px-4 sm:px-6 lg:px-8 mx-auto">
                 <h2 className="text-blue-700 mb-10 text-center font-bold text-4xl">
                     Here are a few words shared by our Employees
                 </h2>

@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true, // Ignore ESLint during build
   },
+  images: {
+    domains: ['staging.optimalvirtualemployee.com.au'],
+  },
 };
 
 export default nextConfig;

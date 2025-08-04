@@ -22,8 +22,8 @@ const roles = [
 
 const hirebyskill = [
   { name: 'React', logo: '/assets/hireby/skills/React.webp' },
-  { name: 'Go', logo: '/assets/hireby/skills/go.webp' },
-  { name: 'GraphQL', logo: '/assets/hireby/skills/graphQL.webp' },
+  { name: 'Go', logo: '/assets/hireby/skills/golangimg.webp' },
+  { name: 'GraphQL', logo: '/assets/hireby/skills/graphQLimg.webp' },
   { name: 'HTML5', logo: '/assets/hireby/skills/HTML5.webp' },
   { name: 'Java', logo: '/assets/hireby/skills/Java.webp' },
   { name: 'JavaScript', logo: '/assets/hireby/skills/JavaScript.webp' },

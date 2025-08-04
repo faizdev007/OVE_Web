@@ -59,13 +59,13 @@ export default function DevelopersSlider() {
             640: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
             1450: { slidesPerView: 4 },
-            // 1850: { slidesPerView: 4 },
+            1850: { slidesPerView: 5 },
           }}
         >
           {developers.map((dev, index) => (
             <SwiperSlide key={index}>
               {/* style={{border:`3px solid ${dev.color}`}} */}
-              <div className={`bg-black mt-30 aspect-[1/1.3] text-white relative rounded-xl shadow-lg animate-fade animate-duration-1000 animate-delay-${index}00 animate-ease-linear hover:shadow-2xl ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} style={{border:`3px solid ${dev.color}`}}>
+              <div className={`bg-black flex flex-col justify-around mt-30 aspect-[1/1.3] text-white relative rounded-xl shadow-lg animate-fade animate-duration-1000 animate-delay-${index}00 animate-ease-linear hover:shadow-2xl ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} style={{border:`3px solid ${dev.color}`}}>
                 <div className="relative w-2/3 aspect-[2/1] mx-auto mb-4">
                   <div className='overflow-hidden absolute -top-25 border border-gray-800 z-20 rounded-full absolute aspect-[1/1] mt-4'>
                     {/* Profile Image with Border and Hover Effect */}

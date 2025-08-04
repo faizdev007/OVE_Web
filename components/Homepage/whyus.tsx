@@ -50,7 +50,7 @@ export default function WhyChooseUs() {
                 />
               </div>
             </div>
-            <p className="text-sm text-gray-700 mt-4 max-w-xs">{item.text}</p>
+            <p className="text-sm text-gray-700 dark:text-white mt-4 max-w-xs">{item.text}</p>
           </div>
         ))}
       </div>

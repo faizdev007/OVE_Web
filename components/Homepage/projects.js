@@ -69,32 +69,33 @@ export default function OurProjectsSlider() {
         >
           {projects.map((project, index) => (
             <SwiperSlide key={index}>
-              <div className="flex flex-col md:flex-row gap-6 items-stretch justify-center">
+              <div className="lg:flex flex-col md:flex-row gap-6 items-stretch justify-center">
                 {/* Left Box */}
-                <div className="border border-black rounded-md p-6 w-full md:w-1/3 text-left">
+                <div className="border border-black rounded-md p-6 mb-2 w-full lg:w-1/3 text-left">
                   <div className="mb-4">
                     <span className="text-sm font-semibold bg-blue-600 text-white px-3 py-1 rounded-full inline-block mb-6">
                       {project.tag}
                     </span>
-
                     {project.features.map((feature, i) => (
                       <div key={i} className="mb-4 flex flex-col gap-4">
                         <h3 className="font-semibold text-md mb-1">
                           {feature.icon} {feature.heading}
                         </h3>
                         <p className="text-sm text-gray-600 dark:text-white">{feature.text}</p>
-                        <ul className="list-disc ml-6 space-y-1">
-                          {project.lists.map((item, index) => (
-                            <li key={index}>{item}</li>
-                          ))}
-                        </ul>
+                        <div className='min-h-32 overflow-y-auto'>
+                          <ul className="list-disc ml-6 space-y-1">
+                            {project.lists.map((item, index) => (
+                              <li key={index}>{item}</li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 {/* Right Image */}
-                <div className="bg-white w-full md:w-2/3 aspect-[2/1] flex items-center justify-center rounded-md border border-black text-2xl font-bold text-black">
+                <div className="bg-white w-full lg:w-2/3 aspect-[2/1] flex items-center justify-center rounded-md border border-black text-2xl font-bold text-black">
                   <Image src={project.image} width={1000} height={800} alt={project.tag} className="object-contain h-full w-full" />
                 </div>
               </div>
