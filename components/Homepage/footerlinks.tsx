@@ -28,7 +28,7 @@ export default function Footerlinks()
         {name:'Contact Us',url:'/contact'},
         {name:'Terms of Use',url:'/use_terms'},
         {name:'Careers',url:'#'},
-        {name:'Blog',url:'#'},
+        {name:'Blog',url:'/blog'},
     ];
 
     const supportlinks = [

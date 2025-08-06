@@ -28,3 +28,16 @@
   display: flex;
   animation: marquee 30s linear infinite;
 }
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.logo-slider {
+    animation: slideLeft 50s linear infinite;
+}

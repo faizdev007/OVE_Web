@@ -8,13 +8,27 @@ const logos = [
   '/assets/companies/company1.webp',
   '/assets/companies/company2.webp',
   '/assets/companies/company3.webp',
+  '/assets/companies/company4.webp',
   '/assets/companies/company5.webp',
   '/assets/companies/company6.webp',
   '/assets/companies/company7.webp',
+  '/assets/companies/company8.webp',
   '/assets/companies/company9.webp',
   '/assets/companies/company10.webp',
+  '/assets/companies/company11.webp',
   '/assets/companies/company12.webp',
-  '/assets/companies/company14.webp',
+  '/assets/companies/company13.webp',
+  '/assets/companies/company15.webp',
+  '/assets/companies/company16.webp',
+  '/assets/companies/company17.webp',
+  '/assets/companies/company18.webp',
+  '/assets/companies/company19.webp',
+  '/assets/companies/company20.webp',
+  '/assets/companies/company21.webp',
+  '/assets/companies/company22.webp',
+  '/assets/companies/company23.webp',
+  '/assets/companies/company24.webp',
+  '/assets/companies/company25.webp',
 ];
 
 export default function TrustedBy() {
@@ -30,37 +44,16 @@ export default function TrustedBy() {
 
         {/* Marquee Section */}
         <div className="flex-1 px-4 overflow-hidden relative">
-          <Swiper
-          modules={[Navigation, Autoplay]}
-          spaceBetween={30}
-          slidesPerView={3}
-          loop={true}
-          autoplay={{ delay: 1000, disableOnInteraction: false }}
-          onInit={(swiper) => {
-            swiper.navigation.init();
-            swiper.navigation.update();
-          }}
-          speed={1000}
-          breakpoints={{
-            320: { slidesPerView: 1 },
-            640: { slidesPerView: 3 },
-            1024: { slidesPerView: 5 },
-          }}
-        >
-          {logos.map((src, index) => (
-            <SwiperSlide key={index}>
-              <div className="aspect-[4/1] h-16 flex items-center">
-                <img
-                  src={src}
-                  alt="logo"
-                  width={130}
-                  height={130}
-                  className="object-container px-2 opacity-80 hover:opacity-100 transition"
-                />
+          <div className="relative flex-1 gap-4 overflow-hidden px-4 sm:px-6 lg:px-8 mx-auto ">
+              <div className="logo-slider flex w-max md:space-x-8 space-x-4">
+                  {logos.map((logo, index) => (
+                      <img key={index} src={logo} className="h-16 p-2 border border-black bg-white shadow w-auto border rounded" alt={`Logo ${index + 1}`} />
+                  ))}
+                  {logos.map((logo, index) => (
+                      <img key={index} src={logo} className="h-16 p-2 border border-black bg-white shadow w-auto border rounded" alt={`Logo ${index + 1}`} />
+                  ))}
               </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+          </div>
         </div>
       </div>
     </section>

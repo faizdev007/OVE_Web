@@ -16,11 +16,16 @@ export default function DevelopersSlider() {
   const [isSectionVisible, setIsSectionVisible] = useState(true);
 
   const developers = [
-    { name: 'Dev 1', profile:'Software Developer', image: '/assets/developer/dev1.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/Angular.webp','/assets/hireby/skills/Fedora.webp','/assets/hireby/skills/JavaScript.webp'] },
-    { name: 'Dev 2', profile:'DevOps Developer', image: '/assets/developer/dev2.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/GraphQL.webp','/assets/hireby/skills/FileZilla.webp','/assets/hireby/skills/Docker.webp'] },
-    { name: 'Dev 3', profile:'Backend Developer', image: '/assets/developer/dev3.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/Livewire.webp','/assets/hireby/skills/GraphQL.webp','/assets/hireby/skills/MongoDB.webp'] },
-    { name: 'Dev 4', profile:'FullStack Developer', image: '/assets/developer/dev4.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/React.webp','/assets/hireby/skills/Slack.webp','/assets/hireby/skills/Postman.webp'] },
-    { name: 'Dev 5', profile:'Angular Developer', image: '/assets/developer/dev5.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/Angular.webp','/assets/hireby/skills/Tailwind-CSS.webp','/assets/hireby/skills/Visual-Studio.webp'] },
+    { name: 'Aisha', profile:'Full-Stack Developer', describe:'Expert in serverless full-stack application development, focusing on real-time interactive apps.', previous:'/assets/previous/idp.webp', image: '/assets/developer/Aisha.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/MongoDB.webp','/assets/hireby/skills/Express.webp','/assets/hireby/skills/React.webp'] },
+    { name: 'Ethan', profile:'AI RESEARCH ENG', describe:'Develops cloud-native, containerized backend services.', previous:'/assets/previous/linktree.webp', image: '/assets/developer/Ethan.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/Python.webp','/assets/hireby/skills/Scikit-Learn.webp','/assets/hireby/skills/MLflow.webp','/assets/hireby/skills/Docker.webp'] },
+    { name: 'Tanvi', profile:'BACK-END DEVELOPER', describe:'Develops cloud-native, containerized backend services.', previous:'/assets/previous/gamma.webp', image: '/assets/developer/Tanvi.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/Go.webp','/assets/hireby/skills/Kubernetes.webp','/assets/hireby/skills/PostgreSQL.webp'] },
+    { name: 'Renu', profile:'ML ENGINEER', describe:'Fine-tunes LLMs for advanced NLP use cases.', previous:'/assets/previous/airwallex.webp', image: '/assets/developer/Renu.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/Python.webp','/assets/hireby/skills/PyTorch.webp','/assets/hireby/skills/Hugging Face.webp'] },
+    { name: 'Alexander', profile:'Full-Stack Developer', describe:'Builds scalable full-stack apps with modern JS frameworks.', previous:'/assets/previous/afterplay.webp', image: '/assets/developer/Alexander.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/Ruby on Rails.webp','/assets/hireby/skills/React.webp','/assets/hireby/skills/PostgreSQL.webp'] },
+    { name: 'Miguel', profile:'FULL-STACK DEVELOPER', describe:'Full-stack engineer with deep Ruby on Rails expertise.', previous:'/assets/previous/tesco.webp', image: '/assets/developer/Miguel.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/Ruby on Rails.webp','/assets/hireby/skills/React.webp','/assets/hireby/skills/PostgreSQL.webp'] },
+    { name: 'Jose', profile:'ML OPS ENGINEER', describe:'Automates ML pipelines and deploys models at scale.', previous:'/assets/previous/atlassian.webp', image: '/assets/developer/Jose.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/Python.webp','/assets/hireby/skills/Kubeflow.webp','/assets/hireby/skills/MLflow.webp'] },
+    { name: 'Ella', profile:'FRONT-END DEVELOPER', describe:'Creates pixel-perfect UI with seamless user experience.', previous:'/assets/previous/kainos.webp', image: '/assets/developer/Ella.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/React.webp','/assets/hireby/skills/Vue.js.webp','/assets/hireby/skills/SASS.webp'] },
+    { name: 'Karthik', profile:'AI ENGINEER', describe:'Designs and deploys deep learning pipelines for computer vision in production.', previous:'/assets/previous/canva.webp', image: '/assets/developer/Karthik.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/Python.webp','/assets/hireby/skills/TensorFlow.webp','/assets/hireby/skills/Keras.webp'] },
+    { name: 'Preeda', profile:'ML ENGINEER', describe:'Optimizes deep learning models for edge devices.', previous:'/assets/previous/bhp.webp', image: '/assets/developer/Preeda.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/Python.webp','/assets/hireby/skills/Lightning.webp','/assets/hireby/skills/ONNX.webp'] },
   ];
 
   // Monitor Swiper slide visibility and compare with card limit
@@ -65,7 +70,7 @@ export default function DevelopersSlider() {
           {developers.map((dev, index) => (
             <SwiperSlide key={index}>
               {/* style={{border:`3px solid ${dev.color}`}} */}
-              <div className={`bg-blue-900 flex flex-col justify-around mt-30 aspect-[1/1.3] text-white relative rounded-xl shadow-lg animate-fade animate-duration-1000 animate-delay-${index}00 animate-ease-linear hover:shadow-2xl ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} style={{border:`3px solid ${dev.color}`}}>
+              <div className={`bg-[#2562eb] flex flex-col justify-around mt-30 aspect-[1/1.3] text-white relative rounded-xl shadow-lg animate-fade animate-duration-1000 animate-delay-${index}00 animate-ease-linear hover:shadow-2xl ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} style={{border:`3px solid ${dev.color}`}}>
                 <div className="relative w-2/3 aspect-[2/1] mx-auto mb-4">
                   <div className='overflow-hidden absolute -top-25 border border-gray-800 z-20 rounded-full absolute aspect-[1/1] mt-4'>
                     {/* Profile Image with Border and Hover Effect */}
@@ -78,17 +83,25 @@ export default function DevelopersSlider() {
                 </div>
                 <div className='p-4 flex flex-col gap-3'>
                   <div className='grid space-y-2 gap-4'>
-                    <div className='flex text-center gap-2 md:gap-0 justify-center'>
-                      <div className='border border-white flex gap-2 px-4 rounded-full py-1 bg-white text-black'>
+                    <div className='hidden text-center gap-2 md:gap-0 justify-center'>
+                      <div className='border border-white flex gap-2 items-center px-4 rounded-full py-1 bg-white text-black'>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />
                         </svg>
-                        Microsoft
+                        <span className='text-sm font-semibold uppercase'>
+                          {dev.previous}
+                        </span>
                       </div>
                     </div>
-                    <div className='flex flex-col text-center gap-2 md:gap-0'>
-                      <h3 className="font-semibold text-ellipsis overflow-hidden text-clip">{dev.name}</h3>
+                    <div className='flex flex-col text-center gap-0'>
+                      <h3 className="font-semibold text-xl text-ellipsis overflow-hidden text-clip">{dev.name}</h3>
                       <p className="text-sm overflow-hidden text-ellipsis text-clip">{dev.profile}</p>
+                    </div>
+                    <div className='flex flex-col gap-2 text-center'>
+                      <p className="text-white mb-1">PREVIOUSLY</p>
+                      <div className='flex justify-center items-center aspect-[4/1] h-12'>
+                        <Image loading="eager" fetchPriority="high" decoding="async" width={300} height={300} className="object-container w-auto h-12 mb-2" src={dev.previous} alt={dev.previous.split('/').pop().replace('.webp', '')}/>
+                      </div>
                     </div>
                     <div className="flex flex-wrap gap-1 items-center justify-around">
                       {dev.techstack.length > 0 && dev.techstack.map((items, index)=>(
@@ -96,7 +109,9 @@ export default function DevelopersSlider() {
                       ))}
                     </div>
                   </div>
-                  <p className='text-xs text-justify text-clip'>Lorem ipsum dolor amet consectetur adipiscing elit sed eiusmod tempor incididunt ut labore dolore magna aliqua enim.</p>
+                  <p className="text-xs text-justify overflow-hidden whitespace-normal text-ellipsis line-clamp-2" title={dev.describe}>
+                    {dev.describe}
+                  </p>
                 </div>
               </div>
 

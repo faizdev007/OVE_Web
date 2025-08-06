@@ -140,10 +140,10 @@ export default function ContactPage() {
                         <input type="tel" name="phone" onInput={onlyNumber} maxLength={15} placeholder="Phone Number *" value={formData.phone} onChange={handleChange} className="p-3 border rounded w-full" required/>
                         </div>
                         <select name="service" value={formData.service} onChange={handleChange} className="p-3 border rounded w-full" required>
-                        <option value="">Please select from the dropdown</option>
-                        <option value="Web Development">Web Development</option>
-                        <option value="Mobile App">Mobile App</option>
-                        <option value="UI/UX Design">UI/UX Design</option>
+                            <option value="">Please select from the dropdown</option>
+                            <option value="Web Development">Web Development</option>
+                            <option value="Mobile App">Mobile App</option>
+                            <option value="UI/UX Design">UI/UX Design</option>
                         </select>
                         <textarea name="message" value={formData.message} onChange={handleChange} rows={5} placeholder="How Can We Help?*" className="p-3 border rounded w-full" required />
                         <input type="file" className="w-full hidden border rounded p-2 text-sm" disabled={true} />
@@ -190,7 +190,7 @@ export default function ContactPage() {
                     {/* Logo List */}
                     <div className="grid grid-cols-3 xl:grid-cols-4 gap-3 mt-8">
                         {logos.map((logo, i) => (
-                            <div key={i} className="lg:h-20 bg-black rounded-md p-6 shadow border border-gray-900 shadow-gray-800 flex items-center justify-center">
+                            <div key={i} className="lg:h-20 bg-white rounded-md p-6 shadow border border-gray-900 shadow-gray-800 flex items-center justify-center">
                                 <img
                                     src={logo}
                                     alt="logo"

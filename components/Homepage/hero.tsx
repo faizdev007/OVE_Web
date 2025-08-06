@@ -14,7 +14,7 @@ export default function Herosection()
                     <div className="flex flex-col gap-6 2xl:gap-18">
                         <h1 className='flex 2xl:gap-8 xl:gap-2 gap-1 xl:text-5xl lg:text-3xl text-xl font-bold flex-col'>
                             <span>Need Developers On Demand?</span>
-                            <span className='text-[#3AA0FF]'>We’re Your Augmentation Partner</span>
+                            <span className='text-[#2562eb]'>We’re Your Augmentation Partner</span>
                             <span className="hidden">without the search</span>
                         </h1>
                         <p className='text-xs lg:text-md xl:text-xl 2xl:text-2xl'>Reduce your time to hire from months to days. Our remote staff augmentation connects you with pre-vetted developers who onboard quickly and start delivering real value from day one.</p>
@@ -22,11 +22,11 @@ export default function Herosection()
                     <div className='text-center max-w-auto'>
                         <div className="flex gap-2 md:flex-row flex-col-reverse items-start">
                             <div className="w-full">
-                                <button className='w-full bg-green-600 hover:bg-green-700 lg:p-3 p-2 2xl:text-xl text-sm font-bold rounded cursor-pointer' aria-label='Get Started'>🚀 Get Started </button>
+                                <a href="/contact" className='w-full flex text-center justify-center bg-green-600 hover:bg-green-700 lg:p-3 p-2 2xl:text-xl text-sm font-bold rounded cursor-pointer' aria-label='Get Started'>🚀 Get Started </a>
                                 <div className='mt-2 text-sm'>👆🏼 $0 until you Hire</div>
                             </div>
                             <span className="font-bold md:text-2xl text-lg mt-[1.3%] w-full flex-1">OR</span>
-                            <button className='w-full bg-gray-600 hover:bg-gray-700 lg:p-3 p-2 2xl:text-xl text-sm font-bold rounded cursor-pointer' aria-label='Book a 15-min Call'>📅 Book a Call</button>
+                            <a href="/contact" className='w-full bg-gray-600 hover:bg-gray-700 lg:p-3 p-2 2xl:text-xl text-sm font-bold rounded cursor-pointer' aria-label='Book a 15-min Call'>📅 Book a Call</a>
                         </div>
                     </div>
                 </div>

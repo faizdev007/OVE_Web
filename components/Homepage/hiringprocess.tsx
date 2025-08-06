@@ -103,7 +103,7 @@ export default function HiringProcess()
             {steps.map((stepItem, index) => (
             <div
                 key={index}
-                className="relative overflow-hidden bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition duration-300"
+                className="relative overflow-hidden bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition duration-300"
                 style={{ borderBottom: `3px solid ${stepItem.color}` }}
             >
                 <div className="absolute top-4 right-4 text-5xl font-bold text-blue-600 opacity-10">
