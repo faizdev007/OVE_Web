@@ -27,6 +27,7 @@ export default function AboutPage()
         // {name: 'Marc Bishop', role: 'General Manager-Operations', image: '/assets/ove/manager.jpg'},
         {name: 'Ragbhendra Kumar Jha', linkedin:'#', role: 'CFO', image: '/assets/ove/cfo.webp'},
         {name: 'Ronnie R Arora', linkedin:'https://www.linkedin.com/in/ronnie-rahul-arora-ba12b26/', role: 'VP-Growth', image: '/assets/ove/ronnie.jpg'},
+        {name: 'Samta Sharma', linkedin:'https://www.linkedin.com/in/samtasharma/', role: 'VP-Technology', image: '/assets/ove/samta.webp'},
     ];
 
     return(
@@ -43,7 +44,7 @@ export default function AboutPage()
                     </div>
                 </div>
                 <div className="lg:w-[70%] md:rounded-md rounded-b-md">
-                    <Image src={'/assets/about/img1.webp'} alt="aboutimg1" className="object-cover w-full" height={500} width={1000}/>
+                    <Image src={'/assets/about/1.jpg'} alt="aboutimg1" className="object-cover w-full" height={500} width={1000}/>
                 </div>
             </section>
             <div className="bg-black py-12">
@@ -64,15 +65,15 @@ export default function AboutPage()
                                     </ul>
                                 </div>
                             </div>
-                            <div className="flex justify-center items-center">
-                                <Image src={'/assets/about/image2.webp'} alt="slide" width={500} height={200} className="object-cover"/>
+                            <div className="flex aspect-[2/1] w-full justify-end items-center">
+                                <Image src={'/assets/about/4.webp'} alt="slide" width={500} height={200} className="object-cover"/>
                             </div>
                         </div>
                     </section>
                     <section className="relative md:flex md:flex-rows flex-col-reverse dark:bg-gray-800 text-white px-4 sm:px-6 lg:px-8 mx-auto">
                         <div className="md:grid flex flex-col items-center md:grid-cols-2 gap-4 mb-4">
-                            <div className="flex justify-center items-center">
-                                <Image src={'/assets/about/image2.webp'} alt="slide" width={500} height={200} className="object-cover"/>
+                            <div className="flex justify-center aspect-[2/1] w-full justify-start items-center">
+                                <Image src={'/assets/about/2.webp'} alt="slide" width={500} height={200} className="object-cover"/>
                             </div>
                             <div className="flex flex-col gap-4 justify-center">
                                 <div className="mb-10">
@@ -104,8 +105,8 @@ export default function AboutPage()
                                     </ul>
                                 </div>
                             </div>
-                            <div className="flex justify-center items-center">
-                                <Image src={'/assets/about/image2.webp'} alt="slide" width={500} height={200} className="object-cover"/>
+                            <div className="flex aspect-[2/1] w-full justify-end items-center">
+                                <Image src={'/assets/about/3.webp'} alt="slide" width={500} height={333} className="object-cover"/>
                             </div>
                         </div>
                     </section>
@@ -122,7 +123,7 @@ export default function AboutPage()
                                     <div className="aspect-[1/1] flex w-20 h-20 rounded-full overflow-hidden ">
                                         <Image src={member.image} alt={member.name} width={300} height={300} className="w-auto h-auto object-container"/>
                                     </div>
-                                    <a href="#" aria-label="LinkedIn" className="absolute -bottom-3 -left-3 p-1 overflow-hidden rounded-full">
+                                    <a href={member.linkedin} aria-label="LinkedIn" className="absolute -bottom-3 -left-3 p-1 overflow-hidden rounded-full">
                                         <Image src={'/assets/sociallinks/linkedin2.png'} width={30} height={30} className="object-cover" alt="LinkedIn"/>
                                     </a>
                                 </div>
