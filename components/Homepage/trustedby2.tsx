@@ -3,13 +3,12 @@
 import Image from 'next/image';
 
 const companies = [
-  { name: 'IAG', logo: '/assets/companies/company3.webp'},
-  { name: '5 Star Granite', logo: '/assets/companies/company5.webp'},
-  { name: 'WestPac', logo: '/assets/companies/company6.webp'},
-  { name: 'Macquarie', logo: '/assets/companies/company7.webp'},  
-  { name: 'Property Webmasters', logo: '/assets/companies/company9.webp'},
-  { name: 'Plutora', logo: '/assets/companies/company10.webp'},
-  { name: 'Colesgroup', logo: '/assets/companies/company12.webp'},
+  { name: 'Barclays', logo: '/assets/companies/company3.webp'},
+  { name: 'sky', logo: '/assets/companies/company5.webp'},
+  { name: 'gsk', logo: '/assets/companies/company7.webp'},  
+  { name: 'cadbury', logo: '/assets/companies/company9.webp'},
+  { name: 'deliveroo', logo: '/assets/companies/company2.webp'},
+  { name: 'astraZeneca', logo: '/assets/companies/company8.webp'},
   { name: 'Qantas', logo: '/assets/companies/company14.webp'},
 ];
 
@@ -25,7 +24,7 @@ export default function TrustedBySection() {
     <section className="bg-black dark:bg-gray-800 text-white relative px-4 py-12 sm:px-6 lg:px-8 mx-auto text-center flex flex-col gap-10">
       {/* Heading */}
       <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center">
-        <span className="gradiantorg">Trusted by</span>
+        <span className="gradiantorg text-4xl lg:text-6xl md:text-5xl font-bold mb-4">Trusted by</span>
       </h2>
       <p className="max-w-4xl mx-auto text-white dark:text-white">
         Trusted by Companies That Shape the Future

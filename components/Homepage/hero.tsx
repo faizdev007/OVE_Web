@@ -9,15 +9,15 @@ export default function Herosection()
     return(<section className="bg-black dark:bg-gray-800 text-white relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
     <div ref={elementRef}>
         <div className='flex items-center pt-8'>
-            <div className={`w-full mx-auto h-full md:grid grid-cols-2 items-center`}>  
+            <div className={`w-full mx-auto h-full lg:grid grid-cols-2 items-center`}>  
                 <div className='p-4 flex flex-col h-full md:justify-between justify-center gap-3 text-center md:text-start'>
                     <div className="flex flex-col gap-6 2xl:gap-18">
-                        <h1 className='flex 2xl:gap-8 xl:gap-2 gap-1 xl:text-5xl lg:text-3xl text-xl font-bold flex-col'>
+                        <h1 className='text-4xl xl:text-5xl flex flex-col gap-8 font-bold text-white'>
                             <span>Need Developers On Demand?</span>
                             <span className='text-[#2562eb]'>We’re Your Augmentation Partner</span>
                             <span className="hidden">without the search</span>
                         </h1>
-                        <p className='text-xs lg:text-md xl:text-xl 2xl:text-2xl'>Reduce your time to hire from months to days. Our remote staff augmentation connects you with pre-vetted developers who onboard quickly and start delivering real value from day one.</p>
+                        <p className='text-sm lg:text-md xl:text-xl 2xl:text-2xl'>Reduce your time to hire from months to days. Our remote staff augmentation connects you with pre-vetted developers who onboard quickly and start delivering real value from day one.</p>
                     </div>
                     <div className='text-center max-w-auto'>
                         <div className="flex gap-2 md:flex-row flex-col-reverse items-start">
