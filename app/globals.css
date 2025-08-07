@@ -3,6 +3,8 @@
 @import "tailwindcss";
 @import "tailwindcss-animated";
 /* @import "tailwindcss-typography"; */
+@import "slick-carousel/slick/slick-theme.css";
+@import "slick-carousel/slick/slick.css";
 
 :root {
   --background: #ffffff;
