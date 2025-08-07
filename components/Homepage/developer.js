@@ -70,7 +70,7 @@ export default function DevelopersSlider() {
           {developers.map((dev, index) => (
             <SwiperSlide key={index}>
               {/* style={{border:`3px solid ${dev.color}`}} */}
-              <div className={`bg-[#2562eb] flex flex-col justify-around mt-30 aspect-[1/1.3] text-white relative rounded-xl shadow-lg animate-fade animate-duration-1000 animate-delay-${index}00 animate-ease-linear hover:shadow-2xl ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} style={{border:`3px solid ${dev.color}`}}>
+              <div className={`bg-oveblue flex flex-col justify-around mt-30 aspect-[1/1.3] text-white relative rounded-xl shadow-lg animate-fade animate-duration-1000 animate-delay-${index}00 animate-ease-linear hover:shadow-2xl ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} style={{border:`3px solid ${dev.color}`}}>
                 <div className="relative w-2/3 aspect-[2/1] mx-auto mb-4">
                   <div className='overflow-hidden absolute -top-25 border border-gray-800 z-20 rounded-full absolute aspect-[1/1] mt-4'>
                     {/* Profile Image with Border and Hover Effect */}
@@ -103,10 +103,15 @@ export default function DevelopersSlider() {
                         <Image loading="eager" fetchPriority="high" decoding="async" width={300} height={300} className="object-container w-auto h-12 mb-2" src={dev.previous} alt={dev.previous.split('/').pop().replace('.webp', '')}/>
                       </div>
                     </div>
-                    <div className="flex flex-wrap gap-1 items-center justify-around">
-                      {dev.techstack.length > 0 && dev.techstack.map((items, index)=>(
-                        <span key={index} className='bg-white text-black border rounded-full px-4'>{items.split('/').pop().replace('.webp', '')}</span>
-                      ))}
+                    <div className='overflow-hidden'>
+                      <div className="flex logo-slider gap-1 items-center justify-around">
+                        {dev.techstack.length > 0 && dev.techstack.map((items, index)=>(
+                          <span key={index} className='bg-white text-black text-nowrap border rounded-full px-4'>{items.split('/').pop().replace('.webp', '')}</span>
+                        ))}
+                        {dev.techstack.length > 0 && dev.techstack.map((items, index)=>(
+                          <span key={index} className='bg-white text-black text-nowrap border rounded-full px-4'>{items.split('/').pop().replace('.webp', '')}</span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                   <p className="text-xs text-justify overflow-hidden whitespace-normal text-ellipsis line-clamp-2" title={dev.describe}>

@@ -15,7 +15,7 @@ export default function HiringProcess()
         {
         step: '01',
         title: 'Share Your Requirements',
-        color:'#77BEF0',
+        color:'#2562eb',
         description: `Tell us what you're looking for — from tech stack to experience level. Whether it’s a frontend developer, DevOps engineer, or full-stack team, we tailor the search to your exact needs.`,
         },
         {
@@ -104,16 +104,16 @@ export default function HiringProcess()
             <div
                 key={index}
                 className="relative overflow-hidden bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition duration-300"
-                style={{ borderBottom: `3px solid ${stepItem.color}` }}
-            >
-                <div className="absolute top-4 right-4 text-5xl font-bold text-blue-600 opacity-10">
-                {stepItem.step}
+                    style={{ borderBottom: `3px solid ${stepItem.color}` }}
+                >
+                <div className="absolute top-4 right-4 text-5xl font-bold text-oveblue opacity-70">
+                    {stepItem.step}
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                {stepItem.title}
+                    {stepItem.title}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 text-sm">
-                {stepItem.description}
+                    {stepItem.description}
                 </p>
                 <div className="absolute -top-3 -start-3 rounded-full h-10 w-10" style={{'background':stepItem.color}}></div>
             </div>

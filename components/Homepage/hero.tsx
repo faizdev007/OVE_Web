@@ -14,7 +14,7 @@ export default function Herosection()
                     <div className="flex flex-col gap-6 2xl:gap-18">
                         <h1 className='text-4xl xl:text-5xl flex flex-col gap-8 font-bold text-white'>
                             <span>Need Developers On Demand?</span>
-                            <span className='text-[#2562eb]'>We’re Your Augmentation Partner</span>
+                            <span className='text-oveblue'>We’re Your Augmentation Partner</span>
                             <span className="hidden">without the search</span>
                         </h1>
                         <p className='text-sm lg:text-md xl:text-xl 2xl:text-2xl'>Reduce your time to hire from months to days. Our remote staff augmentation connects you with pre-vetted developers who onboard quickly and start delivering real value from day one.</p>
