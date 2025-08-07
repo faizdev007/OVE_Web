@@ -52,7 +52,7 @@ export default function DevelopersSlider() {
       autoplay: true,
       autoplaySpeed: 3000,
       speed: 500,
-      slidesToShow: 5,  // Default value for larger screens
+      slidesToShow: 4,  // Default value for larger screens
       slidesToScroll: 1,
       swipeToSlide: true,
       initialSlide: 0,
@@ -72,9 +72,16 @@ export default function DevelopersSlider() {
           }
         },
         {
+          breakpoint: 2080, // 4K screens
+          settings: {
+            slidesToShow: 5,  // 7 slides for 4K screens
+            slidesToScroll: 1,
+          }
+        },
+        {
           breakpoint: 1268, // Large laptop and desktops
           settings: {
-            slidesToShow: 5,  // 5 slides for this screen size
+            slidesToShow: 4,  // 5 slides for this screen size
             slidesToScroll: 1,
           }
         },
@@ -133,7 +140,7 @@ export default function DevelopersSlider() {
     <section  ref={elementRef} className={`bg-white dark:bg-gray-700 relative px-4 py-12 sm:px-6 lg:px-8 mx-auto`}>
       <Image loading='lazy' width={100} height={100} className='absolute hidden object-cover bottom-0 w-full start-0 end-0' src={'/assets/cloudbg.webp'} alt="cloudbg"/>
       <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center mb-12">Meet Our Developers</h2>
-      <div className={`transform relative bg-black/90 transition-all duration-300 opacity-100 dark:bg-gray-800 rounded-md mx-auto`}>
+      <div className={`transform relative bg-black/90 rounded overflow-hidden transition-all duration-300 opacity-100 dark:bg-gray-800 rounded-md mx-auto`}>
         <div className='slider-container relative z-10 gap-4 space-x-4'>
           <Slider {...settings}>
               {developers.map((dev, index) => (
