@@ -157,7 +157,7 @@ export default function DevelopersSlider() {
                       </div>
                     </div>
                     <div className='p-4 flex flex-col gap-3'>
-                      <div className='grid space-y-2 gap-4'>
+                      <div className='grid space-y-1 gap-4'>
                         <div className='hidden text-center gap-2 md:gap-0 justify-center'>
                           <div className='border border-white flex gap-2 items-center px-4 rounded-full py-1 bg-white text-black'>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
@@ -170,17 +170,17 @@ export default function DevelopersSlider() {
                         </div>
                         <div className='flex flex-col text-center gap-0'>
                           <h3 className="font-semibold text-xl text-ellipsis overflow-hidden text-clip">{dev.name}</h3>
-                          <p className="text-sm overflow-hidden text-ellipsis text-clip text-white/60">{dev.profile}</p>
+                          <p className="text-sm overflow-hidden text-ellipsis text-clip text-white/80">{dev.profile}</p>
                         </div>
                         <div className='overflow-hidden'>
-                          <div className="flex flex-wrap gap-1 text-xs items-center justify-center">
+                          <div className="flex flex-wrap gap-1 h-[55px] text-xs items-center justify-center">
                             {dev.techstack.length > 0 && dev.techstack.map((items, index)=>(
                               <span key={index} className='border border-gray-100 rounded-full px-2 py-1'>{items.split('/').pop().replace('.webp', '')}</span>
                             ))}
                           </div>
                         </div>
                         <div className='flex flex-col gap-2 text-center'>
-                          <p className="text-white mb-1 font-bold">PREVIOUSLY AT</p>
+                          <p className="text-white/60 mb-1 font-bold">PREVIOUSLY</p>
                           <div className='flex justify-center items-center aspect-[4/1] h-12'>
                             <Image loading="eager" fetchPriority="high" decoding="async" width={300} height={300} className="object-container w-auto h-12 mb-2" src={dev.previous} alt={dev.previous.split('/').pop().replace('.webp', '')}/>
                           </div>
