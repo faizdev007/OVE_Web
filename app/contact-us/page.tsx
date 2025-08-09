@@ -79,7 +79,7 @@ export default function ContactPage() {
         e.preventDefault();
         setStatus(true);
         try {
-        const res = await fetch('/api/hello', {
+        const res = await fetch('/api/ContactFormSend', {
             method: 'POST',
             body: JSON.stringify(formData),
             headers: {
