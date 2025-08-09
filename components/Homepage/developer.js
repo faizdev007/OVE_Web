@@ -53,7 +53,7 @@ export default function DevelopersSlider() {
       // autoplay: true,
       autoplaySpeed: 3000,
       speed: 500,
-      slidesToShow: 4,  // Default value for larger screens
+      slidesToShow: 5,  // Default value for larger screens
       slidesToScroll: 1,
       swipeToSlide: true,
       initialSlide: 0,
@@ -133,17 +133,21 @@ export default function DevelopersSlider() {
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      if (width >= 3840) {
+      if (width >= 2080) {
+        setSettings(prev => ({ ...prev, slidesToShow: 9, slidesToScroll: 1 }));
+      } else if (width >= 1680) {
         setSettings(prev => ({ ...prev, slidesToShow: 7, slidesToScroll: 1 }));
-      } else if (width >= 2080) {
+      } else if (width >= 1590) {
+        setSettings(prev => ({ ...prev, slidesToShow: 6, slidesToScroll: 1 }));
+      } else if (width >= 1280) {
         setSettings(prev => ({ ...prev, slidesToShow: 5, slidesToScroll: 1 }));
       } else if (width >= 1080) {
         setSettings(prev => ({ ...prev, slidesToShow: 4, slidesToScroll: 1 }));
-      } else if (width >= 738) {
+      } else if (width >= 769) {
         setSettings(prev => ({ ...prev, slidesToShow: 3, slidesToScroll: 1 }));
       } else if (width >= 426) {
         setSettings(prev => ({ ...prev, slidesToShow: 2, slidesToScroll: 1 }));
-      } else if (width >= 376) {
+      } else if (width >= 321) {
         setSettings(prev => ({ ...prev, slidesToShow: 1, slidesToScroll: 1 }));
       } else {
         setSettings(prev => ({ ...prev, slidesToShow: 1, slidesToScroll: 1, centerMode: false }));
@@ -170,19 +174,23 @@ export default function DevelopersSlider() {
           <Slider {...settings}>
               {developers.map((dev, index) => (
                 <div className='px-1 py-2'>
-                  <div className={`bg-oveblue flex flex-col justify-between mt-25 aspect-[1/1.2] text-white relative rounded-xl shadow-md animate-fade animate-duration-1000 animate-delay-${index}00 animate-ease-linear hover:shadow-lg ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} style={{border:`3px solid ${dev.color}`}}>
-                    <div className="relative w-2/3 aspect-[2/1] mx-auto">
+                  <div className={`bg-oveblue gap-4 flex flex-col justify-between mt-25 aspect-[1/1.2] text-white relative rounded-xl shadow-md animate-fade animate-duration-1000 animate-delay-${index}00 animate-ease-linear hover:shadow-lg ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} style={{border:`3px solid ${dev.color}`}}>
+                    <div className="relative w-2/3 flex items-center justify-center aspect-[3/1] mx-auto">
                       <div className='overflow-hidden absolute -top-20 border border-gray-800 z-20 rounded-full absolute aspect-[1/1]'>
                         {/* Profile Image with Border and Hover Effect */}
-                        <img
+                        <Image
+                          loading="eager"
                           src={dev.image}
                           alt={dev.name}
-                          className="w-full h-full mx-auto object-cover transform transition-all duration-300 hover:scale-105"
+                          width={300}
+                          height={300}
+                          decoding="async"
+                          className="w-38 h-38 mx-auto object-cover transform transition-all duration-300 hover:scale-105"
                         />
                       </div>
                     </div>
-                    <div className='p-4 flex flex-col gap-3'>
-                      <div className='grid space-y-1 gap-4'>
+                    <div className='p-2 flex flex-col gap-3'>
+                      <div className='grid gap-2 space-y-1'>
                         <div className='hidden text-center gap-2 md:gap-0 justify-center'>
                           <div className='border border-white flex gap-2 items-center px-4 rounded-full py-1 bg-white text-black'>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
