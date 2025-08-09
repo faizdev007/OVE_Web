@@ -147,7 +147,7 @@ export default function DevelopersSlider() {
         setSettings(prev => ({ ...prev, slidesToShow: 3, slidesToScroll: 1 }));
       } else if (width >= 426) {
         setSettings(prev => ({ ...prev, slidesToShow: 2, slidesToScroll: 1 }));
-      } else if (width >= 321) {
+      } else if (width >= 350) {
         setSettings(prev => ({ ...prev, slidesToShow: 1, slidesToScroll: 1 }));
       } else {
         setSettings(prev => ({ ...prev, slidesToShow: 1, slidesToScroll: 1, centerMode: false }));
@@ -190,7 +190,7 @@ export default function DevelopersSlider() {
                       </div>
                     </div>
                     <div className='p-2 flex flex-col gap-3'>
-                      <div className='grid gap-2 space-y-1'>
+                      <div className='space-y-2'>
                         <div className='hidden text-center gap-2 md:gap-0 justify-center'>
                           <div className='border border-white flex gap-2 items-center px-4 rounded-full py-1 bg-white text-black'>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
@@ -206,7 +206,7 @@ export default function DevelopersSlider() {
                           <p className="text-sm overflow-hidden text-ellipsis text-clip text-white/80">{dev.profile}</p>
                         </div>
                         <div className='overflow-hidden'>
-                          <div className="flex flex-wrap gap-1 h-[55px] text-xs items-center justify-center">
+                          <div className="flex flex-wrap w-full gap-1 h-[60px] text-xs items-center justify-center">
                             {dev.techstack.length > 0 && dev.techstack.map((items, index)=>(
                               <span key={index} className='border border-gray-100 rounded-full px-2 py-1'>{items.split('/').pop().replace('.webp', '')}</span>
                             ))}
