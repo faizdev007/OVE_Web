@@ -50,7 +50,7 @@ export default function DevelopersSlider() {
 
   const [settings, setSettings] = useState({
       infinite: true,
-      autoplay: true,
+      // autoplay: true,
       autoplaySpeed: 3000,
       speed: 500,
       slidesToShow: 4,  // Default value for larger screens
@@ -138,11 +138,13 @@ export default function DevelopersSlider() {
       } else if (width >= 2080) {
         setSettings(prev => ({ ...prev, slidesToShow: 5, slidesToScroll: 1 }));
       } else if (width >= 1080) {
-        setSettings(prev => ({ ...prev, slidesToShow: 4, slidesToScroll: 1, centerMode: false }));
+        setSettings(prev => ({ ...prev, slidesToShow: 4, slidesToScroll: 1 }));
       } else if (width >= 738) {
-        setSettings(prev => ({ ...prev, slidesToShow: 3, slidesToScroll: 1, centerMode: false }));
-      } else if (width >= 370) {
-        setSettings(prev => ({ ...prev, slidesToShow: 2, slidesToScroll: 1, centerMode: false }));
+        setSettings(prev => ({ ...prev, slidesToShow: 3, slidesToScroll: 1 }));
+      } else if (width >= 426) {
+        setSettings(prev => ({ ...prev, slidesToShow: 2, slidesToScroll: 1 }));
+      } else if (width >= 376) {
+        setSettings(prev => ({ ...prev, slidesToShow: 1, slidesToScroll: 1 }));
       } else {
         setSettings(prev => ({ ...prev, slidesToShow: 1, slidesToScroll: 1, centerMode: false }));
       }
@@ -164,11 +166,11 @@ export default function DevelopersSlider() {
       <Image loading='lazy' width={100} height={100} className='absolute hidden object-cover bottom-0 w-full start-0 end-0' src={'/assets/cloudbg.webp'} alt="cloudbg"/>
       <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center mb-12">Meet Our Developers</h2>
       <div className={`transform relative bg-black/90 rounded overflow-hidden transition-all duration-300 opacity-100 dark:bg-gray-800 rounded-md mx-auto`}>
-        <div className='slider-container relative z-10 gap-4 space-x-4'>
+        <div className='slider-container relative z-10'>
           <Slider {...settings}>
               {developers.map((dev, index) => (
                 <div className='px-1 py-2'>
-                  <div className={`bg-oveblue flex flex-col justify-between mt-25 aspect-[1/1.3] text-white relative rounded-xl shadow-md animate-fade animate-duration-1000 animate-delay-${index}00 animate-ease-linear hover:shadow-lg ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} style={{border:`3px solid ${dev.color}`}}>
+                  <div className={`bg-oveblue flex flex-col justify-between mt-25 aspect-[1/1.2] text-white relative rounded-xl shadow-md animate-fade animate-duration-1000 animate-delay-${index}00 animate-ease-linear hover:shadow-lg ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} style={{border:`3px solid ${dev.color}`}}>
                     <div className="relative w-2/3 aspect-[2/1] mx-auto">
                       <div className='overflow-hidden absolute -top-20 border border-gray-800 z-20 rounded-full absolute aspect-[1/1]'>
                         {/* Profile Image with Border and Hover Effect */}
