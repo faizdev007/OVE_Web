@@ -6,8 +6,8 @@ import TrustedBy from "./trustedby";
 export default function Herosection()
 {
     const { elementRef, isVisible } = useInView();
-    return(<section className="bg-black dark:bg-gray-800 text-white relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-    <div ref={elementRef}>
+    return(<section className="bg-black dark:bg-gray-800 text-white">
+    <div ref={elementRef} className="relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
         <div className='flex items-center pt-8'>
             <div className={`w-full mx-auto h-full lg:grid grid-cols-2 items-center`}>  
                 <div className='p-4 flex flex-col h-full md:justify-between justify-center gap-3 text-center md:text-start'>
@@ -42,9 +42,9 @@ export default function Herosection()
                 </div>
             </div>
         </div>
-        <div className=''>
-            <TrustedBy/>
-        </div>
+    </div>
+    <div className=''>
+        <TrustedBy/>
     </div>
     </section>);
 }
