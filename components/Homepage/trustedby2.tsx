@@ -41,7 +41,7 @@ From Fortune 500 leaders to next-gen disruptors, our developers power innovation
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 max-w-6xl mx-auto">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-10 max-w-6xl mx-auto">
         {stats.map((stat, i) => (
           <div key={i} className="md:border-l-3 pl-4 border-blue-500 text-center md:text-start">
             <h3 className="text-3xl font-bold text-white">{stat.count}</h3>
