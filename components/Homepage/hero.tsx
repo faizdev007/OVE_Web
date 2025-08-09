@@ -12,7 +12,7 @@ export default function Herosection()
             <div className={`w-full mx-auto h-full lg:grid grid-cols-2 items-center`}>  
                 <div className='p-4 flex flex-col h-full md:justify-between justify-center gap-3 text-center md:text-start'>
                     <div className="flex flex-col gap-6 2xl:gap-18">
-                        <h1 className='text-4xl xl:text-5xl flex flex-col gap-8 font-bold text-white'>
+                        <h1 className='text-4xl xl:text-5xl flex flex-col gap-4 font-bold text-white'>
                             <span>Need Developers On Demand?</span>
                             <span className='text-oveblue'>We’re Your Augmentation Partner</span>
                             <span className="hidden">without the search</span>
