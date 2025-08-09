@@ -93,3 +93,12 @@ body {
   background: #f1f1f1;
   display: none; /* Hide buttons */
 }
+
+
+.zigzag {
+  background: linear-gradient(135deg, #f0f0f0 25%, transparent 25%) -50px 0,
+              linear-gradient(225deg, #f0f0f0 25%, transparent 25%);
+  background-size: 100px 100px;
+  background-repeat: repeat;
+  clip-path: polygon(69% 94%, 79% 87%, 91% 93%, 100% 100%, 0 100%, 9% 84%, 20% 91%, 31% 86%, 42% 92%, 55% 87%);
+}

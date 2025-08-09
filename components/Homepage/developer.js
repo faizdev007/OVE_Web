@@ -5,7 +5,7 @@ import { Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-import { useEffect, useRef, useState } from 'react';
+import { use, useEffect, useRef, useState } from 'react';
 import useInView from '@/components/useInView';
 import Image from 'next/image';
 
@@ -47,7 +47,8 @@ function SamplePrevArrow(props) {
 }
 
 export default function DevelopersSlider() {
-  const settings = {
+
+  const [settings, setSettings] = useState({
       infinite: true,
       autoplay: true,
       autoplaySpeed: 3000,
@@ -62,59 +63,8 @@ export default function DevelopersSlider() {
       centerMode: true,
       pauseOnHover: true,
       nextArrow: <SampleNextArrow />,
-      prevArrow: <SamplePrevArrow />,
-      responsive: [
-        {
-          breakpoint: 3840, // 4K screens
-          settings: {
-            slidesToShow: 7,  // 7 slides for 4K screens
-            slidesToScroll: 1,
-          }
-        },
-        {
-          breakpoint: 2080, // 4K screens
-          settings: {
-            slidesToShow: 5,  // 7 slides for 4K screens
-            slidesToScroll: 1,
-          }
-        },
-        {
-          breakpoint: 1268, // Large laptop and desktops
-          settings: {
-            slidesToShow: 4,  // 5 slides for this screen size
-            slidesToScroll: 1,
-          }
-        },
-        {
-          breakpoint: 1120, // Medium-sized laptops
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1,
-          }
-        },
-        {
-          breakpoint: 768,  // Tablet and smaller devices
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            arrows: false,
-            centerMode: false,
-          }
-        },
-        {
-          breakpoint: 480, // Mobile devices
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: false,
-            centerMode: false,
-          }
-        }
-      ]
-    };
-
-  // State to track if the section should be hidden or shown
-  const [isSectionVisible, setIsSectionVisible] = useState(true);
+      prevArrow: <SamplePrevArrow />
+  });
 
   const developers = [
     { name: 'Aisha', profile:'Full-Stack Developer', describe:'Expert in serverless full-stack application development, focusing on real-time interactive apps.', previous:'/assets/previous/idp.webp', image: '/assets/developer/Aisha.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/MongoDB.webp','/assets/hireby/skills/Express.webp','/assets/hireby/skills/React.webp'] },
@@ -129,13 +79,86 @@ export default function DevelopersSlider() {
     { name: 'Preeda', profile:'ML ENGINEER', describe:'Optimizes deep learning models for edge devices.', previous:'/assets/previous/bhp.webp', image: '/assets/developer/Preeda.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/Python.webp','/assets/hireby/skills/Lightning.webp','/assets/hireby/skills/ONNX.webp'] },
   ];
 
-  // Monitor Swiper slide visibility and compare with card limit
+  // if(!isNaN(settings)){
+  //   setSettings({
+  //     ...settings,
+  //     responsive: [
+  //       {
+  //         breakpoint: 3840, // 4K screens
+  //         settings: {
+  //           slidesToShow: 7,  // 7 slides for 4K screens
+  //           slidesToScroll: 1,
+  //         }
+  //       },
+  //       {
+  //         breakpoint: 2080, // 4K screens
+  //         settings: {
+  //           slidesToShow: 5,  // 7 slides for 4K screens
+  //           slidesToScroll: 1,
+  //         }
+  //       },
+  //       {
+  //         breakpoint: 1268, // Large laptop and desktops
+  //         settings:  {
+  //           slidesToShow: 4,  // 5 slides for this screen size
+  //           slidesToScroll: 1,
+  //         }
+  //       },
+  //       {
+  //         breakpoint: 1120, // Medium-sized laptops
+  //         settings: {
+  //           slidesToShow: 3,
+  //           slidesToScroll: 1,
+  //         }
+  //       },
+  //       {
+  //         breakpoint: 768,  // Tablet and smaller devices
+  //         settings: {
+  //           slidesToShow: 3,
+  //           slidesToScroll: 1,
+  //           centerMode: false,
+  //         }
+  //       },
+  //       {
+  //         breakpoint: 550, // Mobile devices
+  //         settings: {
+  //           slidesToShow: 1,
+  //           slidesToScroll: 1,
+  //           centerMode: false,
+  //         }
+  //       }
+  //     ]});
+  // }
+
   useEffect(() => {
-    
-  }, []);
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width >= 3840) {
+        setSettings(prev => ({ ...prev, slidesToShow: 7, slidesToScroll: 1 }));
+      } else if (width >= 2080) {
+        setSettings(prev => ({ ...prev, slidesToShow: 5, slidesToScroll: 1 }));
+      } else if (width >= 1080) {
+        setSettings(prev => ({ ...prev, slidesToShow: 4, slidesToScroll: 1, centerMode: false }));
+      } else if (width >= 738) {
+        setSettings(prev => ({ ...prev, slidesToShow: 3, slidesToScroll: 1, centerMode: false }));
+      } else if (width >= 370) {
+        setSettings(prev => ({ ...prev, slidesToShow: 2, slidesToScroll: 1, centerMode: false }));
+      } else {
+        setSettings(prev => ({ ...prev, slidesToShow: 1, slidesToScroll: 1, centerMode: false }));
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Call it initially to set the correct state
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, [
+    settings.slidesToShow,
+    settings.slidesToScroll,
+    settings.centerMode
+  ]);
 
   const { elementRef, isVisible } = useInView();
-
   return (
     <section  ref={elementRef} className={`bg-white dark:bg-gray-700 relative px-4 py-12 sm:px-6 lg:px-8 mx-auto`}>
       <Image loading='lazy' width={100} height={100} className='absolute hidden object-cover bottom-0 w-full start-0 end-0' src={'/assets/cloudbg.webp'} alt="cloudbg"/>
