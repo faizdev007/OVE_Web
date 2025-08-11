@@ -21,19 +21,19 @@ export default function HiringProcess()
         {
         step: '02',
         title: 'Get Vetted Profiles',
-        color:'#FFCB61',
+        color:'#2562eb',
         description: `Within 48 hours, receive a shortlist of handpicked, pre-vetted developers who meet your criteria — assessed for technical skill, communication, and cultural fit.`,
         },
         {
         step: '03',
         title: 'Interview & Assess',
-        color:'#FF894F',
+        color:'#2562eb',
         description: `You interview the shortlisted candidates directly. Test their skills, evaluate their mindset, and ensure they align with your team dynamics and vision.`,
         },
         {
         step: '04',
         title: 'Onboard & Scale',
-        color:'#EA5B6F',
+        color:'#2562eb',
         description: `Once you’ve selected your resource(s), onboarding is swift and supported by us. Scale up or down flexibly — no long-term contracts, just results-driven collaboration.`,
         },
     ];
