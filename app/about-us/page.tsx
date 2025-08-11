@@ -112,7 +112,7 @@ export default function AboutPage()
                 </div>
             </div>
 
-            <section className="relative px-4 py-12 sm:px-6 lg:px-8 mx-auto">
+            <section className="relative bg-[#1b1b1b] px-4 py-12 sm:px-6 lg:px-8 mx-auto">
                 <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center mb-8">Our Executive Team</h2>
                 <div className="container mx-auto grid items-center grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                     {team.map((member, index) => (

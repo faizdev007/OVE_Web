@@ -21,31 +21,31 @@ export default function Hire()
     }
 
     const listinfos = [
-            {
-            "title": "Data Science",
-            "description": "Data science with Python includes data analysis, data processing, machine learning, and more."
-            },
-            {
-            "title": "Custom Python Web Application Development",
-            "description": "Building scalable and high-performance web apps using Python web frameworks such as Django or Flask."
-            },
-            {
-            "title": "Enterprise Python Applications",
-            "description": "Development of enterprise-level applications for business processes and workflow automation."
-            },
-            {
-            "title": "Python Support and Maintenance",
-            "description": "Ongoing support, optimization, and maintenance for existing Python applications."
-            },
-            {
-            "title": "Machine Learning with Python",
-            "description": "Building machine learning models and deploying them in production using Python."
-            },
-            {
-            "title": "Python Migration & Integration",
-            "description": "Migrating applications to Python and integrating with other systems and platforms."
-            }
-        ];
+        {
+        "title": "Data Science",
+        "description": "Data science with Python includes data analysis, data processing, machine learning, and more."
+        },
+        {
+        "title": "Custom Python Web Application Development",
+        "description": "Building scalable and high-performance web apps using Python web frameworks such as Django or Flask."
+        },
+        {
+        "title": "Enterprise Python Applications",
+        "description": "Development of enterprise-level applications for business processes and workflow automation."
+        },
+        {
+        "title": "Python Support and Maintenance",
+        "description": "Ongoing support, optimization, and maintenance for existing Python applications."
+        },
+        {
+        "title": "Machine Learning with Python",
+        "description": "Building machine learning models and deploying them in production using Python."
+        },
+        {
+        "title": "Python Migration & Integration",
+        "description": "Migrating applications to Python and integrating with other systems and platforms."
+        }
+    ];
     
     const data = {
         headers: ['Factors', 'Optimal Virtual Employee', 'Arc.dev', 'Uplers', 'Toptal'],
@@ -64,7 +64,7 @@ export default function Hire()
     return(
         <>
             <div className="relative -top-15 2xl:top-0">
-                <section className="blackgradiant min-h-screen 2xl:h-max 2xl:h-[600] pt-16 lg:flex gap-2 dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
+                <section className="blackgradiant min-h-screen xl:h-max pt-16 lg:flex gap-2 dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
                     <div className="flex w-full flex-col h-full justify-between gap-8 items-center md:items-start py-6">
                         <h1 className="text-oveblue md:text-6xl text-3xl font-bold">Hire Full-Stack Developer</h1>
                         <p className="md:text-xl text-sm">Lorem ipsum dolor sit amete consectetur adipiscing elit seedo eiusmod tempor incididunt labore dolore magna aliqua eneom minim veniam quos nostrud exercitation ullamco laboris nisi ut aliquip. </p>
@@ -88,8 +88,8 @@ export default function Hire()
                             </div>
                         </div>
                     </div>
-                    <div className="w-full lg:flex hidden relative justify-center">
-                        <div className="aspect-[1/1] md:absolute z-30">
+                    <div className="w-full lg:flex hidden relative mb-5 justify-center">
+                        <div className="aspect-[1/1] xl:h-[100%] md:absolute z-30">
                             <div className="absolute z-20 bottom-0">
                                 <Image src={'/assets/hire/devbg.webp'} alt="PBG" width={1000} height={1000} className="rounded-xl"/>
                             </div>

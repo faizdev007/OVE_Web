@@ -64,9 +64,9 @@ export default function Footer()
                 </div>
                 <div className="">
                     <nav className="flex gap-3">
-                        <a href="https://www.facebook.com/Optimal-virtual-Employee-2093585584194627/" aria-label="facebook"><Image src={'/assets/sociallinks/facebook.png'} width={100} className="transform transition-all duration-300 hover:scale-105 object-container h-8 w-8" height={100} alt="facebook"/></a>
-                        <a href="https://www.linkedin.com/company/optimal-virtual-employee-ove/" aria-label="linkedin"><Image src={'/assets/sociallinks/linkedin.png'} className="transform transition-all duration-300 hover:scale-105 object-container h-8 w-8" width={100} height={100} alt="linkedin"/></a>
-                        <a href="https://twitter.com/OptimalVE" aria-label="X"><Image src={'/assets/sociallinks/social-media.png'} className="transform transition-all duration-300 hover:scale-105 object-container h-8 w-8" width={100} height={100} alt="youtube"/></a>
+                        <a href="https://www.facebook.com/Optimal-virtual-Employee-2093585584194627/" aria-label="facebook"><Image src={'/assets/sociallinks/facebook_white.webp'} width={100} className="transform transition-all duration-300 hover:scale-105 object-container h-8 w-8" height={100} alt="facebook"/></a>
+                        <a href="https://www.linkedin.com/company/optimal-virtual-employee-ove/" aria-label="linkedin"><Image src={'/assets/sociallinks/linkedin_white.webp'} className="transform transition-all duration-300 hover:scale-105 object-container h-8 w-8" width={100} height={100} alt="linkedin"/></a>
+                        <a href="https://twitter.com/OptimalVE" aria-label="X"><Image src={'/assets/sociallinks/twitter_white.webp'} className="transform transition-all duration-300 hover:scale-105 object-container h-8 w-8" width={100} height={100} alt="youtube"/></a>
                     </nav>
                 </div>
             </div>
