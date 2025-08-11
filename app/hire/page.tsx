@@ -2,9 +2,7 @@
 
 import FaqSection from "@/components/Homepage/faq";
 import Image from "next/image";
-import { useEffect, useState } from 'react';
-import { Autoplay, Navigation } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { useState } from 'react';
 
 export default function Hire()
 {
@@ -15,19 +13,6 @@ export default function Hire()
     const toggle = (index: number) => {
         setActiveIndex(index === activeIndex ? null : index);
     };
-
-    useEffect(() => {
-        const datacall = async ()=> {
-            const res = await fetch('http://localhost:3333/structure/skill');
-            const data = await res.json();
-            console.log(await data);
-            if (data) {
-                // Process the data if needed
-            }
-        };
-        datacall();
-    }, []); 
-
 
     const toggleSection = (section:any) => {
         setActiveSection(activeSection === section ? null : section);
