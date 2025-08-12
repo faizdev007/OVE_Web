@@ -1,8 +1,5 @@
 'use client';
 
-import 'swiper/css';
-import 'swiper/css/navigation';
-
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
@@ -110,7 +107,7 @@ export default function DevelopersSlider() {
 
   
   return (
-    <section className={`bg-white dark:bg-gray-700 relative px-4 py-12 sm:px-6 lg:px-8 mx-auto`}>
+    <section className={`bg-gray-100 dark:bg-gray-700 relative px-4 py-12 sm:px-6 lg:px-8 mx-auto`}>
       <Image loading='lazy' width={100} height={100} className='absolute hidden object-cover bottom-0 w-full start-0 end-0' src={'/assets/cloudbg.webp'} alt="cloudbg"/>
       <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center mb-12">Meet Our Developers</h2>
       <div className={`transform relative bg-black/90 rounded overflow-hidden dark:bg-gray-800 rounded-md mx-auto`}>

@@ -32,7 +32,7 @@ From Fortune 500 leaders to next-gen disruptors, our developers power innovation
       </p>
 
       {/* Logos */}
-      <div className="flex flex-wrap justify-center gap-10 items-center">
+      <div className="flex flex-wrap justify-center sm:gap-10 gap-4 items-center">
         {companies.map((company, i) => (
           <div key={i} className="aspect-[4/1] flex justify-center items-center">
             <Image src={company.logo} alt={company.name} width={120} height={120} className="object-container hover:grayscale w-auto" />

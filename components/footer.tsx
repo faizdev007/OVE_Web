@@ -43,8 +43,10 @@ export default function Footer()
                         {officelocation.map((location,key)=>(
                             <div key={key} className="flex flex-col justify-between px-4 py-6 gap-2" aria-labelledby={location.name}>
                                 <div className="flex gap-2 mb-4 items-center">
-                                    <Image loading="lazy" width={100} height={50} src={location.image} alt={location.name} className="aspect-[2/1] w-12 object-cover"/>
-                                    <h2 className="xl:text-xl font-bold">{location.name}</h2>
+                                    <div className="h-8 aspect-[1.6/1] border border-white drop-shadow shadow-white/50 overflow-hidden rounded-md">
+                                        <Image loading="lazy" width={100} height={50} src={location.image} alt={location.name} className="w-full h-full object-cover"/>
+                                    </div>
+                                    <h2 className="xl:text-xl font-bold text-shadow-lg hover:text-shadow-sm">{location.name}</h2>
                                 </div>
                                 <p className="text-sm">{location.address}</p>
                                 <a className="flex gap-2 items-center hover:underline" href={`tel:${location.tel}`} aria-label={location.tel}>
