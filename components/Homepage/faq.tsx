@@ -81,7 +81,7 @@ export default function FaqSection() {
             {faqs.map((item, index) => (
                 <div
                 key={index}
-                className={`border-2 bg-white border-gray-800 hover:border-oveblue px-4 rounded-2xl py-4 shadow-sm transition-all duration-20 cursor-pointer ${
+                className={`border-2 bg-white border-oveblue hover:border-oveblue/50 px-4 rounded-2xl py-4 shadow-sm transition-all duration-20 cursor-pointer ${
                     activeIndex === index ? 'border-b-5' : ''
                 }`}
                 onClick={() => toggle(index)}
@@ -89,8 +89,8 @@ export default function FaqSection() {
                 <div className="flex justify-between items-center gap-2">
                     <p className="font-bold md:text-xl">{item.question}</p>
                     <div className=''>
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={`size-7 font-bold transition-transform duration-300 ${
-                          activeIndex === index ? 'rotate-135 text-oveblue' : ''
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={`size-7 text-oveblue font-bold transition-transform duration-300 ${
+                          activeIndex === index ? 'rotate-135' : ''
                       }`}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                       </svg>

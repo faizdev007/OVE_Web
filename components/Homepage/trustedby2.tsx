@@ -26,7 +26,7 @@ export default function TrustedBySection() {
       <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center">
         <span className="gradiantorg text-4xl lg:text-6xl md:text-5xl font-bold mb-4">Trusted by</span>
       </h2>
-      <p className="max-w-4xl mx-auto text-white dark:text-white">
+      <p className="max-w-4xl mx-auto text-white dark:text-white animate-fade">
         Trusted by Companies That Shape the Future
 From Fortune 500 leaders to next-gen disruptors, our developers power innovation across industries — with speed, skill, and accountability at the core
       </p>
@@ -44,8 +44,8 @@ From Fortune 500 leaders to next-gen disruptors, our developers power innovation
       <div className="grid grid-cols-2 md:grid-cols-4 gap-10 max-w-6xl mx-auto">
         {stats.map((stat, i) => (
           <div key={i} className="md:border-l-3 pl-4 border-blue-500 text-center md:text-start">
-            <h3 className="text-3xl font-bold text-white">{stat.count}</h3>
-            <p className="text-sm text-gray-300">{stat.label}</p>
+            <h3 className="text-3xl font-bold text-white animate-fade-left">{stat.count}</h3>
+            <p className="text-sm text-gray-300 animate-fade">{stat.label}</p>
           </div>
         ))}
       </div>

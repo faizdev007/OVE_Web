@@ -46,7 +46,7 @@ export default function WhyChooseUs() {
                   alt={item.title}
                   width={300}
                   height={400}
-                  className="mx-auto object-container w-auto h-auto absolute drop-shadow-sm shadow-white -bottom-10 start-0 end-0 mt-4"
+                  className="mx-auto object-container h-auto w-100 px-5 absolute drop-shadow-sm shadow-white -bottom-6 start-0 end-0 mt-4"
                 />
               </div>
             </div>
