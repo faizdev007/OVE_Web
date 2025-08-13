@@ -4,6 +4,7 @@ import FaqSection from "@/components/Homepage/faq";
 import TestimonialDev from "@/components/TestimonialDev";
 import Image from "next/image";
 import { useState } from 'react';
+import Rating from "@/components/Rating";
 
 export default function Hire()
 {
@@ -91,8 +92,8 @@ export default function Hire()
     return(
         <>
             <div className="relative 2xl:top-0">
-                <section className="bg-black xl:h-max pt-16 lg:flex gap-2 dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
-                    <div className="flex w-full flex-col h-full mt-6 justify-between gap-8 items-center md:items-start py-6">
+                <section className="bg-black xl:h-max lg:flex gap-2 dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
+                    <div className="flex w-[60%] flex-col h-full mt-6 justify-between gap-8 items-center md:items-start py-6">
                         <h1 className="text-oveblue md:text-6xl text-4xl font-bold">Hire Full-Stack Developer</h1>
                         <p className="md:text-xl">Lorem ipsum dolor sit amete consectetur adipiscing elit seedo eiusmod tempor incididunt labore dolore magna aliqua eneom minim veniam quos nostrud exercitation ullamco laboris nisi ut aliquip. </p>
                         <button className="bg-oveblue p-2 rounded w-max md:text-xl hover:bg-blue-700 px-6 font-bold border-5 border-oveblue/90 cursor-pointer flex gap-2 items-center hover:border-oveblue/50">Hire Full-Stack Developer
@@ -115,13 +116,13 @@ export default function Hire()
                             </div>
                         </div>
                     </div>
-                    <div className="w-full lg:flex hidden relative mb-5 justify-center">
+                    <div className="w-[40%] lg:flex hidden relative mb-5 justify-center">
                         <div className="z-30">
                             <div className="absolute opacity-50 z-20 bottom-0">
                                 <Image src={'/assets/hire/devbg.webp'} alt="PBG" width={1000} height={1000} className="rounded-xl"/>
                             </div>
                             <Image loading="lazy" src={'/assets/hire/anjali.png'} alt="developer" width={500} height={500} className="relative z-40"/>
-                            <div className="absolute border border-oveblue z-40 bg-boxFill bottom-0 p-4 rounded-xl shadow-sm drop-shadow">
+                            <div className="absolute border border-oveblue z-40 bg-boxFill bottom-0 end-0 p-4 rounded-xl shadow-sm drop-shadow">
                                 <h3 className="md:text-xl font-bold">AnJali</h3>
                                 <span className="text-xs md:text-sm">Senior Full-Stack Developer</span>
                             </div>
@@ -305,9 +306,12 @@ export default function Hire()
                 </section>
                 <FaqSection/>
                 <section className="py-12 bg-black flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-                    <h2 className="text-3xl xl:text-5xl mb-4 font-bold text-center text-white">Here are a few words shared by our Employees</h2>
+                    <h2 className="text-3xl xl:text-5xl mb-4 font-bold text-center text-white">Here are a few words shared by our Clients</h2>
                     <div className="h-20 aspect-[3/1] overflow-hidden">
-                        <Image src={'/assets/google.webp'} alt="employee" width={500} height={500} className="mx-auto object-cover flex justify-center items-center w-48 aspect-[3/1] mb-6 rounded-lg shadow-lg"/>
+                        <Image src={'/assets/google.webp'} alt="employee" width={500} height={500} className="mx-auto object-cover flex justify-center items-center w-32 aspect-[3/1] rounded-lg shadow-lg"/>
+                        <div className="flex justify-center">
+                            <Rating rating={4.8}/>
+                        </div>
                     </div>
                     <TestimonialDev/>
                 </section>
