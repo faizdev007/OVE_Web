@@ -1,6 +1,7 @@
 'use client';
 
 import FaqSection from "@/components/Homepage/faq";
+import TestimonialDev from "@/components/TestimonialDev";
 import Image from "next/image";
 import { useState } from 'react';
 
@@ -62,46 +63,46 @@ export default function Hire()
     return(
         <>
             <div className="relative -top-15 2xl:top-0">
-                <section className="blackgradiant min-h-screen xl:h-max pt-16 lg:flex gap-2 dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
+                <section className="bg-black xl:h-max pt-16 lg:flex gap-2 dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
                     <div className="flex w-full flex-col h-full justify-between gap-8 items-center md:items-start py-6">
-                        <h1 className="text-oveblue md:text-6xl text-3xl font-bold">Hire Full-Stack Developer</h1>
-                        <p className="md:text-xl text-sm">Lorem ipsum dolor sit amete consectetur adipiscing elit seedo eiusmod tempor incididunt labore dolore magna aliqua eneom minim veniam quos nostrud exercitation ullamco laboris nisi ut aliquip. </p>
-                        <button className="bg-blue-600 p-2 rounded w-max md:text-xl px-6 font-bold border-5 border-blue-100/0 cursor-pointer flex gap-2 items-center hover:border-blue-500/90">Hire Full-Stack Developer
+                        <h1 className="text-oveblue md:text-6xl text-4xl font-bold">Hire Full-Stack Developer</h1>
+                        <p className="md:text-xl">Lorem ipsum dolor sit amete consectetur adipiscing elit seedo eiusmod tempor incididunt labore dolore magna aliqua eneom minim veniam quos nostrud exercitation ullamco laboris nisi ut aliquip. </p>
+                        <button className="bg-oveblue p-2 rounded w-max md:text-xl hover:bg-blue-700 px-6 font-bold border-5 border-oveblue/90 cursor-pointer flex gap-2 items-center hover:border-oveblue/50">Hire Full-Stack Developer
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-7 font-bold">
                                 <path fillRule="evenodd" d="M2 10a.75.75 0 0 1 .75-.75h12.59l-2.1-1.95a.75.75 0 1 1 1.02-1.1l3.5 3.25a.75.75 0 0 1 0 1.1l-3.5 3.25a.75.75 0 1 1-1.02-1.1l2.1-1.95H2.75A.75.75 0 0 1 2 10Z" clipRule="evenodd" />
                             </svg>
                         </button>
                         <div className="grid md:grid-cols-3 gap-2 w-full">
-                            <div className="bg-gray-800 p-4 rounded-md border border-white">
-                                <h3 className="xl:text-4xl text-3xl font-bold">1.5+</h3>
-                                <p>Fully vetted Developer</p>
+                            <div className="bg-boxFill p-4 rounded border border-oveblue drop-shadow-sm shadow-white">
+                                <h3 className="text-3xl font-bold text-shadow-lg">1.5K+</h3>
+                                <p>fully vetted developers</p>
                             </div>
-                            <div className="bg-gray-800 p-4 rounded-md border border-white">
-                                <h3 className="xl:text-4xl text-3xl font-bold">1.5+</h3>
-                                <p>Fully vetted Developer</p>
+                            <div className="bg-boxFill p-4 rounded border border-oveblue drop-shadow-sm shadow-white">
+                                <h3 className="text-3xl font-bold">24 hours</h3>
+                                <p>average matching time</p>
                             </div>
-                            <div className="bg-gray-800 p-4 rounded-md border border-white">
-                                <h3 className="xl:text-4xl text-3xl font-bold">1.5+</h3>
-                                <p>Fully vetted Developer</p>
+                            <div className="bg-boxFill p-4 rounded border border-oveblue drop-shadow-sm shadow-white">
+                                <h3 className="text-3xl font-bold">2.3M hours</h3>
+                                <p>worked since 2015</p>
                             </div>
                         </div>
                     </div>
                     <div className="w-full lg:flex hidden relative mb-5 justify-center">
-                        <div className="aspect-[1/1] xl:h-[100%] md:absolute z-30">
-                            <div className="absolute z-20 bottom-0">
+                        <div className="z-30">
+                            <div className="absolute opacity-50 z-20 bottom-0">
                                 <Image src={'/assets/hire/devbg.webp'} alt="PBG" width={1000} height={1000} className="rounded-xl"/>
                             </div>
                             <Image loading="lazy" src={'/assets/hire/anjali.png'} alt="developer" width={500} height={500} className="relative z-40"/>
-                            <div className="absolute border z-40 bg-gray-800 bottom-0 p-4 rounded-xl shadow-sm drop-shadow">
+                            <div className="absolute border border-oveblue z-40 bg-boxFill bottom-0 p-4 rounded-xl shadow-sm drop-shadow">
                                 <h3 className="md:text-xl font-bold">AnJali</h3>
                                 <span className="text-sm">Senior Full-Stack Developer</span>
                             </div>
                         </div>
                     </div>
                 </section>
-                <section className="py-12 footerbg text-white flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-                    <h2 className="mb-18 capitalize text-center font-bold text-4xl">How to Hire Python developer through OVE</h2>
-                    <div className="grid 2xl:grid-cols-4 md:grid-cols-2 gap-6 mb-6">
+                <section className="py-12 blackgradiant text-white flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+                    <h2 className="mb-18 capitalize text-center font-bold md:text-4xl text-3xl">How to Hire Python developer through OVE</h2>
+                    <div className="grid md:grid-cols-2 gap-6 mb-6">
                         <div className="flex relative flex-col items-center gap-3">
                             <div className="relative z-10 w-max px-18 flex flex-col justify-center items-center">
                                 <span className="text-[170px] z-20 text-gray-300/70 absolute start-0 w-full h-full flex items-center ">1</span>
@@ -136,7 +137,7 @@ export default function Hire()
                         </div>
                     </div>
                     <div className="flex justify-center">
-                        <a href="/contact-us" className="border hover:bg-black hover:drop-shadow-lg p-2 rounded-full w-max xl:text-3xl md:text-xl text-white px-6 font-bold cursor-pointer">Hire With Confidence</a>
+                        <a href="/contact-us" className="border-2 border-oveblue hover:bg-oveblue hover:drop-shadow-lg p-2 rounded-md w-max xl:text-3xl md:text-xl text-white px-6 font-bold cursor-pointer">Hire With Confidence</a>
                     </div>
                 </section>
 
@@ -151,13 +152,13 @@ export default function Hire()
                                 range of expertise our Python developers in India possess.
                             </p>
                         </div>
-                        <div className="lg:w-1/2 w-full blackgradiant text-white p-6 rounded-lg shadow-md">
+                        <div className="lg:w-1/2 w-full blackgradiant text-white md:p-6 p-2 rounded-lg shadow-md">
                             <div className="w-full">
                                 <div className="space-y-4">
                                 {listinfos.map((item, index) => (
                                     <div
                                     key={index}
-                                    className={` border-white rounded-2xl py-2 px-4 shadow-sm shadow-gray-800 transition-all duration-20 cursor-pointer ${
+                                    className={` border-oveblue bg-boxFill rounded-2xl py-2 px-4 shadow-sm shadow-oveblue transition-all duration-20 cursor-pointer ${
                                         activeIndex === index ? 'border-b-4' : ''
                                     }`}
                                     onClick={() => toggle(index)}
@@ -165,7 +166,7 @@ export default function Hire()
                                     <div className="flex justify-between items-center gap-2">
                                         <p className="font-bold md:text-xl">{item.title}</p>
                                         <div className=''>
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={`size-6 transition-transform duration-300 ${
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={`size-6 text-oveblue transition-transform duration-300 ${
                                             activeIndex === index ? 'rotate-135' : ''
                                         }`}>
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -193,9 +194,9 @@ export default function Hire()
                     <h2 className="text-3xl font-bold">Still Wasting Weeks Recruiting Python Developer ?</h2>
                     <p>Skip the hiring mess. Get top-tier python talent from us under 48 hours</p>
                     <div className="flex gap-3 items-center">
-                        <a href={'/contact-us'} aria-label="contact" className="rounded-full border px-4 py-2 hover:bg-blue-700">Contact Us</a>
+                        <a href={'/contact-us'} aria-label="contact" className="rounded-md border-3 border-oveblue px-4 py-2 hover:bg-blue-700">Contact Us</a>
                         /
-                        <a href={'/contact-us'} className="hover:underline">Book A Call</a>
+                        <a href={'/contact-us'} className="hover:underline hover:text-oveblue">Book A Call</a>
                     </div>
                 </section>
 
@@ -295,6 +296,10 @@ export default function Hire()
                     </div>
                 </section>
                 <FaqSection/>
+                <section className="py-12 bg-white flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+                    <h2 className="text-3xl xl:text-5xl mb-4 font-bold text-center">Here are a few words shared by our Employees</h2>
+                    <TestimonialDev/>
+                </section>
             </div>
         </>
     );

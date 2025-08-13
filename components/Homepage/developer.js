@@ -155,7 +155,7 @@ export default function DevelopersSlider() {
                           </div>
                         </div>
                         <div className='flex flex-col text-center'>
-                          <p className="text-white/60 mb-1 font-bold">PREVIOUSLY</p>
+                          <p className="text-white/60 mb-1 font-bold font-sm">PREVIOUSLY AT</p>
                           <div className='flex justify-center items-center aspect-[4/1] h-12'>
                             <Image loading="eager" fetchPriority="high" decoding="async" width={300} height={300} className="object-container w-auto h-12 mb-2" src={dev.previous} alt={dev.previous.split('/').pop().replace('.webp', '')}/>
                           </div>
