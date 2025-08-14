@@ -5,6 +5,8 @@ import TestimonialDev from "@/components/TestimonialDev";
 import Image from "next/image";
 import { useState } from 'react';
 import Rating from "@/components/Rating";
+import HireBy from "@/components/Homepage/hireby";
+import DevelopersSlider from "@/components/Homepage/developer";
 
 export default function Hire()
 {
@@ -129,12 +131,13 @@ export default function Hire()
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-oveblue">
                                         <path fillRule="evenodd" d="M16.403 12.652a3 3 0 0 0 0-5.304 3 3 0 0 0-3.75-3.751 3 3 0 0 0-5.305 0 3 3 0 0 0-3.751 3.75 3 3 0 0 0 0 5.305 3 3 0 0 0 3.75 3.751 3 3 0 0 0 5.305 0 3 3 0 0 0 3.751-3.75Zm-2.546-4.46a.75.75 0 0 0-1.214-.883l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clipRule="evenodd" />
                                     </svg>
-                                    Verified Person
+                                    Verified Profile
                                 </p>
                             </div>
                         </div>
                     </div>
                 </section>
+                <DevelopersSlider/>
                 <section className="py-20 blackgradiant text-white flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
                     <h2 className="md:mb-12 capitalize text-center font-bold md:text-4xl text-3xl">How to Hire Python developer through OVE</h2>
                     <div className="md:grid space-y-4 md:grid-cols-2 2xl:grid-cols-4 gap-6 2xl:gap-4 mb-6">
@@ -204,21 +207,23 @@ export default function Hire()
                         </div>
                     </section>
                 </div>
-                
-                <section className="footerbg text-white py-20 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-                    <h2 className="lg:text-3xl text-2xl font-bold">Still Wasting Weeks Recruiting Python Developer ?</h2>
-                    <p>Skip the hiring mess. Get top-tier python talent from us under 48 hours</p>
-                    <div className="flex gap-3 items-center">
-                        <a href={'/contact-us'} aria-label="contact" className="rounded-md border-3 flex items-center gap-2 border-oveblue bg-oveblue px-4 py-2 hover:bg-blue-700">Contact Us
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-7 font-bold">
-                                <path fillRule="evenodd" d="M2 10a.75.75 0 0 1 .75-.75h12.59l-2.1-1.95a.75.75 0 1 1 1.02-1.1l3.5 3.25a.75.75 0 0 1 0 1.1l-3.5 3.25a.75.75 0 1 1-1.02-1.1l2.1-1.95H2.75A.75.75 0 0 1 2 10Z" clipRule="evenodd" />
-                            </svg>
-                        </a>
-                    </div>
-                </section>
-                <div className="relative py-12">
-                    <Image src={'/assets/white.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 md:-top-10 w-full"/>
-                    <section className="py-12 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+                <div className="relative h-full bg-oveblue w-full">
+                    <Image src={'/assets/oveblue.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 xl:-top-15 w-full"/>
+                    <section className="text-white py-20 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+                        <h2 className="lg:text-3xl text-2xl font-bold">Still Wasting Weeks Recruiting Python Developer ?</h2>
+                        <p>Skip the hiring mess. Get top-tier python talent from us under 48 hours</p>
+                        <div className="flex gap-3 items-center">
+                            <a href={'/contact-us'} aria-label="contact" className="rounded-md border-3 flex items-center gap-2 border-black bg-gray-900 px-4 py-2 hover:bg-gray-700">Contact Us
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-7 font-bold">
+                                    <path fillRule="evenodd" d="M2 10a.75.75 0 0 1 .75-.75h12.59l-2.1-1.95a.75.75 0 1 1 1.02-1.1l3.5 3.25a.75.75 0 0 1 0 1.1l-3.5 3.25a.75.75 0 1 1-1.02-1.1l2.1-1.95H2.75A.75.75 0 0 1 2 10Z" clipRule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </section>
+                </div>
+                <div className="relative">
+                    <Image src={'/assets/white.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 xl:-top-15 w-full"/>
+                    <section className="py-12 z-20 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
                         <div className="lg:flex gap-4 items-center">
                             <div className="flex flex-col gap-6">
                                 <h4 className="text-oveblue mb-8 capitalize font-bold text-4xl">Why search for Python programmers for hir through Lemon.io ?</h4>
@@ -244,9 +249,9 @@ export default function Hire()
                         </div>
                     </section>
                 </div>
-                <div className="relative py-12">
-                    <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full"/>
-                    <section className="blackgradiant z-20 text-white flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+                <div className="relative blackgradiant py-12">
+                    <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 md:-top-9 w-full"/>
+                    <section className="z-20 text-white flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
                         <h2 className="text-[42px] font-bold">Still Wasting Weeks Recruiting Python Developer ?</h2>
                         <p className="text-[16px]">Skip the hiring mess. Get top-tier python talent from us under 48 hours</p>
                         <div className="overflow-x-hidden w-full table-auto">
@@ -318,17 +323,42 @@ export default function Hire()
                         </div>
                     </section>
                 </div>
-                <FaqSection/>
-                <section className="py-12 bg-black flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-                    <h2 className="text-3xl xl:text-5xl mb-4 font-bold text-center text-white">Here are a few words shared by our Clients</h2>
-                    <div className="h-20 aspect-[3/1] overflow-hidden">
-                        <Image src={'/assets/google.webp'} alt="employee" width={500} height={500} className="mx-auto object-cover flex justify-center items-center w-32 aspect-[3/1] rounded-lg shadow-lg"/>
-                        <div className="flex justify-center">
-                            <Rating rating={4.5}/>
-                        </div>
+                <div className="relative">
+                    <Image src={'/assets/offWhite.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 md:-top-9 w-full"/>
+                    <div className="relative">
+                        <FaqSection/>
                     </div>
-                    <TestimonialDev/>
-                </section>
+                </div>
+                <div className="relative">
+                    <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 xl:-top-15 w-full"/>
+                    <section className="py-12 bg-black flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+                        <h2 className="text-3xl xl:text-5xl mb-4 font-bold text-center text-white">Here are a few words shared by our Clients</h2>
+                        <div className="h-20 aspect-[3/1] overflow-hidden">
+                            <Image src={'/assets/google.webp'} alt="employee" width={500} height={500} className="mx-auto object-cover flex justify-center items-center w-32 aspect-[3/1] rounded-lg shadow-lg"/>
+                            <div className="flex justify-center">
+                                <Rating rating={4.5}/>
+                            </div>
+                        </div>
+                        <TestimonialDev/>
+                    </section>
+                </div>
+                <div className="py-12 bg-black">
+                    <HireBy/>
+                </div>
+                <div className="relative h-full bg-oveblue w-full">
+                    <Image src={'/assets/oveblue.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 xl:-top-15 w-full"/>
+                    <section className="text-white py-20 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+                        <h2 className="lg:text-3xl text-2xl font-bold">Still Wasting Weeks Recruiting Python Developer ?</h2>
+                        <p>Skip the hiring mess. Get top-tier python talent from us under 48 hours</p>
+                        <div className="flex gap-3 items-center">
+                            <a href={'/contact-us'} aria-label="contact" className="rounded-md border-3 flex items-center gap-2 border-black bg-gray-900 px-4 py-2 hover:bg-gray-700">Contact Us
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-7 font-bold">
+                                    <path fillRule="evenodd" d="M2 10a.75.75 0 0 1 .75-.75h12.59l-2.1-1.95a.75.75 0 1 1 1.02-1.1l3.5 3.25a.75.75 0 0 1 0 1.1l-3.5 3.25a.75.75 0 1 1-1.02-1.1l2.1-1.95H2.75A.75.75 0 0 1 2 10Z" clipRule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </section>
+                </div>
             </div>
         </>
     );
