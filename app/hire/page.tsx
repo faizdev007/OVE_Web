@@ -135,7 +135,7 @@ export default function Hire()
                         </div>
                     </div>
                 </section>
-                <section className="py-12 blackgradiant text-white flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+                <section className="py-20 blackgradiant text-white flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
                     <h2 className="md:mb-12 capitalize text-center font-bold md:text-4xl text-3xl">How to Hire Python developer through OVE</h2>
                     <div className="md:grid space-y-4 md:grid-cols-2 2xl:grid-cols-4 gap-6 2xl:gap-4 mb-6">
                         {steps.map((step, index) => (
@@ -153,57 +153,59 @@ export default function Hire()
                         <a href="/contact-us" className="border-4 border-oveblue bg-oveblue hover:bg-blue-700 hover:drop-shadow-lg p-2 rounded-md w-max xl:text-3xl md:text-xl text-white px-6 font-bold cursor-pointer">Hire With Confidence</a>
                     </div>
                 </section>
-
-                <section className="py-12 bg-gradient flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-                    {/* Main Header */}
-                    <div className="lg:flex gap-2 justify-between">
-                        <div className="lg:w-1/2">
-                            <h2 className="text-3xl font-bold">Expertise Of Our Python Web Developers</h2>
-                            <p className="mt-4 text-lg mb-4">
-                                Our dedicated Python developers, skilled at engineering robust web solutions for clients, helped
-                                different types and sizes of businesses in diverse industries. You can have an overview of the broad
-                                range of expertise our Python developers in India possess.
-                            </p>
-                        </div>
-                        <div className="lg:w-1/2 w-full blackgradiant text-white md:p-6 p-2 rounded-lg shadow-md">
-                            <div className="w-full">
-                                <div className="space-y-4">
-                                {listinfos.map((item, index) => (
-                                    <div
-                                    key={index}
-                                    className={` border-oveblue bg-boxFill rounded py-2 px-4 shadow-sm shadow-oveblue transition-all duration-20 cursor-pointer ${
-                                        activeIndex === index ? 'border-b-4' : ''
-                                    }`}
-                                    onClick={() => toggle(index)}
-                                    >
-                                    <div className="flex justify-between items-center gap-2">
-                                        <p className="font-bold md:text-xl">{item.title}</p>
-                                        <div className=''>
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={`size-6 text-oveblue transition-transform duration-300 ${
-                                            activeIndex === index ? 'rotate-135' : ''
-                                        }`}>
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                                        </svg>
-                                        </div>
-                                    </div>
-                                    
-                                    <div
-                                        className={`overflow-hidden transition-all border-t border-white duration-500 ease-in-out ${
-                                            activeIndex === index ? 'max-h-40 opacity-100 mt-4' : 'max-h-0 opacity-0'
-                                        }`}
-                                        >
-                                        <p className="text-gray-300 dark:text-white pt-2 md:text-lg text-sm">{item.description}</p>
-                                    </div>
-                                    </div>
-                                ))}
-                                </div>
+                <div className="relative py-12">
+                    <Image src={'/assets/white.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 md:-top-10 w-full"/>
+                    <section className="bg-gradient flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+                        {/* Main Header */}
+                        <div className="lg:flex relative z-20 gap-2 justify-between">
+                            <div className="lg:w-1/2">
+                                <h2 className="text-3xl font-bold">Expertise Of Our Python Web Developers</h2>
+                                <p className="mt-4 text-lg mb-4">
+                                    Our dedicated Python developers, skilled at engineering robust web solutions for clients, helped
+                                    different types and sizes of businesses in diverse industries. You can have an overview of the broad
+                                    range of expertise our Python developers in India possess.
+                                </p>
                             </div>
-                            
+                            <div className="lg:w-1/2 w-full blackgradiant text-white md:p-6 p-2 rounded-lg shadow-md">
+                                <div className="w-full">
+                                    <div className="space-y-4">
+                                    {listinfos.map((item, index) => (
+                                        <div
+                                        key={index}
+                                        className={` border-oveblue bg-boxFill rounded py-2 px-4 shadow-sm shadow-oveblue transition-all duration-20 cursor-pointer ${
+                                            activeIndex === index ? 'border-b-4' : ''
+                                        }`}
+                                        onClick={() => toggle(index)}
+                                        >
+                                        <div className="flex justify-between items-center gap-2">
+                                            <p className="font-bold md:text-xl">{item.title}</p>
+                                            <div className=''>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={`size-6 text-oveblue transition-transform duration-300 ${
+                                                activeIndex === index ? 'rotate-135' : ''
+                                            }`}>
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                            </svg>
+                                            </div>
+                                        </div>
+                                        
+                                        <div
+                                            className={`overflow-hidden transition-all border-t border-white duration-500 ease-in-out ${
+                                                activeIndex === index ? 'max-h-40 opacity-100 mt-4' : 'max-h-0 opacity-0'
+                                            }`}
+                                            >
+                                            <p className="text-gray-300 dark:text-white pt-2 md:text-lg text-sm">{item.description}</p>
+                                        </div>
+                                        </div>
+                                    ))}
+                                    </div>
+                                </div>
+                                
+                            </div>
                         </div>
-                    </div>
-                </section>
-
-                <section className="footerbg text-white py-12 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+                    </section>
+                </div>
+                
+                <section className="footerbg text-white py-20 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
                     <h2 className="lg:text-3xl text-2xl font-bold">Still Wasting Weeks Recruiting Python Developer ?</h2>
                     <p>Skip the hiring mess. Get top-tier python talent from us under 48 hours</p>
                     <div className="flex gap-3 items-center">
@@ -214,104 +216,108 @@ export default function Hire()
                         </a>
                     </div>
                 </section>
-
-                <section className="py-12 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-                    <div className="lg:flex gap-4 items-center">
-                        <div className="flex flex-col gap-6">
-                            <h4 className="text-oveblue mb-8 capitalize font-bold text-4xl">Why search for Python programmers for hir through Lemon.io ?</h4>
-                            <p>If you’ve ever tried to hire remote developers you know the struggle. You can’t meet them in person, which makes assessing their real talents almost impossible. So, you end up with a churn rate that’s through the roof. Now, you’re spending all your time policing contractors or finding devs to hire.</p>
+                <div className="relative py-12">
+                    <Image src={'/assets/white.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 md:-top-10 w-full"/>
+                    <section className="py-12 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+                        <div className="lg:flex gap-4 items-center">
+                            <div className="flex flex-col gap-6">
+                                <h4 className="text-oveblue mb-8 capitalize font-bold text-4xl">Why search for Python programmers for hir through Lemon.io ?</h4>
+                                <p>If you’ve ever tried to hire remote developers you know the struggle. You can’t meet them in person, which makes assessing their real talents almost impossible. So, you end up with a churn rate that’s through the roof. Now, you’re spending all your time policing contractors or finding devs to hire.</p>
+                            </div>
+                            <div className="w-full flex justify-center items-center">
+                                <Image src={'/assets/hire/choose.webp'} className="" alt="choose" width={300} height={300}/>
+                            </div>
                         </div>
-                        <div className="w-full flex justify-center items-center">
-                            <Image src={'/assets/hire/choose.webp'} className="" alt="choose" width={300} height={300}/>
+                        <div className="">
+                            <div className="grid md:grid-cols-2 border-t gap-4 py-10">
+                                <div className="text-3xl font-bold">Prime your hiring pipeline</div>
+                                <div className="">Access a pool of 1300+ vetted, senior engineers so you can hire remote developers easier. Our always-on hiring pipeline means you never have to wait. Tell us your needs and we respond with a list of devs that meet your needs within 48 hours.</div>
+                            </div>
+                            <div className="grid md:grid-cols-2 border-t gap-4 py-10">
+                                <div className="text-3xl font-bold">Save time on screening</div>
+                                <div className="">Skip interviews with unfit devs with our pre-screened engineers. No matter what skill you need on your team, we have a dev who has proven their skills and ability to get things done to our trained vetting team, so you can hire with confidence.</div>
+                            </div>
+                            <div className="grid md:grid-cols-2 border-t gap-4 py-10">
+                                <div className="text-3xl font-bold">Greatness guaranteed</div>
+                                <div className="">You spend months to find the ‘right’ dev. And when they’re a bad fit, you have to start over. Our zero-risk replacement guarantee allows you to switch your dev for any reason. You ask, we deliver a new dev free of charge. It’s that easy.</div>
+                            </div>
                         </div>
-                    </div>
-                    <div className="">
-                        <div className="grid md:grid-cols-2 border-t gap-4 py-10">
-                            <div className="text-3xl font-bold">Prime your hiring pipeline</div>
-                            <div className="">Access a pool of 1300+ vetted, senior engineers so you can hire remote developers easier. Our always-on hiring pipeline means you never have to wait. Tell us your needs and we respond with a list of devs that meet your needs within 48 hours.</div>
-                        </div>
-                        <div className="grid md:grid-cols-2 border-t gap-4 py-10">
-                            <div className="text-3xl font-bold">Save time on screening</div>
-                            <div className="">Skip interviews with unfit devs with our pre-screened engineers. No matter what skill you need on your team, we have a dev who has proven their skills and ability to get things done to our trained vetting team, so you can hire with confidence.</div>
-                        </div>
-                        <div className="grid md:grid-cols-2 border-t gap-4 py-10">
-                            <div className="text-3xl font-bold">Greatness guaranteed</div>
-                            <div className="">You spend months to find the ‘right’ dev. And when they’re a bad fit, you have to start over. Our zero-risk replacement guarantee allows you to switch your dev for any reason. You ask, we deliver a new dev free of charge. It’s that easy.</div>
-                        </div>
-                    </div>
-                </section>
-
-                <section className="blackgradiant text-white py-12 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-                    <h2 className="text-[42px] font-bold">Still Wasting Weeks Recruiting Python Developer ?</h2>
-                    <p className="text-[16px]">Skip the hiring mess. Get top-tier python talent from us under 48 hours</p>
-                    <div className="overflow-x-hidden w-full table-auto">
-                        <div className="overflow-x-auto bg-gray-900 text-white p-6 rounded-lg shadow">
-                            <table className="min-w-[900px] w-full table-auto border-collapse">
-                                <thead>
-                                <tr>
-                                    {data.headers.map((header, i) => (
-                                    <th
-                                        key={i}
-                                        className={`py-4 px-6 text-left text-lg font-bold ${
-                                        i === 0
-                                        ? 'text-white relative border-gray-800 bg-gray-700 rounded-t-md'
-                                        :
-                                        i === 1 ? 'bg-oveblue text-white border-blue-700 rounded-t-lg relative' : 'border-x border-t rounded-t-lg relative bg-gray-700 border-gray-800'
-                                        }`}
-                                    >
-                                        {i === 1 && (
-                                        <span className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-green-500 text-xs px-2 py-1 rounded-full text-white font-semibold">
-                                            {data.badge}
-                                        </span>
-                                        )}
-                                        {header}
-                                    </th>
-                                    ))}
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {data.rows.map((row, idx) => (
-                                    <tr key={idx} className="border-t">
-                                    {row.map((col, i) => (
-                                        <td
-                                        key={i}
-                                        className={`py-4 px-6 align-top text-sm whitespace-pre-line ${
-                                            i === 0
-                                            ? ' font-semibold border-s border-b border-gray-700'
-                                            : i === 1
-                                            ? 'text-md border-x-2 border-oveblue border-b font-bold'
-                                            : 'border-x border-b border-gray-700'
-                                        } ${
-                                            idx === data.rows.length - 1
-                                            ? 'bg-gray-100 text-black font-bold'
-                                            : ''
-                                        }`}
-                                        >
-                                        {col}
-                                        </td>
-                                    ))}
-                                    </tr>
-                                ))}
-                                </tbody>
-                                <tfoot>
+                    </section>
+                </div>
+                <div className="relative py-12">
+                    <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full"/>
+                    <section className="blackgradiant z-20 text-white flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+                        <h2 className="text-[42px] font-bold">Still Wasting Weeks Recruiting Python Developer ?</h2>
+                        <p className="text-[16px]">Skip the hiring mess. Get top-tier python talent from us under 48 hours</p>
+                        <div className="overflow-x-hidden w-full table-auto">
+                            <div className="overflow-x-auto bg-gray-900 text-white p-6 rounded-lg shadow">
+                                <table className="min-w-[900px] w-full table-auto border-collapse">
+                                    <thead>
                                     <tr>
-                                        <td className="font-semibold border-s border-b text-white border-gray-700"></td>
-                                        <td className="text-black border-x-2 border-oveblue border-b-2 font-medium rounded-b">
-                                            <div className="p-4 flex justify-center">
-                                                <button className="hover:bg-oveblue border-2 border-oveblue cursor-pointer rounded text-white text-sm font-semibold px-4 py-2">
-                                                    Build Your Team!
-                                                </button>
-                                            </div>
-                                        </td>
-                                        <td className="text-white border-x border-b border-gray-700"></td>
-                                        <td className="text-white border-x border-b border-gray-700"></td>
-                                        <td className="text-white border-x border-b border-gray-700"></td>
+                                        {data.headers.map((header, i) => (
+                                        <th
+                                            key={i}
+                                            className={`py-4 px-6 text-left text-lg font-bold ${
+                                            i === 0
+                                            ? 'text-white relative border-gray-800 bg-gray-700 rounded-t-md'
+                                            :
+                                            i === 1 ? 'bg-oveblue text-white border-blue-700 rounded-t-lg relative' : 'border-x rounded-t-lg relative bg-gray-700 border-gray-800'
+                                            }`}
+                                        >
+                                            {i === 1 && (
+                                            <span className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-green-500 text-xs px-2 py-1 rounded-full text-white font-semibold">
+                                                {data.badge}
+                                            </span>
+                                            )}
+                                            {header}
+                                        </th>
+                                        ))}
                                     </tr>
-                                </tfoot>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                    {data.rows.map((row, idx) => (
+                                        <tr key={idx} className="border-t">
+                                        {row.map((col, i) => (
+                                            <td
+                                            key={i}
+                                            className={`py-4 px-6 align-top text-sm whitespace-pre-line ${
+                                                i === 0
+                                                ? ' font-semibold border-s border-b border-gray-700'
+                                                : i === 1
+                                                ? 'text-md border-x-2 border-oveblue border-b font-bold'
+                                                : 'border-x border-b border-gray-700'
+                                            } ${
+                                                idx === data.rows.length - 1
+                                                ? 'bg-gray-100 text-black font-bold'
+                                                : ''
+                                            }`}
+                                            >
+                                            {col}
+                                            </td>
+                                        ))}
+                                        </tr>
+                                    ))}
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td className="font-semibold border-s border-b text-white border-gray-700"></td>
+                                            <td className="text-black border-x-2 border-oveblue border-b-2 font-medium rounded-b">
+                                                <div className="p-4 flex justify-center">
+                                                    <button className="hover:bg-oveblue border-2 border-oveblue cursor-pointer rounded text-white text-sm font-semibold px-4 py-2">
+                                                        Build Your Team!
+                                                    </button>
+                                                </div>
+                                            </td>
+                                            <td className="text-white border-x border-b border-gray-700"></td>
+                                            <td className="text-white border-x border-b border-gray-700"></td>
+                                            <td className="text-white border-x border-b border-gray-700"></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                </div>
                 <FaqSection/>
                 <section className="py-12 bg-black flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
                     <h2 className="text-3xl xl:text-5xl mb-4 font-bold text-center text-white">Here are a few words shared by our Clients</h2>
