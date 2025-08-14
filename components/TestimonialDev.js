@@ -141,11 +141,6 @@ export default function TestimonialDev() {
         waitForAnimate: false,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,
-        responsive: [
-            { breakpoint: 1080, settings: { slidesToShow: 4, slidesToScroll: 1 } },
-            { breakpoint: 769, settings: { slidesToShow: 2, slidesToScroll: 1 } },
-            { breakpoint: 480, settings: { slidesToShow: 1, slidesToScroll: 1, dots: true, arrows: false } }
-        ]
     });
 
     useEffect(() => {
@@ -155,6 +150,8 @@ export default function TestimonialDev() {
                 setSettings(prevSettings => ({ ...prevSettings, slidesToShow: 4 }));
             } else if (width >= 769) {
                 setSettings(prevSettings => ({ ...prevSettings, slidesToShow: 3 }));
+            } else if (width >= 500) {
+                setSettings(prevSettings => ({ ...prevSettings, slidesToShow: 2, arrows: true, dots: false }));
             } else {
                 setSettings(prevSettings => ({ ...prevSettings, slidesToShow: 1, arrows: false, dots: true }));
             }

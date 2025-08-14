@@ -93,7 +93,7 @@ export default function Hire()
         <>
             <div className="relative 2xl:top-0">
                 <section className="bg-black xl:h-max lg:flex gap-2 dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
-                    <div className="flex w-[60%] flex-col h-full mt-6 justify-between gap-8 items-center md:items-start py-6">
+                    <div className="flex lg:w-[60%] flex-col h-full lg:mt-6 justify-between gap-8 items-center md:items-start py-6">
                         <h1 className="text-oveblue md:text-6xl text-4xl font-bold">Hire Full-Stack Developer</h1>
                         <p className="md:text-xl">Lorem ipsum dolor sit amete consectetur adipiscing elit seedo eiusmod tempor incididunt labore dolore magna aliqua eneom minim veniam quos nostrud exercitation ullamco laboris nisi ut aliquip. </p>
                         <button className="bg-oveblue p-2 rounded w-max md:text-xl hover:bg-blue-700 px-6 font-bold border-5 border-oveblue/90 cursor-pointer flex gap-2 items-center hover:border-oveblue/50">Hire Full-Stack Developer
@@ -102,21 +102,21 @@ export default function Hire()
                             </svg>
                         </button>
                         <div className="grid md:grid-cols-3 gap-2 w-full">
-                            <div className="bg-boxFill p-4 rounded-xl border border-oveblue drop-shadow-sm shadow-white">
+                            <div className="bg-boxFill flex md:block justify-between items-center gap-2 p-4 rounded-xl border border-oveblue drop-shadow-sm shadow-white">
                                 <h3 className="md:text-xl font-bold text-shadow-lg">1.5K+</h3>
-                                <p className="text-xs md:text-sm">fully vetted developers</p>
+                                <p className="text-sm capitalize">fully vetted developers</p>
                             </div>
-                            <div className="bg-boxFill p-4 rounded-xl border border-oveblue drop-shadow-sm shadow-white">
+                            <div className="bg-boxFill flex md:block justify-between items-center gap-2 p-4 rounded-xl border border-oveblue drop-shadow-sm shadow-white">
                                 <h3 className="md:text-xl font-bold">24 hours</h3>
-                                <p  className="text-xs md:text-sm">average matching time</p>
+                                <p  className="text-sm capitalize">average matching time</p>
                             </div>
-                            <div className="bg-boxFill p-4 rounded-xl border border-oveblue drop-shadow-sm shadow-white">
+                            <div className="bg-boxFill flex md:block justify-between items-center gap-2 p-4 rounded-xl border border-oveblue drop-shadow-sm shadow-white">
                                 <h3 className="md:text-xl font-bold">2.3M hours</h3>
-                                <p  className="text-xs md:text-sm">worked since 2015</p>
+                                <p  className="text-sm capitalize">worked since 2015</p>
                             </div>
                         </div>
                     </div>
-                    <div className="w-[40%] lg:flex hidden relative mb-5 justify-center">
+                    <div className="lg:w-[40%] lg:flex hidden relative mb-5 justify-center">
                         <div className="z-30">
                             <div className="absolute opacity-50 z-20 bottom-0">
                                 <Image src={'/assets/hire/devbg.webp'} alt="PBG" width={1000} height={1000} className="rounded-xl"/>
@@ -124,16 +124,22 @@ export default function Hire()
                             <Image loading="lazy" src={'/assets/hire/anjali.png'} alt="developer" width={500} height={500} className="relative z-40"/>
                             <div className="absolute border border-oveblue z-40 bg-boxFill bottom-0 end-0 p-4 rounded-xl shadow-sm drop-shadow">
                                 <h3 className="md:text-xl font-bold">AnJali</h3>
-                                <span className="text-xs md:text-sm">Senior Full-Stack Developer</span>
+                                <span className="text-xs font-bold md:text-sm">Senior Full-Stack Developer</span>
+                                <p className="text-xs flex gap-1 items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-oveblue">
+                                        <path fillRule="evenodd" d="M16.403 12.652a3 3 0 0 0 0-5.304 3 3 0 0 0-3.75-3.751 3 3 0 0 0-5.305 0 3 3 0 0 0-3.751 3.75 3 3 0 0 0 0 5.305 3 3 0 0 0 3.75 3.751 3 3 0 0 0 5.305 0 3 3 0 0 0 3.751-3.75Zm-2.546-4.46a.75.75 0 0 0-1.214-.883l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clipRule="evenodd" />
+                                    </svg>
+                                    Verified Person
+                                </p>
                             </div>
                         </div>
                     </div>
                 </section>
                 <section className="py-12 blackgradiant text-white flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-                    <h2 className="mb-12 capitalize text-center font-bold md:text-4xl text-3xl">How to Hire Python developer through OVE</h2>
-                    <div className="grid md:grid-cols-2 2xl:grid-cols-4 gap-6 2xl:gap-4 mb-6">
+                    <h2 className="md:mb-12 capitalize text-center font-bold md:text-4xl text-3xl">How to Hire Python developer through OVE</h2>
+                    <div className="md:grid space-y-4 md:grid-cols-2 2xl:grid-cols-4 gap-6 2xl:gap-4 mb-6">
                         {steps.map((step, index) => (
-                            <div key={index} className="flex aspect-[1/1] max-h-[300] w-full flex-col justify-center items-center relative items-center gap-3 bg-boxFill p-6 rounded-lg border border-oveblue hover:border-oveblue/50 transition-all duration-300">
+                            <div key={index} className="flex aspect-[1/1] md:max-h-[300] w-full flex-col justify-center items-center relative items-center gap-3 bg-boxFill p-6 rounded-lg border border-oveblue hover:border-oveblue/50 transition-all duration-300">
                                 <div className="relative w-max z-10 px-18 flex flex-col justify-center items-center">
                                     <span className="text-[150px] z-20 text-gray-300/90 absolute start-0 w-full h-full hover:scale-125 transition-all flex items-center">{step.step}</span>
                                     <Image alt="imge" src={step.imgSrc} width={400} height={400} className="w-32 h-auto rounded-md"/>
@@ -153,7 +159,7 @@ export default function Hire()
                     <div className="lg:flex gap-2 justify-between">
                         <div className="lg:w-1/2">
                             <h2 className="text-3xl font-bold">Expertise Of Our Python Web Developers</h2>
-                            <p className="mt-4 text-lg">
+                            <p className="mt-4 text-lg mb-4">
                                 Our dedicated Python developers, skilled at engineering robust web solutions for clients, helped
                                 different types and sizes of businesses in diverse industries. You can have an overview of the broad
                                 range of expertise our Python developers in India possess.
@@ -165,7 +171,7 @@ export default function Hire()
                                 {listinfos.map((item, index) => (
                                     <div
                                     key={index}
-                                    className={` border-oveblue bg-boxFill rounded-2xl py-2 px-4 shadow-sm shadow-oveblue transition-all duration-20 cursor-pointer ${
+                                    className={` border-oveblue bg-boxFill rounded py-2 px-4 shadow-sm shadow-oveblue transition-all duration-20 cursor-pointer ${
                                         activeIndex === index ? 'border-b-4' : ''
                                     }`}
                                     onClick={() => toggle(index)}
@@ -198,7 +204,7 @@ export default function Hire()
                 </section>
 
                 <section className="blackgradiant text-white py-12 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-                    <h2 className="text-3xl font-bold">Still Wasting Weeks Recruiting Python Developer ?</h2>
+                    <h2 className="lg:text-3xl text-2xl font-bold">Still Wasting Weeks Recruiting Python Developer ?</h2>
                     <p>Skip the hiring mess. Get top-tier python talent from us under 48 hours</p>
                     <div className="flex gap-3 items-center">
                         <a href={'/contact-us'} aria-label="contact" className="rounded-md border-3 flex items-center gap-2 border-oveblue bg-oveblue px-4 py-2 hover:bg-blue-700">Contact Us
@@ -210,12 +216,14 @@ export default function Hire()
                 </section>
 
                 <section className="py-12 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-                    <div className="md:flex gap-4 items-center">
+                    <div className="lg:flex gap-4 items-center">
                         <div className="flex flex-col gap-6">
                             <h4 className="text-oveblue mb-8 capitalize font-bold text-4xl">Why search for Python programmers for hir through Lemon.io ?</h4>
                             <p>If you’ve ever tried to hire remote developers you know the struggle. You can’t meet them in person, which makes assessing their real talents almost impossible. So, you end up with a churn rate that’s through the roof. Now, you’re spending all your time policing contractors or finding devs to hire.</p>
                         </div>
-                        <Image src={'/assets/hire/choose.webp'} alt="choose" width={300} height={300}/>
+                        <div className="w-full flex justify-center items-center">
+                            <Image src={'/assets/hire/choose.webp'} className="" alt="choose" width={300} height={300}/>
+                        </div>
                     </div>
                     <div className="">
                         <div className="grid md:grid-cols-2 border-t gap-4 py-10">
@@ -290,7 +298,7 @@ export default function Hire()
                                         <td className="font-semibold border-s border-b text-white border-gray-700"></td>
                                         <td className="text-black border-x-2 border-oveblue border-b-2 font-medium rounded-b">
                                             <div className="p-4 flex justify-center">
-                                                <button className="bg-oveblue text-white text-sm font-semibold px-4 py-2">
+                                                <button className="hover:bg-oveblue border-2 border-oveblue cursor-pointer rounded text-white text-sm font-semibold px-4 py-2">
                                                     Build Your Team!
                                                 </button>
                                             </div>
