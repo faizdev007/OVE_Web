@@ -102,17 +102,17 @@ export default function Hire()
                             </svg>
                         </button>
                         <div className="grid md:grid-cols-3 gap-2 w-full">
-                            <div className="bg-boxFill flex md:block justify-between items-center gap-2 p-4 rounded-xl border border-oveblue drop-shadow-sm shadow-white">
-                                <h3 className="md:text-xl font-bold text-shadow-lg">1.5K+</h3>
-                                <p className="text-sm capitalize">fully vetted developers</p>
+                            <div className="bg-boxFill flex md:block items-center gap-4 p-4 rounded-xl border border-oveblue drop-shadow-sm shadow-white">
+                                <h3 className="text-xl font-bold">1.5K+</h3>
+                                <p className="text-sm capitalize text-gray-400">fully vetted developers</p>
                             </div>
-                            <div className="bg-boxFill flex md:block justify-between items-center gap-2 p-4 rounded-xl border border-oveblue drop-shadow-sm shadow-white">
-                                <h3 className="md:text-xl font-bold">24 hours</h3>
-                                <p  className="text-sm capitalize">average matching time</p>
+                            <div className="bg-boxFill flex md:block items-center gap-4 p-4 rounded-xl border border-oveblue drop-shadow-sm shadow-white">
+                                <h3 className="text-xl font-bold">24 hours</h3>
+                                <p  className="text-sm capitalize text-gray-400">average matching time</p>
                             </div>
-                            <div className="bg-boxFill flex md:block justify-between items-center gap-2 p-4 rounded-xl border border-oveblue drop-shadow-sm shadow-white">
-                                <h3 className="md:text-xl font-bold">2.3M hours</h3>
-                                <p  className="text-sm capitalize">worked since 2015</p>
+                            <div className="bg-boxFill flex md:block items-center gap-4 p-4 rounded-xl border border-oveblue drop-shadow-sm shadow-white">
+                                <h3 className="text-xl font-bold">2.3M hours</h3>
+                                <p  className="text-sm capitalize text-gray-400">worked since 2015</p>
                             </div>
                         </div>
                     </div>
@@ -123,7 +123,7 @@ export default function Hire()
                             </div>
                             <Image loading="lazy" src={'/assets/hire/anjali.png'} alt="developer" width={500} height={500} className="relative z-40"/>
                             <div className="absolute border border-oveblue z-40 bg-boxFill bottom-0 end-0 p-4 rounded-xl shadow-sm drop-shadow">
-                                <h3 className="md:text-xl font-bold">AnJali</h3>
+                                <h3 className="md:text-xl font-bold">Anjali</h3>
                                 <span className="text-xs font-bold md:text-sm">Senior Full-Stack Developer</span>
                                 <p className="text-xs flex gap-1 items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-oveblue">
@@ -141,7 +141,7 @@ export default function Hire()
                         {steps.map((step, index) => (
                             <div key={index} className="flex aspect-[1/1] md:max-h-[300] w-full flex-col justify-center items-center relative items-center gap-3 bg-boxFill p-6 rounded-lg border border-oveblue hover:border-oveblue/50 transition-all duration-300">
                                 <div className="relative w-max z-10 px-18 flex flex-col justify-center items-center">
-                                    <span className="text-[150px] z-20 text-gray-300/90 absolute start-0 w-full h-full hover:scale-125 transition-all flex items-center">{step.step}</span>
+                                    <span className="text-[150px] z-20 text-oveblue/50 absolute start-0 w-full h-full hover:scale-125 transition-all flex items-center">{step.step}</span>
                                     <Image alt="imge" src={step.imgSrc} width={400} height={400} className="w-32 h-auto rounded-md"/>
                                 </div>
                                 <h3 className="md:text-2xl text-center text-xl font-bold">{step.title}</h3>
@@ -150,7 +150,7 @@ export default function Hire()
                         ))}
                     </div>
                     <div className="flex justify-center">
-                        <a href="/contact-us" className="border-2 border-oveblue hover:bg-oveblue hover:drop-shadow-lg p-2 rounded-md w-max xl:text-3xl md:text-xl text-white px-6 font-bold cursor-pointer">Hire With Confidence</a>
+                        <a href="/contact-us" className="border-4 border-oveblue bg-oveblue hover:bg-blue-700 hover:drop-shadow-lg p-2 rounded-md w-max xl:text-3xl md:text-xl text-white px-6 font-bold cursor-pointer">Hire With Confidence</a>
                     </div>
                 </section>
 
@@ -203,7 +203,7 @@ export default function Hire()
                     </div>
                 </section>
 
-                <section className="blackgradiant text-white py-12 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+                <section className="footerbg text-white py-12 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
                     <h2 className="lg:text-3xl text-2xl font-bold">Still Wasting Weeks Recruiting Python Developer ?</h2>
                     <p>Skip the hiring mess. Get top-tier python talent from us under 48 hours</p>
                     <div className="flex gap-3 items-center">

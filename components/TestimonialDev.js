@@ -188,7 +188,7 @@ export default function TestimonialDev() {
                           </div>
                         </div>
                         <div className="mb-4 mt-2">
-                          <Rating sizeN={4} rating={4}/>
+                          <Rating sizeN={4} rating={5}/>
                         </div>
                         <p className={`text-sm ${expended  !== index ? 'line-clamp-4 transition-all' : 'scale-100'}`}>{item.testimonial}</p>
                         { item.testimonial.length > 200 ?
