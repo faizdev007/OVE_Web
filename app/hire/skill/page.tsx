@@ -120,11 +120,14 @@ export default function Skill()
                         </div>
                     </div>
                     <div className="lg:w-[40%] lg:flex hidden relative mb-5 justify-center">
-                        <div className="z-30 flex flex-col justify-end">
+                        <div className="z-30 flex flex-col relative justify-end">
                             <div className="absolute z-20 bottom-0">
                                 <Image src={'/assets/hire/bg1.webp'} alt="PBG" width={500} height={500} className=""/>
                             </div>
-                            <Image loading="lazy" src={'/assets/hire/anjali.png'} alt="developer" width={500} height={500} className="relative z-40"/>
+                            <div className="absolute top-50 start-0 w-24 h-24 z-40 rounded-full z-40 bg-white">
+                                <Image loading="lazy" src={'/assets/hire/angular.webp'} alt="developer" width={500} height={500} className="object-container"/>
+                            </div>
+                            <Image loading="lazy" src={'/assets/hire/anjali.png'} alt="developer" width={500} height={500} className="relative z-30"/>
                             <div className="absolute border border-oveblue z-40 bg-boxFill bottom-0 end-0 p-4 rounded-xl shadow-sm drop-shadow">
                                 <h3 className="md:text-xl font-bold">Anjali</h3>
                                 <span className="text-xs font-bold md:text-sm">Senior Full-Stack Developer</span>
