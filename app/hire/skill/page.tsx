@@ -140,7 +140,7 @@ export default function Skill()
                 </section>
                 <DevelopersSlider/>
                 <HowItWorks/>
-                <section className="py-20 blackgradiant text-white flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+                <section className="hidden py-20 blackgradiant text-white flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
                     <h2 className="md:mb-12 capitalize text-center font-bold md:text-4xl text-3xl">How to Hire Python developer through OVE</h2>
                     <div className="md:grid space-y-4 md:grid-cols-2 2xl:grid-cols-4 gap-6 2xl:gap-4 mb-6">
                         {steps.map((step, index) => (
