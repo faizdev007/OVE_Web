@@ -7,8 +7,9 @@ import { useState } from 'react';
 import Rating from "@/components/Rating";
 import HireBy from "@/components/Homepage/hireby";
 import DevelopersSlider from "@/components/Homepage/developer";
+import HowItWorks from "@/components/HowItWorksSkillsPage";
 
-export default function Hire()
+export default function Skill()
 {
     const [activeSection, setActiveSection] = useState(null);
 
@@ -119,9 +120,9 @@ export default function Hire()
                         </div>
                     </div>
                     <div className="lg:w-[40%] lg:flex hidden relative mb-5 justify-center">
-                        <div className="z-30">
-                            <div className="absolute opacity-50 z-20 bottom-0">
-                                <Image src={'/assets/hire/devbg.webp'} alt="PBG" width={1000} height={1000} className="rounded-xl"/>
+                        <div className="z-30 flex flex-col justify-end">
+                            <div className="absolute z-20 bottom-0">
+                                <Image src={'/assets/hire/bg1.webp'} alt="PBG" width={500} height={500} className=""/>
                             </div>
                             <Image loading="lazy" src={'/assets/hire/anjali.png'} alt="developer" width={500} height={500} className="relative z-40"/>
                             <div className="absolute border border-oveblue z-40 bg-boxFill bottom-0 end-0 p-4 rounded-xl shadow-sm drop-shadow">
@@ -138,6 +139,7 @@ export default function Hire()
                     </div>
                 </section>
                 <DevelopersSlider/>
+                <HowItWorks/>
                 <section className="py-20 blackgradiant text-white flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
                     <h2 className="md:mb-12 capitalize text-center font-bold md:text-4xl text-3xl">How to Hire Python developer through OVE</h2>
                     <div className="md:grid space-y-4 md:grid-cols-2 2xl:grid-cols-4 gap-6 2xl:gap-4 mb-6">
@@ -226,7 +228,7 @@ export default function Hire()
                     <section className="py-12 z-20 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
                         <div className="lg:flex gap-4 items-center">
                             <div className="flex flex-col gap-6">
-                                <h4 className="text-oveblue mb-8 capitalize font-bold text-4xl">Why search for Python programmers for hir through Lemon.io ?</h4>
+                                <h4 className="text-oveblue mb-8 capitalize font-bold text-4xl">Why search for Python programmers for hir through Optimal Virtual Employee ?</h4>
                                 <p>If you’ve ever tried to hire remote developers you know the struggle. You can’t meet them in person, which makes assessing their real talents almost impossible. So, you end up with a churn rate that’s through the roof. Now, you’re spending all your time policing contractors or finding devs to hire.</p>
                             </div>
                             <div className="w-full flex justify-center items-center">
