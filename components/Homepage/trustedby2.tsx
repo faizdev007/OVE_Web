@@ -21,16 +21,15 @@ const stats = [
 
 export default function TrustedBySection() {
   return (
-    <section className="bg-black dark:bg-gray-800 text-white relative px-4 py-12 sm:px-6 lg:px-8 mx-auto text-center flex flex-col gap-10">
+    <section className="bg-black dark:bg-gray-800 text-white relative px-4 pb-12 sm:px-6 lg:px-8 mx-auto text-center flex flex-col gap-10">
       {/* Heading */}
       <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center">
         <span className="gradiantorg text-4xl lg:text-6xl md:text-5xl font-bold mb-4">Trusted by</span>
       </h2>
       <p className="max-w-4xl mx-auto text-white dark:text-white animate-fade">
         Trusted by Companies That Shape the Future
-From Fortune 500 leaders to next-gen disruptors, our developers power innovation across industries — with speed, skill, and accountability at the core
+        From Fortune 500 leaders to next-gen disruptors, our developers power innovation across industries — with speed, skill, and accountability at the core
       </p>
-
       {/* Logos */}
       <div className="flex flex-wrap justify-center sm:gap-10 gap-4 items-center">
         {companies.map((company, i) => (

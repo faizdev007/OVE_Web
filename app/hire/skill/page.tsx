@@ -122,7 +122,7 @@ export default function Skill()
                     <div className="lg:w-[40%] lg:flex hidden relative mb-5 justify-center">
                         <div className="z-30 flex flex-col relative justify-end">
                             <div className="absolute z-20 bottom-0">
-                                <Image src={'/assets/hire/bg1.webp'} alt="PBG" width={500} height={500} className=""/>
+                                <Image src={'/assets/hire/bg1.webp'} alt="PBG" width={500} height={500} className="rounded-e-2xl"/>
                             </div>
                             <div className="absolute top-50 start-0 w-24 h-24 z-40 rounded-full z-40 bg-white">
                                 <Image loading="lazy" src={'/assets/hire/angular.webp'} alt="developer" width={500} height={500} className="object-container"/>
@@ -161,11 +161,13 @@ export default function Skill()
                         <a href="/contact-us" className="border-4 border-oveblue bg-oveblue hover:bg-blue-700 hover:drop-shadow-lg p-2 rounded-md w-max xl:text-3xl md:text-xl text-white px-6 font-bold cursor-pointer">Hire With Confidence</a>
                     </div>
                 </section>
-                <div className="relative py-12">
-                    <Image src={'/assets/white.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 md:-top-10 w-full"/>
-                    <section className="bg-gradient flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+                <div className="relative">
+                    <div className="bg-black">
+                        <Image src={'/assets/white.png'} alt="compare" width={1000} height={1000} className="w-full"/>
+                    </div>
+                    <section className="bg-gradient pb-12 flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
                         {/* Main Header */}
-                        <div className="lg:flex relative z-20 gap-2 justify-between">
+                        <div className="lg:flex relative gap-2 justify-between">
                             <div className="lg:w-1/2">
                                 <h2 className="text-3xl font-bold">Expertise Of Our Python Web Developers</h2>
                                 <p className="mt-4 text-lg mb-4">
@@ -213,7 +215,9 @@ export default function Skill()
                     </section>
                 </div>
                 <div className="relative h-full bg-oveblue w-full">
-                    <Image src={'/assets/oveblue.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 xl:-top-15 w-full"/>
+                    <div className="bg-white">
+                        <Image src={'/assets/oveblue.png'} alt="compare" width={1000} height={1000} className="w-full"/>
+                    </div>
                     <section className="text-white py-20 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
                         <h2 className="lg:text-3xl text-2xl font-bold">Still Wasting Weeks Recruiting Python Developer ?</h2>
                         <p>Skip the hiring mess. Get top-tier python talent from us under 48 hours</p>
@@ -227,8 +231,10 @@ export default function Skill()
                     </section>
                 </div>
                 <div className="relative">
-                    <Image src={'/assets/white.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 xl:-top-15 w-full"/>
-                    <section className="py-12 z-20 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+                    <div className="bg-oveblue">
+                        <Image src={'/assets/white.png'} alt="compare" width={1000} height={1000} className="w-full"/>
+                    </div>
+                    <section className="pb-12 z-20 flex flex-col items-center gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
                         <div className="lg:flex gap-4 items-center">
                             <div className="flex flex-col gap-6">
                                 <h4 className="text-oveblue mb-8 capitalize font-bold text-4xl">Why search for Python programmers for hir through Optimal Virtual Employee ?</h4>
@@ -254,9 +260,11 @@ export default function Skill()
                         </div>
                     </section>
                 </div>
-                <div className="relative blackgradiant py-12">
-                    <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 md:-top-9 w-full"/>
-                    <section className="z-20 text-white flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+                <div className="relative blackgradiant">
+                    <div className="bg-white">
+                        <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full"/>
+                    </div>
+                    <section className="z-20 pb-12 text-white flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
                         <h2 className="text-[42px] font-bold">Still Wasting Weeks Recruiting Python Developer ?</h2>
                         <p className="text-[16px]">Skip the hiring mess. Get top-tier python talent from us under 48 hours</p>
                         <div className="overflow-x-hidden w-full table-auto">
@@ -329,14 +337,10 @@ export default function Skill()
                     </section>
                 </div>
                 <div className="relative">
-                    <Image src={'/assets/offWhite.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 md:-top-9 w-full"/>
-                    <div className="relative">
-                        <FaqSection/>
+                    <div className="bg-lightblack">
+                        <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full"/>
                     </div>
-                </div>
-                <div className="relative">
-                    <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 xl:-top-15 w-full"/>
-                    <section className="py-12 bg-black flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+                    <section className="pb-12 bg-black flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
                         <h2 className="text-3xl xl:text-5xl mb-4 font-bold text-center text-white">Here are a few words shared by our Clients</h2>
                         <div className="h-20 aspect-[3/1] overflow-hidden">
                             <Image src={'/assets/google.webp'} alt="employee" width={500} height={500} className="mx-auto object-cover flex justify-center items-center w-32 aspect-[3/1] rounded-lg shadow-lg"/>
@@ -351,8 +355,10 @@ export default function Skill()
                     <HireBy/>
                 </div>
                 <div className="relative h-full bg-oveblue w-full">
-                    <Image src={'/assets/oveblue.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 xl:-top-15 w-full"/>
-                    <section className="text-white py-20 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+                    <div className="bg-black">
+                        <Image src={'/assets/oveblue.png'} alt="compare" width={1000} height={1000} className="w-full"/>
+                    </div>
+                    <section className="text-white pb-20 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
                         <h2 className="lg:text-3xl text-2xl font-bold">Still Wasting Weeks Recruiting Python Developer ?</h2>
                         <p>Skip the hiring mess. Get top-tier python talent from us under 48 hours</p>
                         <div className="flex gap-3 items-center">
@@ -363,6 +369,14 @@ export default function Skill()
                             </a>
                         </div>
                     </section>
+                </div>
+                <div className="relative">
+                    <div className="bg-oveblue">
+                        <Image src={'/assets/offWhite.png'} alt="compare" width={1000} height={1000} className="w-full"/>
+                    </div>
+                    <div className="relative">
+                        <FaqSection/>
+                    </div>
                 </div>
             </div>
         </>
