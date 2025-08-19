@@ -196,13 +196,13 @@ export default function ContactPage() {
                     </div>
                 </div>
             </main>
-            <section className='py-12'>
+            <section className='py-12 bg-gray-100'>
                 <div className='text-center'>
                     <h2 className='text-3xl lg:text-5xl font-bold mb-4'>Serving Clients in 38+ Countries</h2>
                     <p className='text-gray-600 mb-8'>We are making an impact worldwide with our global presence and exceptional software solutions.</p>
                 </div>
                 <div className='md:flex gap-6 justify-center items-center p-2'>
-                    <div className='border lg:w-auto w-full border-gray-300 p-3 rounded-xl mb-2'>
+                    <div className='border bg-white lg:w-auto w-full border-gray-300 p-3 rounded-xl mb-2'>
                         <table className="">
                             <tbody>
                                 {contactinfo.map((country, index) => (
@@ -241,7 +241,7 @@ export default function ContactPage() {
                             </tbody>
                         </table>
                     </div>
-                    <div className='border lg:w-auto w-full border-gray-300 p-3 rounded-xl'>
+                    <div className='border bg-white lg:w-auto w-full border-gray-300 p-3 rounded-xl'>
                         <table className="">
                             <tbody>
                                 {officelocation.map((location, index) => (
