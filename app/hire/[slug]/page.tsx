@@ -11,7 +11,7 @@ import { useParams } from 'next/navigation';
 
 const WP = 'https://staging.optimalvirtualemployee.com.au';
 
-type RoleItem = {
+type HireItem = {
   id: number;
   slug: string;
   title: { rendered: string };
@@ -20,47 +20,51 @@ type RoleItem = {
   _embedded?: any;
 };
 
-async function getHirepageBySlug(slug: string, signal?: AbortSignal): Promise<RoleItem | null> {
-  const url = `${WP}/wp-json/wp/v2/role?slug=${encodeURIComponent(slug)}&_embed`;
+async function getHirepageBySlug(slug: string, signal?: AbortSignal): Promise<HireItem | null> {
+  const url = `${WP}/wp-json/wp/v2/hire?slug=${encodeURIComponent(slug)}&_embed`;
   const res = await fetch(url, { cache: "no-store", signal });
   if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
-  const arr: RoleItem[] = await res.json();
+  const arr: HireItem[] = await res.json();
   return arr[0] ?? null; // empty array = not found
 }
 
-export default function Role() {
-  const [activeSection, setActiveSection] = useState<null | string>(null);
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const params = useParams();
-  const slug = params?.slug as string;
+export default function Hire() {
+    const [activeSection, setActiveSection] = useState<null | string>(null);
+    const [activeIndex, setActiveIndex] = useState<number | null>(null);
+    const params = useParams();
+    const slug = params?.slug as string;
 
-  const [role, setRole] = useState<RoleItem | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
+    const [Hire, setHire] = useState<HireItem | null>(null);
+    const [error, setError] = useState<string | null>(null);
+    const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (!slug) return;
-    const ac = new AbortController();
+    
+    useEffect(() => {
+        if (!slug) return;
+        const ac = new AbortController();
 
-    (async () => {
-      try {
-        setLoading(true);
-        setError(null);
-        const data = await getHirepageBySlug(slug, ac.signal);
-        if (!data) {
-          // Mark as not found so UI can render 404
-          throw new Error("NOT_FOUND");
+        (async () => {
+        try {
+            setLoading(true);
+            setError(null);
+            const data = await getHirepageBySlug(slug, ac.signal);
+            if (!data) {
+                // Mark as not found so UI can render 404
+                throw new Error("NOT_FOUND");
+            }
+            setHire(data);
+        } catch (e: any) {
+            if (e?.name !== "AbortError") setError(e?.message || "Failed to load Hire");
+        } finally {
+            setLoading(false);
         }
-        setRole(data);
-      } catch (e: any) {
-        if (e?.name !== "AbortError") setError(e?.message || "Failed to load role");
-      } finally {
-        setLoading(false);
-      }
-    })();
+        })();
 
-    return () => ac.abort();
-  }, [slug]);
+        return () => ac.abort();
+    }, [slug]);
+
+    console.log(Hire);
+
 
     const toggle = (index: number) => {
         setActiveIndex(index === activeIndex ? null : index);
@@ -70,76 +74,76 @@ export default function Role() {
         setActiveSection(activeSection === section ? null : section);
     }
 
-  const listinfos = [
-    {
-    "title": "Data Science",
-    "description": "Data science with Python includes data analysis, data processing, machine learning, and more."
-    },
-    {
-    "title": "Custom Python Web Application Development",
-    "description": "Building scalable and high-performance web apps using Python web frameworks such as Django or Flask."
-    },
-    {
-    "title": "Enterprise Python Applications",
-    "description": "Development of enterprise-level applications for business processes and workflow automation."
-    },
-    {
-    "title": "Python Support and Maintenance",
-    "description": "Ongoing support, optimization, and maintenance for existing Python applications."
-    },
-    {
-    "title": "Machine Learning with Python",
-    "description": "Building machine learning models and deploying them in production using Python."
-    },
-    {
-    "title": "Python Migration & Integration",
-    "description": "Migrating applications to Python and integrating with other systems and platforms."
-    }
-];
+    const listinfos = [
+        {
+            "title": "Data Science",
+            "description": "Data science with Python includes data analysis, data processing, machine learning, and more."
+        },
+        {
+            "title": "Custom Python Web Application Development",
+            "description": "Building scalable and high-performance web apps using Python web frameworks such as Django or Flask."
+        },
+        {
+            "title": "Enterprise Python Applications",
+            "description": "Development of enterprise-level applications for business processes and workflow automation."
+        },
+        {
+            "title": "Python Support and Maintenance",
+            "description": "Ongoing support, optimization, and maintenance for existing Python applications."
+        },
+        {
+            "title": "Machine Learning with Python",
+            "description": "Building machine learning models and deploying them in production using Python."
+        },
+        {
+            "title": "Python Migration & Integration",
+            "description": "Migrating applications to Python and integrating with other systems and platforms."
+        }
+    ];
 
 const data = {
     headers: ['Factors', 'Optimal Virtual Employee', 'Arc.dev', 'Uplers', 'Toptal'],
     badge: 'BEST VALUE',
     rows: [
-    ['Starting Salary (Monthly)', '$1,500–$3,000', '$6,000–$10,000', '$4,000–$8,000', '$8,000–$12,000'],
-    ['Licensing Cost\n(Hardware/Software)', 'Zero', 'Extra Cost', 'Extra Cost', 'Extra Cost'],
-    ['Project Management Fee', 'Free', '$20–$35/hour', '$15–$30/hour', '$25–$45/hour'],
-    ['Timesheet/Proof of Work', 'Advanced timesheet with screenshots', 'Advanced timesheet with screenshots', 'Advanced timesheet with screenshots', 'Advanced timesheet with screenshots'],
-    ['AI & Human Vetting', 'AI screening + human evaluation', 'AI screening + human review', 'AI screening + human review', 'AI screening + human review'],
-    ['Support & Timezone', 'Business hours support', 'Business hours support', 'Business hours support', 'Business hours support'],
-    ['Time to Hire', '1–2 weeks', '2–4 weeks', '2–3 weeks', '1–3 weeks'],
-    ['Management Fee', '$799 (Fixed Fee)', '15–30% of total bill', '10–25% of total bill', '20–40% of total bill']
+        ['Starting Salary (Monthly)', '$1,500–$3,000', '$6,000–$10,000', '$4,000–$8,000', '$8,000–$12,000'],
+        ['Licensing Cost\n(Hardware/Software)', 'Zero', 'Extra Cost', 'Extra Cost', 'Extra Cost'],
+        ['Project Management Fee', 'Free', '$20–$35/hour', '$15–$30/hour', '$25–$45/hour'],
+        ['Timesheet/Proof of Work', 'Advanced timesheet with screenshots', 'Advanced timesheet with screenshots', 'Advanced timesheet with screenshots', 'Advanced timesheet with screenshots'],
+        ['AI & Human Vetting', 'AI screening + human evaluation', 'AI screening + human review', 'AI screening + human review', 'AI screening + human review'],
+        ['Support & Timezone', 'Business hours support', 'Business hours support', 'Business hours support', 'Business hours support'],
+        ['Time to Hire', '1–2 weeks', '2–4 weeks', '2–3 weeks', '1–3 weeks'],
+        ['Management Fee', '$799 (Fixed Fee)', '15–30% of total bill', '10–25% of total bill', '20–40% of total bill']
     ]
 };
 
 const steps = [
     {
-    step: 1,
-    title: "Place a free Request",
-    description: "Our dedicated Python developers, skilled at engineering robust web solutions for clients, helped different types and sizes of businesses in diverse industries.",
-    imgSrc: "/assets/hire/step1.webp"
+        step: 1,
+        title: "Place a free Request",
+        description: "Our dedicated Python developers, skilled at engineering robust web solutions for clients, helped different types and sizes of businesses in diverse industries.",
+        imgSrc: "/assets/hire/step1.webp"
     },
     {
-    step: 2,
-    title: "Tell us about your needs",
-    description: "Our dedicated Python developers, skilled at engineering robust web solutions for clients, helped different types and sizes of businesses in diverse industries.",
-    imgSrc: "/assets/hire/step2.webp"
+        step: 2,
+        title: "Tell us about your needs",
+        description: "Our dedicated Python developers, skilled at engineering robust web solutions for clients, helped different types and sizes of businesses in diverse industries.",
+        imgSrc: "/assets/hire/step2.webp"
     },
     {
-    step: 3,
-    title: "Interview the best",
-    description: "Our dedicated Python developers, skilled at engineering robust web solutions for clients, helped different types and sizes of businesses in diverse industries.",
-    imgSrc: "/assets/hire/step3.webp"
+        step: 3,
+        title: "Interview the best",
+        description: "Our dedicated Python developers, skilled at engineering robust web solutions for clients, helped different types and sizes of businesses in diverse industries.",
+        imgSrc: "/assets/hire/step3.webp"
     },
     {
-    step: 4,
-    title: "Onboard the choosen one",
-    description: "Our dedicated Python developers, skilled at engineering robust web solutions for clients, helped different types and sizes of businesses in diverse industries.",
-    imgSrc: "/assets/hire/step4.webp"
+        step: 4,
+        title: "Onboard the choosen one",
+        description: "Our dedicated Python developers, skilled at engineering robust web solutions for clients, helped different types and sizes of businesses in diverse industries.",
+        imgSrc: "/assets/hire/step4.webp"
     }
 ];
 
-  // --- 404 FIRST: render not-found view when error indicates missing role
+  // --- 404 FIRST: render not-found view when error indicates missing Hire
   if (error === "NOT_FOUND") {
     return (
       <section className="flex items-center justify-center min-h-[60vh] bg-gray-100 text-white px-4">
@@ -158,7 +162,7 @@ const steps = [
   }
 
   // --- LOADING SKELETON while fetching (only when no error)
-  if (loading && !role) {
+  if (loading && !Hire) {
     return (
       <section className="bg-gray-100 xl:h-max lg:flex gap-6 dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="flex lg:w-[60%] flex-col h-full lg:mt-6 justify-between gap-8 items-center md:items-start py-6">
@@ -197,7 +201,7 @@ const steps = [
   }
 
   // --- SUCCESS
-  if (!role) return null; // safety
+  if (!Hire) return null; // safety
 
   // your existing page (unchanged, just add a couple of safe-optional-chains)
   return (
@@ -205,9 +209,9 @@ const steps = [
         <div className="relative 2xl:top-0">
             <section className="bg-black xl:h-max lg:flex gap-2 dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
                 <div className="flex lg:w-[60%] flex-col h-full lg:mt-6 justify-between gap-8 items-center md:items-start py-6">
-                    <h1 className="text-oveblue md:text-6xl text-4xl font-bold">Hire <span dangerouslySetInnerHTML={{ __html: role.title?.rendered ?? 'Hire Full-Stack Developer' }}/></h1> 
-                    <div dangerouslySetInnerHTML={{ __html: role.content?.rendered ?? '' }}  className="md:text-xl"/>
-                    <button className="bg-oveblue p-2 rounded w-max md:text-xl hover:bg-blue-700 px-6 font-bold border-5 border-oveblue/90 cursor-pointer flex gap-2 items-center hover:border-oveblue/50">Hire <span dangerouslySetInnerHTML={{ __html: role.title?.rendered ?? 'Full-Stack Developer' }}/>
+                    <h1 className="text-oveblue md:text-6xl text-4xl font-bold">Hire <span dangerouslySetInnerHTML={{ __html: Hire.title?.rendered ?? 'Hire Full-Stack Developer' }}/></h1> 
+                    <div dangerouslySetInnerHTML={{ __html: Hire.content?.rendered ?? '' }}  className="md:text-xl"/>
+                    <button className="bg-oveblue p-2 rounded w-max md:text-xl hover:bg-blue-700 px-6 font-bold border-5 border-oveblue/90 cursor-pointer flex gap-2 items-center hover:border-oveblue/50">Hire <span dangerouslySetInnerHTML={{ __html: Hire.title?.rendered ?? 'Full-Stack Developer' }}/>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-7 font-bold">
                             <path fillRule="evenodd" d="M2 10a.75.75 0 0 1 .75-.75h12.59l-2.1-1.95a.75.75 0 1 1 1.02-1.1l3.5 3.25a.75.75 0 0 1 0 1.1l-3.5 3.25a.75.75 0 1 1-1.02-1.1l2.1-1.95H2.75A.75.75 0 0 1 2 10Z" clipRule="evenodd" />
                         </svg>
@@ -232,10 +236,10 @@ const steps = [
                         <div className="absolute z-20 bottom-0">
                             <Image src={'/assets/hire/bg1.webp'} alt="PBG" width={500} height={500} className="rounded-r-xl"/>
                         </div>
-                        <img loading="eager" src={role._embedded?.['wp:featuredmedia']?.[0].source_url ?? '/assets/hire/anjali.png'} alt="developer" width={500} height={500} className="relative z-40"/>
+                        <img loading="eager" src={Hire._embedded?.['wp:featuredmedia']?.[0].source_url ?? '/assets/hire/anjali.png'} alt="developer" width={500} height={500} className="relative z-40"/>
                         <div className="absolute border border-oveblue z-40 bg-boxFill bottom-0 end-0 p-4 rounded-xl shadow-sm drop-shadow">
-                            <h3 className="md:text-xl font-bold">{role._embedded?.['wp:featuredmedia']?.[0].title.rendered ?? 'Anjali'}</h3>
-                            <span className="text-xs font-bold md:text-sm">Senior <span dangerouslySetInnerHTML={{ __html: role.title?.rendered ?? 'Full-Stack Developer' }} /></span>
+                            <h3 className="md:text-xl font-bold">{ Hire._embedded?.['wp:featuredmedia']?.[0]?.title?.rendered ?? 'Anjali'}</h3>
+                            <span className="text-xs font-bold md:text-sm">Senior <span dangerouslySetInnerHTML={{ __html: Hire.title?.rendered ?? 'Full-Stack Developer' }} /></span>
                             <p className="text-xs flex gap-1 items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-oveblue">
                                     <path fillRule="evenodd" d="M16.403 12.652a3 3 0 0 0 0-5.304 3 3 0 0 0-3.75-3.751 3 3 0 0 0-5.305 0 3 3 0 0 0-3.751 3.75 3 3 0 0 0 0 5.305 3 3 0 0 0 3.75 3.751 3 3 0 0 0 5.305 0 3 3 0 0 0 3.751-3.75Zm-2.546-4.46a.75.75 0 0 0-1.214-.883l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clipRule="evenodd" />
@@ -248,7 +252,7 @@ const steps = [
             </section>
             <DevelopersSlider/>
             <section className="py-20 blackgradiant text-white flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-                <h2 className="md:mb-12 capitalize text-center font-bold md:text-4xl text-3xl">How to Hire <span dangerouslySetInnerHTML={{ __html: role.title?.rendered ?? 'Hire Full-Stack Developer' }}/> through OVE</h2>
+                <h2 className="md:mb-12 capitalize text-center font-bold md:text-4xl text-3xl">How to Hire <span dangerouslySetInnerHTML={{ __html: Hire.title?.rendered ?? 'Hire Full-Stack Developer' }}/> through OVE</h2>
                 <div className="md:grid space-y-4 md:grid-cols-2 2xl:grid-cols-4 gap-6 2xl:gap-4 mb-6">
                     {steps.map((step, index) => (
                         <div key={index} className="flex aspect-[1/1] md:max-h-[300] w-full flex-col justify-center items-center relative items-center gap-3 bg-boxFill p-6 rounded-lg border border-oveblue hover:border-oveblue/50 transition-all duration-300">
@@ -271,7 +275,7 @@ const steps = [
                     {/* Main Header */}
                     <div className="lg:flex relative z-20 gap-2 justify-between">
                         <div className="lg:w-1/2">
-                            <h2 className="text-3xl font-bold">Expertise Of Our <span dangerouslySetInnerHTML={{ __html: role.title?.rendered ?? 'Hire Full-Stack Developer' }}/></h2>
+                            <h2 className="text-3xl font-bold">Expertise Of Our <span dangerouslySetInnerHTML={{ __html: Hire.title?.rendered ?? 'Hire Full-Stack Developer' }}/></h2>
                             <p className="mt-4 text-lg mb-4">
                                 Our dedicated Python developers, skilled at engineering robust web solutions for clients, helped
                                 different types and sizes of businesses in diverse industries. You can have an overview of the broad
@@ -318,7 +322,7 @@ const steps = [
             <div className="relative h-full bg-oveblue w-full">
                 <Image src={'/assets/oveblue.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 xl:-top-15 w-full"/>
                 <section className="text-white py-20 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-                    <h2 className="lg:text-3xl text-2xl font-bold">Still Wasting Weeks Recruiting <span dangerouslySetInnerHTML={{ __html: role.title?.rendered ?? 'Hire Full-Stack Developer' }}/> ?</h2>
+                    <h2 className="lg:text-3xl text-2xl font-bold">Still Wasting Weeks Recruiting <span dangerouslySetInnerHTML={{ __html: Hire.title?.rendered ?? 'Hire Full-Stack Developer' }}/> ?</h2>
                     <p>Skip the hiring mess. Get top-tier python talent from us under 48 hours</p>
                     <div className="flex gap-3 items-center">
                         <a href={'/contact-us'} aria-label="contact" className="rounded-md border-3 flex items-center gap-2 border-black bg-gray-900 px-4 py-2 hover:bg-gray-700">Contact Us
@@ -334,7 +338,7 @@ const steps = [
                 <section className="py-12 z-20 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
                     <div className="lg:flex gap-4 items-center">
                         <div className="flex flex-col gap-6">
-                            <h4 className="text-oveblue mb-8 capitalize font-bold text-4xl">Why search for <span dangerouslySetInnerHTML={{ __html: role.title?.rendered ?? 'Hire Full-Stack Developer' }}/> for hir through Optimal Virtual Employee ?</h4>
+                            <h4 className="text-oveblue mb-8 capitalize font-bold text-4xl">Why search for <span dangerouslySetInnerHTML={{ __html: Hire.title?.rendered ?? 'Hire Full-Stack Developer' }}/> for hir through Optimal Virtual Employee ?</h4>
                             <p>If you’ve ever tried to hire remote developers you know the struggle. You can’t meet them in person, which makes assessing their real talents almost impossible. So, you end up with a churn rate that’s through the roof. Now, you’re spending all your time policing contractors or finding devs to hire.</p>
                         </div>
                         <div className="w-full flex justify-center items-center">
@@ -360,7 +364,7 @@ const steps = [
             <div className="relative blackgradiant py-12">
                 <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 md:-top-9 w-full"/>
                 <section className="z-20 text-white flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-                    <h2 className="text-[42px] font-bold">Still Wasting Weeks Recruiting <span dangerouslySetInnerHTML={{ __html: role.title?.rendered ?? 'Hire Full-Stack Developer' }}/> ?</h2>
+                    <h2 className="text-[42px] font-bold">Still Wasting Weeks Recruiting <span dangerouslySetInnerHTML={{ __html: Hire.title?.rendered ?? 'Hire Full-Stack Developer' }}/> ?</h2>
                     <p className="text-[16px]">Skip the hiring mess. Get top-tier python talent from us under 48 hours</p>
                     <div className="overflow-x-hidden w-full table-auto">
                         <div className="overflow-x-auto bg-gray-900 text-white p-6 rounded-lg shadow">
@@ -450,7 +454,7 @@ const steps = [
             <div className="relative h-full bg-oveblue w-full">
                 <Image src={'/assets/oveblue.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 xl:-top-15 w-full"/>
                 <section className="text-white py-20 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-                    <h2 className="lg:text-3xl text-2xl font-bold">Still Wasting Weeks Recruiting <span dangerouslySetInnerHTML={{ __html: role.title?.rendered ?? 'Hire Full-Stack Developer' }}/> ?</h2>
+                    <h2 className="lg:text-3xl text-2xl font-bold">Still Wasting Weeks Recruiting <span dangerouslySetInnerHTML={{ __html: Hire.title?.rendered ?? 'Hire Full-Stack Developer' }}/> ?</h2>
                     <p>Skip the hiring mess. Get top-tier python talent from us under 48 hours</p>
                     <div className="flex gap-3 items-center">
                         <a href={'/contact-us'} aria-label="contact" className="rounded-md border-3 flex items-center gap-2 border-black bg-gray-900 px-4 py-2 hover:bg-gray-700">Contact Us
