@@ -3,16 +3,95 @@
 import FaqSection from "@/components/Homepage/faq";
 import TestimonialDev from "@/components/TestimonialDev";
 import Image from "next/image";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Rating from "@/components/Rating";
 import HireBy from "@/components/Homepage/hireby";
 import DevelopersSlider from "@/components/Homepage/developer";
 
+const WP = 'https://staging.optimalvirtualemployee.com.au';
+
+type RoleItem = {
+  id: number;
+  slug: string;
+  title: { rendered: string };
+  thumbnail : any;
+  content?: { rendered: string };
+  _embedded?: any;
+};
+
+async function getRoleBySlug(slug: string): Promise<RoleItem | null> {
+  const url = `${WP}/wp-json/wp/v2/role?slug=${encodeURIComponent(slug)}&_embed`;
+  const res = await fetch(url, { cache: 'no-store' });
+  if (!res.ok) throw new Error(await res.text());
+  const arr: RoleItem[] = await res.json();
+  return arr[0] ?? null; // REST returns an array for slug queries
+}
+
 export default function Role()
 {
+    const [role, setRole] = useState<RoleItem | null>(null);
+    const [error, setError] = useState<string | null>(null);
     const [activeSection, setActiveSection] = useState(null);
-
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
+    const [featureImage, setFeatureImage] = useState<string | null>(null);
+
+    
+    useEffect(() => {
+        getRoleBySlug('full-stack-developer')
+        .then(setRole)
+        .catch((e) => setError(String(e)));
+    }, []);
+    
+    if (error) return <p className="text-red-500">Error: {error}</p>;
+    if (!role) return <>
+        <section className="bg-gray-100 xl:h-max lg:flex gap-6 dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
+            {/* Left content */}
+            <div className="flex lg:w-[60%] flex-col h-full lg:mt-6 justify-between gap-8 items-center md:items-start py-6">
+                {/* Title */}
+                <div className="h-10 w-3/4 bg-gray-700 rounded animate-pulse"></div>
+
+                {/* Description */}
+                <div className="space-y-2 w-full">
+                <div className="h-4 bg-gray-700 rounded animate-pulse w-full"></div>
+                <div className="h-4 bg-gray-700 rounded animate-pulse w-5/6"></div>
+                <div className="h-4 bg-gray-700 rounded animate-pulse w-2/3"></div>
+                </div>
+
+                {/* Button */}
+                <div className="h-12 w-48 bg-gray-700 rounded-lg animate-pulse"></div>
+
+                {/* Stats Grid */}
+                <div className="grid md:grid-cols-3 gap-2 w-full">
+                {Array.from({ length: 3 }).map((_, i) => (
+                    <div
+                    key={i}
+                    className="bg-gray-700 p-4 rounded-xl border border-gray-600 drop-shadow-sm shadow-white animate-pulse"
+                    >
+                    <div className="h-6 w-16 bg-gray-600 rounded mb-2"></div>
+                    <div className="h-3 w-28 bg-gray-600 rounded"></div>
+                    </div>
+                ))}
+                </div>
+            </div>
+
+            {/* Right image/profile */}
+            <div className="lg:w-[40%] lg:flex hidden relative mb-5 justify-center">
+                <div className="z-30 flex flex-col justify-end">
+                {/* <div className="absolute z-20 bottom-0">
+                    <div className="w-[500px] h-[500px] bg-gray-700 rounded-r-xl animate-pulse"></div>
+                </div> */}
+                {/* <div className="w-[500px] h-[500px] bg-gray-600 rounded-lg relative z-40 animate-pulse"></div> */}
+
+                {/* Profile card */}
+                <div className="absolute border border-gray-600 z-40 bg-gray-700 bottom-0 end-0 p-4 rounded-xl shadow-sm drop-shadow animate-pulse w-56">
+                    <div className="h-5 w-24 bg-gray-600 rounded mb-2"></div>
+                    <div className="h-4 w-32 bg-gray-600 rounded mb-2"></div>
+                    <div className="h-3 w-20 bg-gray-600 rounded"></div>
+                </div>
+                </div>
+            </div>
+            </section>
+        </>;
     
     const toggle = (index: number) => {
         setActiveIndex(index === activeIndex ? null : index);
@@ -96,9 +175,9 @@ export default function Role()
             <div className="relative 2xl:top-0">
                 <section className="bg-black xl:h-max lg:flex gap-2 dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
                     <div className="flex lg:w-[60%] flex-col h-full lg:mt-6 justify-between gap-8 items-center md:items-start py-6">
-                        <h1 className="text-oveblue md:text-6xl text-4xl font-bold">Hire Full-Stack Developer</h1>
-                        <p className="md:text-xl">Lorem ipsum dolor sit amete consectetur adipiscing elit seedo eiusmod tempor incididunt labore dolore magna aliqua eneom minim veniam quos nostrud exercitation ullamco laboris nisi ut aliquip. </p>
-                        <button className="bg-oveblue p-2 rounded w-max md:text-xl hover:bg-blue-700 px-6 font-bold border-5 border-oveblue/90 cursor-pointer flex gap-2 items-center hover:border-oveblue/50">Hire Full-Stack Developer
+                        <h1 className="text-oveblue md:text-6xl text-4xl font-bold">Hire <span dangerouslySetInnerHTML={{ __html: role.title?.rendered ?? 'Hire Full-Stack Developer' }}/></h1> 
+                        <div dangerouslySetInnerHTML={{ __html: role.content?.rendered ?? '' }}  className="md:text-xl"/>
+                        <button className="bg-oveblue p-2 rounded w-max md:text-xl hover:bg-blue-700 px-6 font-bold border-5 border-oveblue/90 cursor-pointer flex gap-2 items-center hover:border-oveblue/50">Hire <span dangerouslySetInnerHTML={{ __html: role.title?.rendered ?? 'Full-Stack Developer' }}/>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-7 font-bold">
                                 <path fillRule="evenodd" d="M2 10a.75.75 0 0 1 .75-.75h12.59l-2.1-1.95a.75.75 0 1 1 1.02-1.1l3.5 3.25a.75.75 0 0 1 0 1.1l-3.5 3.25a.75.75 0 1 1-1.02-1.1l2.1-1.95H2.75A.75.75 0 0 1 2 10Z" clipRule="evenodd" />
                             </svg>
@@ -123,10 +202,10 @@ export default function Role()
                             <div className="absolute z-20 bottom-0">
                                 <Image src={'/assets/hire/bg1.webp'} alt="PBG" width={500} height={500} className="rounded-r-xl"/>
                             </div>
-                            <Image loading="lazy" src={'/assets/hire/anjali.png'} alt="developer" width={500} height={500} className="relative z-40"/>
+                            <img loading="eager" src={role._embedded?.['wp:featuredmedia']?.[0].source_url ?? '/assets/hire/anjali.png'} alt="developer" width={500} height={500} className="relative z-40"/>
                             <div className="absolute border border-oveblue z-40 bg-boxFill bottom-0 end-0 p-4 rounded-xl shadow-sm drop-shadow">
-                                <h3 className="md:text-xl font-bold">Anjali</h3>
-                                <span className="text-xs font-bold md:text-sm">Senior Full-Stack Developer</span>
+                                <h3 className="md:text-xl font-bold">{role._embedded?.['wp:featuredmedia']?.[0].title.rendered ?? 'Anjali'}</h3>
+                                <span className="text-xs font-bold md:text-sm">Senior <span dangerouslySetInnerHTML={{ __html: role.title?.rendered ?? 'Full-Stack Developer' }} /></span>
                                 <p className="text-xs flex gap-1 items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-oveblue">
                                         <path fillRule="evenodd" d="M16.403 12.652a3 3 0 0 0 0-5.304 3 3 0 0 0-3.75-3.751 3 3 0 0 0-5.305 0 3 3 0 0 0-3.751 3.75 3 3 0 0 0 0 5.305 3 3 0 0 0 3.75 3.751 3 3 0 0 0 5.305 0 3 3 0 0 0 3.751-3.75Zm-2.546-4.46a.75.75 0 0 0-1.214-.883l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clipRule="evenodd" />
@@ -139,7 +218,7 @@ export default function Role()
                 </section>
                 <DevelopersSlider/>
                 <section className="py-20 blackgradiant text-white flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-                    <h2 className="md:mb-12 capitalize text-center font-bold md:text-4xl text-3xl">How to Hire Python developer through OVE</h2>
+                    <h2 className="md:mb-12 capitalize text-center font-bold md:text-4xl text-3xl">How to Hire <span dangerouslySetInnerHTML={{ __html: role.title?.rendered ?? 'Hire Full-Stack Developer' }}/> through OVE</h2>
                     <div className="md:grid space-y-4 md:grid-cols-2 2xl:grid-cols-4 gap-6 2xl:gap-4 mb-6">
                         {steps.map((step, index) => (
                             <div key={index} className="flex aspect-[1/1] md:max-h-[300] w-full flex-col justify-center items-center relative items-center gap-3 bg-boxFill p-6 rounded-lg border border-oveblue hover:border-oveblue/50 transition-all duration-300">
@@ -162,7 +241,7 @@ export default function Role()
                         {/* Main Header */}
                         <div className="lg:flex relative z-20 gap-2 justify-between">
                             <div className="lg:w-1/2">
-                                <h2 className="text-3xl font-bold">Expertise Of Our Python Web Developers</h2>
+                                <h2 className="text-3xl font-bold">Expertise Of Our <span dangerouslySetInnerHTML={{ __html: role.title?.rendered ?? 'Hire Full-Stack Developer' }}/></h2>
                                 <p className="mt-4 text-lg mb-4">
                                     Our dedicated Python developers, skilled at engineering robust web solutions for clients, helped
                                     different types and sizes of businesses in diverse industries. You can have an overview of the broad
@@ -202,7 +281,6 @@ export default function Role()
                                     ))}
                                     </div>
                                 </div>
-                                
                             </div>
                         </div>
                     </section>
@@ -210,7 +288,7 @@ export default function Role()
                 <div className="relative h-full bg-oveblue w-full">
                     <Image src={'/assets/oveblue.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 xl:-top-15 w-full"/>
                     <section className="text-white py-20 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-                        <h2 className="lg:text-3xl text-2xl font-bold">Still Wasting Weeks Recruiting Python Developer ?</h2>
+                        <h2 className="lg:text-3xl text-2xl font-bold">Still Wasting Weeks Recruiting <span dangerouslySetInnerHTML={{ __html: role.title?.rendered ?? 'Hire Full-Stack Developer' }}/> ?</h2>
                         <p>Skip the hiring mess. Get top-tier python talent from us under 48 hours</p>
                         <div className="flex gap-3 items-center">
                             <a href={'/contact-us'} aria-label="contact" className="rounded-md border-3 flex items-center gap-2 border-black bg-gray-900 px-4 py-2 hover:bg-gray-700">Contact Us
@@ -226,7 +304,7 @@ export default function Role()
                     <section className="py-12 z-20 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
                         <div className="lg:flex gap-4 items-center">
                             <div className="flex flex-col gap-6">
-                                <h4 className="text-oveblue mb-8 capitalize font-bold text-4xl">Why search for Python programmers for hir through Optimal Virtual Employee ?</h4>
+                                <h4 className="text-oveblue mb-8 capitalize font-bold text-4xl">Why search for <span dangerouslySetInnerHTML={{ __html: role.title?.rendered ?? 'Hire Full-Stack Developer' }}/> for hir through Optimal Virtual Employee ?</h4>
                                 <p>If you’ve ever tried to hire remote developers you know the struggle. You can’t meet them in person, which makes assessing their real talents almost impossible. So, you end up with a churn rate that’s through the roof. Now, you’re spending all your time policing contractors or finding devs to hire.</p>
                             </div>
                             <div className="w-full flex justify-center items-center">
@@ -252,7 +330,7 @@ export default function Role()
                 <div className="relative blackgradiant py-12">
                     <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 md:-top-9 w-full"/>
                     <section className="z-20 text-white flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-                        <h2 className="text-[42px] font-bold">Still Wasting Weeks Recruiting Python Developer ?</h2>
+                        <h2 className="text-[42px] font-bold">Still Wasting Weeks Recruiting <span dangerouslySetInnerHTML={{ __html: role.title?.rendered ?? 'Hire Full-Stack Developer' }}/> ?</h2>
                         <p className="text-[16px]">Skip the hiring mess. Get top-tier python talent from us under 48 hours</p>
                         <div className="overflow-x-hidden w-full table-auto">
                             <div className="overflow-x-auto bg-gray-900 text-white p-6 rounded-lg shadow">
@@ -324,12 +402,6 @@ export default function Role()
                     </section>
                 </div>
                 <div className="relative">
-                    <Image src={'/assets/offWhite.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 md:-top-9 w-full"/>
-                    <div className="relative">
-                        <FaqSection/>
-                    </div>
-                </div>
-                <div className="relative">
                     <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 xl:-top-15 w-full"/>
                     <section className="py-12 bg-black flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
                         <h2 className="text-3xl xl:text-5xl mb-4 font-bold text-center text-white">Here are a few words shared by our Clients</h2>
@@ -348,7 +420,7 @@ export default function Role()
                 <div className="relative h-full bg-oveblue w-full">
                     <Image src={'/assets/oveblue.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 xl:-top-15 w-full"/>
                     <section className="text-white py-20 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-                        <h2 className="lg:text-3xl text-2xl font-bold">Still Wasting Weeks Recruiting Python Developer ?</h2>
+                        <h2 className="lg:text-3xl text-2xl font-bold">Still Wasting Weeks Recruiting <span dangerouslySetInnerHTML={{ __html: role.title?.rendered ?? 'Hire Full-Stack Developer' }}/> ?</h2>
                         <p>Skip the hiring mess. Get top-tier python talent from us under 48 hours</p>
                         <div className="flex gap-3 items-center">
                             <a href={'/contact-us'} aria-label="contact" className="rounded-md border-3 flex items-center gap-2 border-black bg-gray-900 px-4 py-2 hover:bg-gray-700">Contact Us
@@ -358,6 +430,12 @@ export default function Role()
                             </a>
                         </div>
                     </section>
+                </div>
+                <div className="relative">
+                    <Image src={'/assets/offWhite.png'} alt="compare" width={1000} height={1000} className="absolute -top-5 md:-top-9 w-full"/>
+                    <div className="relative">
+                        <FaqSection/>
+                    </div>
                 </div>
             </div>
         </>

@@ -5,7 +5,7 @@ import Image from 'next/image';
 export default function HowItWorks() {
   return (
     <main className="bg-black text-white">
-      <div className="mx-auto container px-4 py-10 md:py-14">
+      <div className="mx-auto container md:max-w-5xl px-4 py-10 md:py-14">
         {/* Top intro block */}
         <section className="grid justify-center gap-5 items-start">
           {/* Avatar */}
@@ -25,7 +25,7 @@ export default function HowItWorks() {
           <div className='flex flex-col justify-center text-center h-full gap-2'>
             <div className="flex items-center justify-center gap-2">
               <span className="h-1.5 w-5 rounded-full bg-[#2F6FFF]"></span>
-              <span className="text-lg tracking-widest md:text-2xl text-white font-bold">HOW IT WORKS</span>
+              <span className="text-lg tracking-widest md:text-2xl lg:text-4xl text-white font-bold">HOW IT WORKS</span>
             </div>
             <h2 className="mt-2 text-lg font-semibold">Delivering Value Through Our Services</h2>
             <p className="mt-2 max-w-2xl text-sm text-white/70">
