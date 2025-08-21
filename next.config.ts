@@ -21,7 +21,7 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "hire/:path*",
+        source: "/hire/:path*",
         destination: "/", // Or /404 if you want a not-found page
         permanent: true,
       }
