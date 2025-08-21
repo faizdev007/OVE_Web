@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true, // Ignore ESLint during build
   },
+  experimental: {
+    globalNotFound: true,
+  },
   async redirects() {
     return [
       // {

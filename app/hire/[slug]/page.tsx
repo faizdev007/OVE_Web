@@ -1,10 +1,8 @@
 'use client';
 
 import FaqSection from "@/components/Homepage/faq";
-import TestimonialDev from "@/components/TestimonialDev";
 import Image from "next/image";
 import { useEffect, useState } from 'react';
-import Rating from "@/components/Rating";
 import HireBy from "@/components/Homepage/hireby";
 import DevelopersSlider from "@/components/Homepage/developer";
 import { useParams } from 'next/navigation';
