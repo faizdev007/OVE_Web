@@ -33,7 +33,7 @@ const HeroSection = ({hire}:HeroSectionProps) => (
             <div className="lg:w-[40%] lg:flex hidden relative mb-5 justify-center">
                 <div className="z-30 flex flex-col justify-end">
                     <div className="absolute z-20 bottom-0">
-                        <Image src={'/assets/hire/bg1.webp'} alt="PBG" width={500} height={500} className="rounded-r-xl"/>
+                        <Image src={'/assets/hire/bg2.webp'} alt="PBG" width={500} height={500} className="rounded-r-xl"/>
                     </div>
                     <img loading="eager" src={hire._embedded?.['wp:featuredmedia']?.[0].source_url ?? '/assets/hire/anjali.png'} alt="developer" width={500} height={500} className="relative z-40"/>
                     <div className="absolute border border-oveblue z-40 bg-boxFill bottom-0 end-0 p-4 rounded-xl shadow-sm drop-shadow">

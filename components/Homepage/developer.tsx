@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import React from 'react';
-import Slider, { Settings, CustomArrowProps } from 'react-slick';
+import Slider, { type Settings, type CustomArrowProps } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
