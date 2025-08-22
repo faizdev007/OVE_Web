@@ -6,9 +6,24 @@ import Image from 'next/image';
 import React from "react";
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css'; 
+import 'slick-carousel/slick/slick-theme.css';
 
-function SampleNextArrow(props) {
+
+type DevelopersType = {
+  name: string;
+  profile: string;
+  describe: string;
+  previous: string;
+  image: any;
+  color: string;
+  techstack:[any];
+};
+
+type DevelopersSectionProps = {
+  developers: DevelopersType; // 👈 lower camelCase prop name
+};
+
+function SampleNextArrow(props:any) {
   const { onClick } = props;
   return (
     <div className='absolute z-20 h-full top-0 p-3 end-0 flex justify-end items-center' style={{background: `linear-gradient(270deg,rgba(2, 0, 36, 1) 0%, rgba(0, 0, 0, 0) 100%)`}}>
@@ -24,7 +39,7 @@ function SampleNextArrow(props) {
   );
 }
 
-function SamplePrevArrow(props) {
+function SamplePrevArrow(props:any) {
   const { className, style, onClick } = props;
   return (
     <div className='absolute z-20 h-full top-0 p-3 start-0 flex justify-end items-center' style={{background: `linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(0, 0, 0, 0) 100%)`}}>
@@ -40,11 +55,11 @@ function SamplePrevArrow(props) {
   );
 }
 
-export default function DevelopersSlider() {
+export default function DevelopersSlider({developers}:DevelopersSectionProps) {
 
-  const [settings, setSettings] = useState(null);
+  const [settings, setSettings] = useState<any[]>([]);
 
-  const developers = [
+  const developerlist = developers ?? [
     { name: 'Aisha', profile:'Full-Stack Developer', describe:'Expert in serverless full-stack application development, focusing on real-time interactive apps.', previous:'/assets/previous/idp.webp', image: '/assets/developer/Aisha.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/MongoDB.webp','/assets/hireby/skills/Express.webp','/assets/hireby/skills/React.webp'] },
     { name: 'Ethan', profile:'AI RESEARCH ENG', describe:'Develops cloud-native, containerized backend services.', previous:'/assets/previous/linktree.webp', image: '/assets/developer/Ethan.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/Python.webp','/assets/hireby/skills/Scikit-Learn.webp','/assets/hireby/skills/MLflow.webp','/assets/hireby/skills/Docker.webp'] },
     { name: 'Tanvi', profile:'BACK-END DEVELOPER', describe:'Develops cloud-native, containerized backend services.', previous:'/assets/previous/gamma.webp', image: '/assets/developer/Tanvi.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/Go.webp','/assets/hireby/skills/Kubernetes.webp','/assets/hireby/skills/PostgreSQL.webp'] },
@@ -62,7 +77,7 @@ export default function DevelopersSlider() {
       autoplay: true,
       autoplaySpeed: 3000,
       speed: 500,
-      slidesToShow: 5,  // Default value for larger screens
+      slidesToShow: 5, // Default value for larger screens
       slidesToScroll: 1,
       swipeToSlide: true,
       initialSlide: 0,
@@ -105,16 +120,15 @@ export default function DevelopersSlider() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  
   return (
     <section className={`bg-black dark:bg-gray-700 relative px-4 py-12 sm:px-6 lg:px-8 mx-auto`}>
       <Image loading='lazy' width={100} height={100} className='absolute hidden object-cover bottom-0 w-full start-0 end-0' src={'/assets/cloudbg.webp'} alt="cloudbg"/>
       <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center text-white mb-12">Meet Our Developers</h2>
       <div className={`transform relative bg-black/90 rounded overflow-hidden dark:bg-gray-800 rounded-md mx-auto`}>
         <div className='slider-container relative z-10'>
-          {settings ? 
+          {settings.length !== 0 ? 
           <Slider {...settings}>
-              {developers.map((dev, index) => (
+              {developerlist.map((dev, index) => (
                 <div key={index} className='px-1 py-2'>
                   <div className={`bg-oveblue gap-4 flex flex-col justify-between mt-25 aspect-[1/1.2] text-white relative rounded-xl shadow-md animate-fade-up animate-once animate-ease-linear animate-delay-${index}00 hover:shadow-lg`} style={{border:`3px solid ${dev.color}`}}>
                     <div className="relative w-2/3 flex items-center justify-center aspect-[3/1] mx-auto">
