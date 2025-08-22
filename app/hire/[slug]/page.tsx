@@ -45,7 +45,7 @@ export default function Hire() {
     useEffect(() => {
         if (!slug) return;
         const ac = new AbortController();
-
+        
         (async () => {
         try {
             setLoading(true);

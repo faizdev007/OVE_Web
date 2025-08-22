@@ -1,15 +1,13 @@
 'use client';
 
-import React, { useEffect } from "react";
-import Slider from "react-slick";
+import React, { useEffect, useState } from "react";
+import Slider , { type Settings, type CustomArrowProps } from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css'; 
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-
 import Image from 'next/image';
 
-function SampleNextArrow(props) {
+function SampleNextArrow(props:any) {
   const { onClick } = props;
   return (
     <div className='absolute z-20 h-full top-0 p-3 -end-5 flex justify-end items-center'>
@@ -25,7 +23,7 @@ function SampleNextArrow(props) {
   );
 }
 
-function SamplePrevArrow(props) {
+function SamplePrevArrow(props:any) {
   const { onClick } = props;
   return (
     <div className='absolute z-20 h-full top-0 p-3 -start-5 flex justify-end items-center'>
@@ -74,9 +72,8 @@ const projects = [
 ];
 
 export default function OurProjectsSlider() {
-  const [settings, setSettings] = React.useState(null);
-
-  const defaultSettings = {
+  
+  const baseSettings: Settings = {
       infinite: true,
       autoplay: true,
       autoplaySpeed: 3000,
@@ -90,16 +87,17 @@ export default function OurProjectsSlider() {
       pauseOnHover: true,
       nextArrow: <SampleNextArrow />,
       prevArrow: <SamplePrevArrow />,
-  };
-
-
+    };
+  
+  const [settings, setSettings] = useState<Settings | null>(null);
+  
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
       if (width >= 480) {
-        setSettings({ ...defaultSettings, slidesToShow: 1, slidesToScroll: 1 });
+        setSettings({ ...baseSettings, slidesToShow: 1, slidesToScroll: 1 });
       } else {
-        setSettings({ ...defaultSettings, slidesToShow: 1, slidesToScroll: 1, dots: true, arrows: false });
+        setSettings({ ...baseSettings, slidesToShow: 1, slidesToScroll: 1, dots: true, arrows: false });
       }
     };
 
@@ -133,7 +131,7 @@ export default function OurProjectsSlider() {
                           {project.features.map((feature, i) => (
                             <div key={i} className="mb-4 flex flex-col gap-4">
                               <h3 className="font-semibold text-md mb-1">
-                                {feature.icon} {feature.heading}
+                                {feature.heading}
                               </h3>
                               <p className="text-sm text-gray-600 dark:text-black">{feature.text}</p>
                               <div className=''>
