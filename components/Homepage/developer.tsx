@@ -14,11 +14,11 @@ type Developer = {
   previous: string;     // logo/image path
   image: string;        // image path
   color: string;        // hex color
-  techstack: string[];  // list of image paths or labels
+  techstack: any;  // list of image paths or labels
 };
 
 type DevelopersSectionProps = {
-  developers?: Developer[];
+  developers?: any;
 };
 
 function SampleNextArrow(props: CustomArrowProps) {
@@ -77,7 +77,7 @@ export default function DevelopersSlider({ developers }: DevelopersSectionProps)
     { name: 'Preeda', profile:'ML ENGINEER', describe:'Optimizes deep learning models for edge devices.', previous:'/assets/previous/bhp.webp', image: '/assets/developer/Preeda.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/Python.webp','/assets/hireby/skills/Lightning.webp','/assets/hireby/skills/ONNX.webp'] },
   ];
 
-  const developerList: Developer[] = (developers && developers.length > 0) ? developers : fallbackDevelopers;
+  const developerList = developers ?? fallbackDevelopers;
 
   const baseSettings: Settings = {
     infinite: true,
@@ -146,18 +146,17 @@ export default function DevelopersSlider({ developers }: DevelopersSectionProps)
         <div className="slider-container relative z-10">
           {settings ? (
             <Slider {...settings}>
-              {developerList.map((dev, index) => (
-                <div key={dev.name + index} className="px-1 py-2">
-                  <div
-                    className={`bg-oveblue gap-4 flex flex-col justify-between mt-25 aspect-[1/1.2] text-white relative rounded-xl shadow-md hover:shadow-lg`}
-                    style={{ border: `3px solid ${dev.color}` }}
-                  >
-                    <div className="relative w-2/3 flex items-center justify-center aspect-[3/1] mx-auto">
-                      <div className="overflow-hidden absolute -top-20 border border-gray-800 z-20 rounded-full aspect-[1/1]">
-                        <Image
+              {developerList.map((dev:any, index:number) => (
+                
+                <div key={index} className='px-1 py-2'>
+                  <div className={`bg-oveblue gap-4 flex flex-col justify-between mt-25 aspect-[1/1.2] text-white relative rounded-xl shadow-md animate-fade-up animate-once animate-ease-linear animate-delay-${index}00 hover:shadow-lg`} style={{border:`3px solid ${dev.color}`}}>
+                     <div className="relative w-2/3 flex items-center justify-center aspect-[3/1] mx-auto">
+                       <div className='overflow-hidden absolute -top-20 border border-gray-800 z-20 rounded-full absolute aspect-[1/1]'>
+                         {/* Profile Image with Border and Hover Effect */}
+                         <img
                           loading="eager"
-                          src={dev.image}
-                          alt={dev.name}
+                          src={dev._embedded['wp:featuredmedia'][0].source_url}
+                          alt={dev?.name}
                           width={300}
                           height={300}
                           decoding="async"
@@ -165,47 +164,40 @@ export default function DevelopersSlider({ developers }: DevelopersSectionProps)
                         />
                       </div>
                     </div>
-
-                    <div className="p-2 flex flex-col gap-3">
-                      <div className="space-y-2">
-                        <div className="flex flex-col text-center gap-0">
-                          <h3 className="font-semibold text-xl text-ellipsis overflow-hidden text-clip">
-                            {dev.name}
-                          </h3>
-                          <p className="text-sm overflow-hidden text-ellipsis text-clip text-white/80">
-                            {dev.profile}
-                          </p>
+                    <div className='p-2 flex flex-col gap-3'>
+                      <div className='space-y-2'>
+                        <div className='hidden text-center gap-2 md:gap-0 justify-center'>
+                          <div className='border border-white flex gap-2 items-center px-4 rounded-full py-1 bg-white text-black'>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />
+                            </svg>
+                            <span className='text-sm font-semibold uppercase'>
+                              {dev.acf.designation}
+                            </span>
+                          </div>
                         </div>
-
-                        <div className="overflow-hidden">
+                        <div className='flex flex-col text-center gap-0'>
+                          <h3 className="font-semibold text-xl text-ellipsis overflow-hidden text-clip">{dev?.title?.rendered}</h3>
+                          <p className="text-sm overflow-hidden text-ellipsis text-clip text-white/80">{dev?.acf?.designation}</p>
+                        </div>
+                        <div className='overflow-hidden'>
                           <div className="flex flex-wrap w-full gap-1 h-[60px] text-xs items-center justify-center">
-                            {dev.techstack.map((item, i) => (
-                              <span key={item + i} className="border border-gray-100 rounded-full px-2 py-1">
-                                {item.split('/').pop()?.replace('.webp', '')}
-                              </span>
+                            {dev._embedded['wp:term'][0].length > 0 && dev._embedded['wp:term'][0].map((items:any, index:number)=>(
+                              <span key={index} className='border border-gray-100 rounded-full px-2 py-1'>{items.name}</span>
                             ))}
                           </div>
                         </div>
-
-                        <div className="flex flex-col text-center">
-                          <p className="text-white/60 mb-1 font-bold text-sm">PREVIOUSLY AT</p>
-                          <div className="flex justify-center items-center aspect-[4/1] h-12">
-                            <Image
-                              loading="eager"
-                              fetchPriority="high"
-                              decoding="async"
-                              width={300}
-                              height={300}
-                              className="object-contain w-auto h-12 mb-2"
-                              src={dev.previous}
-                              alt={dev.previous.split('/').pop()?.replace('.webp', '') || 'previous'}
-                            />
+                        <div className='flex flex-col text-center'>
+                          <p className="text-white/60 mb-1 font-bold font-sm">PREVIOUSLY AT</p>
+                          <div className='flex justify-center items-center aspect-[4/1] h-12'>
+                            <img loading="eager" fetchPriority="high" decoding="async" width={300} height={300} className="object-container w-auto h-12 mb-2" src={dev.acf.previously_at_source.formatted_value.url} alt={dev.acf.previously_at_source.formatted_value.title}/>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                
               ))}
             </Slider>
           ) : (

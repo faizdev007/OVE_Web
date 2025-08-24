@@ -13,54 +13,53 @@ import WhyChooseUs from "@/components/Homepage/whyus";
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
-const WP = 'https://staging.optimalvirtualemployee.com.au';
-
 type DeveloperItem = {
   id: number;
   slug: string;
+  type: string;
   title: { rendered: string };
-  thumbnail: any;
   content?: { rendered: string };
-  _embedded?: any;
+  featured_media: number;   // ✅ correct spelling
+  roles: number[];          // usually array of term IDs
+  _links?: any;
+  acf?: any;
 };
 
-async function getDevelopers(signal?: AbortSignal): Promise<DeveloperItem | null> {
-  const url = `${WP}/wp-json/wp/v2/developer`;
-  const res = await fetch(url, { cache: "no-store", signal });
-  if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
-  const arr: DeveloperItem[] = await res.json();
-  return arr[0] ?? null; // empty array = not found
-}
-
 export default function Home() {
-  const [Developers, setDevelopers] = useState<DeveloperItem | null>(null);
-  useEffect(() => {
-      const ac = new AbortController();
-      
-      (async () => {
-      try {
-          const data = await getDevelopers(ac.signal);
-          if (!data) {
-              // Mark as not found so UI can render 404
-              throw new Error("NOT_FOUND");
-          }
-          setDevelopers(data);
-      } catch (e: any) {
-          
-      }
-      })();
+  const [developers, setDevelopers] = useState<DeveloperItem[] | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
-      return () => ac.abort();
+  useEffect(() => {
+    const ac = new AbortController();
+
+    (async () => {
+      try {
+        const res = await fetch(`/api/developers`, {
+          signal: ac.signal,
+          cache: 'no-store', // or remove to respect the route’s revalidate
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data: DeveloperItem[] = await res.json();
+        setDevelopers(data);
+      } catch (e: any) {
+        if (e.name !== 'AbortError') setError(e.message || 'Failed to load');
+      }
+    })();
+
+    return () => ac.abort();
   }, []);
 
   return (
     <>
       <Herosection/>
-      <DevelopersSlider/>
+
+      {/* Render when data is ready */}
+      {developers && <DevelopersSlider developers={developers} />}
+
       <HireBy/>
       <div className="relative">
         <div className="bg-black">
-            <Image src={'/assets/gray.webp'} alt="compare" width={1000} height={1000} className="w-full"/>
+          <Image src={'/assets/gray.webp'} alt="compare" width={1000} height={1000} className="w-full"/>
         </div>
         <HiringProcess/>
       </div>
