@@ -6,19 +6,33 @@ import React from 'react';
 import Slider, { type Settings, type CustomArrowProps } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { fetchGraphQL } from "@/lib/graphqlClient";
 
-type Developer = {
-  name: string;
-  profile: string;
-  describe: string;
-  previous: string;     // logo/image path
-  image: string;        // image path
-  color: string;        // hex color
-  techstack: any;  // list of image paths or labels
+type GqlDeveloperNode = {
+  id: string;
+  title: string;
+  slug: string;
+  featuredImage?: { node?: { sourceUrl?: string | null } | null } | null;
+  carddetails?: {
+    designation?: string | null;
+    previouslyAt?: {
+      node?: {
+        sourceUrl?: string | null;
+      } | null;
+      altText?: string | null;
+      mediaDetails?: { width?: number | null; height?: number | null  } | null;
+    } | null;
+  } | null;
+  roles?: { nodes?: { name?: string | null; slug?: string | null }[] | null } | null;
 };
 
-type DevelopersSectionProps = {
-  developers?: any;
+type CardDev = {
+  name: string;
+  profile?: string;
+  image?: string;
+  previous?: string;
+  color?: string;
+  roles?: string[];
 };
 
 function SampleNextArrow(props: CustomArrowProps) {
@@ -63,22 +77,40 @@ function SamplePrevArrow(props: CustomArrowProps) {
   );
 }
 
-export default function DevelopersSlider({ developers }: DevelopersSectionProps) {
-  const fallbackDevelopers: Developer[] = [
-    { name: 'Aisha', profile:'Full-Stack Developer', describe:'Expert in serverless full-stack application development, focusing on real-time interactive apps.', previous:'/assets/previous/idp.webp', image: '/assets/developer/Aisha.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/MongoDB.webp','/assets/hireby/skills/Express.webp','/assets/hireby/skills/React.webp'] },
-    { name: 'Ethan', profile:'AI RESEARCH ENG', describe:'Develops cloud-native, containerized backend services.', previous:'/assets/previous/linktree.webp', image: '/assets/developer/Ethan.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/Python.webp','/assets/hireby/skills/Scikit-Learn.webp','/assets/hireby/skills/MLflow.webp','/assets/hireby/skills/Docker.webp'] },
-    { name: 'Tanvi', profile:'BACK-END DEVELOPER', describe:'Develops cloud-native, containerized backend services.', previous:'/assets/previous/gamma.webp', image: '/assets/developer/Tanvi.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/Go.webp','/assets/hireby/skills/Kubernetes.webp','/assets/hireby/skills/PostgreSQL.webp'] },
-    { name: 'Renu', profile:'ML ENGINEER', describe:'Fine-tunes LLMs for advanced NLP use cases.', previous:'/assets/previous/airwallex.webp', image: '/assets/developer/Renu.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/Python.webp','/assets/hireby/skills/PyTorch.webp','/assets/hireby/skills/Hugging Face.webp'] },
-    { name: 'Alexander', profile:'Full-Stack Developer', describe:'Builds scalable full-stack apps with modern JS frameworks.', previous:'/assets/previous/afterplay.webp', image: '/assets/developer/Alexander.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/Ruby on Rails.webp','/assets/hireby/skills/React.webp','/assets/hireby/skills/PostgreSQL.webp'] },
-    { name: 'Miguel', profile:'FULL-STACK DEVELOPER', describe:'Full-stack engineer with deep Ruby on Rails expertise.', previous:'/assets/previous/tesco.webp', image: '/assets/developer/Miguel.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/Ruby on Rails.webp','/assets/hireby/skills/React.webp','/assets/hireby/skills/PostgreSQL.webp'] },
-    { name: 'Jose', profile:'ML OPS ENGINEER', describe:'Automates ML pipelines and deploys models at scale.', previous:'/assets/previous/atlassian.webp', image: '/assets/developer/Jose.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/Python.webp','/assets/hireby/skills/Kubeflow.webp','/assets/hireby/skills/MLflow.webp'] },
-    { name: 'Ella', profile:'FRONT-END DEVELOPER', describe:'Creates pixel-perfect UI with seamless user experience.', previous:'/assets/previous/kainos.webp', image: '/assets/developer/Ella.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/React.webp','/assets/hireby/skills/Vue.js.webp','/assets/hireby/skills/SASS.webp'] },
-    { name: 'Karthik', profile:'AI ENGINEER', describe:'Designs and deploys deep learning pipelines for computer vision in production.', previous:'/assets/previous/canva.webp', image: '/assets/developer/Karthik.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/Python.webp','/assets/hireby/skills/TensorFlow.webp','/assets/hireby/skills/Keras.webp'] },
-    { name: 'Preeda', profile:'ML ENGINEER', describe:'Optimizes deep learning models for edge devices.', previous:'/assets/previous/bhp.webp', image: '/assets/developer/Preeda.webp', color: '#3AA0FF', techstack: ['/assets/hireby/skills/Python.webp','/assets/hireby/skills/Lightning.webp','/assets/hireby/skills/ONNX.webp'] },
-  ];
+const QUERY = `
+  {
+    developers(first: 10) {
+      nodes {
+        id
+        title
+        slug
+        featuredImage {
+          node {
+            sourceUrl
+          }
+        }
+        carddetails {
+          designation
+          previouslyAt {
+            node {
+              altText
+              sourceUrl
+              title
+            }
+          }
+        }
+        roles(first: 5) {
+          nodes { name slug }
+        }
+      }
+    }
+  }
+`;
 
-  const developerList = developers ?? fallbackDevelopers;
+export default function DevelopersSlider() {
 
+  const [developerList,setDeveloperList] = useState<CardDev[] | null>(null);
+  
   const baseSettings: Settings = {
     infinite: true,
     autoplay: true,
@@ -98,6 +130,31 @@ export default function DevelopersSlider({ developers }: DevelopersSectionProps)
   };
 
   const [settings, setSettings] = useState<Settings | null>(null);
+
+  useEffect(() => {
+    // Fetch GraphQL on the client
+    (async () => {
+      try {
+        const data = await fetchGraphQL(QUERY);
+        const nodes: GqlDeveloperNode[] = data?.developers?.nodes ?? [];
+
+        // Map GraphQL → card shape your UI expects
+        const mapped: CardDev[] = nodes.map((n) => ({
+          name: n.title,
+          profile: n.carddetails?.designation ?? '',
+          image: n.featuredImage?.node?.sourceUrl ?? '',           // profile image
+          previous: n.carddetails?.previouslyAt?.node?.sourceUrl ?? '',  // company logo
+          roles: (n.roles?.nodes ?? []).map((t:any) => t?.name || '').filter(Boolean) as string[],
+          color: '#3AA0FF',
+        }));
+
+        setDeveloperList(mapped.length ? mapped : []);
+      } catch (e) {
+        console.error('GraphQL fetch failed', e);
+        setDeveloperList([]); // avoid null crash
+      }
+    })();
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -129,80 +186,85 @@ export default function DevelopersSlider({ developers }: DevelopersSectionProps)
   }, []);
 
   return (
-    <section className="bg-black dark:bg-gray-700 relative px-4 py-12 sm:px-6 lg:px-8 mx-auto">
-      <Image
-        loading="lazy"
-        width={100}
-        height={100}
-        className="absolute hidden object-cover bottom-0 w-full start-0 end-0"
-        src="/assets/cloudbg.webp"
-        alt="cloudbg"
-      />
+    <section className="bg-black relative px-4 py-12 sm:px-6 lg:px-8 mx-auto">
+      <Image loading="lazy" width={100} height={100}
+             className="absolute hidden object-cover bottom-0 w-full start-0 end-0"
+             src="/assets/cloudbg.webp" alt="cloudbg" />
       <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center text-white mb-12">
         Meet Our Developers
       </h2>
 
-      <div className="transform relative bg-black/90 rounded overflow-hidden dark:bg-gray-800 rounded-md mx-auto">
+      <div className="relative bg-black/90 rounded overflow-hidden mx-auto">
         <div className="slider-container relative z-10">
-          {settings ? (
+          {settings && developerList ? (
             <Slider {...settings}>
-              {developerList.map((dev:any, index:number) => (
-                
-                <div key={index} className='px-1 py-2'>
-                  <div className={`bg-oveblue gap-4 flex flex-col justify-between mt-25 aspect-[1/1.2] text-white relative rounded-xl shadow-md animate-fade-up animate-once animate-ease-linear animate-delay-${index}00 hover:shadow-lg`} style={{border:`3px solid ${dev.color}`}}>
-                     <div className="relative w-2/3 flex items-center justify-center aspect-[3/1] mx-auto">
-                       <div className='overflow-hidden absolute -top-20 border border-gray-800 z-20 rounded-full absolute aspect-[1/1]'>
-                         {/* Profile Image with Border and Hover Effect */}
-                         <img
-                          loading="eager"
-                          src={dev._embedded['wp:featuredmedia'][0].source_url}
-                          alt={dev?.name}
-                          width={300}
-                          height={300}
-                          decoding="async"
-                          className="w-38 h-38 mx-auto object-cover transform transition-all duration-300 hover:scale-105"
-                        />
+              {developerList.map((dev, index) => (
+                <div key={index} className="px-1 py-2">
+                  <div
+                    className="bg-oveblue gap-4 flex flex-col justify-between mt-25 aspect-[1/1.2] text-white relative rounded-xl shadow-md hover:shadow-lg"
+                    style={{ border: `3px solid ${dev.color || '#3AA0FF'}` }}
+                  >
+                    <div className="relative w-2/3 flex items-center justify-center aspect-[3/1] mx-auto">
+                      <div className="overflow-hidden absolute -top-20 border border-gray-800 z-20 rounded-full aspect-[1/1]">
+                        {/* Profile Image */}
+                        {dev.image ? (
+                          <img
+                            loading="eager"
+                            src={dev.image}
+                            alt={dev.name}
+                            width={300}
+                            height={300}
+                            decoding="async"
+                            className="w-38 h-38 mx-auto object-cover transition-transform duration-300 hover:scale-105"
+                          />
+                        ) : (
+                          <div className="w-38 h-38 mx-auto bg-gray-700" />
+                        )}
                       </div>
                     </div>
-                    <div className='p-2 flex flex-col gap-3'>
-                      <div className='space-y-2'>
-                        <div className='hidden text-center gap-2 md:gap-0 justify-center'>
-                          <div className='border border-white flex gap-2 items-center px-4 rounded-full py-1 bg-white text-black'>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />
-                            </svg>
-                            <span className='text-sm font-semibold uppercase'>
-                              {dev.acf.designation}
-                            </span>
-                          </div>
-                        </div>
-                        <div className='flex flex-col text-center gap-0'>
-                          <h3 className="font-semibold text-xl text-ellipsis overflow-hidden text-clip">{dev?.title?.rendered}</h3>
-                          <p className="text-sm overflow-hidden text-ellipsis text-clip text-white/80">{dev?.acf?.designation}</p>
+
+                    <div className="p-2 flex flex-col gap-3">
+                      <div className="space-y-2">
+                        <div className="flex flex-col text-center gap-0">
+                          <h3 className="font-semibold text-xl truncate">{dev.name}</h3>
+                          {dev.profile && (
+                            <p className="text-sm text-white/80 truncate">{dev.profile}</p>
+                          )}
                         </div>
                         <div className='overflow-hidden'>
                           <div className="flex flex-wrap w-full gap-1 h-[60px] text-xs items-center justify-center">
-                            {dev._embedded['wp:term'][0].length > 0 && dev._embedded['wp:term'][0].map((items:any, index:number)=>(
-                              <span key={index} className='border border-gray-100 rounded-full px-2 py-1'>{items.name}</span>
+                            {dev?.roles && dev?.roles.map((items:any, index:number)=>(
+                              <span key={index} className='border border-gray-100 rounded-full px-2 py-1'>{items}</span>
                             ))}
                           </div>
                         </div>
-                        <div className='flex flex-col text-center'>
-                          <p className="text-white/60 mb-1 font-bold font-sm">PREVIOUSLY AT</p>
-                          <div className='flex justify-center items-center aspect-[4/1] h-12'>
-                            <img loading="eager" fetchPriority="high" decoding="async" width={300} height={300} className="object-container w-auto h-12 mb-2" src={dev.acf.previously_at_source.formatted_value.url} alt={dev.acf.previously_at_source.formatted_value.title}/>
+                        <div className="flex flex-col text-center">
+                          <p className="text-white/60 mb-1 font-bold text-sm">PREVIOUSLY AT</p>
+                          <div className="flex justify-center items-center h-12">
+                            {dev.previous ? (
+                              <img
+                                loading="eager"
+                                width={300}
+                                height={48}
+                                className="h-12 w-auto mb-2 object-contain"
+                                src={dev.previous}
+                                alt="Previous company logo"
+                              />
+                            ) : (
+                              <div className="h-12 w-24 bg-white/10 mb-2" />
+                            )}
                           </div>
                         </div>
+
                       </div>
                     </div>
                   </div>
                 </div>
-                
               ))}
             </Slider>
           ) : (
-            <div className="flex flex-col items-center justify-center p-4">
-              <div className="loading-text">Loading...</div>
+            <div className="flex flex-col items-center justify-center p-4 text-white">
+              <div>Loading...</div>
               <div className="loading-spinner" />
             </div>
           )}
