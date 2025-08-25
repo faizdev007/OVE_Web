@@ -22,6 +22,7 @@ type GqlDeveloperNode = {
       altText?: string | null;
       mediaDetails?: { width?: number | null; height?: number | null  } | null;
     } | null;
+    shortDetail?: string | null;
   } | null;
   roles?: { nodes?: { name?: string | null; slug?: string | null }[] | null } | null;
 };
@@ -33,6 +34,7 @@ type CardDev = {
   previous?: string;
   color?: string;
   roles?: string[];
+  short?: string;
 };
 
 function SampleNextArrow(props: CustomArrowProps) {
@@ -98,6 +100,7 @@ const QUERY = `
               title
             }
           }
+          shortDetail
         }
         roles(first: 5) {
           nodes { name slug }
@@ -146,6 +149,7 @@ export default function DevelopersSlider() {
           previous: n.carddetails?.previouslyAt?.node?.sourceUrl ?? '',  // company logo
           roles: (n.roles?.nodes ?? []).map((t:any) => t?.name || '').filter(Boolean) as string[],
           color: '#3AA0FF',
+          short: n.carddetails?.shortDetail ?? '',
         }));
 
         setDeveloperList(mapped.length ? mapped : []);
