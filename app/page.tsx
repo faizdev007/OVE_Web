@@ -54,7 +54,7 @@ export default function Home() {
       <Herosection/>
 
       {/* Render when data is ready */}
-      {developers && <DevelopersSlider developers={developers} />}
+      <DevelopersSlider/>
 
       <HireBy/>
       <div className="relative">
