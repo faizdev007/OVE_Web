@@ -81,7 +81,7 @@ function SamplePrevArrow(props: CustomArrowProps) {
 
 const QUERY = `
   {
-    developers(first: 10) {
+    developers(first: 12) {
       nodes {
         id
         title
