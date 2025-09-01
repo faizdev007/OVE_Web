@@ -12,9 +12,10 @@ type GqlDeveloperNode = {
   id: string;
   title: string;
   slug: string;
+  skills?: {nodes?: { name?:string | null; slug?: string | null }[] | null} | null;
   featuredImage?: { node?: { sourceUrl?: string | null } | null } | null;
   carddetails?: {
-    designation?: string | null;
+    skill?: string | null;
     previouslyAt?: {
       node?: {
         sourceUrl?: string | null;
@@ -29,7 +30,7 @@ type GqlDeveloperNode = {
 
 type CardDev = {
   name: string;
-  profile?: string;
+  profiles?: string[];
   image?: string;
   previous?: string;
   color?: string;
@@ -79,38 +80,7 @@ function SamplePrevArrow(props: CustomArrowProps) {
   );
 }
 
-const QUERY = `
-  {
-    developers(first: 12) {
-      nodes {
-        id
-        title
-        slug
-        featuredImage {
-          node {
-            sourceUrl
-          }
-        }
-        carddetails {
-          designation
-          previouslyAt {
-            node {
-              altText
-              sourceUrl
-              title
-            }
-          }
-          shortDetail
-        }
-        roles(first: 5) {
-          nodes { name slug }
-        }
-      }
-    }
-  }
-`;
-
-export default function DevelopersSlider() {
+export default function DevelopersSlider({hire}:any) {
 
   const [developerList,setDeveloperList] = useState<CardDev[] | null>(null);
   
@@ -137,6 +107,42 @@ export default function DevelopersSlider() {
   useEffect(() => {
     // Fetch GraphQL on the client
     (async () => {
+        const QUERY = `
+        {
+          developers(first: 12) {
+            nodes {
+              skills{
+                nodes{
+                  name
+                  slug
+                }
+              }
+              id
+              title
+              slug
+              featuredImage {
+                node {
+                  sourceUrl
+                }
+              }
+              carddetails {
+                skill
+                previouslyAt {
+                  node {
+                    altText
+                    sourceUrl
+                    title
+                  }
+                }
+                shortDetail
+              }
+              roles(first: 3) {
+                nodes { name slug }
+              }
+            }
+          }
+        }
+      `;
       try {
         const data = await fetchGraphQL(QUERY);
         const nodes: GqlDeveloperNode[] = data?.developers?.nodes ?? [];
@@ -144,7 +150,7 @@ export default function DevelopersSlider() {
         // Map GraphQL → card shape your UI expects
         const mapped: CardDev[] = nodes.map((n) => ({
           name: n.title,
-          profile: n.carddetails?.designation ?? '',
+          profiles: (n.skills?.nodes ?? []).map((s:any) => s?.name || '').filter(Boolean) as string[],
           image: n.featuredImage?.node?.sourceUrl ?? '',           // profile image
           previous: n.carddetails?.previouslyAt?.node?.sourceUrl ?? '',  // company logo
           roles: (n.roles?.nodes ?? []).map((t:any) => t?.name || '').filter(Boolean) as string[],
@@ -158,7 +164,7 @@ export default function DevelopersSlider() {
         setDeveloperList([]); // avoid null crash
       }
     })();
-  }, []);
+  }, [hire?.service?.slug]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -231,9 +237,9 @@ export default function DevelopersSlider() {
                       <div className="space-y-2">
                         <div className="flex flex-col text-center gap-0">
                           <h3 className="font-semibold text-xl truncate">{dev.name}</h3>
-                          {dev.profile && (
-                            <p className="text-sm text-white/80 truncate">{dev.profile}</p>
-                          )}
+                          {dev?.profiles && dev?.profiles.map((items:any, index:number)=>(
+                            <p key={index} className="text-sm text-white/80 truncate">{items}</p>
+                          ))}
                         </div>
                         <div className='overflow-hidden'>
                           <div className="flex flex-wrap w-full gap-1 h-[60px] text-xs items-center justify-center">
