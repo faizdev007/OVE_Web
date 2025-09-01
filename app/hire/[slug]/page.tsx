@@ -54,9 +54,9 @@ export default function Hire() {
                 }
               }
               expertise{
-                title
-                shortInformation
-                qna{
+                expertiseTitle
+                expertiseDescription
+                expertiseQna{
                   question
                   answer
                 }

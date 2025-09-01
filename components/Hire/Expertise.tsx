@@ -42,7 +42,6 @@ export default function Expertise({ hire }: ExpertiseSectionProps) {
                 Expertise Of Our{" "}
                 <span dangerouslySetInnerHTML={{ __html: roleTitleHTML }} />
             </h2>
-            <span dangerouslySetInnerHTML={{ __html: hire }} />
             <p className="mt-4 text-lg mb-4">
                 Our dedicated Python developers engineer robust web solutions across industries. Here’s a quick overview of the breadth of expertise our team brings.
             </p>
