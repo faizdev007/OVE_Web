@@ -126,7 +126,6 @@ export default function DevelopersSlider({hire}:any) {
                 }
               }
               carddetails {
-                skill
                 previouslyAt {
                   node {
                     altText
@@ -248,7 +247,7 @@ export default function DevelopersSlider({hire}:any) {
                             ))}
                           </div>
                         </div>
-                        <div className="flex flex-col text-center">
+                        <div className="hidden flex-col text-center">
                           <p className="text-white/60 mb-1 font-bold text-sm">PREVIOUSLY AT</p>
                           <div className="flex justify-center items-center h-12">
                             {dev.previous ? (
@@ -265,7 +264,7 @@ export default function DevelopersSlider({hire}:any) {
                             )}
                           </div>
                         </div>
-
+                        <p className='h-10 line-clamp-2 text-sm text-center' title={dev?.short}>{dev?.short}</p>
                       </div>
                     </div>
                   </div>
