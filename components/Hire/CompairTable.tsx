@@ -80,7 +80,7 @@ const CTable = ({hire}:CTSectionProps) => (
                             </tr>
                         ))}
                         </tbody>
-                        <tfoot>
+                        <tfoot className="hidden">
                             <tr>
                                 <td className="font-semibold border-s border-b text-white border-gray-700"></td>
                                 <td className="text-black border-x-2 border-oveblue border-b-2 font-medium rounded-b">
