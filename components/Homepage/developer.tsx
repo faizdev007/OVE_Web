@@ -210,7 +210,7 @@ export default function DevelopersSlider({hire}:any) {
               {developerList.map((dev, index) => (
                 <div key={index} className="px-1 py-2">
                   <div
-                    className="bg-oveblue gap-4 flex flex-col justify-between mt-25 aspect-[1/1.2] text-white relative rounded-xl shadow-md hover:shadow-lg"
+                    className="bg-oveblue gap-4 flex flex-col justify-around mt-25 aspect-[1/1.2] text-white relative rounded-xl shadow-md hover:shadow-lg"
                     style={{ border: `3px solid ${dev.color || '#3AA0FF'}` }}
                   >
                     <div className="relative w-2/3 flex items-center justify-center aspect-[3/1] mx-auto">
@@ -264,7 +264,7 @@ export default function DevelopersSlider({hire}:any) {
                             )}
                           </div>
                         </div>
-                        <p className='h-10 line-clamp-2 text-sm text-center' title={dev?.short}>{dev?.short}</p>
+                        <p className='h-16 line-clamp-3 flex items-center text-sm text-center' title={dev?.short}>{dev?.short}</p>
                       </div>
                     </div>
                   </div>
