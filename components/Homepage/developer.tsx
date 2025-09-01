@@ -30,7 +30,7 @@ type GqlDeveloperNode = {
 
 type CardDev = {
   name: string;
-  profiles?: string[];
+  skills?: string[];
   image?: string;
   previous?: string;
   color?: string;
@@ -149,7 +149,7 @@ export default function DevelopersSlider({hire}:any) {
         // Map GraphQL → card shape your UI expects
         const mapped: CardDev[] = nodes.map((n) => ({
           name: n.title,
-          profiles: (n.skills?.nodes ?? []).map((s:any) => s?.name || '').filter(Boolean) as string[],
+          skills: (n.skills?.nodes ?? []).map((s:any) => s?.name || '').filter(Boolean) as string[],
           image: n.featuredImage?.node?.sourceUrl ?? '',           // profile image
           previous: n.carddetails?.previouslyAt?.node?.sourceUrl ?? '',  // company logo
           roles: (n.roles?.nodes ?? []).map((t:any) => t?.name || '').filter(Boolean) as string[],
@@ -236,15 +236,15 @@ export default function DevelopersSlider({hire}:any) {
                       <div className="space-y-2">
                         <div className="flex flex-col text-center gap-0">
                           <h3 className="font-semibold text-xl truncate">{dev.name}</h3>
-                          {dev?.profiles && dev?.profiles.map((items:any, index:number)=>(
-                            <p key={index} className="text-sm text-white/80 truncate">{items}</p>
+                          {dev?.roles && dev?.roles.map((items:any, index:number)=>(
+                           <p key={index} className="text-sm text-white/80 truncate">{items}</p>
                           ))}
                         </div>
                         <div className='overflow-hidden'>
                           <div className="flex flex-wrap w-full gap-1 h-[60px] text-xs items-center justify-center">
-                            {dev?.roles && dev?.roles.map((items:any, index:number)=>(
-                              <span key={index} className='border border-gray-100 rounded-full px-2 py-1'>{items}</span>
-                            ))}
+                          {dev?.skills && dev?.skills.map((items:any, index:number)=>(
+                            <span key={index} className='border border-gray-100 rounded-full px-2 py-1'>{items}</span>
+                          ))}
                           </div>
                         </div>
                         <div className="hidden flex-col text-center">
