@@ -264,7 +264,7 @@ export default function DevelopersSlider({hire}:any) {
                             )}
                           </div>
                         </div>
-                        <p className='h-16 line-clamp-3 flex items-center text-sm text-center' title={dev?.short}>{dev?.short}</p>
+                        <p className='h-16 line-clamp-3 flex text-sm text-center' title={dev?.short}>{dev?.short}</p>
                       </div>
                     </div>
                   </div>
