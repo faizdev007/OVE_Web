@@ -65,7 +65,7 @@ export default function Home() {
       </div>
       <div className="relative">
         <div className='bg-gray-100'>
-          <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full"/>
+          <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full darK:grayscale"/>
         </div>
         <TrustedBySection/>
       </div>

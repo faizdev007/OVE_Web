@@ -195,7 +195,7 @@ export default function DevelopersSlider({hire}:any) {
   }, []);
 
   return (
-    <section className="bg-black relative px-4 py-12 sm:px-6 lg:px-8 mx-auto">
+    <section className="bg-black dark:bg-gray-800 relative px-4 py-12 sm:px-6 lg:px-8 mx-auto">
       <Image loading="lazy" width={100} height={100}
              className="absolute hidden object-cover bottom-0 w-full start-0 end-0"
              src="/assets/cloudbg.webp" alt="cloudbg" />
@@ -203,7 +203,7 @@ export default function DevelopersSlider({hire}:any) {
         Meet Our Developers
       </h2>
 
-      <div className="relative bg-black/90 rounded overflow-hidden mx-auto">
+      <div className="relative rounded overflow-hidden mx-auto">
         <div className="slider-container relative z-10">
           {settings && developerList ? (
             <Slider {...settings}>
@@ -227,7 +227,7 @@ export default function DevelopersSlider({hire}:any) {
                             className="w-38 h-38 mx-auto object-cover transition-transform duration-300 hover:scale-105"
                           />
                         ) : (
-                          <div className="w-38 h-38 mx-auto bg-gray-700" />
+                          <div className="w-38 h-38 mx-auto bg-gray-800" />
                         )}
                       </div>
                     </div>

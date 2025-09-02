@@ -21,7 +21,11 @@ type HireItem = {
   title: { rendered: string };
   thumbnail: any;
   content?: { rendered: string };
+  hiringProcess?: any;
   expertise?: any;
+  cta?:any;
+  whyHireFormOve?:any;
+  serviceFaq?:any;
 };
 
 
@@ -46,21 +50,98 @@ export default function Hire() {
               title
               slug
               content
-              featuredImage{
-                node{
+              featuredImage {
+                node {
                   uri
                   sourceUrl
                   title
                 }
               }
-              expertise{
+              cta{
+                ctaOneContent{
+                  ctaTitle
+                  ctaSubtitle
+                  ctaButtonText
+                }
+                ctaTwoContent{
+                  ctaTitle
+                  ctaSubtitle
+                  ctaButtonText
+                }
+              }
+              hiringProcess {
+                hiring_process_title
+                hiringProcessSteps {
+                  step1 {
+                    stepTitle
+                    stepDescribtion
+                    stepImage {
+                      node {
+                        title
+                        sourceUrl
+                      }
+                    }
+                  }
+                  step2 {
+                    stepTitle
+                    stepDescribtion
+                    stepImage {
+                      node {
+                        title
+                        sourceUrl
+                      }
+                    }
+                  }
+                  step3 {
+                    stepTitle
+                    stepDescribtion
+                    stepImage {
+                      node {
+                        title
+                        sourceUrl
+                      }
+                    }
+                  }
+                  step4 {
+                    stepTitle
+                    stepDescribtion
+                    stepImage {
+                      node {
+                        title
+                        sourceUrl
+                      }
+                    }
+                  }
+                }
+              }
+              expertise {
                 expertiseTitle
                 expertiseDescription
-                expertiseQna{
+                expertiseQna {
                   question
                   answer
                 }
-              } 
+              }
+              whyHireFormOve {
+                whyHireTitle
+                whyHireDiscription
+                whyHireImage {
+                  node {
+                    sourceUrl
+                    title
+                  }
+                }
+                whyHireQna {
+                  question
+                  answer
+                }
+              }
+              serviceFaq {
+                faqList {
+                  faqQuestion
+                  faqAnswer
+                }
+              }
             }
           }
         `;
@@ -73,8 +154,6 @@ export default function Hire() {
         }
         })();
     }, [slug]);
-
-
     // return;
 
   // --- 404 FIRST: render not-found view when error indicates missing Hire
@@ -143,7 +222,7 @@ export default function Hire() {
         <div className="relative 2xl:top-0">
             <HeroSection hire={Hire}/>
             <DevelopersSlider hire={Hire}/>
-            <HireThroughOVE hire={Hire}/>
+            <HireThroughOVE hire={Hire?.hiringProcess}/>
             <div className="relative">
                 <div className="bg-lightblack">
                     <Image src="/assets/white.png" alt="bg" width={1000} height={1000} className="w-full" />
@@ -154,14 +233,14 @@ export default function Hire() {
                 <div className="bg-white">
                     <Image src={'/assets/oveblue.png'} alt="compare" width={1000} height={1000} className="w-full"/>
                 </div>
-                <CTA hire={Hire}/>
+                <CTA hire={Hire?.cta?.ctaOneContent}/>
             </div>
             <div className="relative">
                 <div className="bg-oveblue">
                     <Image src={'/assets/white.png'} alt="compare" width={1000} height={1000} className="w-full"/>
                 </div>
                 {/* why search for section */}
-                <WSF hire={Hire}/>
+                <WSF hire={Hire?.whyHireFormOve}/>
             </div>
             <div className="relative blackgradiant">
                 <div className="bg-white">
@@ -182,14 +261,14 @@ export default function Hire() {
                 <div className="bg-black">
                     <Image src={'/assets/oveblue.png'} alt="compare" width={1000} height={1000} className="w-full"/>
                 </div>
-                <CTA hire={Hire}/>
+                <CTA hire={Hire?.cta?.ctaTwoContent}/>
             </div>
             <div className="relative">
                 <div className="bg-oveblue">
                     <Image src={'/assets/offWhite.png'} alt="compare" width={1000} height={1000} className="w-full"/>
                 </div>
                 <div className="relative">
-                    <FaqSection/>
+                    <FaqSection hire={Hire?.serviceFaq?.faqList}/>
                 </div>
             </div>
         </div>

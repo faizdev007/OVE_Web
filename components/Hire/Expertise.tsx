@@ -4,52 +4,56 @@
 import { useState } from "react";
 
 type HireType = {
-  id: number;
-  slug: string;
-  title?: { rendered: string };
-  content?: { rendered: string };
-  _embedded?: any;
+  hire?:{
+    expertiseTitle?:string;
+    expertiseDescription?:string;
+    expertiseQna?: {
+      qna?:qna
+    } ;
+  }
 };
 
-type ExpertiseSectionProps = {
-  hire: HireType; // 👈 lower camelCase prop name
+type qna = {
+  question?: string;
+  answer?: string;
+}
+
+const listinfos = {
+  0:{ question: "Data Science", answer: "Data analysis, processing, ML, and more." },
+  2:{ question: "Custom Python Web Application Development", answer: "Scalable apps using Django/Flask." },
+  3:{ question: "Enterprise Python Applications", answer: "Workflow automation & business processes." },
+  4:{ question: "Python Support and Maintenance", answer: "Ongoing support, optimization, maintenance." },
+  5:{ question: "Machine Learning with Python", answer: "Build & deploy ML models in production." },
+  6:{ question: "Python Migration & Integration", answer: "Migrate to Python and integrate systems." },
 };
 
-const listinfos = [
-  { title: "Data Science", description: "Data analysis, processing, ML, and more." },
-  { title: "Custom Python Web Application Development", description: "Scalable apps using Django/Flask." },
-  { title: "Enterprise Python Applications", description: "Workflow automation & business processes." },
-  { title: "Python Support and Maintenance", description: "Ongoing support, optimization, maintenance." },
-  { title: "Machine Learning with Python", description: "Build & deploy ML models in production." },
-  { title: "Python Migration & Integration", description: "Migrate to Python and integrate systems." },
-];
-
-export default function Expertise({ hire }: ExpertiseSectionProps) {
+export default function Expertise({ hire }: HireType) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const toggle = (index: number) => {
     setActiveIndex(prev => (prev === index ? null : index));
   };
 
-  const roleTitleHTML = hire?.title?.rendered ?? "Full-Stack Developer";
+  const roleTitleHTML = hire?.expertiseTitle ?? "Expertise Of Our Full-Stack Developer";
+
+  const qnalist = hire?.expertiseQna ?? listinfos;
 
   return (
     <section className="bg-gradient pb-12 flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
         {/* Main Header */}
         <div className="lg:flex relative z-20 gap-2 justify-between">
             <div className="lg:w-1/2">
-            <h2 className="text-3xl font-bold">
-                Expertise Of Our{" "}
-                <span dangerouslySetInnerHTML={{ __html: roleTitleHTML }} />
-            </h2>
-            <p className="mt-4 text-lg mb-4">
-                Our dedicated Python developers engineer robust web solutions across industries. Here’s a quick overview of the breadth of expertise our team brings.
-            </p>
+              <h2 className="text-3xl font-bold">
+                  <span dangerouslySetInnerHTML={{ __html: roleTitleHTML }} />
+              </h2>
+              <p className="mt-4 text-lg mb-4">
+                  {hire?.expertiseDescription ?? 'Our dedicated Python developers engineer robust web solutions across industries. Here’s a quick overview of the breadth of expertise our team brings.'}
+              </p>
             </div>
 
             <div className="lg:w-1/2 w-full blackgradiant text-white md:p-6 p-2 rounded-lg shadow-md">
             <div className="w-full space-y-4">
-                {listinfos.map((item, index) => {
+                {Object.values(qnalist).map((item, index) => {
                 const open = activeIndex === index;
                 return (
                     <div
@@ -59,7 +63,7 @@ export default function Expertise({ hire }: ExpertiseSectionProps) {
                     aria-expanded={open}
                     >
                     <div className="flex justify-between items-center gap-2">
-                        <p className="font-bold md:text-xl">{item.title}</p>
+                        <p className="font-bold md:text-xl">{item?.question}</p>
                         <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -74,7 +78,7 @@ export default function Expertise({ hire }: ExpertiseSectionProps) {
 
                     <div className={`overflow-hidden transition-all border-t border-white duration-500 ease-in-out ${open ? "max-h-40 opacity-100 mt-4" : "max-h-0 opacity-0"}`}>
                         <p className="text-gray-300 dark:text-white pt-2 md:text-lg text-sm">
-                        {item.description}
+                        {item?.answer}
                         </p>
                     </div>
                     </div>
