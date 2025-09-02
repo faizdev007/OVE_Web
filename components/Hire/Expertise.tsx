@@ -46,9 +46,9 @@ export default function Expertise({ hire }: HireType) {
               <h2 className="text-3xl font-bold">
                   <span dangerouslySetInnerHTML={{ __html: roleTitleHTML }} />
               </h2>
-              <p className="mt-4 text-lg mb-4">
-                  {hire?.expertiseDescription ?? 'Our dedicated Python developers engineer robust web solutions across industries. Here’s a quick overview of the breadth of expertise our team brings.'}
-              </p>
+              <div className="mt-4 text-lg mb-4">
+                  <span dangerouslySetInnerHTML={{ __html: hire?.expertiseDescription  as string }} />
+              </div>
             </div>
 
             <div className="lg:w-1/2 w-full blackgradiant text-white md:p-6 p-2 rounded-lg shadow-md">

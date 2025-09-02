@@ -34,8 +34,7 @@ export default function Hire() {
     const params = useParams();
     const slug = params?.slug as string;
 
-    const [Hire, setHire] = useState<HireItem | null>(null);
-    const [error, setError] = useState<string | null>(null);
+    const [Hire, setHire] = useState<HireItem | undefined>(undefined);
     const [loading, setLoading] = useState(true);
 
     
@@ -156,8 +155,10 @@ export default function Hire() {
     }, [slug]);
     // return;
 
+    console.log();
+
   // --- 404 FIRST: render not-found view when error indicates missing Hire
-  if (error === "NOT_FOUND") {
+  if (Hire === null) {
     return (
       <section className="flex items-center justify-center min-h-[60vh] bg-gray-100 text-white px-4">
         <div className="text-center">
@@ -206,11 +207,6 @@ export default function Hire() {
         </div>
       </section>
     );
-  }
-
-  // --- GENERIC ERROR (not 404)
-  if (error && error !== "NOT_FOUND") {
-    return <p className="text-red-500 px-4 py-8">Error: {error}</p>;
   }
 
   // --- SUCCESS

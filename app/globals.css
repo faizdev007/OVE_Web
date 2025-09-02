@@ -109,3 +109,8 @@ body {
   background-repeat: repeat;
   clip-path: polygon(69% 94%, 79% 87%, 91% 93%, 100% 100%, 0 100%, 9% 84%, 20% 91%, 31% 86%, 42% 92%, 55% 87%);
 }
+
+span>a{
+  color:#2562eb;
+  font-weight: 600;
+}
