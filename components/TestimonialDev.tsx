@@ -7,7 +7,21 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css'; 
 import Rating from "./Rating";
 
-function SampleNextArrow(props) {
+type CTestimonial = {
+  cTestimonial?:{
+    title?:string;
+    slug?:string;
+    content?:string;
+    rating?:any;
+    featuredImage?: {
+      sourceUrl?:string;
+      title?:string;
+      node?:{sourceUrl?:string;title?:string;}
+    };
+  }
+}
+
+function SampleNextArrow(props:any) {
   const { onClick } = props;
   return (
     <div className='absolute z-20 h-full top-0 p-2 end-0 flex justify-end items-center' style={{background: `linear-gradient(270deg,rgba(2, 0, 36, 1) 0%, rgba(0, 0, 0, 0) 100%)`}}>
@@ -23,7 +37,7 @@ function SampleNextArrow(props) {
   );
 }
 
-function SamplePrevArrow(props) {
+function SamplePrevArrow(props:any) {
   const { className, style, onClick } = props;
   return (
     <div className='absolute z-20 h-full top-0 p-2 start-0 flex justify-end items-center' style={{background: `linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(0, 0, 0, 0) 100%)`}}>
@@ -39,92 +53,20 @@ function SamplePrevArrow(props) {
   );
 }
 
-const demodata = [
-  {
-    "testimonial": "\"OVE has been a game-changer for our development process. The quality of developers is top-notch!OVE has been a game-changer for our development process. The quality of developers is top-notch! OVE has been a game-changer for our development process. The quality of developers is top-notch! OVE has been a game-changer for our development process. The quality of developers is top-notch!\"",
-    "date": "13/08/2025",
-    "author": {
-      "name": "Aisha Khan",
-      "role": "Senior Python Developer",
-      "image": "/assets/developer/Aisha.webp"
-    },
-    "company": {
-      "name": "OVE",
-      "logo": "/assets/companies/company1.webp"
-    }
-  },
-  {
-    "testimonial": "\"OVE's platform helped us speed up our project delivery. The developers are extremely skilled and professional.\"",
-    "date": "12/08/2025",
-    "author": {
-      "name": "John Doe",
-      "role": "Lead Java Developer",
-      "image": "/assets/developer/Alexander.webp"
-    },
-    "company": {
-      "name": "Tech Innovations",
-      "logo": "/assets/companies/company2.webp"
-    }
-  },
-  {
-    "testimonial": "\"We've been able to scale our teams efficiently with OVE. Their expertise in building scalable solutions is unmatched. We've been able to scale our teams efficiently with OVE. Their expertise in building scalable solutions is unmatched.\"",
-    "date": "10/08/2025",
-    "author": {
-      "name": "Maria Singh",
-      "role": "Software Architect",
-      "image": "/assets/developer/Miguel.webp"
-    },
-    "company": {
-      "name": "Cloud Solutions",
-      "logo": "/assets/companies/company3.webp"
-    }
-  }
-  ,
-  {
-    "testimonial": "\"We've been able to scale our teams efficiently with OVE. Their expertise in building scalable solutions is unmatched.\"",
-    "date": "10/08/2025",
-    "author": {
-      "name": "Maria Singh",
-      "role": "Software Architect",
-      "image": "/assets/developer/Miguel.webp"
-    },
-    "company": {
-      "name": "Cloud Solutions",
-      "logo": "/assets/companies/company3.webp"
-    }
-  },
-  {
-    "testimonial": "\"We've been able to scale our teams efficiently with OVE. Their expertise in building scalable solutions is unmatched.We've been able to scale our teams efficiently with OVE. Their expertise in building scalable solutions is unmatched.We've been able to scale our teams efficiently with OVE. Their expertise in building scalable solutions is unmatched.\"",
-    "date": "10/08/2025",
-    "author": {
-      "name": "Maria Singh",
-      "role": "Software Architect",
-      "image": "/assets/developer/Miguel.webp"
-    },
-    "company": {
-      "name": "Cloud Solutions",
-      "logo": "/assets/companies/company3.webp"
-    }
-  },
-  {
-    "testimonial": "\"We've been able to scale our teams efficiently with OVE. Their expertise in building scalable solutions is unmatched.\"",
-    "date": "10/08/2025",
-    "author": {
-      "name": "Maria Singh",
-      "role": "Software Architect",
-      "image": "/assets/developer/Miguel.webp"
-    },
-    "company": {
-      "name": "Cloud Solutions",
-      "logo": "/assets/companies/company3.webp"
-    }
-  }
-];
+const demodata = {
+  0:{title: 'Emily Johnson', slug: 'emily-johnson', content: '<p>Working with OVE allowed us to accelerate our p…s blended seamlessly with our in-house team.</p>\n', clientRating: {rating: 5}},
+  1:{title: 'Arjun Mehta', slug: 'arjun-mehta', content: '<p>Hiring through OVE was a game-changer. The cost…as the developers’ expertise and commitment.</p>\n', clientRating: {rating: 5}},
+  2:{title: 'Sophia Martinez', slug: 'sophia-martinez', content: '<p>The OVE team quickly understood our requirement…d our engineering team in weeks, not months.</p>\n', clientRating: {rating: 5}},
+  3:{title: 'James Carter', slug: 'james-carter', content: '<p><span data-teams="true"><i>Hiring remote talent…ms, without the hiring headaches.</i></span></p>\n', clientRating: {rating: 5}},
+  4:{title: 'Michael Roberts', slug: 'michael-roberts', content: '<p><span data-teams="true"><i>The developers feel …llent project delivery timelines.</i></span></p>\n', clientRating: {rating: 5}},
+  5:{title: 'David Lee', slug: 'david-lee', content: '<p><span data-teams="true"><i>We scaled our engine…municative, and extremely skilled</i></span></p>\n', clientRating: {rating: 5}},
+};
 
-export default function TestimonialDev() {
-    const [expended, setExpanded] = useState(null);
+export default function TestimonialDev({cTestimonial}:CTestimonial) {
+    const testimonials = cTestimonial ?? demodata;
+    const [expended, setExpanded] = useState<number | null>(null);
 
-    const toggle = (index=null) => {
+    const toggle = (index: number | null = null) => {
       setExpanded(index === expended ? null : index);
     };
 
@@ -168,17 +110,21 @@ export default function TestimonialDev() {
         <div className="relative">
             {settings ? 
             <Slider {...settings}>
-            {demodata.map((item, index) => ( 
+            {Object.values(testimonials).map((item, index) => ( 
                 <div key={index} className="p-2">
                     <div className={`bg-white w-full min-h-[240] p-4 rounded-2xl border-2 border-oveblue drop-shadow-sm shadow-white`}>
                         <div className="flex items-center justify-between gap-4">
                           <div className="flex items-center gap-4">
                               <div className="relative aspect-[1/1] w-14 h-14 overflow-hidden">
-                                  <Image src={item.author.image} alt={item.author.name} width={50} height={50} className="rounded-full"/>
+                                  {!item?.featuredImage ? 
+                                    <span className="rounded-full flex justify-center h-full w-full items-center bg-oveblue text-white font-bold">{item?.title?.split(" ").map((word: string) => word.charAt(0).toUpperCase()).join("")}</span>
+                                    :
+                                    <img src={item?.featuredImage?.sourceUrl} className="w-full h-full rounded-full" alt={item?.featuredImage?.title}/>
+                                  }
                               </div>
                               <div className="flex flex-col">
-                                  <h3 className="font-bold">{item.author.name}</h3>
-                                  <span className="text-xs">{item.author.role}</span>
+                                  <h3 className="font-bold">{item?.title}</h3>
+                                  <span className="text-xs">{item?.title}</span>
                               </div>
                           </div>
                           <div className="hidden">
@@ -188,10 +134,10 @@ export default function TestimonialDev() {
                           </div>
                         </div>
                         <div className="mb-4 mt-2">
-                          <Rating sizeN={4} rating={5}/>
+                          <Rating sizeN={4} rating={item?.clientRating?.rating}/>
                         </div>
-                        <p className={`text-sm ${expended  !== index ? 'line-clamp-4 transition-all' : 'scale-100'}`}>{item.testimonial}</p>
-                        { item.testimonial.length > 200 ?
+                        <span className={`text-sm ${expended  !== index ? 'line-clamp-4 transition-all' : 'scale-100'}`} dangerouslySetInnerHTML={{ __html: item?.content }}/>
+                        { item?.content?.length > 200 ?
                           <span onClick={()=>toggle(index)} className="text-xs text-gray-500 block mt-2 cursor-pointer">
                             {expended !== index ? 'Read More.' : 'Show Less.'}
                           </span>

@@ -26,7 +26,16 @@ type HireItem = {
   cta?:any;
   whyHireFormOve?:any;
   serviceFaq?:any;
+  priceTable?:any;
+  testimonial?: any;
 };
+type TestimonialClient = {
+  title?: string;
+  content?: string;
+  slug?: string;
+  clientRating?:any;
+  featuredImage?:any;
+}
 
 
 export default function Hire() {
@@ -35,6 +44,7 @@ export default function Hire() {
     const slug = params?.slug as string;
 
     const [Hire, setHire] = useState<HireItem | undefined>(undefined);
+    const [ClientD, setClientD] = useState<TestimonialClient | undefined>(undefined);
     const [loading, setLoading] = useState(true);
 
     
@@ -141,6 +151,47 @@ export default function Hire() {
                   faqAnswer
                 }
               }
+              priceTable {
+                tableTitle
+                tableSubtitle
+                tableHeading {
+                  heading1
+                  heading2
+                  heading3
+                  heading4
+                  heading5
+                  heading6
+                }
+                tableRow {
+                  tableData {
+                    data1
+                    data2
+                    data3
+                    data4
+                    data5
+                    data6
+                  }
+                }
+              }
+              testimonial{
+                testimonialTitle
+              }
+            }
+            clients {
+              nodes {
+                title
+                slug
+                content
+                clientRating {
+                  rating
+                }
+                featuredImage{
+                  node{
+                    sourceUrl
+                    title
+                  }
+                }
+              }
             }
           }
         `;
@@ -148,6 +199,7 @@ export default function Hire() {
         try {
           const data = await fetchGraphQL(QUERY);
           setHire(data.service);
+          setClientD(data.clients);
         } catch (e) {
           console.error('GraphQL fetch failed', e);
         }
@@ -242,13 +294,13 @@ export default function Hire() {
                 <div className="bg-white">
                     <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full"/>
                 </div>
-                <CTable hire={Hire}/>
+                <CTable hire={Hire?.priceTable}/>
             </div>
             <div className="relative">
                 <div className="bg-lightblack">
                     <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full"/>
                 </div>
-                <Client/>
+                <Client hire={Hire?.testimonial} cData={ClientD}/>
             </div>
             <div className="py-12 bg-black">
                 <HireBy/>
