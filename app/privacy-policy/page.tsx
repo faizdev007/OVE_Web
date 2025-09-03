@@ -2,6 +2,7 @@
 
 import { fetchGraphQL } from "@/lib/graphqlClient";
 import { useEffect, useState } from "react";
+import './style.css';
 
 type PolicyBlock = {
   policyTitle?: string | null;
@@ -83,12 +84,12 @@ export default function PrivacyPolicy()
         );
     }else{
         return(
-            <div className="relative bg-gray-100 px-4 py-12 sm:px-6 lg:px-8 mx-auto">
+            <div className="relative ppstyle bg-gray-100 px-4 py-12 sm:px-6 lg:px-8 mx-auto">
                 {Object.values(PPContent).map((single,key)=>(
-                    <div key={key} className="mb-6 text-base/6 text-justify">
+                    <div key={key} className="mb-6 text-base/6">
                         {single?.policyTitle && 
                             <div className="bg-gray-200 p-3 dark:text-black border-s-3 mb-4 font-bold border-blue-700">
-                                <span dangerouslySetInnerHTML={{__html:single?.policyTitle}}/>
+                                <span dangerouslySetInnerHTML={{__html: single?.policyTitle}}/>
                             </div>
                         }
                         <div>
