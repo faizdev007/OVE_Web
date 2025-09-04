@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 import Footerlinks from "./Homepage/footerlinks";
-import { lazy } from "react";
+import { lazy, useEffect, useState } from "react";
 
 export default function Footer()
 {
+    const [loading, setLoading] = useState(true);
     const officelocation = [
         {
             name:'Australia',
@@ -33,7 +34,8 @@ export default function Footer()
             tel:'+91 9999979934'
         }
     ];
-    return(
+    
+    return (
         <div className="relative">
             <div className="bg-gray-100 dark:hidden">
                 <Image src={'/assets/bgblack.webp'} alt="compare" width={1000} height={1000} className="w-full"/>

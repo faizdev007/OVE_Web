@@ -4,9 +4,11 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
 import FaqSection from "@/components/Homepage/faq";
+import { useEffect, useState } from "react";
 
 export default function AboutPage()
 {
+    const [loading, setLoading] = useState(true);
     const logos = [
         '/assets/companies/company1.webp',
         '/assets/companies/company2.webp',
@@ -28,6 +30,32 @@ export default function AboutPage()
         {name: 'Ronnie R Arora', linkedin:'https://www.linkedin.com/in/ronnie-rahul-arora-ba12b26/', role: 'VP-Growth', image: '/assets/ove/ronnie.jpg'},
         {name: 'Samta Sharma', linkedin:'https://www.linkedin.com/in/samtasharma/', role: 'VP-Technology', image: '/assets/ove/samta.webp'},
     ];
+
+    useEffect(() => {
+        setTimeout(() => setLoading(false), 1000);
+    },[]);
+
+    if (loading) return (
+        <section className="bg-black p-12 justify-between relative flex lg:flex-row flex-col dark:bg-gray-800 text-white px-4 sm:px-6 lg:px-8 mx-auto animate-pulse">
+            {/* Left side */}
+            <div className="relative block lg:w-[30%]">
+                <div className="md:p-10 w-full h-1/2 lg:absolute p-4 -end-40 md:top-10 md:rounded-md rounded-t bg-stone-800">
+                    <div className="h-8 bg-gray-700 rounded w-3/4 mb-6"></div>
+                    <div className="space-y-3 max-h-48 overflow-y-hidden">
+                        <div className="h-3 bg-gray-700 rounded w-full"></div>
+                        <div className="h-3 bg-gray-700 rounded w-5/6"></div>
+                        <div className="h-3 bg-gray-700 rounded w-4/6"></div>
+                        <div className="h-3 bg-gray-700 rounded w-full"></div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Right side */}
+            <div className="lg:w-[70%] md:rounded-md rounded-b-md">
+                <div className="w-full h-[500px] bg-gray-700 rounded"></div>
+            </div>
+        </section>
+    );
 
     return(
         <>

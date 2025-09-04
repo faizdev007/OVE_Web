@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { onlyNumber } from '@/app/globals'; // adjust path if needed
 
 export default function ContactPage() {
@@ -15,6 +15,7 @@ export default function ContactPage() {
 
     const [resMessage, setresMessage] = useState('');
     const [status, setStatus] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     const trustedbages = [
         {name:'Award', image:'/assets/trustedbages/award.webp'},
@@ -103,6 +104,80 @@ export default function ContactPage() {
         },2000)
         console.log('Form Submitted:', formData);
     };
+
+    useEffect(() => {
+        setTimeout(() => setLoading(false), 1000);
+    },[]);
+
+    if(loading) return (
+        <main className="bg-black/90 dark:bg-gray-800 text-white grid lg:grid-cols-2 gap-8 lg:px-4 px-2 py-12 animate-pulse">
+            {/* Left Panel */}
+            <div className="bg-white text-black w-full max-w-6xl lg:p-8 p-3 rounded-xl shadow-md space-y-6">
+                {/* Header */}
+                <div>
+                <div className="h-8 bg-gray-300 rounded w-1/3 mb-3"></div>
+                <div className="h-4 bg-gray-300 rounded w-2/3"></div>
+                </div>
+
+                {/* Trusted Badges (hidden on small screens) */}
+                <div className="hidden md:flex flex-wrap gap-2">
+                {Array.from({ length: 4 }).map((_, i) => (
+                    <div key={i} className="h-20 w-20 bg-gray-300 rounded-md"></div>
+                ))}
+                </div>
+
+                {/* Contact links */}
+                <div className="flex gap-4">
+                <div className="h-4 bg-gray-300 rounded w-24"></div>
+                <div className="h-4 bg-gray-300 rounded w-32"></div>
+                </div>
+
+                {/* Form */}
+                <div className="space-y-4">
+                {/* 2 inputs */}
+                <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="h-10 bg-gray-300 rounded"></div>
+                    <div className="h-10 bg-gray-300 rounded"></div>
+                </div>
+                {/* 2 inputs */}
+                <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="h-10 bg-gray-300 rounded"></div>
+                    <div className="h-10 bg-gray-300 rounded"></div>
+                </div>
+                {/* textarea */}
+                <div className="h-24 bg-gray-300 rounded"></div>
+                {/* button */}
+                <div className="h-10 bg-gray-400 rounded-full w-40"></div>
+                </div>
+            </div>
+
+            {/* Right Panel */}
+            <div className="flex flex-col space-y-6">
+                {/* Title */}
+                <div className="h-6 bg-gray-500 rounded w-2/3"></div>
+
+                {/* List */}
+                <ul className="space-y-4">
+                {Array.from({ length: 3 }).map((_, i) => (
+                    <li key={i}>
+                    <div className="h-4 bg-gray-500 rounded w-1/2 mb-2"></div>
+                    <div className="h-3 bg-gray-700 rounded w-2/3"></div>
+                    </li>
+                ))}
+                </ul>
+
+                {/* Logos grid */}
+                <div className="grid grid-cols-3 xl:grid-cols-4 gap-3 mt-8">
+                {Array.from({ length: 8 }).map((_, i) => (
+                    <div
+                    key={i}
+                    className="lg:h-20 h-16 bg-gray-600 rounded-md shadow-inner"
+                    ></div>
+                ))}
+                </div>
+            </div>
+            </main>
+    );
 
     return (
         <>
