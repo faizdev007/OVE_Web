@@ -188,7 +188,7 @@ export default function ContactPage() {
                                     alt="logo"
                                     width={200}
                                     height={200}
-                                    className="object-container w-auto h-auto opacity-80 rounded-md overflow-hidden hover:opacity-100 transition"
+                                    className="object-container grayscale w-auto h-auto opacity-80 rounded-md overflow-hidden hover:opacity-100 transition"
                                 />
                                 <span className="text-xs hidden font-medium">{logo}</span>
                             </div>
@@ -197,16 +197,16 @@ export default function ContactPage() {
                 </div>
             </main>
             <div className="relative">
-                <div className="bg-black/90">
+                <div className="bg-black/90 dark:hidden">
                     <Image src={'/assets/gray.webp'} alt="compare" width={1000} height={1000} className="w-full"/>
                 </div>
-                <section className='pb-12 bg-gray-100'>
+                <section className='pb-12 dark:py-12 bg-gray-100 dark:bg-black/90'>
                     <div className='text-center'>
                         <h2 className='text-3xl lg:text-5xl font-bold mb-4'>Serving Clients in 38+ Countries</h2>
                         <p className='text-gray-600 mb-8'>We are making an impact worldwide with our global presence and exceptional software solutions.</p>
                     </div>
                     <div className='md:flex gap-6 justify-center items-center p-2'>
-                        <div className='border bg-white lg:w-auto w-full border-gray-300 p-3 rounded-xl mb-2'>
+                        <div className='border bg-white dark:text-black lg:w-auto w-full border-gray-300 p-3 rounded-xl mb-2'>
                             <table className="">
                                 <tbody>
                                     {contactinfo.map((country, index) => (
@@ -229,11 +229,11 @@ export default function ContactPage() {
                                                     <a
                                                     key={i}
                                                     href={`tel:${item.number.replace(/\s+/g, '')}`}
-                                                    className="text-blue-900 font-semibold dark:text-white hover:underline"
+                                                    className="text-blue-900 font-semibold dark:text-black hover:underline"
                                                     aria-label={item.number}
                                                     >
                                                     {item.number}{' '}
-                                                    <span className="text-gray-500 font-normal">
+                                                    <span className="text-gray-500 dark:text-black font-normal">
                                                         ({item.label})
                                                     </span>
                                                     </a>
@@ -245,7 +245,7 @@ export default function ContactPage() {
                                 </tbody>
                             </table>
                         </div>
-                        <div className='border bg-white lg:w-auto w-full border-gray-300 p-3 rounded-xl'>
+                        <div className='border bg-white lg:w-auto w-full dark:text-black border-gray-300 p-3 rounded-xl'>
                             <table className="">
                                 <tbody>
                                     {officelocation.map((location, index) => (

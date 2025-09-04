@@ -272,47 +272,47 @@ export default function Hire() {
             <DevelopersSlider hire={Hire}/>
             <HireThroughOVE hire={Hire?.hiringProcess}/>
             <div className="relative">
-                <div className="bg-lightblack">
+                <div className="bg-lightblack dark:hidden">
                     <Image src="/assets/white.png" alt="bg" width={1000} height={1000} className="w-full" />
                 </div>
                 <Expertise hire={Hire?.expertise}/>
             </div>
             <div className="relative h-full bg-oveblue w-full">
-                <div className="bg-white">
+                <div className="bg-white dark:hidden">
                     <Image src={'/assets/oveblue.png'} alt="compare" width={1000} height={1000} className="w-full"/>
                 </div>
                 <CTA hire={Hire?.cta?.ctaOneContent}/>
             </div>
             <div className="relative">
-                <div className="bg-oveblue">
+                <div className="bg-oveblue dark:hidden">
                     <Image src={'/assets/white.png'} alt="compare" width={1000} height={1000} className="w-full"/>
                 </div>
                 {/* why search for section */}
                 <WSF hire={Hire?.whyHireFormOve}/>
             </div>
             <div className="relative blackgradiant">
-                <div className="bg-white">
+                <div className="bg-white dark:hidden">
                     <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full"/>
                 </div>
                 <CTable hire={Hire?.priceTable}/>
             </div>
             <div className="relative">
-                <div className="bg-lightblack">
+                <div className="bg-lightblack dark:hidden">
                     <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full"/>
                 </div>
                 <Client hire={Hire?.testimonial} cData={ClientD}/>
             </div>
-            <div className="py-12 bg-black">
+            <div className="">
                 <HireBy/>
             </div>
             <div className="relative h-full bg-oveblue w-full">
-                <div className="bg-black">
+                <div className="bg-black dark:hidden">
                     <Image src={'/assets/oveblue.png'} alt="compare" width={1000} height={1000} className="w-full"/>
                 </div>
                 <CTA hire={Hire?.cta?.ctaTwoContent}/>
             </div>
             <div className="relative">
-                <div className="bg-oveblue">
+                <div className="bg-oveblue dark:hidden">
                     <Image src={'/assets/offWhite.png'} alt="compare" width={1000} height={1000} className="w-full"/>
                 </div>
                 <div className="relative">

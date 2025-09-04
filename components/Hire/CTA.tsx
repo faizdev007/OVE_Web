@@ -11,7 +11,7 @@ type ctaSection = {
 
 const CTA = ({hire}:ctaSection) => (
     <>   
-        <section className="text-white pb-12 flex flex-col items-center gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
+        <section className="text-white pb-12 dark:py-12 flex flex-col items-center gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
             <h2 className="lg:text-3xl text-2xl font-bold"><span dangerouslySetInnerHTML={{ __html: hire?.ctaTitle ?? 'Still Wasting Weeks Recruiting Hire Full-Stack Developer ?' }}/></h2>
             <p><span dangerouslySetInnerHTML={{ __html: hire?.ctaSubtitle ?? 'Skip the hiring mess. Get top-tier python talent from us under 48 hours'}}/></p>
             <div className="flex gap-3 items-center">

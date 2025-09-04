@@ -39,7 +39,7 @@ export default function Expertise({ hire }: HireType) {
   const qnalist = hire?.expertiseQna ?? listinfos;
 
   return (
-    <section className="bg-gradient pb-12 flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+    <section className="bg-gradient pb-12 dark:py-12 flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
         {/* Main Header */}
         <div className="lg:flex relative z-20 gap-2 justify-between">
             <div className="lg:w-1/2">

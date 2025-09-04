@@ -84,7 +84,7 @@ export default function PrivacyPolicy()
         );
     }else{
         return(
-            <div className="relative ppstyle bg-gray-100 px-4 py-12 sm:px-6 lg:px-8 mx-auto">
+            <div className="relative ppstyle bg-gray-100 dark:bg-black/90 px-4 py-12 sm:px-6 lg:px-8 mx-auto">
                 {Object.values(PPContent).map((single,key)=>(
                     <div key={key} className="mb-6 text-base/6">
                         {single?.policyTitle && 

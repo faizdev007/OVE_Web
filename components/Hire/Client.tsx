@@ -24,7 +24,7 @@ const Client: React.FC<TestimonialData> = ({hire,cData}) => {
 
     return(
         <>  
-            <section className="pb-12 bg-black flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+            <section className="pb-12 dark:py-12 bg-black flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
                 <h2 className="text-3xl xl:text-5xl mb-4 font-bold text-center text-white">{hire?.testimonialTitle ?? 'Here are a few words shared by our Clients'}</h2>
                 <div className="h-20 aspect-[3/1] overflow-hidden">
                     <Image src={'/assets/google.webp'} alt="employee" width={500} height={500} className="mx-auto object-cover flex justify-center items-center w-32 aspect-[3/1] rounded-lg shadow-lg"/>

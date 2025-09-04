@@ -15,7 +15,6 @@ ul li {
   padding-left: 1.25rem;
   line-height: 1.6;
   font-size: 0.95rem;
-  color: #333;
 }
 
 ul li::before {
@@ -43,7 +42,6 @@ ol li {
   position: relative;
   line-height: 1.6;
   font-size: 0.95rem;
-  color: #333;
 }
 
 ol li::before {

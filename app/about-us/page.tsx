@@ -185,7 +185,7 @@ export default function AboutPage()
                 </div>
             </section>
             <div className="relative">
-                <div className='bg-[#1b1b1b]'>
+                <div className='bg-[#1b1b1b] dark:hidden'>
                     <Image src={'/assets/gray.webp'} alt="compare" width={1000} height={1000} className="w-full"/>
                 </div>
                 <FaqSection/>

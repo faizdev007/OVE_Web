@@ -47,10 +47,10 @@ export default function TrustedBy() {
           <div className="relative flex-1 gap-4 overflow-hidden px-4 sm:px-6 lg:px-8 mx-auto ">
               <div className="logo-slider flex w-max md:space-x-8 space-x-4">
                   {logos.map((logo, index) => (
-                      <img key={index} src={logo} className="h-16 p-2 border border-black bg-white shadow w-auto border rounded" alt={`Logo ${index + 1}`} />
+                      <img key={index} src={logo} className="h-16 p-2 border-black bg-white shadow w-auto border rounded" alt={`Logo ${index + 1}`} />
                   ))}
                   {logos.map((logo, index) => (
-                      <img key={index} src={logo} className="h-16 p-2 border border-black bg-white shadow w-auto border rounded" alt={`Logo ${index + 1}`} />
+                      <img key={index} src={logo} className="h-16 p-2 border-black bg-white shadow w-auto border rounded" alt={`Logo ${index + 1}`} />
                   ))}
               </div>
           </div>

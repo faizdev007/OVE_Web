@@ -112,7 +112,7 @@ export default function TestimonialDev({cTestimonial}:CTestimonial) {
             <Slider {...settings}>
             {Object.values(testimonials).map((item, index) => ( 
                 <div key={index} className="p-2">
-                    <div className={`bg-white w-full min-h-[240] p-4 rounded-2xl border-2 border-oveblue drop-shadow-sm shadow-white`}>
+                    <div className={`bg-white text-black w-full min-h-[240] p-4 rounded-2xl border-2 border-oveblue drop-shadow-sm shadow-white`}>
                         <div className="flex items-center justify-between gap-4">
                           <div className="flex items-center gap-4">
                               <div className="relative aspect-[1/1] w-14 h-14 overflow-hidden">
@@ -137,7 +137,7 @@ export default function TestimonialDev({cTestimonial}:CTestimonial) {
                           <Rating sizeN={4} rating={item?.clientRating?.rating}/>
                         </div>
                         <span className={`text-sm ${expended  !== index ? 'line-clamp-4 transition-all' : 'scale-100'}`} dangerouslySetInnerHTML={{ __html: item?.content }}/>
-                        { item?.content?.length > 200 ?
+                        { item?.content?.length > 300 ?
                           <span onClick={()=>toggle(index)} className="text-xs text-gray-500 block mt-2 cursor-pointer">
                             {expended !== index ? 'Read More.' : 'Show Less.'}
                           </span>

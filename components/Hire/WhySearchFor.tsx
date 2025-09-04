@@ -25,7 +25,7 @@ const WSF = ({hire}:WSFSectionProps) => {
 
     return (
         <>
-            <section className="pb-12 z-20 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+            <section className="pb-12 dark:py-12 z-20 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
                 <div className="lg:flex gap-4 items-center">
                     <div className="flex flex-col gap-6">
                         <h4 className="text-oveblue mb-8 capitalize font-bold text-4xl"><span dangerouslySetInnerHTML={{ __html: hire?.whyHireTitle ?? 'Why search for Hire Full-Stack Developer for hir through Optimal Virtual Employee ?' }}/></h4>
