@@ -38,7 +38,7 @@ export default function TrustedBy() {
       <div className={`mx-auto flex items-center overflow-hidden animate-fade animate-once animate-ease-linear`}>
         {/* Left Static Text */}
         <div className="min-w-[150px] text-white dark:border-black">
-          <h3 className='text-lg md:text-2xl font-bold'>Trusted by</h3>
+          <h2 className='text-lg md:text-2xl font-bold'>Trusted by</h2>
           <p className="md:text-sm text-sm text-gray-400">Top companies</p>
         </div>
 
