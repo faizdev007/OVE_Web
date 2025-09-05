@@ -83,6 +83,8 @@ function SamplePrevArrow(props: CustomArrowProps) {
 export default function DevelopersSlider({hire}:any) {
 
   const [developerList,setDeveloperList] = useState<CardDev[] | null>(null);
+  const [settings, setSettings] = useState<Settings | null>(null);
+  const [loading, setLoading] = useState(true);
   
   const baseSettings: Settings = {
     infinite: true,
@@ -101,9 +103,7 @@ export default function DevelopersSlider({hire}:any) {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />
   };
-
-  const [settings, setSettings] = useState<Settings | null>(null);
-
+  
   useEffect(() => {
     // Fetch GraphQL on the client
     (async () => {
@@ -158,6 +158,7 @@ export default function DevelopersSlider({hire}:any) {
         }));
 
         setDeveloperList(mapped.length ? mapped : []);
+        setLoading(false);
       } catch (e) {
         console.error('GraphQL fetch failed', e);
         setDeveloperList([]); // avoid null crash
@@ -193,6 +194,66 @@ export default function DevelopersSlider({hire}:any) {
     handleResize(); // set initial
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  if(loading){
+    return (
+      <section className="bg-black dark:bg-gray-800 relative px-4 py-12 sm:px-6 lg:px-8 mx-auto">
+      <Image
+        loading="lazy"
+        width={100}
+        height={100}
+        className="absolute hidden object-cover bottom-0 w-full start-0 end-0"
+        src="/assets/cloudbg.webp"
+        alt="cloudbg"
+      />
+      <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center text-white mb-12">
+        Meet Our Developers
+      </h2>
+
+      <div className="relative rounded overflow-hidden mx-auto">
+        <div className="slider-container relative z-10">
+            <Slider {...settings}>
+              {[...Array(10)].map((_, i) => (
+                <div className="px-1 py-2" key={i}>
+                  <div
+                    className="bg-oveblue animate-pulse px-1 gap-4 flex flex-col justify-around mt-25 aspect-[1/1.2] text-white relative rounded-xl shadow-md"
+                  >
+                    {/* Avatar placeholder */}
+                    <div className="relative w-2/3 mb-5 flex items-center justify-center aspect-[3/1] mx-auto">
+                      <div className="overflow-hidden absolute -top-20 border border-gray-800 z-20 rounded-full aspect-[1/1]">
+                        <div className="w-38 h-38 bg-gray-700 mx-auto rounded-full" />
+                      </div>
+                    </div>
+
+                    {/* Content placeholders */}
+                    <div className="p-2 flex flex-col gap-3">
+                      <div className="space-y-2 text-center">
+                        <div className="h-5 w-24 bg-gray-600 mx-auto rounded"></div>
+                        <div className="h-4 w-32 bg-gray-700 mx-auto rounded"></div>
+                      </div>
+
+                      {/* Skills placeholder */}
+                      <div className="flex flex-wrap w-full gap-1 h-[60px] items-center justify-center">
+                        {[...Array(3)].map((_, j) => (
+                          <span
+                            key={j}
+                            className="h-6 w-14 bg-gray-700 rounded-full"
+                          ></span>
+                        ))}
+                      </div>
+
+                      {/* Short description placeholder */}
+                      <div className="h-16 bg-gray-700 rounded mx-4"></div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </Slider>
+        </div>
+      </div>
+    </section>
+    );
+  }
 
   return (
     <section className="bg-black dark:bg-gray-800 relative px-4 py-12 sm:px-6 lg:px-8 mx-auto">

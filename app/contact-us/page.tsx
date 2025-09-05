@@ -17,6 +17,10 @@ export default function ContactPage() {
     const [status, setStatus] = useState(false);
     const [loading, setLoading] = useState(true);
 
+    useEffect(() => {
+        setTimeout(() => setLoading(false), 1000);
+    },[]);
+
     const trustedbages = [
         {name:'Award', image:'/assets/trustedbages/award.webp'},
     ];
@@ -105,78 +109,131 @@ export default function ContactPage() {
         console.log('Form Submitted:', formData);
     };
 
-    useEffect(() => {
-        setTimeout(() => setLoading(false), 1000);
-    },[]);
-
     if(loading) return (
-        <main className="bg-black/90 dark:bg-gray-800 text-white grid lg:grid-cols-2 gap-8 lg:px-4 px-2 py-12 animate-pulse">
-            {/* Left Panel */}
-            <div className="bg-white text-black w-full max-w-6xl lg:p-8 p-3 rounded-xl shadow-md space-y-6">
-                {/* Header */}
-                <div>
-                <div className="h-8 bg-gray-300 rounded w-1/3 mb-3"></div>
-                <div className="h-4 bg-gray-300 rounded w-2/3"></div>
+        <>
+            <main className="bg-black/90 h-full dark:bg-gray-800 text-white grid lg:grid-cols-2 gap-8 lg:px-4 px-2 py-12 animate-pulse">
+                {/* Left Panel */}
+                <div className="bg-white text-black w-full max-w-6xl lg:p-8 p-3 rounded-xl shadow-md space-y-6">
+                    {/* Header */}
+                    <div>
+                    <div className="h-8 bg-gray-300 rounded w-1/3 mb-3"></div>
+                    <div className="h-4 bg-gray-300 rounded w-2/3"></div>
+                    </div>
+
+                    {/* Trusted Badges (hidden on small screens) */}
+                    <div className="hidden md:flex flex-wrap gap-2">
+                    {Array.from({ length: 4 }).map((_, i) => (
+                        <div key={i} className="h-20 w-20 bg-gray-300 rounded-md"></div>
+                    ))}
+                    </div>
+
+                    {/* Contact links */}
+                    <div className="flex gap-4">
+                    <div className="h-4 bg-gray-300 rounded w-24"></div>
+                    <div className="h-4 bg-gray-300 rounded w-32"></div>
+                    </div>
+
+                    {/* Form */}
+                    <div className="space-y-4">
+                    {/* 2 inputs */}
+                    <div className="grid sm:grid-cols-2 gap-4">
+                        <div className="h-10 bg-gray-300 rounded"></div>
+                        <div className="h-10 bg-gray-300 rounded"></div>
+                    </div>
+                    {/* 2 inputs */}
+                    <div className="grid sm:grid-cols-2 gap-4">
+                        <div className="h-10 bg-gray-300 rounded"></div>
+                        <div className="h-10 bg-gray-300 rounded"></div>
+                    </div>
+                    {/* textarea */}
+                    <div className="h-24 bg-gray-300 rounded"></div>
+                    {/* button */}
+                    <div className="h-10 bg-gray-400 rounded-full w-40"></div>
+                    </div>
                 </div>
 
-                {/* Trusted Badges (hidden on small screens) */}
-                <div className="hidden md:flex flex-wrap gap-2">
-                {Array.from({ length: 4 }).map((_, i) => (
-                    <div key={i} className="h-20 w-20 bg-gray-300 rounded-md"></div>
-                ))}
-                </div>
+                {/* Right Panel */}
+                <div className="flex flex-col space-y-6">
+                    {/* Title */}
+                    <div className="h-6 bg-gray-500 rounded w-2/3"></div>
 
-                {/* Contact links */}
-                <div className="flex gap-4">
-                <div className="h-4 bg-gray-300 rounded w-24"></div>
-                <div className="h-4 bg-gray-300 rounded w-32"></div>
-                </div>
+                    {/* List */}
+                    <ul className="space-y-4">
+                    {Array.from({ length: 3 }).map((_, i) => (
+                        <li key={i}>
+                        <div className="h-4 bg-gray-500 rounded w-1/2 mb-2"></div>
+                        <div className="h-3 bg-gray-700 rounded w-2/3"></div>
+                        </li>
+                    ))}
+                    </ul>
 
-                {/* Form */}
-                <div className="space-y-4">
-                {/* 2 inputs */}
-                <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="h-10 bg-gray-300 rounded"></div>
-                    <div className="h-10 bg-gray-300 rounded"></div>
+                    {/* Logos grid */}
+                    <div className="grid grid-cols-3 xl:grid-cols-4 gap-3 mt-8">
+                    {Array.from({ length: 8 }).map((_, i) => (
+                        <div
+                        key={i}
+                        className="lg:h-20 h-16 bg-gray-600 rounded-md shadow-inner"
+                        ></div>
+                    ))}
+                    </div>
                 </div>
-                {/* 2 inputs */}
-                <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="h-10 bg-gray-300 rounded"></div>
-                    <div className="h-10 bg-gray-300 rounded"></div>
-                </div>
-                {/* textarea */}
-                <div className="h-24 bg-gray-300 rounded"></div>
-                {/* button */}
-                <div className="h-10 bg-gray-400 rounded-full w-40"></div>
-                </div>
-            </div>
-
-            {/* Right Panel */}
-            <div className="flex flex-col space-y-6">
-                {/* Title */}
-                <div className="h-6 bg-gray-500 rounded w-2/3"></div>
-
-                {/* List */}
-                <ul className="space-y-4">
-                {Array.from({ length: 3 }).map((_, i) => (
-                    <li key={i}>
-                    <div className="h-4 bg-gray-500 rounded w-1/2 mb-2"></div>
-                    <div className="h-3 bg-gray-700 rounded w-2/3"></div>
-                    </li>
-                ))}
-                </ul>
-
-                {/* Logos grid */}
-                <div className="grid grid-cols-3 xl:grid-cols-4 gap-3 mt-8">
-                {Array.from({ length: 8 }).map((_, i) => (
-                    <div
-                    key={i}
-                    className="lg:h-20 h-16 bg-gray-600 rounded-md shadow-inner"
-                    ></div>
-                ))}
-                </div>
-            </div>
             </main>
+            <div className="relative animate-pulse">
+                <section className="py-12 dark:py-12 bg-gray-100 dark:bg-black/90">
+                    <div className="text-center">
+                    <div className="h-8 w-2/3 mx-auto bg-gray-300 dark:bg-gray-700 rounded mb-4"></div>
+                    <div className="h-4 w-1/2 mx-auto bg-gray-200 dark:bg-gray-600 rounded mb-8"></div>
+                    </div>
+
+                    <div className="md:flex gap-6 justify-center items-center p-2">
+                    {/* Countries Table Placeholder */}
+                    <div className="border bg-white dark:bg-gray-800 lg:w-auto w-full border-gray-300 p-3 rounded-xl mb-2">
+                        <table className="w-full">
+                        <tbody>
+                            {[...Array(4)].map((_, i) => (
+                            <tr key={i} className={`${i < 3 ? 'border-b' : ''} border-gray-300`}>
+                                <td className="border-e border-gray-300">
+                                <div className="lg:flex gap-3 p-2 items-center">
+                                    <div className="w-8 h-8 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                                    <div className="h-4 w-24 bg-gray-200 dark:bg-gray-600 rounded"></div>
+                                </div>
+                                </td>
+                                <td>
+                                <div className="flex flex-col gap-2 p-4">
+                                    <div className="h-4 w-32 bg-gray-200 dark:bg-gray-600 rounded"></div>
+                                    <div className="h-4 w-28 bg-gray-200 dark:bg-gray-600 rounded"></div>
+                                </div>
+                                </td>
+                            </tr>
+                            ))}
+                        </tbody>
+                        </table>
+                    </div>
+
+                    {/* Office Locations Table Placeholder */}
+                    <div className="border bg-white dark:bg-gray-800 lg:w-auto w-full border-gray-300 p-3 rounded-xl">
+                        <table className="w-full">
+                        <tbody>
+                            {[...Array(3)].map((_, i) => (
+                            <tr key={i} className={`${i < 2 ? 'border-b' : ''} border-gray-300`}>
+                                <td>
+                                <div className="md:flex gap-2 p-2 items-center">
+                                    <div className="w-16 h-10 bg-gray-300 dark:bg-gray-700 rounded"></div>
+                                    <div className="flex flex-col gap-2">
+                                    <div className="h-4 w-32 bg-gray-200 dark:bg-gray-600 rounded"></div>
+                                    <div className="h-3 w-48 bg-gray-200 dark:bg-gray-600 rounded"></div>
+                                    </div>
+                                </div>
+                                </td>
+                            </tr>
+                            ))}
+                        </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </section>
+                </div>
+        </>
     );
 
     return (

@@ -200,14 +200,13 @@ export default function Hire() {
           const data = await fetchGraphQL(QUERY);
           setHire(data.service);
           setClientD(data.clients);
+          setLoading(false);
         } catch (e) {
           console.error('GraphQL fetch failed', e);
         }
         })();
     }, [slug]);
     // return;
-
-    console.log();
 
   // --- 404 FIRST: render not-found view when error indicates missing Hire
   if (Hire === null) {
@@ -230,7 +229,7 @@ export default function Hire() {
   // --- LOADING SKELETON while fetching (only when no error)
   if (loading && !Hire) {
     return (
-      <section className="bg-gray-100 xl:h-max lg:flex gap-6 dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
+      <section className="bg-black py-12 xl:h-full lg:flex gap-6 dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="flex lg:w-[60%] flex-col h-full lg:mt-6 justify-between gap-8 items-center md:items-start py-6">
           <div className="h-10 w-3/4 bg-gray-700 rounded animate-pulse" />
           <div className="space-y-2 w-full">

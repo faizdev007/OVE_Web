@@ -9,6 +9,11 @@ import { useEffect, useState } from "react";
 export default function AboutPage()
 {
     const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        setTimeout(() => setLoading(false), 1000);
+    },[]);
+
     const logos = [
         '/assets/companies/company1.webp',
         '/assets/companies/company2.webp',
@@ -31,30 +36,86 @@ export default function AboutPage()
         {name: 'Samta Sharma', linkedin:'https://www.linkedin.com/in/samtasharma/', role: 'VP-Technology', image: '/assets/ove/samta.webp'},
     ];
 
-    useEffect(() => {
-        setTimeout(() => setLoading(false), 1000);
-    },[]);
-
     if (loading) return (
-        <section className="bg-black p-12 justify-between relative flex lg:flex-row flex-col dark:bg-gray-800 text-white px-4 sm:px-6 lg:px-8 mx-auto animate-pulse">
-            {/* Left side */}
-            <div className="relative block lg:w-[30%]">
-                <div className="md:p-10 w-full h-1/2 lg:absolute p-4 -end-40 md:top-10 md:rounded-md rounded-t bg-stone-800">
-                    <div className="h-8 bg-gray-700 rounded w-3/4 mb-6"></div>
-                    <div className="space-y-3 max-h-48 overflow-y-hidden">
-                        <div className="h-3 bg-gray-700 rounded w-full"></div>
-                        <div className="h-3 bg-gray-700 rounded w-5/6"></div>
-                        <div className="h-3 bg-gray-700 rounded w-4/6"></div>
-                        <div className="h-3 bg-gray-700 rounded w-full"></div>
+        <>
+            <section className="bg-black p-12 justify-between relative flex lg:flex-row flex-col dark:bg-gray-800 text-white px-4 sm:px-6 lg:px-8 mx-auto">
+                {/* Left side */}
+                <div className="relative block lg:w-[30%]">
+                    <div className="md:p-10 w-full h-1/2 lg:absolute p-4 -end-40 md:top-10 md:rounded-md rounded-t bg-stone-800">
+                        <div className="h-8 bg-gray-700 rounded w-3/4 mb-6"></div>
+                        <div className="space-y-3 max-h-48 overflow-y-hidden">
+                            <div className="h-3 bg-gray-700 rounded w-full"></div>
+                            <div className="h-3 bg-gray-700 rounded w-5/6"></div>
+                            <div className="h-3 bg-gray-700 rounded w-4/6"></div>
+                            <div className="h-3 bg-gray-700 rounded w-full"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            {/* Right side */}
-            <div className="lg:w-[70%] md:rounded-md rounded-b-md">
-                <div className="w-full h-[500px] bg-gray-700 rounded"></div>
-            </div>
-        </section>
+                {/* Right side */}
+                <div className="lg:w-[70%] md:rounded-md rounded-b-md">
+                    <div className="w-full h-[500px] bg-gray-700 rounded"></div>
+                </div>
+            </section>
+            <div className="bg-black py-12">
+                <div className="container mx-auto">
+                    {/* Repeatable section */}
+                    {[...Array(3)].map((_, idx) => (
+                    <section
+                        key={idx}
+                        className="relative py-4 md:flex md:flex-rows flex-col-reverse text-white px-4 sm:px-6 lg:px-8 mx-auto"
+                    >
+                        <div className="md:grid flex flex-col-reverse items-center md:grid-cols-2 gap-4 mb-4 animate-pulse">
+                        {/* Left / Right alternating */}
+                        {idx % 2 === 0 ? (
+                            <>
+                            {/* Text Placeholder */}
+                            <div className="flex flex-col justify-center">
+                                <div className="mb-10 space-y-4">
+                                <div className="h-8 w-3/4 bg-gray-700 rounded"></div>
+                                <div className="h-4 w-full bg-gray-600 rounded"></div>
+                                <div className="h-4 w-5/6 bg-gray-600 rounded"></div>
+                                </div>
+                                <div className="flex flex-col gap-4">
+                                {[...Array(4)].map((__, i) => (
+                                    <div key={i} className="h-4 w-2/3 bg-gray-700 rounded"></div>
+                                ))}
+                                </div>
+                            </div>
+
+                            {/* Image Placeholder */}
+                            <div className="flex aspect-[2/1] w-full justify-end items-center">
+                                <div className="w-full h-full bg-gray-800 rounded-md shadow-xl"></div>
+                            </div>
+                            </>
+                        ) : (
+                            <>
+                            {/* Image Placeholder */}
+                            <div className="flex aspect-[2/1] w-full justify-start items-center">
+                                <div className="w-full h-full bg-gray-800 rounded-md shadow-xl"></div>
+                            </div>
+
+                            {/* Text Placeholder */}
+                            <div className="flex flex-col justify-center">
+                                <div className="mb-10 space-y-4">
+                                <div className="h-8 w-3/4 bg-gray-700 rounded"></div>
+                                <div className="h-4 w-full bg-gray-600 rounded"></div>
+                                <div className="h-4 w-5/6 bg-gray-600 rounded"></div>
+                                </div>
+                                <div className="flex flex-col gap-4">
+                                {[...Array(3)].map((__, i) => (
+                                    <div key={i} className="h-4 w-2/3 bg-gray-700 rounded"></div>
+                                ))}
+                                </div>
+                            </div>
+                            </>
+                        )}
+                        </div>
+                    </section>
+                    ))}
+                </div>
+                </div>
+        </> 
     );
 
     return(
