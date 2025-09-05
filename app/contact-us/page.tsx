@@ -17,10 +17,6 @@ export default function ContactPage() {
     const [status, setStatus] = useState(false);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        setTimeout(() => setLoading(false), 1000);
-    },[]);
-
     const trustedbages = [
         {name:'Award', image:'/assets/trustedbages/award.webp'},
     ];
@@ -76,6 +72,7 @@ export default function ContactPage() {
     ];
 
 
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
@@ -108,6 +105,13 @@ export default function ContactPage() {
         },2000)
         console.log('Form Submitted:', formData);
     };
+
+    useEffect(() => {
+        if(logos.length > 0 && contactinfo.length > 0 && officelocation.length > 0) {
+            setLoading(false);
+            return;
+        }
+    },[]);
 
     if(loading) return (
         <>
