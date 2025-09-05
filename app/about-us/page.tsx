@@ -135,7 +135,16 @@ export default function AboutPage()
                     </div>
                 </div>
                 <div className="lg:w-[70%] md:rounded-md rounded-b-md">
-                    <Image src={'/assets/about/1.jpg'} alt="aboutimg1" className="object-cover w-full" height={500} width={1000}/>
+                    <Image
+                    src="/assets/about/1.jpg"
+                    alt="aboutimg1"
+                    width={1000}
+                    height={500}
+                    priority // 👈 ensures no lazy loading + preloading
+                    fetchPriority="high" // 👈 improves LCP discovery
+                    decoding="async"
+                    className="object-cover w-full"
+                    />
                 </div>
             </section>
             <div className="bg-black py-12">
