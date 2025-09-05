@@ -65,7 +65,7 @@ export default function Herosection()
                     <div style={{ position: 'relative', width:'100%', aspectRatio: '16 / 9' }}>
                         <iframe 
                             loading="lazy" title="Gumlet video player"
-                            src="https://play.gumlet.io/embed/68b53910eada66c6efa33f66?background=false&autoplay=true&loop=true&disableControls=false"
+                            src="https://play.gumlet.io/embed/68b98b969bce03c1972d9e42?background=false&autoplay=true&loop=true&disableControls=false"
                             style={{border:'3px solid #c8c8c8', borderRadius:'4px', position: 'absolute', top: '0', left: '0', height: '100%', width: '100%'}}
                             allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;">
                         </iframe>
