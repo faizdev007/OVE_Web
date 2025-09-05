@@ -35,7 +35,7 @@ const HeroSection = ({hire}:HeroSectionProps) => (
                     <div className="absolute z-20 bottom-0">
                         <Image src={'/assets/hire/bg2.webp'} alt="PBG" width={500} height={500} className="rounded-r-xl"/>
                     </div>
-                    <img loading="eager" src={hire?.featuredImage?.node?.sourceUrl ?? '/assets/hire/anjali.png'} alt={hire?.featuredImage?.node.title} width={500} height={500} className="relative z-40"/>
+                    <img src={hire?.featuredImage?.node?.sourceUrl ?? '/assets/hire/anjali.png'} alt={hire?.featuredImage?.node.title} width={500} height={500} className="relative z-40" loading="eager" fetchPriority="high"/>
                     <div className="absolute border border-oveblue z-40 bg-boxFill bottom-0 end-0 p-4 rounded-xl shadow-sm drop-shadow">
                         <h3 className="md:text-xl font-bold">{ hire?.featuredImage?.node?.title ?? 'Anjali'}</h3>
                         <span className="text-xs font-bold md:text-sm">Senior <span dangerouslySetInnerHTML={{ __html: hire?.title ?? 'Full-Stack Developer' }} /></span>
