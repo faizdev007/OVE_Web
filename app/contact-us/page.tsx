@@ -330,7 +330,16 @@ export default function ContactPage() {
             </main>
             <div className="relative">
                 <div className="bg-black/90 dark:hidden">
-                    <Image src={'/assets/gray.webp'} alt="compare" width={1000} height={1000} className="w-full"/>
+                    <Image
+                        src="/assets/gray.webp"
+                        alt="compare"
+                        width={1000}
+                        height={1000}
+                        priority                // 👈 disables lazy loading, preloads in <head>
+                        fetchPriority="high"    // 👈 tells browser to fetch immediately
+                        decoding="async"
+                        className="w-full"
+                    />
                 </div>
                 <section className='pb-12 dark:py-12 bg-gray-100 dark:bg-black/90'>
                     <div className='text-center'>
