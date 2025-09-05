@@ -42,19 +42,19 @@ export default function AboutPage()
                 {/* Left side */}
                 <div className="relative block lg:w-[30%]">
                     <div className="md:p-10 w-full h-1/2 lg:absolute p-4 -end-40 md:top-10 md:rounded-md rounded-t bg-stone-800">
-                        <div className="h-8 bg-gray-700 rounded w-3/4 mb-6"></div>
+                        <div className="h-8 bg-gray-700 rounded w-3/4 mb-6 animate-pulse"></div>
                         <div className="space-y-3 max-h-48 overflow-y-hidden">
-                            <div className="h-3 bg-gray-700 rounded w-full"></div>
-                            <div className="h-3 bg-gray-700 rounded w-5/6"></div>
-                            <div className="h-3 bg-gray-700 rounded w-4/6"></div>
-                            <div className="h-3 bg-gray-700 rounded w-full"></div>
+                            <div className="h-3 bg-gray-700 rounded w-full animate-pulse"></div>
+                            <div className="h-3 bg-gray-700 rounded w-5/6 animate-pulse"></div>
+                            <div className="h-3 bg-gray-700 rounded w-4/6 animate-pulse"></div>
+                            <div className="h-3 bg-gray-700 rounded w-full animate-pulse"></div>
                         </div>
                     </div>
                 </div>
 
                 {/* Right side */}
                 <div className="lg:w-[70%] md:rounded-md rounded-b-md">
-                    <div className="w-full h-[500px] bg-gray-700 rounded"></div>
+                    <div className="w-full h-[600px] bg-gray-700 rounded"></div>
                 </div>
             </section>
             <div className="bg-black py-12">
