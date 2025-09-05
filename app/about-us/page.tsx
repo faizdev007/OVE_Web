@@ -10,10 +10,6 @@ export default function AboutPage()
 {
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        setTimeout(() => setLoading(false), 1000);
-    },[]);
-
     const logos = [
         '/assets/companies/company1.webp',
         '/assets/companies/company2.webp',
@@ -35,6 +31,13 @@ export default function AboutPage()
         {name: 'Ronnie R Arora', linkedin:'https://www.linkedin.com/in/ronnie-rahul-arora-ba12b26/', role: 'VP-Growth', image: '/assets/ove/ronnie.jpg'},
         {name: 'Samta Sharma', linkedin:'https://www.linkedin.com/in/samtasharma/', role: 'VP-Technology', image: '/assets/ove/samta.webp'},
     ];
+
+    useEffect(() => {
+        if(logos.length > 0 && team.length > 0) {
+            setLoading(false);
+            return;
+        }
+    },[]);
 
     if (loading) return (
         <>
@@ -160,7 +163,7 @@ export default function AboutPage()
                     </section>
                     <section className="relative py-4 md:flex md:flex-rows flex-col-reverse text-white px-4 sm:px-6 lg:px-8 mx-auto">
                         <div className="md:grid flex flex-col items-center md:grid-cols-2 gap-4 mb-4">
-                            <div className="flex justify-center aspect-[2/1] w-full justify-start items-center">
+                            <div className="flex justify-center aspect-[2/1] w-full md:justify-start items-center">
                                 <Image src={'/assets/about/2.webp'} alt="slide" width={500} height={200} className="object-cover rounded-md shadow-xl drop-shadow shadow-gray-900"/>
                             </div>
                             <div className="flex flex-col justify-center">
