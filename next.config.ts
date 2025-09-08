@@ -4,7 +4,7 @@ const securityHeaders = [
   {
     key: "Content-Security-Policy",
     value:
-      "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' https: data:; connect-src 'self' https:; frame-ancestors 'self';",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' https: data:; connect-src 'self' https:; frame-ancestors 'self';",
   },
   {
     key: "X-Frame-Options",
@@ -14,10 +14,10 @@ const securityHeaders = [
     key: "X-Content-Type-Options",
     value: "nosniff", // Prevents MIME-sniffing
   },
-  // {
-  //   key: "Referrer-Policy",
-  //   value: "strict-origin-when-cross-origin",
-  // },
+  {
+    key: "Referrer-Policy",
+    value: "strict-origin-when-cross-origin",
+  },
   {
     key: "Permissions-Policy",
     value:
