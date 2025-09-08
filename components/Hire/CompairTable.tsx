@@ -1,4 +1,6 @@
 
+'use client';
+
 type HireType = {
   tableTitle: string;
   tableSubtitle: string;

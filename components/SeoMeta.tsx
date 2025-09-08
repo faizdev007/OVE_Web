@@ -15,22 +15,26 @@ interface SeoProps {
   };
 }
 
-export default function SeoMeta({ seo }: { seo: SeoProps }) {
+export default function SeoMeta({ seo }: { seo?: SeoProps }) {
   if (!seo) return null;
 
-  console.log("Rendering SEO Meta with data:", seo); // Debugging line
-  
+  const title =
+    seo.title ??
+    "Find and Hire Developers for Startups — Optimal Virtual Employee — Top 3% Remote Talent";
+  const description =
+    seo.metaDesc ??
+    "Find and hire pre-vetted remote developers from the top 3% global talent pool. Optimal Virtual Employee helps startups build reliable tech teams fast — affordable, flexible & scalable.";
+  const keywords = seo.metaKeywords ?? "remote developers, hire developers, optimal virtual employee";
+
   return (
     <Head>
-      {/* Standard SEO */}
-      {seo.title && <title>{seo.title ?? 'Find and Hire Developers for Startups — Optimal Virtual Employee — Top 3% Remote Talent'}</title>}
-      {seo.metaDesc && <meta name="description" content={seo.metaDesc ?? 'Find and hire pre-vetted remote developers from the top 3% global talent pool. Optimal Virtual Employee helps startups build reliable tech teams fast — affordable, flexible & scalable.'} />}
-      {seo.metaKeywords && <meta name="keywords" content={seo.metaKeywords} />}
+      {/* Basic SEO */}
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <meta name="keywords" content={keywords} />
 
-      {/* OpenGraph */}
-      {seo.opengraphTitle && (
-        <meta property="og:title" content={seo.opengraphTitle} />
-      )}
+      {/* Open Graph */}
+      {seo.opengraphTitle && <meta property="og:title" content={seo.opengraphTitle} />}
       {seo.opengraphDescription && (
         <meta property="og:description" content={seo.opengraphDescription} />
       )}
@@ -39,16 +43,15 @@ export default function SeoMeta({ seo }: { seo: SeoProps }) {
         <meta property="og:image" content={seo.opengraphImage.sourceUrl} />
       )}
 
-      {/* Twitter (Optional) */}
-      {seo.opengraphTitle && (
-        <meta name="twitter:title" content={seo.opengraphTitle} />
-      )}
+      {/* Twitter Cards (optional) */}
+      {seo.opengraphTitle && <meta name="twitter:title" content={seo.opengraphTitle} />}
       {seo.opengraphDescription && (
         <meta name="twitter:description" content={seo.opengraphDescription} />
       )}
       {seo.opengraphImage?.sourceUrl && (
         <meta name="twitter:image" content={seo.opengraphImage.sourceUrl} />
       )}
+      <meta name="twitter:card" content="summary_large_image" />
     </Head>
   );
 }
