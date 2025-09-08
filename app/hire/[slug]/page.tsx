@@ -14,6 +14,8 @@ import WSF from "@/components/Hire/WhySearchFor";
 import CTable from "@/components/Hire/CompairTable";
 import Client from "@/components/Hire/Client";
 import { fetchGraphQL } from "@/lib/graphqlClient";
+import SeoMeta from "@/components/SeoMeta";
+import ServicePageData from "@/components/ServicePageGraphQL";
 
 type HireItem = {
   id: number;
@@ -37,7 +39,6 @@ type TestimonialClient = {
   featuredImage?:any;
 }
 
-
 export default function Hire() {
 
     const params = useParams();
@@ -46,167 +47,26 @@ export default function Hire() {
     const [Hire, setHire] = useState<HireItem | undefined>(undefined);
     const [ClientD, setClientD] = useState<TestimonialClient | undefined>(undefined);
     const [loading, setLoading] = useState(true);
+    const [seo, setSeo] = useState<any>(undefined);
 
-    
     useEffect(() => {
 
         // Fetch GraphQL on the client
         (async () => {
 
-          const QUERY = `
-          {
-            service(idType:SLUG,id:"${slug}"){
-              title
-              slug
-              content
-              featuredImage {
-                node {
-                  uri
-                  sourceUrl
-                  title
-                }
-              }
-              cta{
-                ctaOneContent{
-                  ctaTitle
-                  ctaSubtitle
-                  ctaButtonText
-                }
-                ctaTwoContent{
-                  ctaTitle
-                  ctaSubtitle
-                  ctaButtonText
-                }
-              }
-              hiringProcess {
-                hiring_process_title
-                hiringProcessSteps {
-                  step1 {
-                    stepTitle
-                    stepDescribtion
-                    stepImage {
-                      node {
-                        title
-                        sourceUrl
-                      }
-                    }
-                  }
-                  step2 {
-                    stepTitle
-                    stepDescribtion
-                    stepImage {
-                      node {
-                        title
-                        sourceUrl
-                      }
-                    }
-                  }
-                  step3 {
-                    stepTitle
-                    stepDescribtion
-                    stepImage {
-                      node {
-                        title
-                        sourceUrl
-                      }
-                    }
-                  }
-                  step4 {
-                    stepTitle
-                    stepDescribtion
-                    stepImage {
-                      node {
-                        title
-                        sourceUrl
-                      }
-                    }
-                  }
-                }
-              }
-              expertise {
-                expertiseTitle
-                expertiseDescription
-                expertiseQna {
-                  question
-                  answer
-                }
-              }
-              whyHireFormOve {
-                whyHireTitle
-                whyHireDiscription
-                whyHireImage {
-                  node {
-                    sourceUrl
-                    title
-                  }
-                }
-                whyHireQna {
-                  question
-                  answer
-                }
-              }
-              serviceFaq {
-                faqList {
-                  faqQuestion
-                  faqAnswer
-                }
-              }
-              priceTable {
-                tableTitle
-                tableSubtitle
-                tableHeading {
-                  heading1
-                  heading2
-                  heading3
-                  heading4
-                  heading5
-                  heading6
-                }
-                tableRow {
-                  tableData {
-                    data1
-                    data2
-                    data3
-                    data4
-                    data5
-                    data6
-                  }
-                }
-              }
-              testimonial{
-                testimonialTitle
-              }
-            }
-            clients {
-              nodes {
-                title
-                slug
-                content
-                clientRating {
-                  rating
-                }
-                featuredImage{
-                  node{
-                    sourceUrl
-                    title
-                  }
-                }
-              }
-            }
-          }
-        `;
-
         try {
-          const data = await fetchGraphQL(QUERY);
+          const data = await ServicePageData({slug});
           setHire(data.service);
           setClientD(data.clients);
           setLoading(false);
+          setSeo(data.service.seo);
         } catch (e) {
           console.error('GraphQL fetch failed', e);
         }
         })();
     }, [slug]);
     // return;
+    // console.log("SEO Data:",seo);
 
   // --- 404 FIRST: render not-found view when error indicates missing Hire
   if (Hire === null) {
@@ -269,6 +129,7 @@ export default function Hire() {
   // your existing page (unchanged, just add a couple of safe-optional-chains)
   return (
     <>
+        <SeoMeta seo={seo} />
         <div className="relative 2xl:top-0">
             <HeroSection hire={Hire}/>
             <DevelopersSlider hire={Hire}/>

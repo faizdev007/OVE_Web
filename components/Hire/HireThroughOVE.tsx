@@ -56,7 +56,9 @@ const HireThroughOVE = ({hire}:HTOSectionProps) => {
                         <div key={index} className="flex aspect-[1/1] md:max-h-[300] w-full flex-col justify-center relative items-center gap-3 bg-boxFill p-6 rounded-lg border border-oveblue hover:border-oveblue/50 transition-all duration-300">
                             <div className="relative w-max z-10 px-18 flex flex-col justify-center items-center">
                                 <span className="text-[150px] z-20 text-oveblue/50 absolute start-0 w-full h-full hover:scale-125 transition-all flex items-center">{index+1}</span>
-                                <img alt={step?.stepImage?.node?.title ?? ''} src={step?.stepImage?.node?.sourceUrl ?? ''} width={400} height={400} className="w-32 h-auto rounded-md"/>
+                                {step?.stepImage?.node?.sourceUrl &&
+                                    <img alt={step?.stepImage?.node?.title ?? ''} src={step?.stepImage?.node?.sourceUrl ?? ''} width={400} height={400} className="w-32 h-auto rounded-md"/>
+                                }
                             </div>
                             <h3 className="md:text-2xl text-center text-xl font-bold">{step?.stepTitle}</h3>
                             <p>{step?.stepDescribtion}</p>
