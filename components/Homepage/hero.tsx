@@ -19,7 +19,7 @@ export default function Herosection()
                         <p className='text-sm lg:text-md xl:text-xl 2xl:text-2xl'>Reduce your time to hire from months to days. Our remote staff augmentation connects you with pre-vetted developers who onboard quickly and start delivering real value from day one.</p>
                     </div>
                     <div className='text-center max-w-auto'>
-                        <div className="flex gap-3 md:flex-row flex-col items-center">
+                        <div className="flex gap-3 md:flex-row flex-col items-start">
                             {/* Primary CTA */}
                             <div className="w-full">
                                 <a

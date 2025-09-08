@@ -5,7 +5,7 @@ import { getCookieConsentValue } from "react-cookie-consent";
 
 export default function Analytics() {
   const consent = getCookieConsentValue("gdpr-consent");
-
+    console.log("Cookie consent value:", consent); // Debugging line
   return (
     <>
       {consent === "true" && (
