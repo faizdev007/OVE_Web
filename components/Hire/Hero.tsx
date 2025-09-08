@@ -33,7 +33,7 @@ const HeroSection = ({hire}:HeroSectionProps) => (
             <div className="lg:w-[40%] lg:flex hidden relative mb-5 justify-center">
                 <div className="z-30 flex flex-col justify-end">
                     <div className="absolute z-20 bottom-0">
-                        <Image src={'/assets/hire/bg2.webp'} alt="PBG" width={500} height={500} className="rounded-r-xl"/>
+                        <Image src={'/assets/hire/bg2.webp'} alt="PBG" width={500} height={500} priority className="w-auto h-auto rounded-r-xl"/>
                     </div>
                     <img src={hire?.featuredImage?.node?.sourceUrl ?? '/assets/hire/anjali.png'} alt={hire?.featuredImage?.node.title} width={500} height={500} className="relative z-40" loading="eager" fetchPriority="high"/>
                     <div className="absolute border border-oveblue z-40 bg-boxFill bottom-0 end-0 p-4 rounded-xl shadow-sm drop-shadow">
