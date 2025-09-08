@@ -3,7 +3,7 @@
 export default function Loader()
 {
     return (
-    <div className="bg-black min-h-screen flex flex-col items-center px-4 sm:px-6 lg:px-8 py-12">
+    <div className="bg-black flex flex-col items-center px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}
         <div className="flex w-full items-center md:pt-8">
             <div className="w-full mx-auto h-full lg:grid grid-cols-2 items-center">

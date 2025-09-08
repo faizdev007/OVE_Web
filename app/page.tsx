@@ -52,7 +52,14 @@ export default function Home() {
     return () => ac.abort();
   }, []);
 
-  if (loading) return <Loader />;
+  if (loading){ 
+    return (
+    <>
+      <Loader />
+      <DevelopersSlider/>
+    </>
+    )
+  };
   
   return (
     <>
