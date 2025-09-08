@@ -57,6 +57,7 @@ export default function PrivacyPolicy()
     };
 
     const PPContent = policyContent?.policyPage?.policyBlock;
+    
     if(!PPContent || !PPContent.length){
         return (
             <section className="bg-gray-100 xl:h-max flex flex-col gap-6 dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto py-8">
@@ -82,20 +83,28 @@ export default function PrivacyPolicy()
         );
     }else{
         return(
-            <div className="relative ppstyle bg-gray-100 dark:bg-black/90 px-4 py-12 sm:px-6 lg:px-8 mx-auto">
-                {Object.values(PPContent).map((single,key)=>(
-                    <div key={key} className="mb-6 text-base/6">
-                        {single?.policyTitle && 
-                            <div className="bg-gray-200 p-3 dark:text-black border-s-3 mb-4 font-bold border-blue-700">
-                                <span dangerouslySetInnerHTML={{__html: single?.policyTitle}}/>
+            <>
+                <div className="relative ppstyle bg-gray-100 dark:bg-black/90 px-4 py-12 sm:px-6 lg:px-8 mx-auto">
+                    <h1 className="text-3xl text-center font-bold mb-2">
+                        Privacy Policy
+                    </h1>
+                    <p className="text-sm text-gray-500 mb-8">
+                        Last updated: September 8, 2025
+                    </p>
+                    {Object.values(PPContent).map((single,key)=>(
+                        <div key={key} className="mb-6 text-base/6">
+                            {single?.policyTitle && 
+                                <div className="bg-gray-200 p-3 dark:text-black border-s-3 mb-4 font-bold border-blue-700">
+                                    <span dangerouslySetInnerHTML={{__html: single?.policyTitle}}/>
+                                </div>
+                            }
+                            <div>
+                                <span dangerouslySetInnerHTML={{ __html: single.policyContent ?? "" }} />
                             </div>
-                        }
-                        <div>
-                            <span dangerouslySetInnerHTML={{ __html: single.policyContent ?? "" }} />
                         </div>
-                    </div>
-                ))}
-            </div>
+                    ))}
+                </div>
+            </>
         );
     }
 }
