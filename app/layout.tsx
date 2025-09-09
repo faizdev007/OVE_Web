@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -16,31 +17,33 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export async function generateMetadata() {
-  const seoData = {
-    title: "Find and Hire Developers for Startups — Optimal Virtual Employee — Top 3% Remote Talent",
-    metaDesc: "Find and hire pre-vetted remote developers from the top 3% global talent pool. Optimal Virtual Employee helps startups build reliable tech teams fast — affordable, flexible & scalable.",
-    opengraphTitle: "Find and Hire Developers for Startups — Optimal Virtual Employee — Top 3% Remote Talent",
-    opengraphDescription: "Find and hire pre-vetted remote developers from the top 3% global talent pool. Optimal Virtual Employee helps startups build reliable tech teams fast — affordable, flexible & scalable.",
-    opengraphUrl: "https://example.com/custom-page",
-    opengraphImage: { sourceUrl: "https://example.com/og-image.jpg" },
-    metaKeywords: "nextjs, wordpress, seo",
-  };
+// Default SEO data (fallback if a page doesn’t override)
+const defaultSeo = {
+  title: "Find and Hire Developers for Startups — Optimal Virtual Employee — Top 3% Remote Talent",
+  metaDesc:
+    "Find and hire pre-vetted remote developers from the top 3% global talent pool. Optimal Virtual Employee helps startups build reliable tech teams fast — affordable, flexible & scalable.",
+  metaKeywords: "remote developers, hire developers, optimal virtual employee",
+  opengraphUrl: "https://optimalvirtualemployee.com/",
+  opengraphImage: {
+    sourceUrl: "https://optimalvirtualemployee.com/og-image.jpg",
+  },
+  indexable: true,
+};
 
-  return generateMetadataFromSeo(seoData);
-}
+export const metadata: Metadata = generateMetadataFromSeo(defaultSeo);
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html lang="en">
       <head>
         {/* Google Tag Manager Script for the head */}
-        <Analytics />
+        <>
+          <Analytics />
+        </>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} opensans antialiased`}
@@ -55,10 +58,13 @@ export default function RootLayout({
           ></iframe>
         </noscript>
         {/* End Google Tag Manager (noscript) */}
+
+        {/* page layout data */}
         <Header/>
         {children}
         <CookieBanner/>
         <Footer/>
+        {/* End page layout data */}
       </body>
     </html>
   );
