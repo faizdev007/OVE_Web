@@ -12,11 +12,11 @@ const HeroSection = ({hire}:HeroSectionProps) => (
             <div className="flex lg:w-[60%] flex-col h-full lg:mt-6 justify-between gap-8 items-center md:items-start py-6">
                 <h1 className="text-oveblue md:text-6xl text-4xl font-bold">Hire <span dangerouslySetInnerHTML={{ __html: hire?.title ?? 'Full-Stack Developer' }}/></h1> 
                 <div dangerouslySetInnerHTML={{ __html: hire?.content ?? '' }}  className="md:text-xl"/>
-                <button className="bg-oveblue p-2 rounded w-max md:text-xl hover:bg-blue-700 px-6 font-bold border-5 border-oveblue/90 cursor-pointer flex gap-2 items-center hover:border-oveblue/50">Hire <span dangerouslySetInnerHTML={{ __html: hire?.title ?? 'Full-Stack Developer' }}/>
+                <a href="/contact-us" className="bg-oveblue p-2 rounded w-max md:text-xl hover:bg-blue-700 px-6 font-bold border-5 border-oveblue/90 cursor-pointer flex gap-2 items-center hover:border-oveblue/50">Hire <span dangerouslySetInnerHTML={{ __html: hire?.title ?? 'Full-Stack Developer' }}/>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-7 font-bold">
                         <path fillRule="evenodd" d="M2 10a.75.75 0 0 1 .75-.75h12.59l-2.1-1.95a.75.75 0 1 1 1.02-1.1l3.5 3.25a.75.75 0 0 1 0 1.1l-3.5 3.25a.75.75 0 1 1-1.02-1.1l2.1-1.95H2.75A.75.75 0 0 1 2 10Z" clipRule="evenodd" />
                     </svg>
-                </button>
+                </a>
                 <div className="grid md:grid-cols-3 gap-2 w-full">
                     <div className="bg-boxFill flex md:block items-center gap-4 p-4 rounded-xl border border-oveblue drop-shadow-sm shadow-white">
                         <h3 className="text-xl font-bold">1.5K+</h3>
