@@ -8,7 +8,7 @@ import Hire from "@/components/Pages/ServicePage";
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params; // <-- ✅ await before using
   const data = await ServicePageData({ slug });
-  const seo = data?.service?.seo;
+  const seo = data?.page?.seo;
 
   return generateMetadataFromSeo(seo || {});
 }

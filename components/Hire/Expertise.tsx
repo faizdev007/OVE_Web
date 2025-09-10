@@ -78,7 +78,7 @@ export default function Expertise({ hire }: HireType) {
 
                     <div className={`overflow-hidden transition-all border-t border-white duration-500 ease-in-out ${open ? "max-h-40 opacity-100 mt-4" : "max-h-0 opacity-0"}`}>
                         <p className="text-gray-300 dark:text-white pt-2 md:text-lg text-sm">
-                        {item?.answer}
+                          <span dangerouslySetInnerHTML={{__html: item?.answer || ""}}/>
                         </p>
                     </div>
                     </div>

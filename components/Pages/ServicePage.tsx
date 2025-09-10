@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useEffect, useState } from 'react';
 import HireBy from "@/components/Homepage/hireby";
 import DevelopersSlider from "@/components/Homepage/developer";
-import { useParams } from 'next/navigation';
 import HeroSection from "@/components/Hire/Hero";
 import HireThroughOVE from "@/components/Hire/HireThroughOVE";
 import Expertise from "@/components/Hire/Expertise";
@@ -14,6 +13,7 @@ import WSF from "@/components/Hire/WhySearchFor";
 import CTable from "@/components/Hire/CompairTable";
 import Client from "@/components/Hire/Client";
 import ServicePageData from "@/components/ServicePageGraphQL";
+import PageData from "@/app/utils/GraphQl/PageData";
 
 type HireItem = {
   id: number;
@@ -51,8 +51,8 @@ export default function Hire({ slug }: HireProps) {
         (async () => {
 
         try {
-          const data = await ServicePageData({slug});
-          setHire(data.service);
+          const data = await PageData({slug});
+          setHire(data.page);
           setClientD(data.clients);
           setLoading(false);
         } catch (e) {
@@ -61,7 +61,7 @@ export default function Hire({ slug }: HireProps) {
         })();
     }, [slug]);
     // return;
-
+  
   // --- 404 FIRST: render not-found view when error indicates missing Hire
   if (Hire === null) {
     return (
