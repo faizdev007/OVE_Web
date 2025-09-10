@@ -102,7 +102,9 @@ export default function FaqSection({hire}:Sfaq) {
                         activeIndex === index ? 'max-h-40 opacity-100 mt-4' : 'max-h-0 opacity-0'
                     }`}
                     >
-                    <p className="text-gray-600 pt-2 md:text-lg text-sm">{item.faqAnswer}</p>
+                    <p className="text-gray-600 pt-2 md:text-lg text-sm">
+                      <span dangerouslySetInnerHTML={{__html: item.faqAnswer || ""}}/>
+                    </p>
                 </div>
                 </div>
             ))}
