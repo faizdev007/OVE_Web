@@ -16,6 +16,7 @@ export default function ContactPage() {
     const [resMessage, setresMessage] = useState('');
     const [status, setStatus] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [MessageBlock, setMessageBlock] = useState(false);
 
     const trustedbages = [
         {name:'Award', image:'/assets/trustedbages/award.webp'},
@@ -243,7 +244,7 @@ export default function ContactPage() {
     return (
         <>
             <main className="bg-black/90 dark:bg-gray-800 text-white grid lg:grid-cols-2 gap-8 lg:px-4 px-2 py-12">
-                <div className="bg-white text-black w-full max-w-6xl lg:p-8 p-3 rounded-xl shadow-md">
+                <div className="bg-white text-black w-full max-w-6xl lg:p-8 p-3 rounded-xl shadow-md relative">
                     {/* Left Panel */}
                     <div>
                     <div className='md:flex justify-between'>
@@ -265,7 +266,13 @@ export default function ContactPage() {
                     </div>
                     
                     <form onSubmit={handleSubmit} className="space-y-4">
-                        <div className='text-center capitalize animate-jump-in animate-once animate-ease-linear text-green-500'>{resMessage}</div>
+                        {MessageBlock &&
+                            <div className='absolute top-0 bottom-0 start-0 end-0 bg-white rounded-xl text-center'>
+                                <div className='text-center capitalize animate-jump-in animate-once animate-ease-linear text-green-500'>
+                                    {resMessage}
+                                </div>
+                            </div>
+                        }
                         <div className="grid sm:grid-cols-2 gap-4">
                         <input type="text" name="name" placeholder="Full Name *" value={formData.name} onChange={handleChange} className="p-3 border rounded w-full" required />
                         <input type="email" name="email" placeholder="Email Address *" value={formData.email} onChange={handleChange} className="p-3 border rounded w-full" required />
