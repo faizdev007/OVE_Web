@@ -6,11 +6,9 @@ const ServicePageData = async ({ slug }: { slug: string }) => {
       service(id: $slug, idType: SLUG) {
         seo {
           title
-          opengraphTitle
-          opengraphSiteName
-          opengraphDescription
-          metaKeywords
           metaDesc
+          opengraphTitle
+          opengraphDescription
         }
         title
         slug

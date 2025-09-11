@@ -20,14 +20,9 @@ export function generateMetadataFromSeo(seoData: SeoProps): Metadata {
     return {
         title:title,
         description:description,
-        keywords: seoData.metaKeywords ?? "remote developers, hire developers, optimal virtual employee",
         openGraph: {
         title: seoData.opengraphTitle ?? title,
         description: seoData.opengraphDescription ?? description,
-        url: seoData.opengraphUrl ?? "https://optimalvirtualemployee.com/hire-developers",
-        images: seoData.opengraphImage
-            ? [seoData.opengraphImage.sourceUrl]
-            : [],
         },
         robots: {
             index: false,
