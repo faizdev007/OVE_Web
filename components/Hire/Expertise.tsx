@@ -54,7 +54,6 @@ export default function Expertise({ hire }: HireType) {
             <div className="lg:w-1/2 w-full blackgradiant text-white md:p-6 p-2 rounded-lg shadow-md">
             <div className="w-full space-y-4">
                 {Object.values(qnalist).map((item, index) => {
-                console.log('Rendering item:', item, 'at index:', index);
                 const open = activeIndex === index;
                 return (
                       <div
