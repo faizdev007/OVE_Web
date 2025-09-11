@@ -3,20 +3,20 @@
 import Image from 'next/image';
 
 const roles = [
-  { name: 'Hire Data Analyst', logo: '/assets/hireby/roles/analistics.webp'},
-  { name: 'Hire Mobile Developer', logo: '/assets/hireby/roles/app-settings.webp'},
-  { name: 'Hire Automation QA', logo: '/assets/hireby/roles/automation.webp'},
-  { name: 'Hire Back-End Developer', logo: '/assets/hireby/roles/backend.webp'},
-  { name: 'Hire Blockchain Developer', logo: '/assets/hireby/roles/blockchain.webp'},
-  { name: 'Hire AI Developer', logo: '/assets/hireby/roles/cloud.webp'},
-  { name: 'Hire Mechine Learning Engineer', logo: '/assets/hireby/roles/coding.webp'},
-  { name: 'Hire Full-Stack Developer', logo: '/assets/hireby/roles/computer.webp'},
-  { name: 'Hire Data Scientist', logo: '/assets/hireby/roles/computer-scientist.webp'},
-  { name: 'Hire Cloud Engineer', logo: '/assets/hireby/roles/configuration.webp'},
-  { name: 'Hire Data Engineer', logo: '/assets/hireby/roles/data-management.webp'},
-  { name: 'Hire DevOps', logo: '/assets/hireby/roles/devops.webp'},
-  { name: 'Hire Game Developer', logo: '/assets/hireby/roles/game-development.webp'},
-  { name: 'Hire Front-End Developer', logo: '/assets/hireby/roles/ux.webp'},
+    { name: 'Hire Full-Stack Developer', logo: '/assets/hireby/roles/computer.webp', slug: '/hire/full-stack-developer'},
+    { name: 'Hire Back-End Developer', logo: '/assets/hireby/roles/backend.webp', slug: '/hire/back-end-developers'},
+    { name: 'Hire Front-End Developer', logo: '/assets/hireby/roles/ux.webp', slug: '/hire/front-end-developers'},
+    { name: 'Hire Cloud Engineer', logo: '/assets/hireby/roles/configuration.webp', slug: '/hire/cloud-engineers'},
+    { name: 'Hire Mobile Developer', logo: '/assets/hireby/roles/app-settings.webp', slug: '/hire/mobile-developer'},
+    { name: 'Hire AI Engineers', logo: '/assets/hireby/roles/cloud.webp', slug: '/hire/ai-engineers'},
+    { name: 'Hire Blockchain Developer', logo: '/assets/hireby/roles/blockchain.webp', slug: '/hire/blockchain-developers'},
+    { name: 'Hire Data Analyst', logo: '/assets/hireby/roles/analistics.webp', slug: '/hire/data-analysts'},
+    { name: 'Hire Automation QA Engineers', logo: '/assets/hireby/roles/automation.webp', slug: '/hire/automation-qa-engineers'},
+    { name: 'Hire Mechine Learning Engineers', logo: '/assets/hireby/roles/coding.webp', slug: '/hire/machine-learning-engineers'},
+    { name: 'Hire Data Scientists', logo: '/assets/hireby/roles/computer-scientist.webp', slug: '/hire/data-scientists'},
+    { name: 'Hire Data Engineers', logo: '/assets/hireby/roles/data-management.webp', slug: '/hire/data-engineers'},
+    { name: 'Hire DevOps', logo: '/assets/hireby/roles/devops.webp', slug: '/hire/devops-engineers'},
+    { name: 'Hire Game Developer', logo: '/assets/hireby/roles/game-development.webp', slug: '/hire/game-developers'},
 ];
 
 
@@ -41,7 +41,7 @@ const hirebyskill = [
   { name: 'Docker', logo: '/assets/hireby/skills/Docker.webp' },
   { name: 'Kotlin', logo: '/assets/hireby/skills/Kotlin.webp' },
   { name: 'Django', logo: '/assets/hireby/skills/Django.webp' },
-  { name: 'Linux', logo: '/assets/hireby/skills/Linux.webp' }
+  { name: 'Linux', logo: '/assets/hireby/skills/Linux.webp' },
 ];
 
 export default function HireBy() {
@@ -55,14 +55,14 @@ export default function HireBy() {
             {/* Logos */}
             <div className="gap-4 grid grid-cols-2 lg:grid-cols-5 md:grid-cols-3 md:text-sm space-2 text-xs">
                 {roles.map((role, i) => (
-                    <div key={i} className="bg-boxFill hover:bg-oveblue rounded shadow-md">
+                    <a href={role.slug} key={i} className="bg-boxFill hover:bg-oveblue rounded shadow-md">
                         <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
                             <div className='aspect-[1/1] flex items-center justify-center'>
                                 <Image src={role.logo} alt={role.name} width={60} height={60} className="grayscale object-container h-12 w-auto" />
                             </div>
                             <h2 className='capitalize font-bold'>{role.name}</h2>
                         </div>
-                    </div>
+                    </a>
                 ))}
                 <div key='action1' className="bg-boxFill rounded shadow-md">
                     <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
