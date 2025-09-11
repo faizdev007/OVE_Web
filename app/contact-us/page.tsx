@@ -17,6 +17,7 @@ export default function ContactPage() {
     const [status, setStatus] = useState(false);
     const [loading, setLoading] = useState(true);
     const [MessageBlock, setMessageBlock] = useState(false);
+    const [error, setError] = useState<string | null>(null);
 
     const trustedbages = [
         {name:'Award', image:'/assets/trustedbages/award.webp'},
@@ -93,16 +94,23 @@ export default function ContactPage() {
         const result = await res.json();
             if (res.ok) {
                 setresMessage('Message Send Successfully!');
+                setMessageBlock(true);
                 setStatus(false);
                 setFormData({ name: '', email: '', country: '', phone: '', message: '' });
             } else {
+                setError('Failed to send message. Please try again later.');
+                setMessageBlock(true);
                 setStatus(false);
             }
-        } catch (err) {
+        } catch ({err}:any) {
+            setError(err.response?.data?.message || 'Failed to send message. Please try again later.');
+            setMessageBlock(true);
             setStatus(false);
         }
+
         setTimeout(()=>{
             setresMessage('');
+            setMessageBlock(false);
         },2000)
         console.log('Form Submitted:', formData);
     };
@@ -268,8 +276,26 @@ export default function ContactPage() {
                     <form onSubmit={handleSubmit} className="space-y-4">
                         {MessageBlock &&
                             <div className='absolute top-0 bottom-0 start-0 end-0 bg-white rounded-xl text-center'>
-                                <div className='text-center capitalize animate-jump-in animate-once animate-ease-linear text-green-500'>
-                                    {resMessage}
+                                <div className='text-center capitalize animate-jump-in animate-once h-full flex flex-col gap-4 items-center justify-center animate-ease-linear'>
+                                    {error ?
+                                        <>
+                                            <span className='border rounded-full p-1 ms-2 bg-red-100 text-red-500 h-14 w-14 flex items-center justify-center'>
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-7 font-bold">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            <span className='text-red-500'>{error}</span>
+                                        </>
+                                    : 
+                                        <>
+                                            <span className='border rounded-full p-1 ms-2 bg-green-100 text-green-500 h-14 w-14 flex items-center justify-center'>
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-7 font-bold">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                                </svg>
+                                            </span>
+                                            <span className='text-green-500'>{resMessage}</span>
+                                        </>
+                                    }
                                 </div>
                             </div>
                         }
