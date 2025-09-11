@@ -51,8 +51,8 @@ export default function Hire({ slug }: HireProps) {
         (async () => {
 
         try {
-          const data = await PageData({slug});
-          setHire(data.page);
+          const data = await ServicePageData({slug});
+          setHire(data.service);
           setClientD(data.clients);
           setLoading(false);
         } catch (e) {

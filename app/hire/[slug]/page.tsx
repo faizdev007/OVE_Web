@@ -8,8 +8,8 @@ import PageData from "@/app/utils/GraphQl/PageData";
 // ✅ Await params first
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params; // <-- ✅ await before using
-  const data = await PageData({ slug });
-  const seo = data?.page?.seo;
+  const data = await ServicePageData({ slug });
+  const seo = data?.service?.seo;
 
   return generateMetadataFromSeo(seo || {});
 }
