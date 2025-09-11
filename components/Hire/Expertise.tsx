@@ -28,7 +28,7 @@ const listinfos = {
 };
 
 export default function Expertise({ hire }: HireType) {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   const toggle = (index: number) => {
     setActiveIndex(prev => (prev === index ? null : index));
@@ -54,35 +54,36 @@ export default function Expertise({ hire }: HireType) {
             <div className="lg:w-1/2 w-full blackgradiant text-white md:p-6 p-2 rounded-lg shadow-md">
             <div className="w-full space-y-4">
                 {Object.values(qnalist).map((item, index) => {
+                console.log('Rendering item:', item, 'at index:', index);
                 const open = activeIndex === index;
                 return (
-                    <div
-                    key={index}
-                    className={`border-oveblue bg-boxFill rounded py-2 px-4 shadow-sm shadow-oveblue transition-all cursor-pointer ${open ? "border-b-4" : ""}`}
-                    onClick={() => toggle(index)}
-                    aria-expanded={open}
-                    >
-                    <div className="flex justify-between items-center gap-2">
-                        <p className="font-bold md:text-xl">{item?.question}</p>
-                        <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className={`size-6 text-oveblue transition-transform duration-300 ${open ? "rotate-45" : ""}`}
+                      <div
+                        key={index}
+                        className={`border-oveblue bg-boxFill rounded py-2 px-4 shadow-sm shadow-oveblue transition-all cursor-pointer ${open ? "border-b-4" : ""}`}
+                        onClick={() => toggle(index)}
+                        aria-expanded={open}
                         >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                        </svg>
-                    </div>
+                        <div className="flex justify-between items-center gap-2">
+                            <p className="font-bold md:text-xl">{item?.question}</p>
+                            <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className={`size-6 text-oveblue transition-transform duration-300 ${open ? "rotate-45" : ""}`}
+                            >
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                            </svg>
+                        </div>
 
-                    <div className={`overflow-hidden transition-all border-t border-white duration-500 ease-in-out ${open ? "max-h-40 opacity-100 mt-4" : "max-h-0 opacity-0"}`}>
-                        <p className="text-gray-300 dark:text-white pt-2 md:text-lg text-sm">
-                          <span dangerouslySetInnerHTML={{__html: item?.answer || ""}}/>
-                        </p>
-                    </div>
-                    </div>
-                );
+                        <div className={`overflow-hidden transition-all border-t border-white duration-500 ease-in-out ${open ? "max-h-40 opacity-100 mt-4" : "max-h-0 opacity-0"}`}>
+                            <p className="text-gray-300 dark:text-white pt-2 md:text-lg text-sm">
+                              <span dangerouslySetInnerHTML={{__html: item?.answer || ""}}/>
+                            </p>
+                        </div>
+                      </div>
+                    );
                 })}
             </div>
             </div>

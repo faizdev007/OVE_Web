@@ -50,7 +50,7 @@ const faqs = {
 };  
 
 export default function FaqSection({hire}:Sfaq) {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   const faqlist = hire ?? faqs;
 
