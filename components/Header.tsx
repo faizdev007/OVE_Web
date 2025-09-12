@@ -28,8 +28,6 @@ export default function Header() {
     })();
   }, []);
 
-  console.log('Role-based slugs:', roleSlugs);
-
   const hiremenu = [{
     menuTitle:'Role Base Hiring',
     icon:(<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5">

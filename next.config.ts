@@ -43,6 +43,15 @@ const nextConfig: NextConfig = {
         source: "/(.*)", // Apply to all routes
         headers: securityHeaders,
       },
+      {
+        source: "/graphql/:path*", // apply to all API routes
+        headers: [
+          { key: "Access-Control-Allow-Credentials", value: "true" },
+          { key: "Access-Control-Allow-Origin", value: "https://admin.optimalvirtualemployee.com" }, // or "http://localhost:3000"
+          { key: "Access-Control-Allow-Methods", value: "GET,POST,PUT,DELETE,OPTIONS" },
+          { key: "Access-Control-Allow-Headers", value: "X-Requested-With, Content-Type, Authorization" },
+        ],
+      },
     ];
   },
   async redirects() {
