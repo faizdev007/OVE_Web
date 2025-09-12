@@ -120,7 +120,7 @@ const companyM = [{
           
           {/* this section menu is hidden */}
 
-          <div className={'p-3'} onMouseEnter={()=>{setShowDropdown(true); setActiveIndex(true); }} onMouseLeave={() => { setShowDropdown(false); setActiveIndex(false); }}>
+          <div className={'p-3 hidden'} onMouseEnter={()=>{setShowDropdown(true); setActiveIndex(true); }} onMouseLeave={() => { setShowDropdown(false); setActiveIndex(false); }}>
             <button className="hover:text-blue-600 dark:hover:text-blue-400 transition flex gap-2">
               <span>Services</span> 
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className={`size-6 transition-transform duration-300 ${
@@ -183,7 +183,7 @@ const companyM = [{
       </div>
       {/* Full-width dropdown */}
         {showDropdown && (
-          <div className='max-w-5xl grid mx-auto relative -top-3'>
+          <div className='max-w-5xl hidden grid mx-auto relative -top-3'>
             <div onMouseEnter={()=>{setShowDropdown(true); setActiveIndex(true); }} onMouseLeave={() => { setShowDropdown(false); setActiveIndex(false); }} className="absolute rounded-md w-full drop-shadow z-50 left-0 top-full bg-white dark:bg-gray-700 shadow-lg z-40 py-4">
               <div className='relative px-4 py-2 grid md:grid-cols-3 gap-4 sm:px-6 lg:px-8 mx-auto' >
                 {hiremenu.map((single,key)=>(
