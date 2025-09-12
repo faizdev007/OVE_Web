@@ -21,27 +21,27 @@ const roles = [
 
 
 const hirebyskill = [
-  { name: 'React', logo: '/assets/hireby/skills/React.webp' },
-  { name: 'Go', logo: '/assets/hireby/skills/golangimg.webp' },
-  { name: 'GraphQL', logo: '/assets/hireby/skills/graphQLimg.webp' },
-  { name: 'HTML5', logo: '/assets/hireby/skills/HTML5.webp' },
-  { name: 'Java', logo: '/assets/hireby/skills/Java.webp' },
-  { name: 'JavaScript', logo: '/assets/hireby/skills/JavaScript.webp' },
-  { name: 'Jest', logo: '/assets/hireby/skills/Jest.webp' },
-  { name: 'Jupyter', logo: '/assets/hireby/skills/Jupyter.webp' },
-  { name: 'Laravel', logo: '/assets/hireby/skills/Laravel.webp' },
-  { name: 'Node.js', logo: '/assets/hireby/skills/Node.js.webp' },
-  { name: 'Python', logo: '/assets/hireby/skills/Python.webp' },
-  { name: 'Alpine.js', logo: '/assets/hireby/skills/Alpine.js.webp' },
-  { name: 'Apache Maven', logo: '/assets/hireby/skills/Apache-Maven.webp' },
-  { name: 'BitBucket', logo: '/assets/hireby/skills/BitBucket.webp' },
-  { name: 'Blender', logo: '/assets/hireby/skills/Blender.webp' },
-  { name: 'Angular', logo: '/assets/hireby/skills/Angular.webp' },
-  { name: 'Fedora', logo: '/assets/hireby/skills/Fedora.webp' },
-  { name: 'Docker', logo: '/assets/hireby/skills/Docker.webp' },
-  { name: 'Kotlin', logo: '/assets/hireby/skills/Kotlin.webp' },
-  { name: 'Django', logo: '/assets/hireby/skills/Django.webp' },
-  { name: 'Linux', logo: '/assets/hireby/skills/Linux.webp' },
+  { name: 'React', logo: '/assets/hireby/skills/React.webp', slug: '#' },
+  { name: 'Go', logo: '/assets/hireby/skills/golangimg.webp', slug: '#' },
+  { name: 'GraphQL', logo: '/assets/hireby/skills/graphQLimg.webp', slug: '#' },
+  { name: 'HTML5', logo: '/assets/hireby/skills/HTML5.webp', slug: '#' },
+  { name: 'Java', logo: '/assets/hireby/skills/Java.webp', slug: '#' },
+  { name: 'JavaScript', logo: '/assets/hireby/skills/JavaScript.webp', slug: '#' },
+  { name: 'Jest', logo: '/assets/hireby/skills/Jest.webp', slug: '#' },
+  { name: 'Jupyter', logo: '/assets/hireby/skills/Jupyter.webp', slug: '#' },
+  { name: 'Laravel', logo: '/assets/hireby/skills/Laravel.webp', slug: '#' },
+  { name: 'Node.js', logo: '/assets/hireby/skills/Node.js.webp', slug: '/hire/node-js-developers' },
+  { name: 'Python', logo: '/assets/hireby/skills/Python.webp', slug: '#' },
+  { name: 'Alpine.js', logo: '/assets/hireby/skills/Alpine.js.webp', slug: '#' },
+  { name: 'Apache Maven', logo: '/assets/hireby/skills/Apache-Maven.webp', slug: '#' },
+  { name: 'BitBucket', logo: '/assets/hireby/skills/BitBucket.webp', slug: '#' },
+  { name: 'Blender', logo: '/assets/hireby/skills/Blender.webp', slug: '#' },
+  { name: 'Angular', logo: '/assets/hireby/skills/Angular.webp', slug: '#' },
+  { name: 'Fedora', logo: '/assets/hireby/skills/Fedora.webp', slug: '#' },
+  { name: 'Docker', logo: '/assets/hireby/skills/Docker.webp', slug: '#' },
+  { name: 'Kotlin', logo: '/assets/hireby/skills/Kotlin.webp', slug: '#' },
+  { name: 'Django', logo: '/assets/hireby/skills/Django.webp', slug: '#' },
+  { name: 'Linux', logo: '/assets/hireby/skills/Linux.webp', slug: '#' },
 ];
 
 export default function HireBy() {
@@ -81,14 +81,14 @@ export default function HireBy() {
             {/* Logos */}
             <div className="gap-4 grid grid-cols-2 lg:grid-cols-5 md:grid-cols-3 md:text-sm space-2 text-xs">
                 {hirebyskill.map((skill, i) => (
-                    <div key={i} className="bg-boxFill hover:bg-oveblue rounded shadow-md">
+                    <a href={skill.slug} key={i} className="bg-boxFill hover:bg-oveblue rounded shadow-md">
                         <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
                             <div className='aspect-[1/1] flex items-center justify-center hover:grayscale'>
                                 <Image src={skill.logo} alt={skill.name} width={60} height={60} className="object-container h-12 w-auto" />
                             </div>
                             <h2 className='capitalize font-bold'>{skill.name}</h2>
                         </div>
-                    </div>
+                    </a>
                 ))}
                 <div key='action2' className="bg-boxFill rounded shadow-md">
                     <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
