@@ -7,8 +7,7 @@ import SkillPage from "@/components/Pages/SkillPage";
 
 // ✅ Metadata only
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const { slug } = await params; // 👈 Await here
-  const data = await ServicePageData({ slug });
+  const data = await ServicePageData({ slug: params.slug });
   const seo = data?.seo;
   return generateMetadataFromSeo(seo || {});
 }
