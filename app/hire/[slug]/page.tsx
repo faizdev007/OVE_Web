@@ -13,9 +13,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 // ✅ Page component fetches its own data
-export default async function HirePage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params; // 👈 Await here
-  const data = await ServicePageData({ slug });
+export default async function HirePage({ params }: { params: { slug: string } }) {
+  const data = await ServicePageData({ slug: params.slug });
 
   const category = data?.categories || "";
   
