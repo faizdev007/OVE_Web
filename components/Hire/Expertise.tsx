@@ -2,41 +2,28 @@
 
 // import Image from "next/image";
 import { useState } from "react";
+import { ServicePageDataType } from "../ServicePageGraphQL";
 
-type HireType = {
-  hire?:{
-    expertiseTitle?:string;
-    expertiseDescription?:string;
-    expertiseQna?: {
-      qna?:qna
-    } ;
-  }
-};
 
-type qna = {
-  question?: string;
-  answer?: string;
-}
+const listinfos = [
+  { question: "Data Science", answer: "Data analysis, processing, ML, and more." },
+  { question: "Custom Python Web Application Development", answer: "Scalable apps using Django/Flask." },
+  { question: "Enterprise Python Applications", answer: "Workflow automation & business processes." },
+  { question: "Python Support and Maintenance", answer: "Ongoing support, optimization, maintenance." },
+  { question: "Machine Learning with Python", answer: "Build & deploy ML models in production." },
+  { question: "Python Migration & Integration", answer: "Migrate to Python and integrate systems." },
+];
 
-const listinfos = {
-  0:{ question: "Data Science", answer: "Data analysis, processing, ML, and more." },
-  2:{ question: "Custom Python Web Application Development", answer: "Scalable apps using Django/Flask." },
-  3:{ question: "Enterprise Python Applications", answer: "Workflow automation & business processes." },
-  4:{ question: "Python Support and Maintenance", answer: "Ongoing support, optimization, maintenance." },
-  5:{ question: "Machine Learning with Python", answer: "Build & deploy ML models in production." },
-  6:{ question: "Python Migration & Integration", answer: "Migrate to Python and integrate systems." },
-};
-
-export default function Expertise({ hire }: HireType) {
+export default function Expertise( Expertise : any) {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   const toggle = (index: number) => {
     setActiveIndex(prev => (prev === index ? null : index));
   };
 
-  const roleTitleHTML = hire?.expertiseTitle ?? "Expertise Of Our Full-Stack Developer";
+  const roleTitleHTML = Expertise?.Expertise?.title ?? "Expertise Of Our Full-Stack Developer";
 
-  const qnalist = hire?.expertiseQna ?? listinfos;
+  const qnalist = Expertise?.Expertise?.qna ?? listinfos;
 
   return (
     <section className="bg-gradient pb-12 dark:py-12 flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
@@ -47,13 +34,13 @@ export default function Expertise({ hire }: HireType) {
                   <span dangerouslySetInnerHTML={{ __html: roleTitleHTML }} />
               </h2>
               <div className="mt-4 text-lg mb-4">
-                  <span dangerouslySetInnerHTML={{ __html: hire?.expertiseDescription  as string }} />
+                  <span dangerouslySetInnerHTML={{ __html: Expertise?.Expertise?.description  as string }} />
               </div>
             </div>
 
             <div className="lg:w-1/2 w-full blackgradiant text-white md:p-6 p-2 rounded-lg shadow-md">
             <div className="w-full space-y-4">
-                {Object.values(qnalist).map((item, index) => {
+                {qnalist.map((item:any, index:number) => {
                 const open = activeIndex === index;
                 return (
                       <div

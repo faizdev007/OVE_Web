@@ -2,11 +2,7 @@
 
 import Image from "next/image";
 
-type HeroSectionProps = {
-    hire: any;
-};
-
-const HeroSection = ({hire}:HeroSectionProps) => (
+const HeroSection = ({hire}:any) => (
     <>
         <section className="bg-black xl:h-max lg:flex gap-2 dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
             <div className="flex lg:w-[60%] flex-col h-full lg:mt-6 justify-between gap-8 items-center md:items-start py-6">
@@ -37,9 +33,9 @@ const HeroSection = ({hire}:HeroSectionProps) => (
                     <div className="absolute z-20 bottom-0">
                         <Image src={'/assets/hire/bg2.webp'} alt="PBG" width={500} height={500} priority className="w-auto h-auto rounded-r-xl"/>
                     </div>
-                    <img src={hire?.featuredImage?.node?.sourceUrl ?? '/assets/hire/anjali.png'} alt={hire?.featuredImage?.node.title} width={500} height={500} className="relative z-40" loading="eager" fetchPriority="high"/>
+                    <img src={hire?.featuredImage?.sourceUrl ?? '/assets/hire/anjali.png'} alt={hire?.featuredImage?.title} width={500} height={500} className="relative z-40" loading="eager" fetchPriority="high"/>
                     <div className="absolute hidden border border-oveblue z-40 bg-boxFill bottom-0 end-0 p-4 rounded-xl shadow-sm drop-shadow">
-                        <h3 className="md:text-xl font-bold">{ hire?.featuredImage?.node?.title ?? 'Anjali'}</h3>
+                        <h3 className="md:text-xl font-bold">{ hire?.featuredImage?.title ?? 'Anjali'}</h3>
                         <span className="text-xs font-bold md:text-sm">Senior <span dangerouslySetInnerHTML={{ __html: hire?.title ?? 'Full-Stack Developer' }} /></span>
                         <p className="text-xs flex gap-1 items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-oveblue">

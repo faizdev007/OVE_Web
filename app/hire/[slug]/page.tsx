@@ -2,19 +2,43 @@
 import ServicePageData from "@/components/ServicePageGraphQL";
 import { generateMetadataFromSeo } from "@/app/utils/seo";
 import type { Metadata } from "next";
-import Hire from "@/components/Pages/ServicePage";
-import PageData from "@/app/utils/GraphQl/PageData";
+import RolePage from "@/components/Pages/RolePage";
+import SkillPage from "@/components/Pages/SkillPage";
 
-// ✅ Await params first
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const { slug } = await params; // <-- ✅ await before using
+// ✅ Metadata only
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const { slug } = await params; // 👈 Await here
   const data = await ServicePageData({ slug });
-  const seo = data?.service?.seo;
-
+  const seo = data?.seo;
   return generateMetadataFromSeo(seo || {});
 }
 
+// ✅ Page component fetches its own data
 export default async function HirePage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params; // ✅ same fix here
-  return <Hire slug={slug} />;
+  const { slug } = await params; // 👈 Await here
+  const data = await ServicePageData({ slug });
+
+  const category = data?.categories || "";
+  
+  if (category[0].toLowerCase() === "role") {
+    return <RolePage PageData={data} />;
+  } else if (category[0].toLowerCase() === "skill") {
+    return <SkillPage PageData={data} />;
+  }
+
+  // fallback (optional)
+  return (
+    <section className="flex items-center justify-center min-h-[60vh] bg-gray-100 text-white px-4">
+      <div className="text-center">
+        <h1 className="text-7xl font-extrabold text-red-500 tracking-widest">404</h1>
+        <p className="mt-4 text-xl text-black">Page not found</p>
+        <a
+          href="/"
+          className="mt-8 inline-block bg-oveblue hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition"
+        >
+          Back to Home
+        </a>
+      </div>
+    </section>
+  );
 }

@@ -1,9 +1,106 @@
 import { fetchGraphQL } from "@/lib/graphqlClient";
 
+export type ServicePageDataType = {
+  seo?: {
+    title?: string;
+    metaDesc?: string;
+    opengraphTitle?: string;
+    opengraphDescription?: string;
+  };
+  title?: string;
+  slug?: string;
+  content?: string;
+  featuredImage?: {
+    uri?: string;
+    sourceUrl?: string;
+    title?: string;
+  };
+  categories?: string[];
+
+  cta?: {
+    one?: {
+      title?: string;
+      subtitle?: string;
+      buttonText?: string;
+    };
+    two?: {
+      title?: string;
+      subtitle?: string;
+      buttonText?: string;
+    };
+  };
+
+  hiringProcess?: {
+    title?: string;
+    steps?: {
+      title?: string;
+      description?: string;
+      image?: {
+        title?: string;
+        sourceUrl?: string;
+      };
+    }[];
+  };
+
+  expertise?: {
+    title?: string;
+    description?: string;
+    qna?: {
+      question: string;
+      answer: string;
+    }[];
+  };
+
+  whyHire?: {
+    title?: string;
+    description?: string;
+    image?: {
+      sourceUrl?: string;
+      title?: string;
+    };
+    qna?: {
+      question: string;
+      answer: string;
+    }[];
+  };
+
+  faq?: {
+    question: string;
+    answer: string;
+  }[];
+
+  priceTable?: {
+    title?: string;
+    subtitle?: string;
+    heading: string[];
+    rows: string[][];
+  };
+
+  testimonial?: {
+    title?: string;
+    clients?: {
+      title?: string;
+      slug?: string;
+      content?: string;
+      rating?: number | string | null;
+      featuredImage?: {
+        sourceUrl?: string;
+        title?: string;
+      };
+    }[];
+  };
+};
+
+
 const ServicePageData = async ({ slug }: { slug: string }) => {
   const QUERY = `
     query GetServicePage($slug: ID!) {
       service(id: $slug, idType: SLUG) {
+        categories {
+          nodes {
+            name
+          }
+        }
         seo {
           title
           metaDesc
@@ -35,46 +132,10 @@ const ServicePageData = async ({ slug }: { slug: string }) => {
         hiringProcess {
           hiring_process_title
           hiringProcessSteps {
-            step1 {
-              stepTitle
-              stepDescribtion
-              stepImage {
-                node {
-                  title
-                  sourceUrl
-                }
-              }
-            }
-            step2 {
-              stepTitle
-              stepDescribtion
-              stepImage {
-                node {
-                  title
-                  sourceUrl
-                }
-              }
-            }
-            step3 {
-              stepTitle
-              stepDescribtion
-              stepImage {
-                node {
-                  title
-                  sourceUrl
-                }
-              }
-            }
-            step4 {
-              stepTitle
-              stepDescribtion
-              stepImage {
-                node {
-                  title
-                  sourceUrl
-                }
-              }
-            }
+            step1 { stepTitle stepDescribtion stepImage { node { title sourceUrl } } }
+            step2 { stepTitle stepDescribtion stepImage { node { title sourceUrl } } }
+            step3 { stepTitle stepDescribtion stepImage { node { title sourceUrl } } }
+            step4 { stepTitle stepDescribtion stepImage { node { title sourceUrl } } }
           }
         }
         expertise {
@@ -150,8 +211,83 @@ const ServicePageData = async ({ slug }: { slug: string }) => {
     }
   `;
 
-  const data = await fetchGraphQL(QUERY, { slug }); // ✅ pass slug as a variable
-  return data;
+  const raw = await fetchGraphQL(QUERY, { slug });
+  const service = raw?.service;
+  const clients = raw?.clients?.nodes || [];
+
+  const structured:ServicePageDataType = {
+    seo: service?.seo,
+    title: service?.title,
+    slug: service?.slug,
+    content: service?.content,
+    featuredImage: service?.featuredImage?.node,
+    categories: service?.categories?.nodes?.map((c: any) => c.name),
+
+    cta: {
+      one: {
+        title: service?.cta?.ctaOneContent?.ctaTitle,
+        subtitle: service?.cta?.ctaOneContent?.ctaSubtitle,
+        buttonText: service?.cta?.ctaOneContent?.ctaButtonText,
+      },
+      two: {
+        title: service?.cta?.ctaTwoContent?.ctaTitle,
+        subtitle: service?.cta?.ctaTwoContent?.ctaSubtitle,
+        buttonText: service?.cta?.ctaTwoContent?.ctaButtonText,
+      },
+    },
+
+    hiringProcess: {
+      title: service?.hiringProcess?.hiring_process_title,
+      steps: Object.values(service?.hiringProcess?.hiringProcessSteps || {}).map(
+        (step: any) => ({
+          title: step?.stepTitle,
+          description: step?.stepDescribtion,
+          image: step?.stepImage?.node,
+        })
+      ),
+    },
+
+    expertise: {
+      title: service?.expertise?.expertiseTitle,
+      description: service?.expertise?.expertiseDescription,
+      qna: service?.expertise?.expertiseQna || [],
+    },
+
+    whyHire: {
+      title: service?.whyHireFormOve?.whyHireTitle,
+      description: service?.whyHireFormOve?.whyHireDiscription,
+      image: service?.whyHireFormOve?.whyHireImage?.node,
+      qna: service?.whyHireFormOve?.whyHireQna || [],
+    },
+
+    faq: service?.serviceFaq?.faqList?.map((f: any) => ({
+      question: f.faqQuestion,
+      answer: f.faqAnswer,
+    })),
+
+    priceTable: {
+      title: service?.priceTable?.tableTitle,
+      subtitle: service?.priceTable?.tableSubtitle,
+      heading: Object.values(service?.priceTable?.tableHeading || {}),
+      rows:
+        service?.priceTable?.tableRow?.map((r: any) =>
+          Object.values(r?.tableData || {})
+        ) || [],
+    },
+
+    testimonial: {
+      title: service?.testimonial?.testimonialTitle,
+      clients: clients.map((c: any) => ({
+        title: c.title,
+        slug: c.slug,
+        content: c.content,
+        rating: c.clientRating?.rating,
+        featuredImage: c.featuredImage?.node,
+      })),
+    },
+  };
+
+  return structured;
 };
 
 export default ServicePageData;
