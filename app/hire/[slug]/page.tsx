@@ -5,29 +5,24 @@ import type { Metadata } from "next";
 import RolePage from "@/components/Pages/RolePage";
 import SkillPage from "@/components/Pages/SkillPage";
 
-// Define a shared type for clarity
-type PageProps = {
-  params: { slug: string };
-};
-
 // ✅ Metadata only
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { slug } = params; // ❌ no await
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const { slug } = await params;
   const data = await ServicePageData({ slug });
   const seo = data?.seo;
   return generateMetadataFromSeo(seo || {});
 }
 
 // ✅ Page component fetches its own data
-export default async function HirePage({ params }: PageProps) {
-  const { slug } = params; // ❌ no await
+export default async function HirePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const data = await ServicePageData({ slug });
 
-  const category = data?.categories || [];
-
-  if (category[0]?.toLowerCase() === "role") {
+  const category = data?.categories || "";
+  
+  if (category[0].toLowerCase() === "role") {
     return <RolePage PageData={data} />;
-  } else if (category[0]?.toLowerCase() === "skill") {
+  } else if (category[0].toLowerCase() === "skill") {
     return <SkillPage PageData={data} />;
   }
 
