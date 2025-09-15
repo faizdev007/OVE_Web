@@ -7,7 +7,7 @@ import SkillPage from "@/components/Pages/SkillPage";
 
 // ✅ Metadata only
 export async function generateMetadata({ params }: any) {
-  const { slug } = params.slug;
+  const { slug } = params;
   const data = await ServicePageData({ slug });
   const seo = data?.seo;
   return generateMetadataFromSeo(seo || {});
@@ -15,13 +15,10 @@ export async function generateMetadata({ params }: any) {
 
 // ✅ Page component fetches its own data
 export default async function HirePage({ params }: any) {
-  const { slug } = params.slug;
+  const { slug } = params;
   const data = await ServicePageData({ slug });
-  console.log(data);
-
-  const category = data?.categories || "";
   
-  return;
+  const category = data?.categories || "";
   
   if (category[0].toLowerCase() === "role") {
     return <RolePage PageData={data} />;
