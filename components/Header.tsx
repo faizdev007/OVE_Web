@@ -1,6 +1,6 @@
 'use client';
 
-import { RoleBaseSlug } from '@/app/utils/CategorySlug';
+import { RoleBaseSlug } from '@/app/(main)/utils/CategorySlug';
 import Image from 'next/image';
 import { use, useEffect, useState } from 'react';
 

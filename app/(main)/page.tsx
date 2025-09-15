@@ -1,6 +1,6 @@
 'use client';
 
-import '../components/Homepage/customstyle.css';
+import '@/components/Homepage/customstyle.css';
 
 import DevelopersSlider from "@/components/Homepage/developer";
 import FaqSection from "@/components/Homepage/faq";

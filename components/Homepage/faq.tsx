@@ -3,49 +3,42 @@
 import { useState } from 'react';
 import Image from 'next/image';
 
-type Sfaq = {
-  hire?:{
-    faqQuestion?:string;
-    faqAnswer?:string;
-  }
-}
-
 const faqs =[ 
   {
-    faqQuestion: 'How quickly can I hire a developer?',
-    faqAnswer: 'We can share vetted developer profiles within 48 hours. Most clients finalize and onboard talent within 3–5 business days.',
+    question: 'How quickly can I hire a developer?',
+    answer: 'We can share vetted developer profiles within 48 hours. Most clients finalize and onboard talent within 3–5 business days.',
   },
   {
-    faqQuestion: 'What tech stacks do you support?',
-    faqAnswer: 'We cover all major stacks — including MERN, MEAN, LAMP, Python, Java, .NET, mobile (iOS/Android/Flutter), DevOps, and cloud (AWS, Azure, GCP).',
+    question: 'What tech stacks do you support?',
+    answer: 'We cover all major stacks — including MERN, MEAN, LAMP, Python, Java, .NET, mobile (iOS/Android/Flutter), DevOps, and cloud (AWS, Azure, GCP).',
   },
   {
-    faqQuestion: 'Are your developers full-time employees or freelancers?',
-    faqAnswer: 'All our resources are full-time, committed team members working exclusively on your project — not freelancers juggling multiple clients.',
+    question: 'Are your developers full-time employees or freelancers?',
+    answer: 'All our resources are full-time, committed team members working exclusively on your project — not freelancers juggling multiple clients.',
   },
   {
-    faqQuestion: 'Can I interview and test the developer before hiring?',
-    faqAnswer: 'Absolutely. You can conduct interviews, assign test tasks, and choose only the developers who meet your expectations.',
+    question: 'Can I interview and test the developer before hiring?',
+    answer: 'Absolutely. You can conduct interviews, assign test tasks, and choose only the developers who meet your expectations.',
   },
   {
-    faqQuestion: 'How do I communicate with my developer?',
-    faqAnswer: 'Directly via Slack, Zoom, or your preferred tools. You’re in full control — we’re here to support, not interfere.',
+    question: 'How do I communicate with my developer?',
+    answer: 'Directly via Slack, Zoom, or your preferred tools. You’re in full control — we’re here to support, not interfere.',
   },
   {
-    faqQuestion: 'How do you ensure code quality and accountability?',
-    faqAnswer: 'We provide access to Git repos, regular code reviews, and project management tools like Jira, Trello, or ClickUp for full transparency.',
+    question: 'How do you ensure code quality and accountability?',
+    answer: 'We provide access to Git repos, regular code reviews, and project management tools like Jira, Trello, or ClickUp for full transparency.',
   },
   {
-    faqQuestion: 'Can I scale the team up or down anytime?',
-    faqAnswer: 'Yes — our model allows you to scale on demand with no penalties or long-term contracts.',
+    question: 'Can I scale the team up or down anytime?',
+    answer: 'Yes — our model allows you to scale on demand with no penalties or long-term contracts.',
   },
   {
-    faqQuestion: 'Do you sign NDAs and contracts?',
-    faqAnswer: 'Of course. We sign NDAs, MoUs, and project-specific agreements to ensure full confidentiality and legal compliance.',
+    question: 'Do you sign NDAs and contracts?',
+    answer: 'Of course. We sign NDAs, MoUs, and project-specific agreements to ensure full confidentiality and legal compliance.',
   },
   {
-    faqQuestion: 'Where are your developers located?',
-    faqAnswer: 'Our talent is based across India and Southeast Asia — fluent in English and overlapping your working hours.',
+    question: 'Where are your developers located?',
+    answer: 'Our talent is based across India and Southeast Asia — fluent in English and overlapping your working hours.',
   }
 ];  
 

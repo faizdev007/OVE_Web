@@ -1,6 +1,6 @@
 // app/hire/[slug]/page.tsx
 import ServicePageData from "@/components/ServicePageGraphQL";
-import { generateMetadataFromSeo } from "@/app/utils/seo";
+import { generateMetadataFromSeo } from "@/app/(main)/utils/seo";
 import type { Metadata } from "next";
 import RolePage from "@/components/Pages/RolePage";
 import SkillPage from "@/components/Pages/SkillPage";
