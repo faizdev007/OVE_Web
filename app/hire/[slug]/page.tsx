@@ -6,19 +6,22 @@ import RolePage from "@/components/Pages/RolePage";
 import SkillPage from "@/components/Pages/SkillPage";
 
 // ✅ Metadata only
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const { slug } = await params;
+export async function generateMetadata({ params }: any) {
+  const { slug } = params.slug;
   const data = await ServicePageData({ slug });
   const seo = data?.seo;
   return generateMetadataFromSeo(seo || {});
 }
 
 // ✅ Page component fetches its own data
-export default async function HirePage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+export default async function HirePage({ params }: any) {
+  const { slug } = params.slug;
   const data = await ServicePageData({ slug });
+  console.log(data);
 
   const category = data?.categories || "";
+  
+  return;
   
   if (category[0].toLowerCase() === "role") {
     return <RolePage PageData={data} />;

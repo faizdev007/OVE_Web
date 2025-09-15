@@ -286,7 +286,6 @@ const ServicePageData = async ({ slug }: { slug: string }) => {
       })),
     },
   };
-
   return structured;
 };
 
