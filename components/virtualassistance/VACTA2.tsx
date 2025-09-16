@@ -3,7 +3,7 @@
 const VACTA2 = (CTA:any) => (
     <>   
         <section className="text-black py-12 dark:py-12 flex flex-col items-center relative px-4 sm:px-6 lg:px-8 mx-auto">
-            <div className="w-full flex flex-col items-center p-8 rounded-3xl gap-6 oveVA border mx-auto">
+            <div className="w-full flex flex-col items-center p-8 rounded-3xl gap-6 bg-oveblue/30 border mx-auto">
                 <h2 className="lg:text-3xl text-2xl font-bold"><span dangerouslySetInnerHTML={{ __html: CTA?.CTA?.title ?? "Ready To Get Back 60 Hours Per Month ?" }}/></h2>
                 <div className="flex gap-3 items-center">
                     <a href={'/contact-us'} aria-label="contact" className="rounded-full border-3 text-white flex items-center gap-2 border-black bg-gray-900 px-4 py-2 hover:bg-gray-700"><span dangerouslySetInnerHTML={{ __html: CTA?.CTA?.buttonText ?? 'Start Saving Time. Get a Assistant'}}/>

@@ -19,9 +19,21 @@ export default function VAWork() {
             </div>
 
             <div className='grid md:grid-cols-3 gap-4'>
-                <img src={''} alt={'story1'}/>
-                <img src={''} alt={'story2'}/>
-                <img src={''} alt={'story3'}/>
+                <div className=''>
+                    <img src={''} alt={'story1'}/>
+                    <h3>The Growth-Stage Founder</h3>
+                    <p>This founder lives for the thrill of growth-turning challenges into victories and chasing big opportunities. But the weight of endless tasks is dragging them down. They’re buried in the day-to-day grind, handling work that someone else could easily manage, while their boldest ideas are put on hold. It’s time for them to step up, focus on their vision, and lead their business into its next chapter.</p>
+                </div>
+                <div className=''>
+                    <img src={''} alt={'story1'}/>
+                    <h3>The Established CEO</h3>
+                    <p>This CEO has built a business others admire-a strong foundation, reliable systems, and steady results. But instead of enjoying their success, they’re drowning in emails, meetings, and decisions. The constant demands of the day-to-day are leaving no time for growth or personal fulfillment. It’s time for them to reclaim their freedom & focus on what matters most.</p>
+                </div>
+                <div className=''>
+                    <img src={''} alt={'story1'}/>
+                    <h3>The Multiple Ventures Leader</h3>
+                    <p>This entrepreneur is the master of juggling multiple businesses, always chasing the next big win. From the outside, they’re unstoppable, but behind the scenes, the chaos of details and deadlines is eating away at their focus. They’re a visionary, wired for big-picture thinking, but the grind is holding them back. They need someone to handle the noise so they can keep driving their empire forward.</p>
+                </div>
             </div>
         </section>
     );

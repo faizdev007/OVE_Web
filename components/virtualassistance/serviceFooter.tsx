@@ -28,7 +28,7 @@ export default function ServiceFooter() {
                                     { darkmod ? (
                                     <Image loading='eager' priority src={"/assets/logo2.webp"} width={125} height={100} className='h-12 w-auto' alt="OVE" />
                                     ) : (
-                                    <Image loading='eager' priority src={"/assets/logo.webp"} width={125} height={100} className='h-12 w-auto' alt="OVE" />
+                                    <Image loading='eager' priority src={"/assets/logo.webp"} width={500} height={450} className='h-12 w-auto' alt="OVE" />
                                     ) }
                                 </a>
                             </div>

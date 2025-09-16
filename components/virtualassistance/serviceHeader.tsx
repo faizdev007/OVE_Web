@@ -97,7 +97,7 @@ const companyM = [{
           { darkmod ? (
             <Image loading='eager' priority src={"/assets/logo2.webp"} width={125} height={100} className='h-12 w-auto' alt="OVE" />
           ) : (
-            <Image loading='eager' priority src={"/assets/logo.webp"} width={125} height={100} className='h-12 w-auto' alt="OVE" />
+            <Image loading='eager' priority src={"/assets/logo.webp"} width={500} height={450} className='h-12 w-auto' alt="OVE" />
           ) }
         </a>
 
@@ -141,7 +141,7 @@ const companyM = [{
       </div>
       {/* Full-width dropdown */}
         {showDropdown && (
-          <div className='max-w-5xl hidden grid mx-auto relative -top-3'>
+          <div className='max-w-5xl hidden mx-auto relative -top-3'>
             <div onMouseEnter={()=>{setShowDropdown(true); setActiveIndex(true); }} onMouseLeave={() => { setShowDropdown(false); setActiveIndex(false); }} className="absolute rounded-md w-full drop-shadow z-50 left-0 top-full bg-white dark:bg-gray-700 shadow-lg z-40 py-4">
               <div className='relative px-4 py-2 grid md:grid-cols-3 gap-4 sm:px-6 lg:px-8 mx-auto' >
                 {hiremenu.map((single,key)=>(
