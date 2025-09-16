@@ -1,16 +1,16 @@
 'use client';
 
-import '@/components/Homepage/customstyle.css';
+import '@/components/main/Homepage/customstyle.css';
 
-import DevelopersSlider from "@/components/Homepage/developer";
-import FaqSection from "@/components/Homepage/faq";
-import Herosection from "@/components/Homepage/hero";
-import HireBy from "@/components/Homepage/hireby";
-import HiringProcess from "@/components/Homepage/hiringprocess";
-import Loader from '@/components/Homepage/loader';
-import OurProjectsSlider from "@/components/Homepage/projects";
-import TrustedBySection from "@/components/Homepage/trustedby2";
-import WhyChooseUs from "@/components/Homepage/whyus";
+import DevelopersSlider from "@/components/main/Homepage/developer";
+import FaqSection from "@/components/main/Homepage/faq";
+import Herosection from "@/components/main/Homepage/hero";
+import HireBy from "@/components/main/Homepage/hireby";
+import HiringProcess from "@/components/main/Homepage/hiringprocess";
+import Loader from '@/components/main/Homepage/loader';
+import OurProjectsSlider from "@/components/main/Homepage/projects";
+import TrustedBySection from "@/components/main/Homepage/trustedby2";
+import WhyChooseUs from "@/components/main/Homepage/whyus";
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 

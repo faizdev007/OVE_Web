@@ -1,8 +1,8 @@
 'use client';
 
 import Image from "next/image";
-import Rating from "../Rating";
-import TestimonialDev from "../TestimonialDev";
+import Rating from "../../Rating";
+import TestimonialDev from "../../TestimonialDev";
 
 const Client = (Testimonials:any) => {
     return(

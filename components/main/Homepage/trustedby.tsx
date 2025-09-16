@@ -2,7 +2,7 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
-import useInView from '../useInView';
+import useInView from '../../useInView';
 
 const logos = [
   '/assets/companies/company1.webp',

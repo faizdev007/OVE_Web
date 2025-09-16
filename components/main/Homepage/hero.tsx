@@ -1,6 +1,6 @@
 'use client';
 
-import useInView from "../useInView";
+import useInView from "../../useInView";
 import TrustedBy from "./trustedby";
 
 export default function Herosection()

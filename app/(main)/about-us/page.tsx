@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
-import FaqSection from "@/components/Homepage/faq";
+import FaqSection from "@/components/main/Homepage/faq";
 import { useEffect, useState } from "react";
 
 export default function AboutPage()

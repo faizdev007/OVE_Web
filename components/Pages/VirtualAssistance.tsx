@@ -1,16 +1,16 @@
 'use client';
 
-import FaqSection from "@/components/Homepage/faq";
+import FaqSection from "@/components/main/Homepage/faq";
 import Image from "next/image";
-import HireBy from "@/components/Homepage/hireby";
-import DevelopersSlider from "@/components/Homepage/developer";
-import HeroSection from "@/components/Hire/Hero";
-import HireThroughOVE from "@/components/Hire/HireThroughOVE";
-import Expertise from "@/components/Hire/Expertise";
-import CTA from "@/components/Hire/CTA";
-import WSF from "@/components/Hire/WhySearchFor";
-import CTable from "@/components/Hire/CompairTable";
-import Client from "@/components/Hire/Client";
+import HireBy from "@/components/main/Homepage/hireby";
+import DevelopersSlider from "@/components/main/Homepage/developer";
+import HeroSection from "@/components/main/Hire/Hero";
+import HireThroughOVE from "@/components/main/Hire/HireThroughOVE";
+import Expertise from "@/components/main/Hire/Expertise";
+import CTA from "@/components/main/Hire/CTA";
+import WSF from "@/components/main/Hire/WhySearchFor";
+import CTable from "@/components/main/Hire/CompairTable";
+import Client from "@/components/main/Hire/Client";
 
 export default function RolePage(PageData:any) {
 
