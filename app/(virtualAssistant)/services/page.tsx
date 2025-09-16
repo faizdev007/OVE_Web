@@ -1,6 +1,7 @@
 import FaqSection from "@/components/main/Homepage/faq";
 import HeroSection from "@/components/virtualassistance/HeroSection";
 import ImagineTask from "@/components/virtualassistance/ImagineTask";
+import Modal from "@/components/virtualassistance/modal";
 import ServicessArea from "@/components/virtualassistance/ServicessArea";
 import SkillsVA from "@/components/virtualassistance/SkillsVA";
 import VACTA from "@/components/virtualassistance/VACTA";
@@ -14,19 +15,20 @@ import WhyYourShouldChoose from "@/components/virtualassistance/WhyYouShoudChoos
 export default function ServicesPage() {
   return (
     <>
-        <HeroSection/>
-        <VAStapes/>
-        <VACTA/>
-        <ServicessArea/>
-        <ServiceWhyChooseUs/>
-        <ImagineTask/>
-        <ServicessArea/>
-        <VACTA/>
-        <SkillsVA/>
-        <WhyYourShouldChoose/>
-        <VAWork/>
-        <VACTA2/>
-        <FaqSection/>
+      <HeroSection/>
+      <VAStapes/>
+      <VACTA/>
+      <ServicessArea/>
+      <ServiceWhyChooseUs/>
+      <ImagineTask/>
+      <ServicessArea/>
+      <VACTA/>
+      <SkillsVA/>
+      <WhyYourShouldChoose/>
+      <VAWork/>
+      <VACTA2/>
+      <FaqSection/>
+      <Modal isOpen={false} onClose={() => {}}/>
     </>
   );
 }

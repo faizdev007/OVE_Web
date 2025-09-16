@@ -3,6 +3,7 @@
 import { RoleBaseSlug } from '@/app/(main)/utils/CategorySlug';
 import Image from 'next/image';
 import { use, useEffect, useState } from 'react';
+import Modal from './modal';
 
 export default function ServiceHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -124,9 +125,9 @@ const companyM = [{
           
         </nav>
         <div className='lg:flex gap-6 items-center hidden'>
-            <a href="/contact-us" className="border-2 border-oveblue hover:bg-blue-700 text-oveblue hover:text-white px-4 py-2 rounded-md transition">
-                Get Started
-            </a>
+            <button className="border-2 border-oveblue hover:bg-blue-700 text-oveblue hover:text-white px-4 py-2 rounded-md transition">
+              Get Started
+            </button>
         </div>
 
         {/* Mobile Hamburger */}
