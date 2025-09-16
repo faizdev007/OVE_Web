@@ -21,18 +21,18 @@ export default function VAWork() {
             <div className='grid md:grid-cols-3 gap-4'>
                 <div className=''>
                     <img src={''} alt={'story1'}/>
-                    <h3>The Growth-Stage Founder</h3>
-                    <p>This founder lives for the thrill of growth-turning challenges into victories and chasing big opportunities. But the weight of endless tasks is dragging them down. They’re buried in the day-to-day grind, handling work that someone else could easily manage, while their boldest ideas are put on hold. It’s time for them to step up, focus on their vision, and lead their business into its next chapter.</p>
+                    <h3>Big dreams, lean teams</h3>
+                    <p>Every founder knows the rush of chasing an idea that feels bigger than life itself. But the reality? Resources are thin, time is even thinner, and you’re juggling everything from product to pitches. That’s where we step in — providing skilled developers who integrate seamlessly, with clear costs and zero surprises. You stay focused on building momentum, while we make sure your vision doesn’t get slowed down by hiring headaches.</p>
                 </div>
                 <div className=''>
                     <img src={''} alt={'story1'}/>
-                    <h3>The Established CEO</h3>
-                    <p>This CEO has built a business others admire-a strong foundation, reliable systems, and steady results. But instead of enjoying their success, they’re drowning in emails, meetings, and decisions. The constant demands of the day-to-day are leaving no time for growth or personal fulfillment. It’s time for them to reclaim their freedom & focus on what matters most.</p>
+                    <h3>From scrappy to scalable</h3>
+                    <p>Growth is exciting, but let’s be honest — it’s also messy. More customers, more responsibilities, and suddenly, a small misstep can cost big. You need a team that grows as quickly and reliably as your company does. Our flat-fee model and transparent developer salaries give you predictability, so you can invest in scaling with confidence instead of bracing for hidden costs. We help you turn growth chaos into sustainable progress.</p>
                 </div>
                 <div className=''>
                     <img src={''} alt={'story1'}/>
-                    <h3>The Multiple Ventures Leader</h3>
-                    <p>This entrepreneur is the master of juggling multiple businesses, always chasing the next big win. From the outside, they’re unstoppable, but behind the scenes, the chaos of details and deadlines is eating away at their focus. They’re a visionary, wired for big-picture thinking, but the grind is holding them back. They need someone to handle the noise so they can keep driving their empire forward.</p>
+                    <h3>Orchestrating across ventures</h3>
+                    <p>Running one business is challenging enough; running several demands clarity and control. Whether it’s managing teams in different industries or keeping track of multiple moving parts, you can’t afford distractions like surprise invoices or opaque pricing. That’s why we keep things simple: one flat management fee, clear bank receipts, and talent you can trust. You get complete visibility into your resources, freeing you up to focus on strategy across all your ventures.</p>
                 </div>
             </div>
         </section>
