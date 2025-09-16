@@ -4,7 +4,7 @@ import Rating from "../Rating";
 
 const WhyYourShouldChoose: React.FC = () => {
     return (
-        <section className="flex flex-col md:flex-row items-center justify-between md:px-6 px-2 py-12 bg-[#0b235c91]">
+        <section className="flex flex-col hidden md:flex-row items-center justify-between md:px-6 px-2 py-12 bg-oveblue">
             {/* Text Content */}
             <div className="md:w-1/2 w-full mb-8 md:mb-0 text-white">
                 <div className="mx-auto max-w-3xl">

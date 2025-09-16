@@ -4,7 +4,9 @@ import ImagineTask from "@/components/virtualassistance/ImagineTask";
 import ServicessArea from "@/components/virtualassistance/ServicessArea";
 import SkillsVA from "@/components/virtualassistance/SkillsVA";
 import VACTA from "@/components/virtualassistance/VACTA";
+import VACTA2 from "@/components/virtualassistance/VACTA2";
 import VAStapes from "@/components/virtualassistance/VAStapes";
+import VAWork from "@/components/virtualassistance/VAWork";
 import ServiceWhyChooseUs from "@/components/virtualassistance/WhyChooseUs";
 import WhyYourShouldChoose from "@/components/virtualassistance/WhyYouShoudChoose";
 
@@ -22,6 +24,8 @@ export default function ServicesPage() {
         <VACTA/>
         <SkillsVA/>
         <WhyYourShouldChoose/>
+        <VAWork/>
+        <VACTA2/>
         <FaqSection/>
     </>
   );

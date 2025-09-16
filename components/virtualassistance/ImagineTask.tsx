@@ -20,7 +20,7 @@ const cards = [
 ];
 
 const ImagineTask: React.FC = () => (
-    <section className="text-white bg-[#0b235c91] py-12 dark:py-12 flex flex-col items-center gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
+    <section className="text-white bg-oveblue/80 py-12 dark:py-12 flex flex-col items-center gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="text-center max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold mb-2">
                 Imagine Your Remote Assistant Doing All These Tasks for You...

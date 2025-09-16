@@ -5,9 +5,9 @@ import { onlyNumber } from '@/app/globals'; // adjust path if needed
 
 const HeroSection: React.FC = () => {
     return (
-        <section className="flex flex-col md:flex-row items-center justify-between md:px-6 px-2 py-12 bg-[#0b235c91]">
+        <section className="flex flex-col md:flex-row justify-between md:px-6 px-2 py-12 bg-[#eaeaea]">
             {/* Text Content */}
-            <div className="md:w-1/2 w-full mb-8 md:mb-0 text-white">
+            <div className="md:w-1/2 w-full mb-8 md:mb-0">
                 <div className="mx-auto max-w-3xl">
                     <div className="mb-5 font-bold">FULLY MANAGED</div>
                     <h1 className="text-4xl font-bold mb-4">
@@ -35,13 +35,13 @@ const HeroSection: React.FC = () => {
 
             {/* Form */}
             <div className="md:w-1/2 w-full">
-                <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg md:p-8 p-4">
-                    <div className="text-center flex flex-col gap-4">
+                <div className="max-w-xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div className="text-center flex text-white flex-col gap-4 bg-oveblue/60 p-6">
                         <h2 className="text-4xl font-bold">Get In Touch</h2>
                         <p>Same-Day Response | Strict NDA, 100% Confidential</p>
                     </div>
-                    <hr className="my-4"></hr>
-                    <form className="space-y-4">
+                    <hr className=""></hr>
+                    <form className="space-y-4 md:p-8 p-4">
                         <div>
                             <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                                 Full Name
@@ -69,7 +69,7 @@ const HeroSection: React.FC = () => {
                             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                                 Phone No (Optimal)
                             </label>
-                            <input type="tel" name="phone" onInput={onlyNumber} maxLength={15} placeholder="Enter Your Phone Number *" className="p-3 border rounded w-full" required/>
+                            <input type="tel" name="phone" onInput={onlyNumber} maxLength={15} placeholder="Enter Your Phone Number *" className="p-2 border border-gray-300 rounded w-full" required/>
                         </div>
                         <div>
                             <label htmlFor="message" className="block text-sm font-medium text-gray-700">
@@ -85,9 +85,9 @@ const HeroSection: React.FC = () => {
                         </div>
                         <button
                             type="submit"
-                            className="w-full bg-blue-600 text-white py-2 rounded-md font-semibold hover:bg-blue-700 transition"
+                            className="w-full bg-blue-600 p-4 text-white uppercase cursor-pointer rounded-md font-semibold hover:bg-blue-700 transition"
                         >
-                            Book Your Consultation
+                            Book Your Free Consultation
                         </button>
                     </form>
                 </div>
