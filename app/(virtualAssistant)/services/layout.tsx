@@ -14,7 +14,7 @@ export default function ServicesLayout({ children }: { children: ReactNode }) {
       <ServiceHeader/>
 
       {/* ✅ Page Content */}
-      <main className="container mx-auto py-10">
+      <main className="mx-auto">
         {children}
       </main>
 
