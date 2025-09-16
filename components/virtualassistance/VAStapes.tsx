@@ -20,7 +20,7 @@ export default function VAStapes() {
                 </div>
             </div>
 
-            <div className='grid md:grid-cols-3 gap-4'>
+            <div className='grid lg:grid-cols-3 gap-4'>
                 {steps.map((step, idx) => (
                     <div
                         key={idx}
