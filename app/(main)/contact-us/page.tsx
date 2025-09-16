@@ -112,7 +112,6 @@ export default function ContactPage() {
             setresMessage('');
             setMessageBlock(false);
         },2000)
-        console.log('Form Submitted:', formData);
     };
 
     useEffect(() => {
