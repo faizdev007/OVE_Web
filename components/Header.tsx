@@ -19,7 +19,7 @@ export default function Header() {
     (async () => {
       try {
         const data = await RoleBaseSlug();
-        const slugs = data?.category?.services?.nodes.map(node => node.slug) || [];
+        const slugs = data?.category?.hires?.nodes.map(node => node.slug) || [];
         setRoleSlugs(slugs);
       }
       catch (e) {
