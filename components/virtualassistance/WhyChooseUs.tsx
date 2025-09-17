@@ -2,7 +2,7 @@
 
 // import Image from "next/image";
 import { useState } from "react";
-import { ServicePageDataType } from "../ServicePageGraphQL";
+import { ServicePageDataType } from "../HirePageGraphQL";
 
 
 const listinfos = [

@@ -1,5 +1,5 @@
 // app/hire/[slug]/page.tsx
-import ServicePageData from "@/components/ServicePageGraphQL";
+import HirePageData from "@/components/HirePageGraphQL";
 import { generateMetadataFromSeo } from "@/app/(main)/utils/seo";
 import type { Metadata } from "next";
 import RolePage from "@/components/Pages/RolePage";
@@ -8,7 +8,7 @@ import SkillPage from "@/components/Pages/SkillPage";
 // ✅ Metadata only
 export async function generateMetadata({ params }: any) {
   const { slug } = params;
-  const data = await ServicePageData({ slug });
+  const data = await HirePageData({ slug });
   const seo = data?.seo;
   return generateMetadataFromSeo(seo || {});
 }
@@ -16,10 +16,10 @@ export async function generateMetadata({ params }: any) {
 // ✅ Page component fetches its own data
 export default async function HirePage({ params }: any) {
   const { slug } = params;
-  const data = await ServicePageData({ slug });
+  const data = await HirePageData({ slug });
   
   const category = data?.categories || "";
-  
+
   if (category[0].toLowerCase() === "role") {
     return <RolePage PageData={data} />;
   } else if (category[0].toLowerCase() === "skill") {

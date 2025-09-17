@@ -1,6 +1,6 @@
 import { fetchGraphQL } from "@/lib/graphqlClient";
 
-export type ServicePageDataType = {
+export type HirePageDataType = {
   seo?: {
     title?: string;
     metaDesc?: string;
@@ -92,10 +92,10 @@ export type ServicePageDataType = {
 };
 
 
-const ServicePageData = async ({ slug }: { slug: string }) => {
+const HirePageData = async ({ slug }: { slug: string }) => {
   const QUERY = `
-    query GetServicePage($slug: ID!) {
-      service(id: $slug, idType: SLUG) {
+    query GetHirePage($slug: ID!) {
+      hire(id: $slug, idType: SLUG) {
         categories {
           nodes {
             name
@@ -212,33 +212,33 @@ const ServicePageData = async ({ slug }: { slug: string }) => {
   `;
 
   const raw = await fetchGraphQL(QUERY, { slug });
-  const service = raw?.service;
+  const hire = raw?.hire;
   const clients = raw?.clients?.nodes || [];
 
-  const structured:ServicePageDataType = {
-    seo: service?.seo,
-    title: service?.title,
-    slug: service?.slug,
-    content: service?.content,
-    featuredImage: service?.featuredImage?.node,
-    categories: service?.categories?.nodes?.map((c: any) => c.name),
+  const structured:HirePageDataType = {
+    seo: hire?.seo,
+    title: hire?.title,
+    slug: hire?.slug,
+    content: hire?.content,
+    featuredImage: hire?.featuredImage?.node,
+    categories: hire?.categories?.nodes?.map((c: any) => c.name),
 
     cta: {
       one: {
-        title: service?.cta?.ctaOneContent?.ctaTitle,
-        subtitle: service?.cta?.ctaOneContent?.ctaSubtitle,
-        buttonText: service?.cta?.ctaOneContent?.ctaButtonText,
+        title: hire?.cta?.ctaOneContent?.ctaTitle,
+        subtitle: hire?.cta?.ctaOneContent?.ctaSubtitle,
+        buttonText: hire?.cta?.ctaOneContent?.ctaButtonText,
       },
       two: {
-        title: service?.cta?.ctaTwoContent?.ctaTitle,
-        subtitle: service?.cta?.ctaTwoContent?.ctaSubtitle,
-        buttonText: service?.cta?.ctaTwoContent?.ctaButtonText,
+        title: hire?.cta?.ctaTwoContent?.ctaTitle,
+        subtitle: hire?.cta?.ctaTwoContent?.ctaSubtitle,
+        buttonText: hire?.cta?.ctaTwoContent?.ctaButtonText,
       },
     },
 
     hiringProcess: {
-      title: service?.hiringProcess?.hiring_process_title,
-      steps: Object.values(service?.hiringProcess?.hiringProcessSteps || {}).map(
+      title: hire?.hiringProcess?.hiring_process_title,
+      steps: Object.values(hire?.hiringProcess?.hiringProcessSteps || {}).map(
         (step: any) => ({
           title: step?.stepTitle,
           description: step?.stepDescribtion,
@@ -248,35 +248,35 @@ const ServicePageData = async ({ slug }: { slug: string }) => {
     },
 
     expertise: {
-      title: service?.expertise?.expertiseTitle,
-      description: service?.expertise?.expertiseDescription,
-      qna: service?.expertise?.expertiseQna || [],
+      title: hire?.expertise?.expertiseTitle,
+      description: hire?.expertise?.expertiseDescription,
+      qna: hire?.expertise?.expertiseQna || [],
     },
 
     whyHire: {
-      title: service?.whyHireFormOve?.whyHireTitle,
-      description: service?.whyHireFormOve?.whyHireDiscription,
-      image: service?.whyHireFormOve?.whyHireImage?.node,
-      qna: service?.whyHireFormOve?.whyHireQna || [],
+      title: hire?.whyHireFormOve?.whyHireTitle,
+      description: hire?.whyHireFormOve?.whyHireDiscription,
+      image: hire?.whyHireFormOve?.whyHireImage?.node,
+      qna: hire?.whyHireFormOve?.whyHireQna || [],
     },
 
-    faq: service?.serviceFaq?.faqList?.map((f: any) => ({
+    faq: hire?.hireFaq?.faqList?.map((f: any) => ({
       question: f.faqQuestion,
       answer: f.faqAnswer,
     })),
 
     priceTable: {
-      title: service?.priceTable?.tableTitle,
-      subtitle: service?.priceTable?.tableSubtitle,
-      heading: Object.values(service?.priceTable?.tableHeading || {}),
+      title: hire?.priceTable?.tableTitle,
+      subtitle: hire?.priceTable?.tableSubtitle,
+      heading: Object.values(hire?.priceTable?.tableHeading || {}),
       rows:
-        service?.priceTable?.tableRow?.map((r: any) =>
+        hire?.priceTable?.tableRow?.map((r: any) =>
           Object.values(r?.tableData || {})
         ) || [],
     },
 
     testimonial: {
-      title: service?.testimonial?.testimonialTitle,
+      title: hire?.testimonial?.testimonialTitle,
       clients: clients.map((c: any) => ({
         title: c.title,
         slug: c.slug,
@@ -289,4 +289,4 @@ const ServicePageData = async ({ slug }: { slug: string }) => {
   return structured;
 };
 
-export default ServicePageData;
+export default HirePageData;
