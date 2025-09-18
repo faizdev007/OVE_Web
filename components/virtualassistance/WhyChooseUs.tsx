@@ -36,8 +36,8 @@ export default function ServiceWhyChooseUs( Expertise : any) {
             </div>
         </div>
         <div className="lg:flex relative z-20 gap-2 justify-between">
-            <div className="lg:w-1/2">
-              <img src={'/assets/virtualassistance/WhyOVE.webp'} alt="why block Image" className="w-full h-auto"/>
+            <div className="lg:w-1/2 flex justify-center items-center">
+              <img src={'/assets/virtualassistance/WhyOVE.webp'} alt="why block Image" className="w-2/3 h-auto"/>
             </div>
 
             <div className="lg:w-1/2 w-full text-black md:p-6 p-2">

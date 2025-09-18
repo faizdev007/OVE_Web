@@ -13,7 +13,7 @@ import ServiceWhyChooseUs from "@/components/virtualassistance/WhyChooseUs";
 import WhyYourShouldChoose from "@/components/virtualassistance/WhyYouShoudChoose";
 
 // src/app/(services)/services/page.tsx
-export default function ServicesPage() {
+export default function ServicePage() {
   return (
     <>
       <HeroSection/>

@@ -1,15 +1,15 @@
 // app/hire/[slug]/page.tsx
 import HirePageData from "@/components/HirePageGraphQL";
-import ServicesPage from "@/components/Pages/ServicePage";
+import ServicePage from "@/components/Pages/ServicePage";
 
 // ✅ Page component fetches its own data
-export default async function ServicePage({ params }: any) {
+export default async function ServicesPage({ params }: any) {
   const { slug } = params;
   const data = await HirePageData({ slug });
 
   const category = data?.categories || "";
 
-  return <ServicesPage/>
+  return <ServicePage/>
 
   // fallback (optional)
   return (
