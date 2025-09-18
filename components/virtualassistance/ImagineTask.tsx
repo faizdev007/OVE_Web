@@ -36,7 +36,9 @@ const ImagineTask = (Information:any) => {
                         key={idx}
                         className="bg-white rounded-xl shadow-md p-6 border border-black flex flex-col transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl cursor-pointer"
                     >
-                        <div className="mb-4">{card.svgicon}</div>
+                        <div className="mb-4 text-oveblue">
+                            <span dangerouslySetInnerHTML={{__html:card.svgicon}}/>
+                        </div>
                         <h3 className="text-lg font-semibold mb-2 text-black">{card.title}</h3>
                         <div className="text-gray-600">
                             <span dangerouslySetInnerHTML={{__html:card.description}}/>
