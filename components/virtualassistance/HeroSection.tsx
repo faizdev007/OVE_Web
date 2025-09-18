@@ -1,9 +1,61 @@
 'use client';
-import React from "react";
+import React, { useState } from "react";
 import Rating from "../Rating";
 import { onlyNumber } from '@/app/globals'; // adjust path if needed
 
 const HeroSection: React.FC = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+    });
+
+    const [resMessage, setresMessage] = useState('');
+    const [status, setStatus] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [MessageBlock, setMessageBlock] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+    
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setStatus(true);
+        try {
+        const res = await fetch('/api/ContactFormSend', {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            headers: {
+            'Content-Type': 'application/json',
+            },
+        });
+
+        const result = await res.json();
+            if (res.ok) {
+                setresMessage('Message Send Successfully!');
+                setMessageBlock(true);
+                setStatus(false);
+                setFormData({ name: '', email: '', phone: '', message: '' });
+            } else {
+                setError('Failed to send message. Please try again later.');
+                setMessageBlock(true);
+                setStatus(false);
+            }
+        } catch ({err}:any) {
+            setError(err.response?.data?.message || 'Failed to send message. Please try again later.');
+            setMessageBlock(true);
+            setStatus(false);
+        }
+
+        setTimeout(()=>{
+            setresMessage('');
+            setMessageBlock(false);
+        },2000)
+    };
+
     return (
         <section className="flex flex-col lg:flex-row justify-between md:px-6 px-2 py-12 bg-[#eaeaea]">
             {/* Text Content */}
@@ -37,46 +89,65 @@ const HeroSection: React.FC = () => {
                         <p>Same-Day Response | Strict NDA, 100% Confidential</p>
                     </div>
                     <hr className=""></hr>
-                    <form className="space-y-4 md:p-8 p-4">
-                        <div>
+                    <form onSubmit={handleSubmit}  className="space-y-4 md:p-8 p-4">
+                        <div className="mt-1 flex w-full border overflow-hidden border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
                             <label htmlFor="name" className="hidden text-sm font-medium text-gray-700">
                                 Full Name *
                             </label>
+                            <span className="bg-white border-e border-gray-300 flex items-center justify-center w-12">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5">
+                                    <path d="M10 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM3.465 14.493a1.23 1.23 0 0 0 .41 1.412A9.957 9.957 0 0 0 10 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 0 0-13.074.003Z" />
+                                </svg>
+                            </span>
                             <input
-                                id="name"
+                                name="name"
                                 type="text"
-                                className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
-                                placeholder="Enter Your Full Name"
+                                className="p-2 w-full rounded-e-md"
+                                placeholder="Enter Full Name"
+                                value={formData.name} onChange={handleChange}
                                 required
                             />
                         </div>
-                        <div>
+                        <div className="mt-1 flex w-full border overflow-hidden border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
                             <label htmlFor="email" className="hidden text-sm font-medium text-gray-700">
                                 Email Address *
                             </label>
+                            <span className="bg-white border-e border-gray-300 flex items-center justify-center w-12">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5">
+                                    <path d="M3 4a2 2 0 0 0-2 2v1.161l8.441 4.221a1.25 1.25 0 0 0 1.118 0L19 7.162V6a2 2 0 0 0-2-2H3Z" />
+                                    <path d="m19 8.839-7.77 3.885a2.75 2.75 0 0 1-2.46 0L1 8.839V14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.839Z" />
+                                </svg>
+                            </span>
                             <input
-                                id="email"
+                                name="email"
                                 type="email"
-                                className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
+                                className="p-2 w-full rounded-e-md"
                                 placeholder="you@example.com"
+                                value={formData.email} onChange={handleChange}
                                 required
                             />
                         </div>
-                        <div>
+                        <div className="mt-1 flex w-full border overflow-hidden border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
                             <label htmlFor="email" className="hidden text-sm font-medium text-gray-700">
                                 Phone No (Optional)
                             </label>
-                            <input type="tel" name="phone" onInput={onlyNumber} maxLength={15} placeholder="Enter Your Phone Number" className="p-2 border border-gray-300 rounded w-full"/>
+                            <span className="bg-white border-e border-gray-300 flex items-center justify-center w-12">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5">
+                                    <path fillRule="evenodd" d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z" clipRule="evenodd" />
+                                </svg>
+                            </span>
+                            <input type="tel" value={formData.phone} onChange={handleChange} name="phone" onInput={onlyNumber} maxLength={15} placeholder="Enter Phone Number" className="p-2 w-full rounded-e-md"/>
                         </div>
                         <div>
                             <label htmlFor="message" className="hidden text-sm font-medium text-gray-700">
                                 Your Requirements *
                             </label>
                             <textarea
-                                id="message"
+                                name="message"
                                 rows={4}
                                 className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
                                 placeholder="Enter Your Requirements"
+                                value={formData.message} onChange={handleChange}
                                 required
                             />
                         </div>
