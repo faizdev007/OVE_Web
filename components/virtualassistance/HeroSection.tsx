@@ -16,17 +16,13 @@ const HeroSection: React.FC = () => {
                     <p className="text-lg mb-6">
                         Get expert help for your business needs. Fill out the form to get started with our virtual assistance services.
                     </p>
-                    <ul className="list-disc hidden pl-5">
-                        <li>Professional support</li>
-                        <li>Flexible plans</li>
-                        <li>24/7 availability</li>
-                    </ul>
+                    
                     <div className="">
                         <h2 className="flex gap-1 items-center md:justify-start justify-center font-bold text-md"><span>RATED </span><Rating rating={5}/><span> ON</span></h2>
                         <div className="flex flex-wrap justify-center md:flex-nowrap md:justify-start gap-2 mt-4">
-                            <img className="bg-oveblue/30 rounded p-1" src={'/assets/virtualassistance/brandlogo/googlelogo.webp'} width={80} height={50} alt="Google"/>
+                            <img className="bg-oveblue/40 rounded p-1" src={'/assets/virtualassistance/brandlogo/googlelogo.webp'} width={80} height={50} alt="Google"/>
                             <img className="bg-oveblue/40 rounded p-1" src={'/assets/virtualassistance/brandlogo/goodfirmslogo.webp'} width={80} height={50} alt="GoodFirms"/>
-                            <img className="bg-oveblue/30 rounded p-1" src={'/assets/virtualassistance/brandlogo/clutchlogo.webp'} width={80} height={50} alt="Clutch"/>
+                            <img className="bg-oveblue/40 rounded p-1" src={'/assets/virtualassistance/brandlogo/clutchlogo.webp'} width={80} height={50} alt="Clutch"/>
                             <img className="bg-oveblue/40 rounded p-1" src={'/assets/virtualassistance/brandlogo/productlogo.webp'} width={80} height={50} alt="Product Hunt"/>
                         </div>
                     </div>
@@ -35,15 +31,15 @@ const HeroSection: React.FC = () => {
 
             {/* Form */}
             <div className="lg:w-1/2 w-full">
-                <div className="max-w-xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
-                    <div className="text-center flex text-white flex-col gap-4 bg-oveblue/60 p-6">
+                <div className="max-w-lg mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div className="text-center flex text-white flex-col gap-4 bg-oveblue/70 p-3">
                         <h2 className="text-4xl font-bold">Get In Touch</h2>
                         <p>Same-Day Response | Strict NDA, 100% Confidential</p>
                     </div>
                     <hr className=""></hr>
                     <form className="space-y-4 md:p-8 p-4">
                         <div>
-                            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="name" className="hidden text-sm font-medium text-gray-700">
                                 Full Name *
                             </label>
                             <input
@@ -55,7 +51,7 @@ const HeroSection: React.FC = () => {
                             />
                         </div>
                         <div>
-                            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="email" className="hidden text-sm font-medium text-gray-700">
                                 Email Address *
                             </label>
                             <input
@@ -67,13 +63,13 @@ const HeroSection: React.FC = () => {
                             />
                         </div>
                         <div>
-                            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="email" className="hidden text-sm font-medium text-gray-700">
                                 Phone No (Optional)
                             </label>
                             <input type="tel" name="phone" onInput={onlyNumber} maxLength={15} placeholder="Enter Your Phone Number" className="p-2 border border-gray-300 rounded w-full"/>
                         </div>
                         <div>
-                            <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="message" className="hidden text-sm font-medium text-gray-700">
                                 Your Requirements *
                             </label>
                             <textarea

@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: any) {
 export default async function HirePage({ params }: any) {
   const { slug } = params;
   const data = await HirePageData({ slug });
-  
+
   const category = data?.categories || "";
 
   if (category[0].toLowerCase() === "role") {
