@@ -1,0 +1,389 @@
+import { fetchGraphQL } from "@/lib/graphqlClient";
+
+export type ServicePageDataType = {
+  seo?: {
+    title?: string;
+    metaDesc?: string;
+    opengraphTitle?: string;
+    opengraphDescription?: string;
+  };
+  title?: string;
+  slug?: string;
+  content?: string;
+  featuredImage?: {
+    uri?: string;
+    sourceUrl?: string;
+    title?: string;
+  };
+  categories?: string[];
+
+  // Step cards
+  stepCard?: {
+    title?: string;
+    subtitle?: string;
+    cards?: {
+      title?: string;
+      info?: string;
+    }[];
+  };
+
+  // CTA
+  cta?: {
+    one?: {
+      title?: string;
+      buttonText?: string;
+    };
+  };
+
+  // Hover card groups
+  hoverCards?: {
+    group1?: {
+      title?: string;
+      description?: string;
+      cardText?: string[];
+    };
+    group2?: {
+      title?: string;
+      description?: string;
+      cardText?: string[];
+    };
+  };
+
+  // Why choose us block
+  whyChoose?: {
+    sideImage?: {
+      cursor?: string;
+    };
+    title?: string;
+    description?: string;
+    title2?:string;
+    description2?: string;
+    features?: {
+      qna?: {
+        question?: string;
+        answer?: string;
+      }[];
+    }[];
+  };
+
+  // Info cards
+  infoCards?: {
+    title?: string;
+    description?: string;
+    cards?: {
+      title?: string;
+      description?: string;
+      svgicon?: string;
+    }[];
+  };
+
+  // Cursor block
+  cursorBlock?: {
+    title?: string;
+    subtitle?: string;
+    icons?: {
+      logo?: {
+        cursor?: string;
+      };
+    }[];
+  };
+
+  // Story block
+  storyBlock?: {
+    title?: string;
+    description?: string;
+    stories?: {
+      image?: {
+        cursor?: string;
+      };
+      title?: string;
+      description?: string;
+    }[];
+  };
+
+  // Client stories
+  clientStories?: {
+    title?: string;
+    subtitle?: string;
+    clients?: {
+      videoUrl?: string;
+      description?: string;
+      rating?: number | string | null;
+      clientName?: string;
+      clientDesignation?: string;
+    }[];
+  };
+
+  // FAQ
+  faq?: {
+    question: string;
+    answer: string;
+  }[];
+
+  // Testimonials from clients
+  testimonial?: {
+    clients?: {
+      title?: string;
+      slug?: string;
+      content?: string;
+      rating?: number | string | null;
+      featuredImage?: {
+        sourceUrl?: string;
+        title?: string;
+      };
+    }[];
+  };
+};
+
+const ServciePageData = async ({ slug }: { slug: string }) => {
+  const QUERY = `
+    query GetServicePage($slug: ID!) {
+      service(id: $slug, idType: SLUG) {
+        categories {
+          nodes {
+            name
+          }
+        }
+        seo {
+          title
+          metaDesc
+          opengraphTitle
+          opengraphDescription
+        }
+        title
+        slug
+        content
+        featuredImage {
+          node {
+            uri
+            sourceUrl
+            title
+          }
+        }
+        vastepcard {
+          vasctitle
+          vascsubtitle
+          vasccard {
+            cardtitle
+            cardinfo
+          }
+        }
+        vacta {
+          cta1 {
+            title
+            buttontext
+          }
+        }
+        vahovercard {
+          group1 {
+            title
+            description
+            cardtext {
+              title
+            }
+          }
+          group2 {
+            title
+            description
+            cardtext {
+              title
+            }
+          }
+        }
+        vawcblock {
+          vawcsideimage {
+            cursor
+          }
+          vawctitle
+          vawcdescription
+          vawcfeatureblock {
+            title
+            description
+            features {
+              question
+              answer
+            }
+          }
+        }
+        vainfocard {
+          vaictitle
+          vaicdescription
+          vaiccards {
+            title
+            description
+            svgicon
+          }
+        }
+        vacursorblock {
+          vacbtitle
+          vacbsubtitle
+          vacbicons {
+            logo {
+              cursor
+            }
+          }
+        }
+        vastoryblock {
+          vasbtitle
+          vasbdescription
+          vasbstorycard {
+            storyimage {
+               node{
+                    sourceUrl
+                    altText
+                }
+            }
+            title
+            description
+          }
+        }
+        vaclientstory {
+          vacstitle
+          vacssubtitle
+          vacsclientcard {
+            videourl
+            description
+            rating
+            clientname
+            clientdesignation
+          }
+        }
+        serviceFaq {
+          faqList {
+            faqQuestion
+            faqAnswer
+          }
+        }
+      }
+      clients {
+        nodes {
+          title
+          slug
+          content
+          clientRating {
+            rating
+          }
+          featuredImage {
+            node {
+              sourceUrl
+              title
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const raw = await fetchGraphQL(QUERY, { slug });
+
+  const service = raw?.service;
+  const clients = raw?.clients?.nodes || [];
+
+  const structured: ServicePageDataType = {
+    seo: service?.seo,
+    title: service?.title,
+    slug: service?.slug,
+    content: service?.content,
+    featuredImage: service?.featuredImage?.node,
+    categories: service?.categories?.nodes?.map((c: any) => c.name),
+
+    stepCard: {
+      title: service?.vastepcard?.vasctitle,
+      subtitle: service?.vastepcard?.vascsubtitle,
+      cards: service?.vastepcard?.vasccard?.map((c: any) => ({
+        title: c.cardtitle,
+        info: c.cardinfo,
+      })),
+    },
+
+    cta: {
+      one: {
+        title: service?.vacta?.cta1?.title,
+        buttonText: service?.vacta?.cta1?.buttontext,
+      },
+    },
+
+    hoverCards: {
+      group1: {
+        title: service?.vahovercard?.group1?.title,
+        description: service?.vahovercard?.group1?.description,
+        cardText: service?.vahovercard?.group1?.cardtext?.map((t: any) => t.title),
+      },
+      group2: {
+        title: service?.vahovercard?.group2?.title,
+        description: service?.vahovercard?.group2?.description,
+        cardText: service?.vahovercard?.group2?.cardtext?.map((t: any) => t.title),
+      },
+    },
+
+    whyChoose: {
+      sideImage: service?.vawcblock?.vawcsideimage,
+      title: service?.vawcblock?.vawctitle,
+      description: service?.vawcblock?.vawcdescription,
+      title2: service?.vawcblock?.vawcfeatureblock?.title,
+      description2: service?.vawcblock?.vawcfeatureblock?.description,
+      features: service?.vawcblock?.vawcfeatureblock?.features?.map((f: any) => ({
+        title: f.title,
+        description: f.description,
+        qna: f.features,
+      })),
+    },
+
+    infoCards: {
+      title: service?.vainfocard?.vaictitle,
+      description: service?.vainfocard?.vaicdescription,
+      cards: service?.vainfocard?.vaiccards?.map((c: any) => ({
+        title: c.title,
+        description: c.description,
+        svgicon: c.svgicon,
+      })),
+    },
+
+    cursorBlock: {
+      title: service?.vacursorblock?.vacbtitle,
+      subtitle: service?.vacursorblock?.vacbsubtitle,
+      icons: service?.vacursorblock?.vacbicons,
+    },
+
+    storyBlock: {
+      title: service?.vastoryblock?.vasbtitle,
+      description: service?.vastoryblock?.vasbdescription,
+      stories: service?.vastoryblock?.vasbstorycard?.map((s: any) => ({
+        image: s.storyimage?.node?.sourceUrl,
+        title: s.title,
+        description: s.description,
+      })),
+    },
+
+    clientStories: {
+      title: service?.vaclientstory?.vacstitle,
+      subtitle: service?.vaclientstory?.vacssubtitle,
+      clients: service?.vaclientstory?.vacsclientcard?.map((c: any) => ({
+        videoUrl: c.videourl,
+        description: c.description,
+        rating: c.rating,
+        clientName: c.clientname,
+        clientDesignation: c.clientdesignation,
+      })),
+    },
+
+    faq: service?.serviceFaq?.faqList?.map((f: any) => ({
+      question: f.faqQuestion,
+      answer: f.faqAnswer,
+    })),
+
+    testimonial: {
+      clients: clients.map((c: any) => ({
+        title: c.title,
+        slug: c.slug,
+        content: c.content,
+        rating: c.clientRating?.rating,
+        featuredImage: c.featuredImage?.node,
+      })),
+    },
+  };
+
+  return structured;
+};
+
+export default ServciePageData;

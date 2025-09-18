@@ -122,6 +122,10 @@ span a{
   font-weight: 600;
 }
 
+.vahero p {
+  margin-bottom: 10px;
+}
+
 
 /* .ibmheading {
   font-family: "IBM Plex Sans", sans-serif;

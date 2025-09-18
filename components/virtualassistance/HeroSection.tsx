@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import Rating from "../Rating";
 import { onlyNumber } from '@/app/globals'; // adjust path if needed
 
-const HeroSection: React.FC = () => {
+const HeroSection = (HeroData:any) => {
+    console.log(HeroData?.HeroData);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -63,11 +64,11 @@ const HeroSection: React.FC = () => {
                 <div className="mx-auto max-w-3xl">
                     <div className="mb-5 font-bold hidden">FULLY MANAGED</div>
                     <h1 className="text-4xl font-bold mb-4">
-                        OVE Virtual Assistance to Help You Get Things Done
+                        {HeroData?.HeroData?.title ?? 'OVE Virtual Assistance to Help You Get Things Done'}
                     </h1>
-                    <p className="text-lg mb-6">
-                        Get expert help for your business needs. Fill out the form to get started with our virtual assistance services.
-                    </p>
+                    <div className="text-lg mb-6 vahero">
+                        <span dangerouslySetInnerHTML={{__html:HeroData?.HeroData?.content ?? 'Get expert help for your business needs. Fill out the form to get started with our virtual assistance services.'}}/>
+                    </div>
                     
                     <div className="">
                         <h2 className="flex gap-1 items-center md:justify-start justify-center font-bold text-md"><span>RATED </span><Rating rating={5}/><span> ON</span></h2>

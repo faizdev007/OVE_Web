@@ -1,15 +1,24 @@
 // app/hire/[slug]/page.tsx
-import HirePageData from "@/components/HirePageGraphQL";
+import { generateMetadataFromSeo } from "@/app/(main)/utils/seo";
 import ServicePage from "@/components/Pages/ServicePage";
+import ServciePageData from "@/components/ServicePageGraphQL";
+
+// ✅ Metadata only
+export async function generateMetadata({ params }: any) {
+  const { slug } = params;
+  const data = await ServciePageData({ slug });
+  const seo = data?.seo;
+  return generateMetadataFromSeo(seo || {});
+}
 
 // ✅ Page component fetches its own data
 export default async function ServicesPage({ params }: any) {
   const { slug } = params;
-  const data = await HirePageData({ slug });
+  const data = await ServciePageData({ slug });
 
   const category = data?.categories || "";
 
-  return <ServicePage/>
+  return <ServicePage pageData={data}/>
 
   // fallback (optional)
   return (
