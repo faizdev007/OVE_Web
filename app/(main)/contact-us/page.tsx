@@ -95,11 +95,11 @@ export default function ContactPage() {
 
         const result = await res.json();
             if (res.ok) {
+                router.push('/thank-you');
                 setresMessage('Message Send Successfully!');
                 setMessageBlock(true);
                 setStatus(false);
                 setFormData({ name: '', email: '', country: '', phone: '', message: '' });
-                router.push('/thank-you');
             } else {
                 setError('Failed to send message. Please try again later.');
                 setMessageBlock(true);

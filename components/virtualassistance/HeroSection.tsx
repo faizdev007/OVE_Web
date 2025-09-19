@@ -37,11 +37,11 @@ const HeroSection = (HeroData:any) => {
 
         const result = await res.json();
             if (res.ok) {
+                router.push('/thank-you');
                 setFormData({ name: '', email: '', phone: '', message: '' });
                 setresMessage('Message Send Successfully!');
                 setMessageBlock(true);
                 setStatus(false);
-                router.push('/thank-you');
             } else {
                 setError('Failed to send message. Please try again later.');
                 setMessageBlock(true);
