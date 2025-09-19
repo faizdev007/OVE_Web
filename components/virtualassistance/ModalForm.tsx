@@ -45,6 +45,7 @@ const ModalForm = () => {
 
         const result = await res.json();
             if (res.ok) {
+                sessionStorage.setItem("thankyoucall", "true");
                 router.push('/thank-you');
                 setresMessage('Message Send Successfully!');
                 setMessageBlock(true);
@@ -100,10 +101,10 @@ const ModalForm = () => {
                     <div className="">
                         <h2 className="flex gap-1 items-center md:justify-start justify-center font-bold text-md"><span>RATED </span><Rating rating={5}/><span> ON</span></h2>
                         <div className="flex flex-wrap justify-center md:flex-nowrap md:justify-start gap-2 mt-4">
-                            <img className="bg-oveblue/40 rounded p-1" src={'/assets/virtualassistance/brandlogo/googlelogo.webp'} width={80} height={50} alt="Google"/>
-                            <img className="bg-oveblue/40 rounded p-1" src={'/assets/virtualassistance/brandlogo/goodfirmslogo.webp'} width={80} height={50} alt="GoodFirms"/>
-                            <img className="bg-oveblue/40 rounded p-1" src={'/assets/virtualassistance/brandlogo/clutchlogo.webp'} width={80} height={50} alt="Clutch"/>
-                            <img className="bg-oveblue/40 rounded p-1" src={'/assets/virtualassistance/brandlogo/productlogo.webp'} width={80} height={50} alt="Product Hunt"/>
+                            <img className="rounded" src={'/assets/virtualassistance/brandlogo/googlelogo.webp'} width={80} height={50} alt="Google"/>
+                            <img className="rounded" src={'/assets/virtualassistance/brandlogo/goodfirmslogo.webp'} width={80} height={50} alt="GoodFirms"/>
+                            <img className="rounded" src={'/assets/virtualassistance/brandlogo/clutchlogo.webp'} width={80} height={50} alt="Clutch"/>
+                            <img className="rounded" src={'/assets/virtualassistance/brandlogo/productlogo.webp'} width={80} height={50} alt="Product Hunt"/>
                         </div>
                     </div>
                 </div>

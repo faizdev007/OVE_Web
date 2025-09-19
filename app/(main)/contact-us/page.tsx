@@ -95,6 +95,7 @@ export default function ContactPage() {
 
         const result = await res.json();
             if (res.ok) {
+                sessionStorage.setItem("thankyoucall", "true");
                 router.push('/thank-you');
                 setresMessage('Message Send Successfully!');
                 setMessageBlock(true);
