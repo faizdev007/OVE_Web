@@ -2,7 +2,6 @@
 import FaqSection from "@/components/main/Homepage/faq";
 import HeroSection from "@/components/virtualassistance/HeroSection";
 import ImagineTask from "@/components/virtualassistance/ImagineTask";
-import Modal from "@/components/virtualassistance/modal";
 import ServicessArea from "@/components/virtualassistance/ServicessArea";
 import SkillsVA from "@/components/virtualassistance/SkillsVA";
 import VACTA from "@/components/virtualassistance/VACTA";
@@ -11,9 +10,12 @@ import VAStapes from "@/components/virtualassistance/VAStapes";
 import VAWork from "@/components/virtualassistance/VAWork";
 import ServiceWhyChooseUs from "@/components/virtualassistance/WhyChooseUs";
 import WhyYourShouldChoose from "@/components/virtualassistance/WhyYouShoudChoose";
+import { useState } from "react";
+import Modal from "../virtualassistance/VAModal";
 
 // src/app/(services)/services/page.tsx
 export default function ServicePage(pageData:any) {
+  const [isOpen, setIsOpen] = useState(false);
     // console.log(pageData?.pageData);
     // return;
   return (
@@ -31,7 +33,20 @@ export default function ServicePage(pageData:any) {
       <VAWork StoryBlock={pageData?.pageData?.storyBlock}/>
       <VACTA2 CTA2={pageData?.pageData?.cta?.three}/>
       <FaqSection FAQ={pageData?.pageData?.faq}/>
-      <Modal isOpen={false} onClose={() => {}}/>
+      
+      {/* Modal */}
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <h2 className="text-xl font-semibold mb-4">Hello from Modal 🎉</h2>
+        <p className="text-gray-600 dark:text-gray-300 mb-6">
+          This is a reusable modal component in Next.js.
+        </p>
+        <button
+          onClick={() => setIsOpen(false)}
+          className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
+        >
+          Close
+        </button>
+      </Modal>
     </>
   );
 }
