@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import Rating from "../Rating";
 import { onlyNumber } from '@/app/globals'; // adjust path if needed
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const ModalForm = () => {
+    const router = useRouter();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -47,6 +49,7 @@ const ModalForm = () => {
                 setMessageBlock(true);
                 setStatus(false);
                 setFormData({ name: '', email: '', phone: '', message: '' });
+                router.push('/thank-you');
             } else {
                 setError('Failed to send message. Please try again later.');
                 setMessageBlock(true);

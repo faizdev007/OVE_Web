@@ -2,9 +2,10 @@
 import React, { useState } from "react";
 import Rating from "../Rating";
 import { onlyNumber } from '@/app/globals'; // adjust path if needed
-import Router from "next/router";
+import { useRouter } from "next/navigation";
 
 const HeroSection = (HeroData:any) => {
+    const router = useRouter();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -40,6 +41,7 @@ const HeroSection = (HeroData:any) => {
                 setresMessage('Message Send Successfully!');
                 setMessageBlock(true);
                 setStatus(false);
+                router.push('/thank-you');
             } else {
                 setError('Failed to send message. Please try again later.');
                 setMessageBlock(true);

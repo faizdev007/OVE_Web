@@ -114,7 +114,7 @@ export async function POST(request) {
             </html>
         `,
         });
-
+        
         return NextResponse.json({ success: true });
     } catch (error) {
         console.error('Email sending error:', error);

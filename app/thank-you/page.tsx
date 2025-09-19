@@ -1,6 +1,6 @@
 export default function ThankYouPage() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-6">
+    <main className="min-h-screen flex flex-col items-center justify-center bg-oveblue p-6">
       <div className="bg-white shadow-xl rounded-2xl max-w-lg w-full text-center p-10">
         {/* Check Icon */}
         <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-[#2562eb]/10">
@@ -21,7 +21,7 @@ export default function ThankYouPage() {
 
         {/* Title */}
         <h1 className="mt-6 text-2xl font-bold text-gray-900">
-          Thank You! 🎉
+          Thank You!
         </h1>
 
         {/* Message */}
