@@ -14,7 +14,7 @@ import WhyYourShouldChoose from "@/components/virtualassistance/WhyYouShoudChoos
 
 // src/app/(services)/services/page.tsx
 export default function ServicePage(pageData:any) {
-    console.log(pageData?.pageData);
+    // console.log(pageData?.pageData);
     // return;
   return (
     <>

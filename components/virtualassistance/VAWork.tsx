@@ -24,7 +24,7 @@ export default function VAWork(StoryBlock:any) {
                 {StoryBlock?.StoryBlock?.stories.map((info:any,key:number)=>(
                     <div key={key} className=''>
                         <img src={info?.image ?? ''} alt={'story1'}/>
-                        <h3 className='font-bold my-2'>{info?.title ?? 'Big dreams, lean teams'}</h3>
+                        <h3 className='font-bold my-2 text-xl'>{info?.title ?? 'Big dreams, lean teams'}</h3>
                         <div className=''>
                             <span dangerouslySetInnerHTML={{__html:info?.description ?? "Every founder knows the rush of chasing an idea that feels bigger than life itself. But the reality? Resources are thin, time is even thinner, and you’re juggling everything from product to pitches. That’s where we step in — providing skilled developers who integrate seamlessly, with clear costs and zero surprises. You stay focused on building momentum, while we make sure your vision doesn’t get slowed down by hiring headaches."}}/>
                         </div>
