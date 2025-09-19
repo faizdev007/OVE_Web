@@ -323,9 +323,8 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
       title2: service?.vawcblock?.vawcfeatureblock?.title,
       description2: service?.vawcblock?.vawcfeatureblock?.description,
       features: service?.vawcblock?.vawcfeatureblock?.features?.map((f: any) => ({
-        title: f.title,
-        description: f.description,
-        qna: f.features,
+        question: f.question,
+        answer: f.answer,
       })),
     },
 

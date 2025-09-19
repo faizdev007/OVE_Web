@@ -14,7 +14,7 @@ import WhyYourShouldChoose from "@/components/virtualassistance/WhyYouShoudChoos
 
 // src/app/(services)/services/page.tsx
 export default function ServicePage(pageData:any) {
-    console.log(pageData?.pageData?.hoverCards);
+    // console.log(pageData?.pageData?.hoverCards);
     // return;
   return (
     <>
@@ -22,7 +22,7 @@ export default function ServicePage(pageData:any) {
       <VAStapes StepsBlock={pageData?.pageData?.stepCard}/>
       <VACTA />
       <ServicessArea ServicessArea={pageData?.pageData?.hoverCards?.group1}/>
-      <ServiceWhyChooseUs/>
+      <ServiceWhyChooseUs WhyChooseUs={pageData?.pageData?.whyChoose}/>
       <ImagineTask Information={pageData?.pageData?.infoCards}/>
       <ServicessArea ServicessArea={pageData?.pageData?.hoverCards?.group2}/>
       <VACTA/>
