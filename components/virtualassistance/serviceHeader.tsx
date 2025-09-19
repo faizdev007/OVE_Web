@@ -106,23 +106,15 @@ const companyM = [{
 
           {/* Desktop Menu */}
           <nav className="lg:flex gap-6 items-center hidden">
-            <a href="/" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
+            <a href="#WWS" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
               Who we serve
             </a>
 
-            <a href="/about-us" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
-              Pricing
-            </a>
-
-            <a href="/contact-us" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
-              Our Story
-            </a>
-
             <a href="/privacy-policy" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
-              Careers
+              Privacy Policy
             </a>
             
-            <a href="/privacy-policy" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
+            <a href="#FAQ" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
               FAQ
             </a>
             
@@ -175,11 +167,11 @@ const companyM = [{
               </summary>
               <div className='max-h-32 overflow-y-auto'>
                 <div className={`ml-4 mt-2 space-y-1 text-sm`}>
-                  <a href="/about-us" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
+                  <a href="#WWS" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
                     Who we serve
                   </a>
                   <a href="/privacy-policy" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
-                    Pricing
+                    Privacy Policy
                   </a>
                   <a href="/guides" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
                     Our Story
@@ -187,7 +179,7 @@ const companyM = [{
                   <a href="/whitepapers" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
                     Careers
                   </a>
-                  <a href="/whitepapers" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
+                  <a href="#FAQ" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
                     FAQ
                   </a>
                 </div>
@@ -225,11 +217,11 @@ const companyM = [{
           }`}
         >
           <div className="px-4 py-4 flex flex-col gap-2 border-t bg-white dark:bg-gray-800">
-              <a href="/about-us" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
+              <a href="#WWS" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
                   Who we serve
               </a>
               <a href="/privacy-policy" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
-                  Pricing
+                  Privacy Policy
               </a>
               <a href="/guides" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
                   Our Story
@@ -237,15 +229,15 @@ const companyM = [{
               <a href="/whitepapers" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
                   Careers
               </a>
-              <a href="/whitepapers" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
+              <a href="#FAQ" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
                   FAQ
               </a>
 
               <hr className='my-2 border-2 rounded border-gray-600'></hr>
               
-              <a href="/contact-us" className="block text-center border-2 border-oveblue hover:bg-blue-700 hover:dark:bg-gray-700 text-oveblue hover:text-white dark:border-white dark:text-white px-4 py-2 rounded-md transition">
+              <button type='button' onClick={() => setIsOpen(true)} className="block text-center border-2 border-oveblue hover:bg-blue-700 hover:dark:bg-gray-700 text-oveblue hover:text-white dark:border-white dark:text-white px-4 py-2 rounded-md transition">
                   Get Started
-              </a>
+              </button>
           </div>
         </div>
       </header>

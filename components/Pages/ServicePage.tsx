@@ -23,16 +23,24 @@ export default function ServicePage(pageData:any) {
       <HeroSection HeroData={pageData?.pageData}/>
       <VAStapes StepsBlock={pageData?.pageData?.stepCard}/>
       <VACTA CTA={pageData?.pageData?.cta?.one}/>
-      <ServicessArea ServicessArea={pageData?.pageData?.hoverCards?.group1}/>
-      <ServiceWhyChooseUs WhyChooseUs={pageData?.pageData?.whyChoose}/>
+      <div id="WWS" className="overflow-y-scroll scroll-smooth">
+        <ServicessArea ServicessArea={pageData?.pageData?.hoverCards?.group1}/>
+      </div>
+      <div id="WCUS" className="overflow-y-scroll scroll-smooth">
+        <ServiceWhyChooseUs WhyChooseUs={pageData?.pageData?.whyChoose}/>
+      </div>
       <ImagineTask Information={pageData?.pageData?.infoCards}/>
-      <ServicessArea ServicessArea={pageData?.pageData?.hoverCards?.group2}/>
+      <div id="SWS" className="overflow-y-scroll scroll-smooth">
+        <ServicessArea ServicessArea={pageData?.pageData?.hoverCards?.group2}/>
+      </div>
       <VACTA CTA={pageData?.pageData?.cta?.two}/>
       <SkillsVA/>
       <WhyYourShouldChoose/>
       <VAWork StoryBlock={pageData?.pageData?.storyBlock}/>
       <VACTA2 CTA2={pageData?.pageData?.cta?.three}/>
-      <FaqSection FAQ={pageData?.pageData?.faq}/>
+      <div id="FAQ" className="overflow-y-scroll scroll-smooth">
+        <FaqSection FAQ={pageData?.pageData?.faq}/>
+      </div>
       
       {/* Modal */}
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
