@@ -8,7 +8,6 @@ const steps = [
 ];
 
 export default function VAWork(StoryBlock:any) {
-    console.log(StoryBlock?.StoryBlock?.stories);
     return (
         <section className="bg-gradient py-12 dark:py-12 flex flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
             {/* Main Header */}
@@ -23,7 +22,7 @@ export default function VAWork(StoryBlock:any) {
 
             <div className='grid md:grid-cols-3 gap-4'>
                 {StoryBlock?.StoryBlock?.stories.map((info:any,key:number)=>(
-                    <div className=''>
+                    <div key={key} className=''>
                         <img src={info?.image ?? ''} alt={'story1'}/>
                         <h3 className='font-bold my-2'>{info?.title ?? 'Big dreams, lean teams'}</h3>
                         <div className=''>

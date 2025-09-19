@@ -33,6 +33,14 @@ export type ServicePageDataType = {
       title?: string;
       buttonText?: string;
     };
+    two?: {
+      title?: string;
+      buttonText?: string;
+    };
+    three?: {
+      title?: string;
+      buttonText?: string;
+    };
   };
 
   // Hover card groups
@@ -168,11 +176,19 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
             cardinfo
           }
         }
-        vacta {
-          cta1 {
-            title
-            buttontext
-          }
+        vacta{
+            vacta1{
+                vactatitle
+                vactabutton
+            }
+            vacta2{
+                vactatitle
+                vactabutton
+            }
+            vacta3{
+                vactatitle
+                vactabutton
+            }
         }
         vahovercard {
           group1 {
@@ -298,8 +314,16 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
 
     cta: {
       one: {
-        title: service?.vacta?.cta1?.title,
-        buttonText: service?.vacta?.cta1?.buttontext,
+        title: service?.vacta?.vacta1?.vactatitle,
+        buttonText: service?.vacta?.vacta1?.vactabutton,
+      },
+      two: {
+        title: service?.vacta?.vacta2?.vactatitle,
+        buttonText: service?.vacta?.vacta2?.vactabutton,
+      },
+      three: {
+        title: service?.vacta?.vacta3?.vactatitle,
+        buttonText: service?.vacta?.vacta3?.vactabutton,
       },
     },
 

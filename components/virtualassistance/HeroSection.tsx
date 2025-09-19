@@ -4,7 +4,6 @@ import Rating from "../Rating";
 import { onlyNumber } from '@/app/globals'; // adjust path if needed
 
 const HeroSection = (HeroData:any) => {
-    console.log(HeroData?.HeroData);
     const [formData, setFormData] = useState({
         name: '',
         email: '',

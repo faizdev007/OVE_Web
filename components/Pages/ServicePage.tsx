@@ -14,22 +14,22 @@ import WhyYourShouldChoose from "@/components/virtualassistance/WhyYouShoudChoos
 
 // src/app/(services)/services/page.tsx
 export default function ServicePage(pageData:any) {
-    // console.log(pageData?.pageData?.hoverCards);
+    // console.log(pageData?.pageData?.cta);
     // return;
   return (
     <>
       <HeroSection HeroData={pageData?.pageData}/>
       <VAStapes StepsBlock={pageData?.pageData?.stepCard}/>
-      <VACTA />
+      <VACTA CTA={pageData?.pageData?.cta?.one}/>
       <ServicessArea ServicessArea={pageData?.pageData?.hoverCards?.group1}/>
       <ServiceWhyChooseUs WhyChooseUs={pageData?.pageData?.whyChoose}/>
       <ImagineTask Information={pageData?.pageData?.infoCards}/>
       <ServicessArea ServicessArea={pageData?.pageData?.hoverCards?.group2}/>
-      <VACTA/>
+      <VACTA CTA={pageData?.pageData?.cta?.two}/>
       <SkillsVA/>
       <WhyYourShouldChoose/>
       <VAWork StoryBlock={pageData?.pageData?.storyBlock}/>
-      <VACTA2/>
+      <VACTA2 CTA2={pageData?.pageData?.cta?.three}/>
       <FaqSection/>
       <Modal isOpen={false} onClose={() => {}}/>
     </>
