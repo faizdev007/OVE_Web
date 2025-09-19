@@ -14,7 +14,7 @@ import WhyYourShouldChoose from "@/components/virtualassistance/WhyYouShoudChoos
 
 // src/app/(services)/services/page.tsx
 export default function ServicePage(pageData:any) {
-    // console.log(pageData?.pageData?.cta);
+    console.log(pageData?.pageData);
     // return;
   return (
     <>
@@ -30,7 +30,7 @@ export default function ServicePage(pageData:any) {
       <WhyYourShouldChoose/>
       <VAWork StoryBlock={pageData?.pageData?.storyBlock}/>
       <VACTA2 CTA2={pageData?.pageData?.cta?.three}/>
-      <FaqSection/>
+      <FaqSection FAQ={pageData?.pageData?.faq}/>
       <Modal isOpen={false} onClose={() => {}}/>
     </>
   );
