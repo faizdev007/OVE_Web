@@ -12,6 +12,8 @@ import ServiceWhyChooseUs from "@/components/virtualassistance/WhyChooseUs";
 import WhyYourShouldChoose from "@/components/virtualassistance/WhyYouShoudChoose";
 import { useState } from "react";
 import Modal from "../virtualassistance/VAModal";
+import ClientSuccessStories from "../virtualassistance/ClientSuccessStories";
+import Client from "../main/Hire/Client";
 
 // src/app/(services)/services/page.tsx
 export default function ServicePage(pageData:any) {
@@ -23,14 +25,14 @@ export default function ServicePage(pageData:any) {
       <HeroSection HeroData={pageData?.pageData}/>
       <VAStapes StepsBlock={pageData?.pageData?.stepCard}/>
       <VACTA CTA={pageData?.pageData?.cta?.one}/>
-      <div id="WWS" className="overflow-y-scroll scroll-smooth">
+      <div id="WWS" className="overflow-y-scroll scroll-mt-18 scroll-smooth">
         <ServicessArea ServicessArea={pageData?.pageData?.hoverCards?.group1}/>
       </div>
-      <div id="WCUS" className="overflow-y-scroll scroll-smooth">
+      <div id="WCUS" className="overflow-y-scroll scroll-mt-18 scroll-smooth">
         <ServiceWhyChooseUs WhyChooseUs={pageData?.pageData?.whyChoose}/>
       </div>
       <ImagineTask Information={pageData?.pageData?.infoCards}/>
-      <div id="SWS" className="overflow-y-scroll scroll-smooth">
+      <div id="SWS" className="overflow-y-scroll scroll-mt-18 scroll-smooth">
         <ServicessArea ServicessArea={pageData?.pageData?.hoverCards?.group2}/>
       </div>
       <VACTA CTA={pageData?.pageData?.cta?.two}/>
@@ -38,7 +40,9 @@ export default function ServicePage(pageData:any) {
       <WhyYourShouldChoose/>
       <VAWork StoryBlock={pageData?.pageData?.storyBlock}/>
       <VACTA2 CTA2={pageData?.pageData?.cta?.three}/>
-      <div id="FAQ" className="overflow-y-scroll scroll-smooth">
+      <ClientSuccessStories ClientStories={pageData?.pageData?.clientStories}/>
+      <Client Testimonials={pageData?.pageData?.testimonial}/>
+      <div id="FAQ" className="overflow-y-scroll scroll-mt-18 scroll-smooth">
         <FaqSection FAQ={pageData?.pageData?.faq}/>
       </div>
       

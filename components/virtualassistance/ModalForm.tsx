@@ -14,7 +14,7 @@ const ModalForm = () => {
     });
 
     const pointdata = [
-        '70% saving on labour cost',
+        '60% saving on labour cost',
         'No recruitment cost',
         'No upfront Capital cost. We provide the infrastructure.',
         'One invoice. No hidden costs.',
