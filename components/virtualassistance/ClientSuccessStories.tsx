@@ -130,7 +130,7 @@ const ClientSuccessStories = (ClientStories:any) => {
                                 muted
                                 playsInline
                                 loop
-                                poster="/video-poster.jpg"
+                                // poster="/video-poster.jpg"
                                 >
                                 <source
                                     src={item?.videoUrl}
