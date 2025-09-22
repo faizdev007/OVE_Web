@@ -24,14 +24,16 @@ export default function VAStapes(StepsBlock:any) {
                 {StepsBlock?.StepsBlock?.cards.map((step:any, idx:number) => (
                     <div
                         key={idx}
-                        className="va-card border border-black rounded-lg p-4 relative"
+                        className="va-card flex flex-col justify-between border border-black rounded-lg p-4 relative"
                     >
-                        <h2 style={{ margin: '0 0 1rem 0', fontSize: '1.25rem', fontWeight: 600 }}>{step.title}</h2>
                         <div className=''>
-                            <span dangerouslySetInnerHTML={{__html:step.info}}></span>
+                            <h2 style={{ margin: '0 0 1rem 0', fontSize: '1.25rem', fontWeight: 600 }}>{step.title}</h2>
+                            <div className=''>
+                                <span dangerouslySetInnerHTML={{__html:step.info}}></span>
+                            </div>
                         </div>
                         <div className='flex justify-end pt-6'>
-                            <div className="va-card-number rounded-full bg-oveblue/50 text-4xl text-white flex items-center transition-transform duration-300 hover:-translate-y-2 justify-center p-4 h-12 w-12">
+                            <div className="va-card-number font-bold text-6xl text-oveblue/50 flex items-center transition-transform duration-300 hover:-translate-y-2 justify-center p-4 h-20 w-20">
                                 {idx + 1}
                             </div>
                         </div>

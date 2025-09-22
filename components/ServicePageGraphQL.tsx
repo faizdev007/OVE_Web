@@ -18,7 +18,6 @@ export type ServicePageDataType = {
   };
   title?: string;
   slug?: string;
-  content?: string;
   featuredImage?: {
     uri?: string;
     sourceUrl?: string;
@@ -57,12 +56,22 @@ export type ServicePageDataType = {
     group1?: {
       title?: string;
       description?: string;
-      cardText?: string[];
+      cardText?: {
+        title?:string;
+        description?:string;
+        bgImage?:string;
+        pagelink?:string;
+      }[];
     };
     group2?: {
       title?: string;
       description?: string;
-      cardText?: string[];
+      cardText?: {
+        title?:string;
+        description?:string;
+        bgImage?:string;
+        pagelink?:string;
+      }[];
     };
   };
 
@@ -179,7 +188,6 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
         }
         title
         slug
-        content
         featuredImage {
           node {
             uri
@@ -215,6 +223,17 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
             description
             cardtext {
               title
+              bgimage{
+                node{
+                  sourceUrl
+                }
+              }
+              pagelink{
+                title
+                url
+                target
+              }
+              description
             }
           }
           group2 {
@@ -222,6 +241,17 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
             description
             cardtext {
               title
+              bgimage{
+                node{
+                  sourceUrl
+                }
+              }
+              pagelink{
+                title
+                url
+                target
+              }
+              description
             }
           }
         }
@@ -321,7 +351,6 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
     seo: service?.seo,
     title: service?.title,
     slug: service?.slug,
-    content: service?.content,
     featuredImage: service?.featuredImage?.node,
     categories: service?.categories?.nodes?.map((c: any) => c.name),
     HeroSection: service?.vaherosection,
@@ -353,12 +382,26 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
       group1: {
         title: service?.vahovercard?.group1?.title,
         description: service?.vahovercard?.group1?.description,
-        cardText: service?.vahovercard?.group1?.cardtext?.map((t: any) => t.title),
+        cardText: service?.vahovercard?.group1?.cardtext?.map((t: any) => (
+          {
+            title:t.title,
+            description:t?.description,
+            bgImage:t?.bgimage?.node?.sourceUrl,
+            pagelink:t?.url,
+          }
+        )),
       },
       group2: {
         title: service?.vahovercard?.group2?.title,
         description: service?.vahovercard?.group2?.description,
-        cardText: service?.vahovercard?.group2?.cardtext?.map((t: any) => t.title),
+        cardText: service?.vahovercard?.group2?.cardtext?.map((t: any) => (
+          {
+            title:t.title,
+            description:t?.description,
+            bgImage:t?.bgimage?.node?.sourceUrl,
+            pagelink:t?.url,
+          }
+        )),
       },
     },
 
