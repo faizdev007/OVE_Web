@@ -113,7 +113,7 @@ export default function TestimonialDev(ClientTestimonials:any) {
                               </div>
                               <div className="flex flex-col">
                                   <h3 className="font-bold">{item?.title}</h3>
-                                  <span className="text-xs">{item?.title}</span>
+                                  <span className="text-xs">{item?.designation}</span>
                               </div>
                           </div>
                           <div className="hidden">

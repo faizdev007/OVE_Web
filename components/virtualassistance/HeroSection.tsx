@@ -5,6 +5,7 @@ import { onlyNumber } from '@/app/globals'; // adjust path if needed
 import { useRouter } from "next/navigation";
 
 const HeroSection = (HeroData:any) => {
+    // console.log(HeroData);
     const router = useRouter();
     const [formData, setFormData] = useState({
         name: '',
@@ -66,11 +67,11 @@ const HeroSection = (HeroData:any) => {
             <div className="lg:w-1/2 w-full mb-8 lg:mb-0">
                 <div className="mx-auto max-w-3xl">
                     <div className="mb-5 font-bold hidden">FULLY MANAGED</div>
-                    <h1 className="text-4xl font-bold mb-4">
-                        {HeroData?.HeroData?.title ?? 'OVE Virtual Assistance to Help You Get Things Done'}
-                    </h1>
+                    <div className="text-4xl font-bold mb-4">
+                        <span dangerouslySetInnerHTML={{__html:HeroData?.HeroData?.herotitle ?? 'OVE Virtual Assistance to Help You Get Things Done'}}/>
+                    </div>
                     <div className="text-lg mb-6 vahero">
-                        <span dangerouslySetInnerHTML={{__html:HeroData?.HeroData?.content ?? 'Get expert help for your business needs. Fill out the form to get started with our virtual assistance services.'}}/>
+                        <span dangerouslySetInnerHTML={{__html:HeroData?.HeroData?.herodescription ?? 'Get expert help for your business needs. Fill out the form to get started with our virtual assistance services.'}}/>
                     </div>
                     
                     <div className="">
@@ -89,8 +90,10 @@ const HeroSection = (HeroData:any) => {
             <div className="lg:w-1/2 w-full">
                 <div className="max-w-lg mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
                     <div className="text-center flex text-white flex-col gap-4 bg-oveblue/70 p-3">
-                        <h2 className="text-4xl font-bold">Get In Touch</h2>
-                        <p>Same-Day Response | Strict NDA, 100% Confidential</p>
+                        <h2 className="text-4xl font-bold">
+                            <span dangerouslySetInnerHTML={{__html:HeroData?.HeroData?.heroformsection?.formtitle ?? "Get In Touch"}}/>
+                        </h2>
+                        <div><span dangerouslySetInnerHTML={{__html:HeroData?.HeroData?.heroformsection?.formsubtitle ?? "Same-Day Response | Strict NDA, 100% Confidential" }}/></div>
                     </div>
                     <hr className=""></hr>
                     <form onSubmit={handleSubmit}  className="space-y-4 md:p-8 p-4">
@@ -179,7 +182,7 @@ const HeroSection = (HeroData:any) => {
                                     Sending...
                                 </span>
                                 ) : (
-                                'Book Your Free Consultation'
+                                    <span dangerouslySetInnerHTML={{__html:HeroData?.HeroData?.heroformsection?.formbuttontext ?? "Book Your Free Consultation"}}/>
                                 )}
                         </button>
                         <p className="text-center text-xs">*No strings attached, just actionable insights.</p>

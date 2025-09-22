@@ -71,8 +71,6 @@ const DefaultData = [
 
 const ClientSuccessStories = (ClientStories:any) => {
 
-    console.log(ClientStories?.ClientStories);
-
     const ClientsStories = ClientStories?.ClientStories?.clients ?? DefaultData;
 
     const [settings, setSettings] = useState({
@@ -108,20 +106,20 @@ const ClientSuccessStories = (ClientStories:any) => {
     
     return (
         <section className="bg-gradient py-12 dark:py-12 flex flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
-            {/* Main Header */}
-            <div className="text-center max-w-4xl mx-auto">
-                <h2 className="text-3xl font-bold mb-2 text-oveblue/50">
-                    { ClientStories?.ClientStories?.title ?? "Industries We've Served"}
-                </h2>
-                <div>
-                    <span dangerouslySetInnerHTML={{__html:ClientStories?.ClientStories?.subtitle ?? "In today's fast-paced business environment, efficiency and cost-effectiveness are paramount. Many businesses, from startups to established enterprises, are turning to virtual assistants (VAs) to streamline operations, reduce overhead, and free up valuable time for core business activities. However, the quality and reliability of VA services can vary significantly."}}/>
+                {/* Main Header */}
+                <div className="text-center max-w-5xl mx-auto">
+                    <h2 className="text-3xl font-bold mb-2 text-oveblue/50">
+                        { ClientStories?.ClientStories?.title ?? "Industries We've Served"}
+                    </h2>
+                    <div>
+                        <span dangerouslySetInnerHTML={{__html:ClientStories?.ClientStories?.subtitle ?? "In today's fast-paced business environment, efficiency and cost-effectiveness are paramount. Many businesses, from startups to established enterprises, are turning to virtual assistants (VAs) to streamline operations, reduce overhead, and free up valuable time for core business activities. However, the quality and reliability of VA services can vary significantly."}}/>
+                    </div>
                 </div>
-            </div>
                 {settings ? 
                 <Slider {...settings}>
                 {ClientsStories.map((item:any, index:number) => ( 
-                    <div className="py-6 py">
-                        <div key={index} className="flex border md:divide-x divide-y md:divide-y-0 flex-col md:flex-row w-full max-w-6xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div className="py-6">
+                        <div key={index} className="flex border max-w-7xl md:divide-x divide-y md:divide-y-0 flex-col md:flex-row mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
                             {/* Left: Video Section */}
                             <div className="lg:w-1/2 w-full flex items-center justify-center bg-gray-100 p-4">
                                 <video

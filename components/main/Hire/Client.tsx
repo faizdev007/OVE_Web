@@ -5,7 +5,6 @@ import Rating from "../../Rating";
 import TestimonialDev from "../../TestimonialDev";
 
 const Client = (Testimonials:any,bgColor=null) => {
-    console.log(bgColor);
     return(
         <>  
             <section className={`pb-12 dark:py-12 flex flex-col gap-6 relative px-4 py-8 sm:px-6 lg:px-8 mx-auto ${bgColor ?? 'bg-black'}`}>

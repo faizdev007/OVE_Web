@@ -7,6 +7,15 @@ export type ServicePageDataType = {
     opengraphTitle?: string;
     opengraphDescription?: string;
   };
+  HeroSection?: {
+    title?:string;
+    description?:string;
+    formContext?:{
+      formTitle?:string;
+      formSubtitle?:string;
+      formButtonText?:string;
+    }
+  };
   title?: string;
   slug?: string;
   content?: string;
@@ -134,6 +143,7 @@ export type ServicePageDataType = {
       title?: string;
       slug?: string;
       content?: string;
+      designation?:string;
       rating?: number | string | null;
       featuredImage?: {
         sourceUrl?: string;
@@ -157,6 +167,15 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
           metaDesc
           opengraphTitle
           opengraphDescription
+        }
+        vaherosection{
+          herotitle
+          herodescription
+          heroformsection{
+            formtitle
+            formsubtitle
+            formbuttontext
+          }
         }
         title
         slug
@@ -276,6 +295,9 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
           title
           slug
           content
+          clientDesignation{
+            designation
+          }
           clientRating {
             rating
           }
@@ -302,7 +324,7 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
     content: service?.content,
     featuredImage: service?.featuredImage?.node,
     categories: service?.categories?.nodes?.map((c: any) => c.name),
-
+    HeroSection: service?.vaherosection,
     stepCard: {
       title: service?.vastepcard?.vasctitle,
       subtitle: service?.vastepcard?.vascsubtitle,
@@ -400,6 +422,7 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
         title: c.title,
         slug: c.slug,
         content: c.content,
+        designation: c.clientDesignation.designation,
         rating: c.clientRating?.rating,
         featuredImage: c.featuredImage?.node,
       })),

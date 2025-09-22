@@ -22,18 +22,18 @@ export default function ServicePage(pageData:any) {
     // return;
   return (
     <>
-      <HeroSection HeroData={pageData?.pageData}/>
+      <HeroSection HeroData={pageData?.pageData?.HeroSection}/>
       <VAStapes StepsBlock={pageData?.pageData?.stepCard}/>
-      <VACTA CTA={pageData?.pageData?.cta?.one}/>
       <div id="WWS" className="overflow-y-scroll scroll-mt-18 scroll-smooth">
         <ServicessArea ServicessArea={pageData?.pageData?.hoverCards?.group1}/>
       </div>
-      <div id="WCUS" className="overflow-y-scroll scroll-mt-18 scroll-smooth">
-        <ServiceWhyChooseUs WhyChooseUs={pageData?.pageData?.whyChoose}/>
-      </div>
-      <ImagineTask Information={pageData?.pageData?.infoCards}/>
+      <VACTA CTA={pageData?.pageData?.cta?.one}/>
       <div id="SWS" className="overflow-y-scroll scroll-mt-18 scroll-smooth">
         <ServicessArea ServicessArea={pageData?.pageData?.hoverCards?.group2}/>
+      </div>
+      <ImagineTask Information={pageData?.pageData?.infoCards}/>
+      <div id="WCUS" className="overflow-y-scroll scroll-mt-18 scroll-smooth">
+        <ServiceWhyChooseUs WhyChooseUs={pageData?.pageData?.whyChoose}/>
       </div>
       <VACTA CTA={pageData?.pageData?.cta?.two}/>
       <SkillsVA/>
