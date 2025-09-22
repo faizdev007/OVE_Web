@@ -15,6 +15,7 @@ import Modal from "../virtualassistance/VAModal";
 import ClientSuccessStories from "../virtualassistance/ClientSuccessStories";
 import Client from "../main/Hire/Client";
 import RoleWeHired from "../virtualassistance/RoleWeHired";
+import ImageSteps from "../virtualassistance/ImageSteps";
 
 // src/app/(services)/services/page.tsx
 export default function ServicePage(pageData:any) {
@@ -24,13 +25,13 @@ export default function ServicePage(pageData:any) {
   return (
     <>
       <HeroSection HeroData={pageData?.pageData?.HeroSection}/>
-      <VAStapes StepsBlock={pageData?.pageData?.stepCard}/>
+      <ImageSteps StepsBlock={pageData?.pageData?.stepCard}/>
       <div id="WWS" className="overflow-y-scroll scroll-mt-18 scroll-smooth">
         <RoleWeHired RoleBaseHired={pageData?.pageData?.hoverCards?.group1}/>
       </div>
       <VACTA CTA={pageData?.pageData?.cta?.one}/>
       <div id="SWS" className="overflow-y-scroll scroll-mt-18 scroll-smooth">
-        <RoleWeHired RoleBaseHired={pageData?.pageData?.hoverCards?.group2}/>
+        <ServicessArea ServicessArea={pageData?.pageData?.hoverCards?.group2}/>
       </div>
       <ImagineTask Information={pageData?.pageData?.infoCards}/>
       <div id="WCUS" className="overflow-y-scroll scroll-mt-18 scroll-smooth">

@@ -32,6 +32,7 @@ export type ServicePageDataType = {
     cards?: {
       title?: string;
       info?: string;
+      image?: string;
     }[];
   };
 
@@ -66,12 +67,7 @@ export type ServicePageDataType = {
     group2?: {
       title?: string;
       description?: string;
-      cardText?: {
-        title?:string;
-        description?:string;
-        bgImage?:string;
-        pagelink?:string;
-      }[];
+      cardText?: string[];
     };
   };
 
@@ -201,6 +197,12 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
           vasccard {
             cardtitle
             cardinfo
+            cardimage {
+              node {
+                sourceUrl
+                title
+              }
+            }
           }
         }
         vacta{
@@ -241,17 +243,6 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
             description
             cardtext {
               title
-              bgimage{
-                node{
-                  sourceUrl
-                }
-              }
-              pagelink{
-                title
-                url
-                target
-              }
-              description
             }
           }
         }
@@ -360,6 +351,7 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
       cards: service?.vastepcard?.vasccard?.map((c: any) => ({
         title: c.cardtitle,
         info: c.cardinfo,
+        image: c?.cardimage?.node?.sourceUrl,
       })),
     },
 
@@ -394,14 +386,7 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
       group2: {
         title: service?.vahovercard?.group2?.title,
         description: service?.vahovercard?.group2?.description,
-        cardText: service?.vahovercard?.group2?.cardtext?.map((t: any) => (
-          {
-            title:t.title,
-            description:t?.description,
-            bgImage:t?.bgimage?.node?.sourceUrl,
-            pagelink:t?.url,
-          }
-        )),
+        cardText: service?.vahovercard?.group2?.cardtext?.map((t: any) => t.title),
       },
     },
 

@@ -46,7 +46,7 @@ export default function ServiceWhyChooseUs( WhyChooseUs : any) {
                         <span dangerouslySetInnerHTML={{ __html: WhyChooseUs?.WhyChooseUs?.description  as string ?? 'This is text will'}} />
                     </div>
                 </div>
-                <img src={'/assets/virtualassistance/WhyOVE.webp'} alt="why block Image" className="w-2/3 h-auto"/>
+                <img src={WhyChooseUs?.WhyChooseUs?.sideImage ?? '/assets/virtualassistance/WhyOVE.webp'} alt="why block Image" className="w-2/3 h-auto"/>
             </div>
 
             <div className="lg:w-1/2 w-full text-black md:p-6 p-2">

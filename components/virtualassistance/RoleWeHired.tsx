@@ -50,7 +50,7 @@ export default function RoleWeHired(RoleBaseHired:any) {
                                 alt="Card Image"
                                 className="h-full z-10 aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-110"
                             />
-                            <div className='absolute bottom-0 group-hover:hidden bg-black/20 w-full h-full'>
+                            <div className='absolute bottom-0 group-hover:hidden bg-black/50 w-full h-full'>
                                 <h2 className='absolute z-20 bottom-0 py-8 px-2 text-lg text-white font-bold'>{step.title}</h2>
                             </div>
                         </div>
