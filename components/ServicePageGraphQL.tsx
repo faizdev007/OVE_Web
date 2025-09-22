@@ -73,9 +73,7 @@ export type ServicePageDataType = {
 
   // Why choose us block
   whyChoose?: {
-    sideImage?: {
-      cursor?: string;
-    };
+    sideImage?: string;
     title?: string;
     description?: string;
     title2?:string;
@@ -248,7 +246,9 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
         }
         vawcblock {
           vawcsideimage {
-            cursor
+            node{
+              sourceUrl
+            }
           }
           vawctitle
           vawcdescription
@@ -391,7 +391,7 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
     },
 
     whyChoose: {
-      sideImage: service?.vawcblock?.vawcsideimage,
+      sideImage: service?.vawcblock?.vawcsideimage?.node?.sourceUrl,
       title: service?.vawcblock?.vawctitle,
       description: service?.vawcblock?.vawcdescription,
       title2: service?.vawcblock?.vawcfeatureblock?.title,
