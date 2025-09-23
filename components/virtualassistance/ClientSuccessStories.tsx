@@ -140,13 +140,15 @@ const ClientSuccessStories = (ClientStories:any) => {
                                 </video>
                             </div>
                             {/* Right: Information Section */}
-                            <div className="lg:w-1/2 w-full flex flex-col p-6">
-                                <div className="text-gray-600 text-lg mb-4">
+                            <div className="lg:w-1/2 w-full justify-between flex flex-col p-3">
+                                <div className="text-gray-600 text-lg mb-4 max-h-58 overflow-auto">
                                     <span dangerouslySetInnerHTML={{__html:item?.description ?? "Discover how our virtual assistance services have transformed businesses. Watch real stories from our satisfied clients and learn how we can help you achieve your goals."}}/>    
                                 </div>
-                                <Rating rating={item?.rating}/>
-                                <h2 className="my-2 font-bold text-lg">{item?.clientName}</h2>
-                                <h3 className="text-gray-600 font-bold">{item?.clientDesignation}</h3>
+                                <div className="">
+                                  <Rating rating={item?.rating}/>
+                                  <h2 className="my-2 font-bold text-lg">{item?.clientName}</h2>
+                                  <h3 className="text-gray-600 font-bold">{item?.clientDesignation}</h3>
+                                </div>
                                 {/* <ul className="list-disc hidden list-inside text-gray-700 space-y-2">
                                     <li>Improved productivity and efficiency</li>
                                     <li>Cost-effective solutions</li>
