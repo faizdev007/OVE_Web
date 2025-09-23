@@ -32,7 +32,7 @@ const logos = [
 export default function SkillsVA(Skills:any) {
   const { elementRef, isVisible } = useInView();
   return (
-    <section ref={elementRef} className="py-12 hidden dark:py-12 flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
+    <section ref={elementRef} className="py-12 flex dark:py-12 flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
       <div className={`flex items-center overflow-hidden animate-fade animate-once animate-ease-linear`}>
         {/* Left Static Text */}
         <div className="min-w-[150px] pe-2">

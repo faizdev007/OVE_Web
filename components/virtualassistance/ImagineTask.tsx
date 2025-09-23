@@ -21,8 +21,8 @@ const cards = [
 
 const ImagineTask = (Information:any) => {
     return(
-        <section className="text-white bg-oveblue/80 py-12 dark:py-12 flex flex-col items-center gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
-            <div className="bg-white border-2 mx-auto p-2 py-3 rounded-3xl shadow text-black text-center w-full">
+        <section className="text-white bg-oveblue/10 py-12 dark:py-12 flex flex-col items-center gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
+            <div className="mx-auto p-2 py-3 text-black text-center w-full">
                 <h2 className="text-3xl font-bold mb-2">
                     {Information?.Information?.title ?? 'Imagine Your Remote Assistant Doing All These Tasks for You...'}
                 </h2>

@@ -56,7 +56,7 @@ export default function ServiceWhyChooseUs( WhyChooseUs : any) {
                     return (
                         <div
                             key={index}
-                            className={`border-oveblue bg-gray-300 rounded py-2 px-4 shadow-sm shadow-oveblue transition-all cursor-pointer ${open ? "border-b-4" : ""}`}
+                            className={`border-oveblue bg-oveblue/10 rounded py-2 px-4 shadow-sm shadow-oveblue transition-all cursor-pointer ${open ? "border-b-4" : ""}`}
                             onClick={() => toggle(index)}
                             aria-expanded={open}
                             >
@@ -74,7 +74,7 @@ export default function ServiceWhyChooseUs( WhyChooseUs : any) {
                                 </svg>
                             </div>
 
-                            <div className={`overflow-hidden transition-all border-t border-white duration-500 ease-in-out ${open ? "max-h-40 opacity-100 mt-4" : "max-h-0 opacity-0"}`}>
+                            <div className={`overflow-hidden transition-all border-t border-black duration-500 ease-in-out ${open ? "max-h-40 opacity-100 mt-4" : "max-h-0 opacity-0"}`}>
                                 <p className="pt-2 md:text-lg text-sm">
                                 <span dangerouslySetInnerHTML={{__html: item?.answer || ""}}/>
                                 </p>
