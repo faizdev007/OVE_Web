@@ -38,7 +38,7 @@ export default function ServicePage(pageData:any) {
         <ServiceWhyChooseUs WhyChooseUs={pageData?.pageData?.whyChoose}/>
       </div>
       <VACTA CTA={pageData?.pageData?.cta?.two}/>
-      <SkillsVA/>
+      <SkillsVA Skills={pageData?.pageData?.cursorBlock}/>
       <WhyYourShouldChoose/>
       <VAWork StoryBlock={pageData?.pageData?.storyBlock}/>
       <VACTA2 CTA2={pageData?.pageData?.cta?.three}/>

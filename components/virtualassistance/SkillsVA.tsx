@@ -29,22 +29,22 @@ const logos = [
   '/assets/companies/company25.webp',
 ];
 
-export default function SkillsVA() {
+export default function SkillsVA(Skills:any) {
   const { elementRef, isVisible } = useInView();
   return (
     <section ref={elementRef} className="py-12 dark:py-12 flex flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
       <div className={`flex items-center overflow-hidden animate-fade animate-once animate-ease-linear`}>
         {/* Left Static Text */}
         <div className="min-w-[150px] pe-2">
-          <h2 className='text-lg md:text-2xl font-bold'>Our OVE Come</h2>
-          <p className="md:text-sm text-sm text-gray-400">Fully Traind In:</p>
+          <h2 className='text-lg md:text-2xl font-bold'>{Skills?.Skills?.title ?? "Our OVE Come"}</h2>
+          <p className="md:text-sm text-sm text-gray-400">{Skills?.Skills?.subtitle ?? "Fully Traind In:"}</p>
         </div>
 
         {/* Marquee Section */}
         <div className="flex-1 pe-4 border-s-2 border-gray-300 overflow-hidden relative">
           <div className="relative flex-1 gap-4 overflow-hidden px-4 sm:px-6 lg:px-8 mx-auto ">
               <div className="logo-slider flex w-max md:space-x-8 space-x-4">
-                  {logos.map((logo, index) => (
+                  {Skills?.Skills?.icons.map((logo:string, index:number) => (
                       <img key={index} src={logo} className="h-16 p-2 border-black bg-white shadow w-auto border rounded" alt={`Logo ${index + 1}`} />
                   ))}
                   {logos.map((logo, index) => (

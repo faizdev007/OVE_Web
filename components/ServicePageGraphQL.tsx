@@ -103,7 +103,7 @@ export type ServicePageDataType = {
     subtitle?: string;
     icons?: {
       logo?: {
-        cursor?: string;
+        cursor?: string[];
       };
     }[];
   };
@@ -275,7 +275,9 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
           vacbsubtitle
           vacbicons {
             logo {
-              cursor
+              node{
+                sourceUrl
+              }
             }
           }
         }
@@ -415,7 +417,7 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
     cursorBlock: {
       title: service?.vacursorblock?.vacbtitle,
       subtitle: service?.vacursorblock?.vacbsubtitle,
-      icons: service?.vacursorblock?.vacbicons,
+      icons: service?.vacursorblock?.vacbicons.map((t:any)=>( t?.logo?.node?.sourceUrl)),
     },
 
     storyBlock: {
