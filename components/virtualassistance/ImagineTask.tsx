@@ -30,7 +30,7 @@ const ImagineTask = (Information:any) => {
                     <span dangerouslySetInnerHTML={{__html:Information?.Information?.description ?? "In today's fast-paced business environment, efficiency and cost-effectiveness are paramount. Many businesses, from startups to established enterprises, are turning to virtual assistants (VAs) to streamline operations, reduce overhead, and free up valuable time for core business activities. However, the quality and reliability of VA services can vary significantly."}}/>
                 </div>
             </div>
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {Information?.Information?.cards.map((card:any, idx:number) => (
                     <div
                         key={idx}

@@ -104,11 +104,11 @@ export default function TestimonialDev(ClientTestimonials:any) {
                     <div className="bg-white text-black w-full min-h-[240] p-4 rounded-2xl border-2 border-oveblue drop-shadow-sm shadow-white">
                         <div className="flex items-center justify-between gap-4">
                           <div className="flex items-center gap-4">
-                              <div className="relative aspect-[1/1] w-14 h-14 overflow-hidden">
+                              <div className="relative w-14 h-14 overflow-hidden">
                                   {!item?.featuredImage ? 
-                                    <span className="rounded-full flex justify-center h-full w-full items-center bg-oveblue text-white font-bold">{item?.title?.split(" ").map((word: string) => word.charAt(0).toUpperCase()).join("")}</span>
+                                    <span className="rounded-full aspect-[1/1] flex justify-center items-center bg-oveblue text-white font-bold">{item?.title?.split(" ").map((word: string) => word.charAt(0).toUpperCase()).join("")}</span>
                                     :
-                                    <img src={item?.featuredImage?.sourceUrl} className="w-full h-full rounded-full" alt={item?.featuredImage?.title}/>
+                                    <img src={item?.featuredImage?.sourceUrl} className="aspect-[1/1] object-contain rounded-full" alt={item?.featuredImage?.title}/>
                                   }
                               </div>
                               <div className="flex flex-col">

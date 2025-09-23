@@ -23,7 +23,7 @@ export default function ServicePage(pageData:any) {
     // console.log(pageData?.pageData);
     // return;
   return (
-    <>
+    <div className="">
       <HeroSection HeroData={pageData?.pageData?.HeroSection}/>
       <ImageSteps StepsBlock={pageData?.pageData?.stepCard}/>
       <div id="WWS" className="overflow-y-scroll scroll-mt-18 scroll-smooth">
@@ -61,6 +61,6 @@ export default function ServicePage(pageData:any) {
           Close
         </button>
       </Modal>
-    </>
+    </div>
   );
 }

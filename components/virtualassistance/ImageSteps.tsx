@@ -46,7 +46,7 @@ export default function ImageSteps(StepsBlock:any) {
                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
                     className="flex justify-between items-center w-full py-4 text-left focus:outline-none"
                     >
-                    <span className="font-semibold"><strong>Step {index+1}</strong> : {step.title}</span>
+                    <span className="font-semibold"><strong>Step {index+1} : {step.title}</strong></span>
                     <span>{openIndex === index ? 
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-6">
                                 <path fillRule="evenodd" d="M9.47 6.47a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 1 1-1.06 1.06L10 8.06l-3.72 3.72a.75.75 0 0 1-1.06-1.06l4.25-4.25Z" clipRule="evenodd" />
@@ -80,13 +80,14 @@ export default function ImageSteps(StepsBlock:any) {
             </div>
 
             {/* Right Side - Image for large screens */}
-            <div className="hidden md:block md:w-1/2">
+            <div className="hidden md:block md:w-1/2 relative">
                 {openIndex !== null && (
-                <img
+                    <img
+                    key={openIndex} // 👈 important: forces React to remount the image on index change
                     src={StepsBlock?.StepsBlock?.cards[openIndex].image}
                     alt={StepsBlock?.StepsBlock?.cards[openIndex].title}
-                    className="rounded-lg w-full object-contain aspect-video transition-opacity ease-in duration-700 opacity-100"
-                />
+                    className="rounded-lg w-full object-contain aspect-video opacity-0 animate-fadeIn"
+                    />
                 )}
             </div>
         </div>

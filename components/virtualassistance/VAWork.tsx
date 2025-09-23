@@ -20,12 +20,12 @@ export default function VAWork(StoryBlock:any) {
                 </div>
             </div>
 
-            <div className='grid md:grid-cols-3 gap-4'>
+            <div className='grid lg:grid-cols-3 gap-4'>
                 {StoryBlock?.StoryBlock?.stories.map((info:any,key:number)=>(
-                    <div key={key} className=''>
+                    <div key={key} className='lg:p-10 md:p-4 p-2 border rounded-2xl shadow-xl !items-center'>
                         <img src={info?.image ?? ''} alt={'story1'}/>
                         <h3 className='font-bold my-2 text-xl'>{info?.title ?? 'Big dreams, lean teams'}</h3>
-                        <div className=''>
+                        <div className='overflow-auto max-h-32 md:max-h-full'>
                             <span dangerouslySetInnerHTML={{__html:info?.description ?? "Every founder knows the rush of chasing an idea that feels bigger than life itself. But the reality? Resources are thin, time is even thinner, and you’re juggling everything from product to pitches. That’s where we step in — providing skilled developers who integrate seamlessly, with clear costs and zero surprises. You stay focused on building momentum, while we make sure your vision doesn’t get slowed down by hiring headaches."}}/>
                         </div>
                     </div>
