@@ -13,9 +13,9 @@ import WhyYourShouldChoose from "@/components/virtualassistance/WhyYouShoudChoos
 import { useState } from "react";
 import Modal from "../virtualassistance/VAModal";
 import ClientSuccessStories from "../virtualassistance/ClientSuccessStories";
-import Client from "../main/Hire/Client";
 import RoleWeHired from "../virtualassistance/RoleWeHired";
 import ImageSteps from "../virtualassistance/ImageSteps";
+import ClientReview from "../virtualassistance/ClientReview";
 
 // src/app/(services)/services/page.tsx
 export default function ServicePage(pageData:any) {
@@ -42,8 +42,10 @@ export default function ServicePage(pageData:any) {
       <WhyYourShouldChoose/>
       <VAWork StoryBlock={pageData?.pageData?.storyBlock}/>
       <VACTA2 CTA2={pageData?.pageData?.cta?.three}/>
-      <ClientSuccessStories ClientStories={pageData?.pageData?.clientStories}/>
-      <Client Testimonials={pageData?.pageData?.testimonial}/>
+      <div className="bg-oveblue/10">
+        <ClientSuccessStories ClientStories={pageData?.pageData?.clientStories}/>
+        <ClientReview Testimonials={pageData?.pageData?.testimonial}/>
+      </div>
       <div id="FAQ" className="overflow-y-scroll scroll-mt-18 scroll-smooth">
         <FaqSection FAQ={pageData?.pageData?.faq}/>
       </div>
