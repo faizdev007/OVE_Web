@@ -14,6 +14,7 @@ const steps = [
 ];
 
 export default function ServicessArea(ServicessArea:any) {
+    let services = ServicessArea?.ServicessArea?.cardText ?? steps;
     return (
         <section className="bg-gradient py-12 dark:py-12 flex flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
             {/* Main Header */}
@@ -25,7 +26,7 @@ export default function ServicessArea(ServicessArea:any) {
             </div>
 
             <div className='grid md:grid-cols-3 gap-4'>
-                {ServicessArea?.ServicessArea?.cardText.map((step:string, idx:number) => (
+                {services.map((step:string, idx:number) => (
                     <div
                         key={idx}
                         className="va-card border border-black rounded-lg p-4 text-center relative"

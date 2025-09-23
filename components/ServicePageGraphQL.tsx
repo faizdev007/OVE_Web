@@ -1,4 +1,6 @@
+import GlobalNotFound from "@/app/global-not-found";
 import { fetchGraphQL } from "@/lib/graphqlClient";
+import { notFound } from "next/navigation";
 
 export type ServicePageDataType = {
   seo?: {
@@ -338,6 +340,8 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
   `;
 
   const raw = await fetchGraphQL(QUERY, { slug });
+
+  if (!raw?.service) return notFound();
 
   const service = raw?.service;
   const clients = raw?.clients?.nodes || [];

@@ -16,7 +16,7 @@ export default function ServiceFooter() {
 
     return (
         <>
-         <div className={`relative ${loading ? ' hidden' : ''}`}>
+         <div className={`relative block`}>
             <div className="gird divide-y-2 divide-gray-300 relative">
                 <div className="px-4 pt-10 pb-3">
                     <div className="container mx-auto grid gap-10 lg:grid-cols-5">

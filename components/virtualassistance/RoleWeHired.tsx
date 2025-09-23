@@ -2,18 +2,60 @@
 import React from 'react';
 
 const steps = [
-    'Accounting and Finance',
-    'Education',
-    'Information Technology',
-    'Insurance',
-    'Legal Services',
-    'Logistic and Transport',
-    'Professional Services',
-    'Real Estate',
-    'Retail and E-commerce',
+    {
+        "title": "Accounting and Finance",
+        "description": "<p data-start=\"75\" data-end=\"305\">Virtual Assistants are well-versed in bookkeeping, managing accounts, processing invoices, and organizing financial records. They help streamline financial operations, saving time and ensuring accuracy.</p>\n<p data-start=\"307\" data-end=\"541\">\n",
+        "bgImage": "https://admin.optimalvirtualemployee.com/wp-content/uploads/2025/09/pexels-artempodrez-5716001-scaled.webp"
+    },
+    {
+        "title": "Healthcare & Life Sciences",
+        "description": "<p data-start=\"307\" data-end=\"541\">From managing patient appointments to processing medical records and handling administrative tasks, Virtual Assistants offer seamless support, allowing healthcare professionals to focus on patient care.</p>\n<p data-start=\"543\" data-end=\"778\">\n",
+        "bgImage": "https://admin.optimalvirtualemployee.com/wp-content/uploads/2025/09/pexels-chevanon-317157-scaled.webp"
+    },
+    {
+        "title": "Education & EdTech",
+        "description": "<p data-start=\"543\" data-end=\"778\">Virtual Assistants assist with managing online classrooms, scheduling lessons, preparing materials, and handling communication. They free up educators to focus on what matters most—teaching and guiding students.</p>\n",
+        "bgImage": "https://admin.optimalvirtualemployee.com/wp-content/uploads/2025/09/edu-scaled.webp"
+    },
+    {
+        "title": "Information Technology ",
+        "description": "<p data-start=\"780\" data-end=\"1012\">Tech Virtual Assistants are skilled in managing IT project schedules, assisting with coding tasks, handling system troubleshooting, and providing general IT support, ensuring smooth technology operations.</p>\n",
+        "bgImage": "https://admin.optimalvirtualemployee.com/wp-content/uploads/2025/09/pexels-pixabay-270557.webp"
+    },
+    {
+        "title": "Legal Services",
+        "description": "<p data-start=\"1014\" data-end=\"1213\">Virtual Assistants support legal firms with case management, legal research, drafting documents, and managing client communications, ensuring that legal practices run efficiently.</p>\n",
+        "bgImage": "https://admin.optimalvirtualemployee.com/wp-content/uploads/2025/09/pexels-sora-shimazaki-5668473-scaled.webp"
+    },
+    {
+        "title": "Logistics & Transport",
+        "description": "<p data-start=\"1215\" data-end=\"1417\">Virtual Assistants help manage inventory, track shipments, coordinate schedules, and handle customer inquiries, improving the efficiency of logistics and transport operations.</p>\n",
+        "bgImage": "https://admin.optimalvirtualemployee.com/wp-content/uploads/2025/09/logistic-scaled.webp"
+    },
+    {
+        "title": "Real Estate",
+        "description": "<p data-start=\"1419\" data-end=\"1628\">From handling client inquiries to managing property listings and scheduling viewings, Virtual Assistants keep real estate businesses running smoothly, allowing teams to focus on closing deals.</p>\n",
+        "bgImage": "https://admin.optimalvirtualemployee.com/wp-content/uploads/2025/09/pexels-binyaminmellish-106399-scaled.webp"
+    },
+    {
+        "title": "Insurance ",
+        "description": "<p data-start=\"1630\" data-end=\"1825\">Virtual Assistants assist with customer service, managing claims, processing documents, and handling data entry, ensuring that insurance operations remain organized and responsive.</p>\n",
+        "bgImage": "https://admin.optimalvirtualemployee.com/wp-content/uploads/2025/09/pexels-karolina-grabowska-4021810-scaled.webp"
+    },
+    {
+        "title": "Marketing & Media",
+        "description": "<p data-start=\"1827\" data-end=\"2031\">Marketing Virtual Assistants help with content creation, social media management, email marketing, and campaign analytics, freeing up teams to focus on strategy and creative output.</p>\n",
+        "bgImage": "https://admin.optimalvirtualemployee.com/wp-content/uploads/2025/09/pexels-artempodrez-5716001-scaled.webp"
+    },
+    {
+        "title": "Professional Services & Consulting",
+        "description": "<p data-start=\"2033\" data-end=\"2251\">Virtual Assistants support consultants with administrative tasks, research, client communication, and scheduling, allowing them to focus on providing top-tier service to clients.</p>\n",
+        "bgImage": "https://admin.optimalvirtualemployee.com/wp-content/uploads/2025/09/pexels-pixabay-327540-scaled.webp"
+    }
 ];
 
 export default function RoleWeHired(RoleBaseHired:any) {
+    let rolesteps = RoleBaseHired?.RoleBaseHired?.cardText ?? steps;
     return (
         <section className="bg-gradient py-12 dark:py-12 flex flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
             {/* Main Header */}
@@ -25,7 +67,7 @@ export default function RoleWeHired(RoleBaseHired:any) {
             </div>
 
             <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-4'>
-                {RoleBaseHired?.RoleBaseHired?.cardText.map((step:any, idx:number) => (
+                {rolesteps.map((step:any, idx:number) => (
                 !step?.bgImage ? 
                     <div
                         key={idx}

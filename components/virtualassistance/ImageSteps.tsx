@@ -23,6 +23,7 @@ const steps = [
 ];
 
 export default function ImageSteps(StepsBlock:any) {
+    let stepdata = StepsBlock?.StepsBlock?.cards ?? steps;
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
@@ -39,7 +40,7 @@ export default function ImageSteps(StepsBlock:any) {
         <div className="md:flex gap-2 mt-8">
             {/* Left Side - Steps */}
             <div className="md:w-1/2">
-                {StepsBlock?.StepsBlock?.cards.map((step:any, index:number) => (
+                {stepdata.map((step:any, index:number) => (
                 <div key={index} className="border-b border-gray-400 transform transition hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none">
                     <button
                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
@@ -88,8 +89,8 @@ export default function ImageSteps(StepsBlock:any) {
                 {openIndex !== null && (
                     <img
                     key={openIndex} // 👈 important: forces React to remount the image on index change
-                    src={StepsBlock?.StepsBlock?.cards[openIndex].image}
-                    alt={StepsBlock?.StepsBlock?.cards[openIndex].title}
+                    src={stepdata[openIndex].image}
+                    alt={stepdata[openIndex].title}
                     className="rounded-lg w-full object-contain aspect-video opacity-0 animate-fadeIn"
                     />
                 )}
