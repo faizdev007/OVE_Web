@@ -125,6 +125,7 @@ const ClientSuccessStories = (ClientStories:any) => {
                                 <video
                                 className="w-full h-64 md:h-80 rounded-lg object-cover"
                                 autoPlay
+                                controls
                                 muted
                                 playsInline
                                 loop
@@ -140,7 +141,7 @@ const ClientSuccessStories = (ClientStories:any) => {
                             </div>
                             {/* Right: Information Section */}
                             <div className="lg:w-1/2 w-full flex flex-col p-6">
-                                <div className="text-gray-600 text-lg text-justify mb-4">
+                                <div className="text-gray-600 text-lg mb-4">
                                     <span dangerouslySetInnerHTML={{__html:item?.description ?? "Discover how our virtual assistance services have transformed businesses. Watch real stories from our satisfied clients and learn how we can help you achieve your goals."}}/>    
                                 </div>
                                 <Rating rating={item?.rating}/>
