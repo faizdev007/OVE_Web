@@ -62,12 +62,12 @@ const HeroSection = (HeroData:any) => {
     };
 
     return (
-        <section className="flex flex-col lg:flex-row justify-between md:px-6 px-2 py-12 bg-[#eaeaea]">
+        <section className="flex flex-col lg:flex-row justify-between md:px-6 px-2 py-12 oveVA">
             {/* Text Content */}
             <div className="lg:w-1/2 w-full mb-8 lg:mb-0">
                 <div className="mx-auto max-w-3xl">
                     <div className="mb-5 font-bold hidden">FULLY MANAGED</div>
-                    <div className="text-4xl font-bold mb-4">
+                    <div className="text-4xl mb-4">
                         <span dangerouslySetInnerHTML={{__html:HeroData?.HeroData?.herotitle ?? 'OVE Virtual Assistance to Help You Get Things Done'}}/>
                     </div>
                     <div className="text-lg mb-6 vahero">
@@ -88,7 +88,7 @@ const HeroSection = (HeroData:any) => {
 
             {/* Form */}
             <div className="lg:w-1/2 w-full">
-                <div className="max-w-lg mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+                <div className="max-w-lg mx-auto bg-white border border-gray-300 rounded-lg shadow-lg overflow-hidden">
                     <div className="text-center flex text-white flex-col gap-4 bg-oveblue/70 p-3">
                         <h2 className="text-4xl font-bold">
                             <span dangerouslySetInnerHTML={{__html:HeroData?.HeroData?.heroformsection?.formtitle ?? "Get In Touch"}}/>

@@ -15,7 +15,7 @@ export default function ServicesLayout({ children }: { children: ReactNode }) {
       <ServiceHeader/>
 
       {/* ✅ Page Content */}
-      <main className="mx-auto">
+      <main className="mx-auto manrope">
         {children}
       </main>
 
