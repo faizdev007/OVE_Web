@@ -1,4 +1,5 @@
 import { fetchGraphQL } from "@/lib/graphqlClient";
+import { notFound } from "next/navigation";
 
 export type HirePageDataType = {
   seo?: {
@@ -212,6 +213,9 @@ const HirePageData = async ({ slug }: { slug: string }) => {
   `;
 
   const raw = await fetchGraphQL(QUERY, { slug });
+
+  if (!raw?.hire) return notFound();
+
   const hire = raw?.hire;
   const clients = raw?.clients?.nodes || [];
 
