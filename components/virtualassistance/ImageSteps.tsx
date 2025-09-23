@@ -23,7 +23,6 @@ const steps = [
 ];
 
 export default function ImageSteps(StepsBlock:any) {
-    console.log(StepsBlock);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
