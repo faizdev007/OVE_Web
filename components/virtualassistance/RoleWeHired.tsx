@@ -61,7 +61,7 @@ export default function RoleWeHired(RoleBaseHired:any) {
                         {/* Text Content */}
                         <div className="absolute inset-x-0 bottom-0 translate-y-full p-2 text-start text-white transition-transform duration-500 group-hover:translate-y-0">
                             <h3 className="text-xl mb-3 font-bold">{step.title ?? 'Beautiful Nature'}</h3>
-                            <div className="text-sm">
+                            <div className="text-sm max-h-32 overflow-auto">
                                 <span dangerouslySetInnerHTML={{__html:step.description ?? "Experience the beauty of the outdoors."}}/>
                             </div>
                         </div>

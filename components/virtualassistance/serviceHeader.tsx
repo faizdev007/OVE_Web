@@ -126,7 +126,7 @@ const companyM = [{
                 </svg>
                 <span className=''>+44 7411118134</span>
               </a>
-              <button onClick={() => setIsOpen(true)} className="border-2 border-oveblue hover:bg-blue-700 text-oveblue hover:text-white px-4 py-2 rounded-md transition">
+              <button onClick={() => setIsOpen(true)} className="border-2 border-oveblue hover:bg-blue-700 text-oveblue hover:text-white  cursor-pointer px-4 py-2 rounded-md transition">
                 Hire My First VA!
               </button>
           </div>
@@ -241,7 +241,7 @@ const companyM = [{
 
               <hr className='my-2 border-2 rounded border-gray-600'></hr>
               
-              <button type='button' onClick={() => setIsOpen(true)} className="block text-center border-2 border-oveblue hover:bg-blue-700 hover:dark:bg-gray-700 text-oveblue hover:text-white dark:border-white dark:text-white px-4 py-2 rounded-md transition">
+              <button type='button' onClick={() => setIsOpen(true)} className="block text-center  cursor-pointer border-2 border-oveblue hover:bg-blue-700 hover:dark:bg-gray-700 text-oveblue hover:text-white dark:border-white dark:text-white px-4 py-2 rounded-md transition">
                   Hire My First VA!
               </button>
           </div>

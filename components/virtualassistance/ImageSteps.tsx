@@ -65,7 +65,7 @@ export default function ImageSteps(StepsBlock:any) {
                     {/* Description */}
                     {openIndex === index && (
                     <div className=" text-gray-700 md:block">
-                        <div className="whitespace-pre-line">
+                        <div className="whitespace-pre-line opacity-0 animate-fadeIn">
                             <span dangerouslySetInnerHTML={{__html:step.info ?? "Share Your Requirement"}}/>
                         </div>
 
