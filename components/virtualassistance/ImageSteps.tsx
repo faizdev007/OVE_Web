@@ -23,6 +23,7 @@ const steps = [
 ];
 
 export default function ImageSteps(StepsBlock:any) {
+    console.log(StepsBlock);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
@@ -45,7 +46,12 @@ export default function ImageSteps(StepsBlock:any) {
                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
                     className="flex justify-between items-center w-full py-4 text-left focus:outline-none"
                     >
-                    <span className="font-semibold"><strong>Step {index+1} : {step.title}</strong></span>
+                    <span className="font-semibold">
+                        <strong className="flex gap-2">
+                            <span dangerouslySetInnerHTML={{__html:step.svg ?? ''}}/>
+                            Step {index+1} : {step.title}
+                        </strong>
+                    </span>
                     <span>{openIndex === index ? 
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-6">
                                 <path fillRule="evenodd" d="M9.47 6.47a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 1 1-1.06 1.06L10 8.06l-3.72 3.72a.75.75 0 0 1-1.06-1.06l4.25-4.25Z" clipRule="evenodd" />

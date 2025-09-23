@@ -33,6 +33,7 @@ export type ServicePageDataType = {
       title?: string;
       info?: string;
       image?: string;
+      svg?:string;
     }[];
   };
 
@@ -201,6 +202,7 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
                 title
               }
             }
+            cardsvg
           }
         }
         vacta{
@@ -354,6 +356,7 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
         title: c.cardtitle,
         info: c.cardinfo,
         image: c?.cardimage?.node?.sourceUrl,
+        svg:c?.cardsvg,
       })),
     },
 
