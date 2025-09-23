@@ -47,7 +47,7 @@ export default function SkillsVA(Skills:any) {
                   {Skills?.Skills?.icons.map((logo:string, index:number) => (
                       <img key={index} src={logo} className="h-16 p-2 border-black bg-white shadow w-auto border rounded" alt={`Logo ${index + 1}`} />
                   ))}
-                  {logos.map((logo, index) => (
+                  {Skills?.Skills?.icons.map((logo:string, index:number) => (
                       <img key={index} src={logo} className="h-16 p-2 border-black bg-white shadow w-auto border rounded" alt={`Logo ${index + 1}`} />
                   ))}
               </div>
