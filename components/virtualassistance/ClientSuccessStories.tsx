@@ -119,11 +119,11 @@ const ClientSuccessStories = (ClientStories:any) => {
                 <Slider {...settings}>
                 {ClientsStories.map((item:any, index:number) => ( 
                     <div className="py-6">
-                        <div key={index} className="flex border max-w-7xl md:divide-x divide-y md:divide-y-0 flex-col md:flex-row mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div key={index} className="flex border md:divide-x divide-y md:divide-y-0 flex-col md:flex-row mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
                             {/* Left: Video Section */}
                             <div className="lg:w-1/2 w-full flex items-center justify-center bg-gray-100 p-4">
                                 <video
-                                className="w-full h-64 md:h-80 rounded-lg object-cover"
+                                className="aspect-video w-full h-full rounded-lg object-cover"
                                 autoPlay
                                 controls
                                 muted
