@@ -26,7 +26,7 @@ export default function ImageSteps(StepsBlock:any) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="bg-gradient py-12 dark:py-12 flex flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
+    <section className="bg-oveblue/10 py-12 dark:py-12 flex flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
         {/* Main Header */}
         <div className="text-center max-w-4xl mx-auto">
             <h2 className="text-3xl">
@@ -40,14 +40,14 @@ export default function ImageSteps(StepsBlock:any) {
             {/* Left Side - Steps */}
             <div className="md:w-1/2">
                 {StepsBlock?.StepsBlock?.cards.map((step:any, index:number) => (
-                <div key={index} className="border-b border-gray-200 transform transition hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none">
+                <div key={index} className="border-b border-gray-400 transform transition hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none">
                     <button
                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
                     className="flex justify-between items-center w-full py-4 text-left focus:outline-none"
                     >
                     <span className="font-semibold">
                         <strong className="flex gap-2">
-                            <span dangerouslySetInnerHTML={{__html:step.svg ?? ''}}/>
+                            <span className="text-oveblue" dangerouslySetInnerHTML={{__html:step.svg ?? ''}}/>
                             Step {index+1} : {step.title}
                         </strong>
                     </span>
@@ -64,7 +64,7 @@ export default function ImageSteps(StepsBlock:any) {
 
                     {/* Description */}
                     {openIndex === index && (
-                    <div className="pb-4 text-gray-700 md:block">
+                    <div className=" text-gray-700 md:block">
                         <div className="whitespace-pre-line">
                             <span dangerouslySetInnerHTML={{__html:step.info ?? "Share Your Requirement"}}/>
                         </div>
