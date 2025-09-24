@@ -42,7 +42,7 @@ export default function ImageSteps(StepsBlock:any) {
                 {StepsBlock?.StepsBlock?.subtitle ?? '3 Simple Steps'}
             </div>
         </div>
-        <div className="md:flex gap-2 mt-8">
+        <div className="md:flex gap-2">
             {/* Left Side - Steps */}
             <div className="md:w-1/2">
                 <div className="w-full space-y-4">
