@@ -1,22 +1,23 @@
 "use client";
 import { notFound } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export default function ThankYouPage() {
-  const [called, setCalled] = useState(false);
-  console.log(called);
+  const value = sessionStorage.getItem("thankyoucall");
+  
   useEffect(() => {
-    const value = sessionStorage.getItem("thankyoucall");
-    setCalled(value === "true" ? true : false);
+    // ✅ Only remove after mount (not on every render)
+    const timer = setTimeout(() => {
+      sessionStorage.removeItem("thankyoucall");
+    }, 3000);
+
+    return () => clearTimeout(timer); // cleanup
+
   }, []);
 
-  setTimeout(() => {
-    sessionStorage.removeItem("thankyoucall");
-  }, 2000);
-  
-  console.log(called);
+  console.log(value);
 
-  if(called){
+  if(value){
     return (
       <main className="min-h-screen flex flex-col items-center justify-center bg-oveblue p-6">
         <div className="bg-white shadow-xl rounded-2xl max-w-lg w-full text-center p-10">
@@ -58,6 +59,6 @@ export default function ThankYouPage() {
       </main>
     );
   }else{
-    notFound();
+    return notFound();
   }
 }
