@@ -118,7 +118,7 @@ const ClientSuccessStories = (ClientStories:any) => {
                 {settings ? 
                 <Slider {...settings}>
                 {ClientsStories.map((item:any, index:number) => ( 
-                    <div className="py-6">
+                    <div className="py-6 px-2">
                         <div key={index} className="flex border md:divide-x divide-y md:divide-y-0 flex-col md:flex-row mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
                             {/* Left: Video Section */}
                             <div className="lg:w-1/2 w-full flex items-center justify-center bg-gray-100 p-4">

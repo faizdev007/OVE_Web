@@ -113,7 +113,7 @@ const ModalForm = () => {
             {/* Form */}
             <div className="lg:w-1/2 w-full">
                 <div className="mx-auto overflow-hidden">
-                    <h2 className="text-3xl text-nowrap text-center font-bold mb-2">Book Your Free Consultation</h2>
+                    <h2 className="text-3xl md:text-nowrap text-center font-bold mb-2">Book Your Free Consultation</h2>
                     <p className="text-center">Get 3 Shortlisted VAs in Just 24 Hours</p>
                     <form onSubmit={handleSubmit}  className="space-y-4">
                         <div className="mt-1 flex w-full border overflow-hidden border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
