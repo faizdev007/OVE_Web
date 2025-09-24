@@ -31,7 +31,7 @@ export default function ServicePage(pageData:any) {
       </div>
       <VACTA CTA={pageData?.pageData?.cta?.one}/>
       <SkillsVA Skills={pageData?.pageData?.cursorBlock}/>
-      <div id="SS" className="bg-oveblue/10">
+      <div id="SS" className="overflow-y-scroll scroll-mt-18 scroll-smooth bg-oveblue/10">
         <ClientSuccessStories ClientStories={pageData?.pageData?.clientStories}/>
         <ClientReview Testimonials={pageData?.pageData?.testimonial}/>
       </div>
