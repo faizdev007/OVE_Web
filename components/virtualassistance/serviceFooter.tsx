@@ -61,11 +61,17 @@ export default function ServiceFooter() {
                         </div>
 
                         {/* Legal */}
-                        <div>
-                            <h3 className="font-semibold mb-4">Legal</h3>
-                            <ul className="space-y-2 text-sm text-gray-600">
-                            <li><a href="/privacy-policy" className="hover:text-gray-900">Privacy Policy</a></li>
-                            </ul>
+                        <div className="flex flex-col justify-between">
+                            <div className="">
+                                <h3 className="font-semibold mb-4">Legal</h3>
+                                <ul className="space-y-2 text-sm text-gray-600">
+                                <li><a href="/privacy-policy" className="hover:text-gray-900">Privacy Policy</a></li>
+                                </ul>
+                            </div>
+                            <div className="flex gap-1 justify-center items-center mt-10">
+                                <Image src={'/assets/ssl-secure.webp'} width={120} height={60}  alt={'GDPR'}/>
+                                <Image src={'/assets/GDPR.webp'} width={120} height={60}  alt={'GDPR'}/>
+                            </div>
                         </div>
                         </div>
                     </div>

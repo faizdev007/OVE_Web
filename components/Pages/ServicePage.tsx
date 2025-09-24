@@ -16,6 +16,7 @@ import ClientSuccessStories from "../virtualassistance/ClientSuccessStories";
 import RoleWeHired from "../virtualassistance/RoleWeHired";
 import ImageSteps from "../virtualassistance/ImageSteps";
 import ClientReview from "../virtualassistance/ClientReview";
+import ClientScroll from "../virtualassistance/ClientScroll";
 
 // src/app/(services)/services/page.tsx
 export default function ServicePage(pageData:any) {
@@ -25,6 +26,7 @@ export default function ServicePage(pageData:any) {
   return (
     <div className="">
       <HeroSection HeroData={pageData?.pageData?.HeroSection}/>
+      <ClientScroll/>
       <ImageSteps StepsBlock={pageData?.pageData?.stepCard}/>
       <div id="SWS" className="overflow-y-scroll scroll-mt-18 scroll-smooth">
         <ServicessArea ServicessArea={pageData?.pageData?.hoverCards?.group2}/>
