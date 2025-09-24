@@ -50,7 +50,7 @@ export default function ThankYouPage() {
         {/* Back to Home Button */}
         <a
           href="/"
-          className="mt-8 inline-block rounded-lg bg-[#2562eb] px-6 py-3 text-white font-medium hover:bg-[#1e4fc9] transition"
+          className="mt-8 hidden rounded-lg bg-[#2562eb] px-6 py-3 text-white font-medium hover:bg-[#1e4fc9] transition"
         >
           Back to Home
         </a>
