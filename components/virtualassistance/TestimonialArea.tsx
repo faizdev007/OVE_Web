@@ -51,9 +51,10 @@ const demodata = [
 ];
 
 export default function TestimonialArea(ClientTestimonials:any) {
-    const testimonials = ClientTestimonials?.ClientTestimonials ?? demodata;
-    
-    const [expended, setExpanded] = useState<number | null>(null);
+  
+  const [expended, setExpanded] = useState<number | null>(null);
+  
+  const testimonials = ClientTestimonials?.ClientTestimonials ?? demodata;
 
     const toggle = (index: number | null = null) => {
       setExpanded(index === expended ? null : index);
