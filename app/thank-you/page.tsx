@@ -12,7 +12,6 @@ export default function ThankYouPage() {
     }, 3000);
 
     return () => clearTimeout(timer); // cleanup
-
   }, []);
 
   if(value){
@@ -57,6 +56,6 @@ export default function ThankYouPage() {
       </main>
     );
   }else{
-    return notFound();
+    notFound();
   }
 }
