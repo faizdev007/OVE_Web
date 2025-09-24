@@ -89,8 +89,8 @@ const HeroSection = (HeroData:any) => {
             {/* Form */}
             <div className="lg:w-1/2 w-full">
                 <div className="max-w-lg mx-auto bg-white border border-gray-300 rounded-lg shadow-lg overflow-hidden">
-                    <div className="text-center flex text-white flex-col gap-4 bg-oveblue/70 p-3">
-                        <h2 className="text-4xl font-bold">
+                    <div className="text-center flex text-white flex-col gap-2 bg-oveblue/70 p-3">
+                        <h2 className="text-3xl text-nowrap font-bold">
                             <span dangerouslySetInnerHTML={{__html:HeroData?.HeroData?.heroformsection?.formtitle ?? "Get In Touch"}}/>
                         </h2>
                         <div><span dangerouslySetInnerHTML={{__html:HeroData?.HeroData?.heroformsection?.formsubtitle ?? "Same-Day Response | Strict NDA, 100% Confidential" }}/></div>

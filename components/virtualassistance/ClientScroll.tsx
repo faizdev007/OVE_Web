@@ -42,7 +42,7 @@ export default function ClientScroll(Skills:any) {
         </div>
 
         {/* Marquee Section */}
-        <div className="flex-1 pe-4 border-s-2 border-gray-300 overflow-hidden relative">
+        <div className="flex-1 border-x-2 border-gray-300 overflow-hidden relative">
           <div className="relative flex-1 gap-4 overflow-hidden px-4 sm:px-6 lg:px-8 mx-auto ">
               <div className="logo-slider flex w-max md:space-x-8 space-x-4">
                   {icones.map((logo:string, index:number) => (
