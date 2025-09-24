@@ -25,6 +25,11 @@ const steps = [
 export default function ImageSteps(StepsBlock:any) {
     let stepdata = StepsBlock?.StepsBlock?.cards ?? steps;
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [activeIndex, setActiveIndex] = useState<number | null>(0);
+
+  const toggle = (index: number) => {
+    setActiveIndex(prev => (prev === index ? null : index));
+  };
 
   return (
     <section className="bg-oveblue/10 py-12 dark:py-12 flex flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
@@ -40,60 +45,64 @@ export default function ImageSteps(StepsBlock:any) {
         <div className="md:flex gap-2 mt-8">
             {/* Left Side - Steps */}
             <div className="md:w-1/2">
-                {stepdata.map((step:any, index:number) => (
-                <div key={index} className="border-b border-gray-400 transform transition hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none">
-                    <button
-                    onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                    className="flex justify-between items-center w-full py-4 text-left focus:outline-none"
-                    >
-                    <span className="font-semibold">
-                        <strong className="flex gap-2">
-                            <span className="text-oveblue" dangerouslySetInnerHTML={{__html:step.svg ?? ''}}/>
-                            Step {index+1} : {step.title}
-                        </strong>
-                    </span>
-                    <span>{openIndex === index ? 
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-6">
-                                <path fillRule="evenodd" d="M9.47 6.47a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 1 1-1.06 1.06L10 8.06l-3.72 3.72a.75.75 0 0 1-1.06-1.06l4.25-4.25Z" clipRule="evenodd" />
-                            </svg>
-                        : 
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-6">
-                               <path fillRule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
-                            </svg>
-                        }</span>
-                    </button>
+                <div className="w-full space-y-4">
+                    {stepdata.map((item:any, index:number) => {
+                    const open = activeIndex === index;
+                    return (
+                        <div
+                            key={index}
+                            className={`border-oveblue bg-oveblue/10 rounded py-2 px-4 shadow-sm shadow-oveblue transition-all cursor-pointer ${open ? "border-b-4" : ""}`}
+                            onClick={() => {
+                                toggle(index);
+                                setOpenIndex(openIndex === index ? null : index);
+                            }}
+                            aria-expanded={open}
+                            >
+                            <div className="flex justify-between items-center gap-2">
+                                <div className="font-bold md:text-xl flex gap-2"><span className="text-oveblue" dangerouslySetInnerHTML={{__html:item?.svg ?? ''}}/> Step {index+1} : {item?.title}</div>
+                                <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth="1.5"
+                                stroke="currentColor"
+                                className={`size-6 text-oveblue transition-transform duration-300 ${open ? "rotate-45" : ""}`}
+                                >
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                </svg>
+                            </div>
 
-                    {/* Description */}
-                    {openIndex === index && (
-                    <div className=" text-gray-700 md:block">
-                        <div className="opacity-0 animate-fadeIn pb-4">
-                            <span dangerouslySetInnerHTML={{__html:step.info ?? "Share Your Requirement"}}/>
+                            <div className={`overflow-hidden transition-all border-t border-black duration-500 ease-in-out ${open ? "opacity-100 mt-4" : "max-h-0 opacity-0"}`}>
+                                <div className="pt-2 md:text-md text-gray-700 text-sm">
+                                    <span dangerouslySetInnerHTML={{__html: item?.info || ""}}/>
+                                </div>
+                                {/* Image inside tab on small screens */}
+                                <div className="mt-4 md:hidden">
+                                    <img
+                                        src={item.image}
+                                        alt={item.title}
+                                        className="rounded-lg w-full object-cover"
+                                    />
+                                </div>
+                            </div>
                         </div>
-
-                        {/* Image inside tab on small screens */}
-                        <div className="mt-4 md:hidden">
-                        <img
-                            src={step.image}
-                            alt={step.title}
-                            className="rounded-lg w-full object-cover"
-                        />
-                        </div>
-                    </div>
-                    )}
+                        );
+                    })}
                 </div>
-                ))}
             </div>
 
             {/* Right Side - Image for large screens */}
-            <div className="hidden md:block md:w-1/2 relative">
-                {openIndex !== null && (
-                    <img
-                    key={openIndex} // 👈 important: forces React to remount the image on index change
-                    src={stepdata[openIndex].image}
-                    alt={stepdata[openIndex].title}
-                    className="rounded-lg w-full p-2 object-contain aspect-video opacity-0 animate-fadeIn"
-                    />
-                )}
+            <div className="hidden md:block md:w-1/2 relative rounded-lg bg-oveblue/10">
+                <div className="flex h-full w-full items-center justify-center">
+                    {openIndex !== null && (
+                        <img
+                        key={openIndex} // 👈 important: forces React to remount the image on index change
+                        src={stepdata[openIndex].image}
+                        alt={stepdata[openIndex].title}
+                        className="rounded-lg w-full p-1 object-contain aspect-video opacity-0 animate-fadeIn"
+                        />
+                    )}
+                </div>
             </div>
         </div>
     </section>
