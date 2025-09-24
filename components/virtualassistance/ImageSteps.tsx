@@ -91,7 +91,7 @@ export default function ImageSteps(StepsBlock:any) {
                     key={openIndex} // 👈 important: forces React to remount the image on index change
                     src={stepdata[openIndex].image}
                     alt={stepdata[openIndex].title}
-                    className="rounded-lg w-full object-contain aspect-video opacity-0 animate-fadeIn"
+                    className="rounded-lg w-full p-2 object-contain aspect-video opacity-0 animate-fadeIn"
                     />
                 )}
             </div>
