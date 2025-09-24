@@ -52,16 +52,6 @@ export default function GlobalNotFound() {
             <div className="relative hidden select-none lg:block">
               <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-br from-amber-100 via-white to-transparent blur-2xl dark:from-amber-500/10 dark:via-transparent"></div>
               <div className="mx-auto flex flex-col gap-10 aspect-[4/3] w-full max-w-xl items-center justify-center rounded-3xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
-                {/* <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg" className="h-40 w-56" aria-hidden="true">
-                  <g fill="none" stroke="currentColor" strokeWidth="16" className="text-neutral-200 dark:text-neutral-700">
-                    <path d="M55 140V85h-30l60-65v40h30l-60 80z"></path>
-                    <circle cx="200" cy="80" r="40"></circle>
-                    <path d="M345 140V85h-30l60-65v40h30l-60 80z"></path>
-                  </g>
-                  <text x="200" y="150" textAnchor="middle" className="fill-current text-neutral-400 dark:text-neutral-500" fontSize="18">
-                    404 — Not Found
-                  </text>
-                </svg> */}
                 <Image src={"/assets/logo.webp"} width={500} height={500} className='h-20 w-auto' alt="OVE" />
                 <text x="200" y="150" textAnchor="middle" className="fill-current text-neutral-400 dark:text-neutral-500 font-bold" fontSize="18">
                   404 — Not Found

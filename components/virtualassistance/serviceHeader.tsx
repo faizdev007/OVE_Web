@@ -93,7 +93,7 @@ const companyM = [{
 
   return (
     <>
-      <header className="bg-white font-bold dark:bg-gray-700 text-black dark:text-white shadow-md sticky top-0 z-50">
+      <header className="bg-white text-sm dark:bg-gray-700 text-black dark:text-white shadow-md sticky top-0 z-50">
         <div className="mx-auto flex items-center justify-between px-4 py-2 relative">
           {/* Logo */}
           <a href={'/'} className="flex items-center">
@@ -110,8 +110,16 @@ const companyM = [{
               Who we serve
             </a>
 
-            <a href="/privacy-policy" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
+            <a href="/privacy-policy" className="hidden hover:text-blue-600 dark:hover:text-blue-400 transition">
               Privacy Policy
+            </a>
+
+            <a href="#SS" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
+              Success stories
+            </a>
+
+            <a href="#IWS" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
+              Industries we serve
             </a>
             
             <a href="#FAQ" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
@@ -132,6 +140,11 @@ const companyM = [{
           </div>
 
           {/* Mobile Hamburger */}
+          <a href='tel:+44 7411118134' className='flex gap-2 items-center lg:hidden text-2xl focus:outline-none'>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5">
+              <path fillRule="evenodd" d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z" clipRule="evenodd" />
+            </svg>
+          </a>
           <button
             className="lg:hidden text-2xl focus:outline-none"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -226,11 +239,14 @@ const companyM = [{
               <a href="#WWS" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
                   Who we serve
               </a>
-              <a href="/privacy-policy" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
+              <a href="/privacy-policy" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
                   Privacy Policy
               </a>
-              <a href="/guides" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
-                  Our Story
+              <a href="#SS" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
+                  Success Story
+              </a>
+              <a href="#IWS" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
+                  Industries we serve
               </a>
               <a href="/whitepapers" className="hidden px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
                   Careers
