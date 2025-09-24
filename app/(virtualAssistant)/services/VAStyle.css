@@ -1,0 +1,9 @@
+ul{
+    list-style: disc;
+    padding-left: 25px;
+}
+
+span{
+    display: flex;
+    flex-flow: column;
+}
