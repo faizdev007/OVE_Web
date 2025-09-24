@@ -108,7 +108,7 @@ const ClientSuccessStories = (ClientStories:any) => {
         <section className="pt-12 flex flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
                 {/* Main Header */}
                 <div className="text-center max-w-5xl mx-auto">
-                    <h2 className="text-3xl font-bold mb-2 text-oveblue/50">
+                    <h2 className="text-3xl font-bold mb-2 text-oveblue/70">
                         { ClientStories?.ClientStories?.title ?? "Industries We've Served"}
                     </h2>
                     <div>
