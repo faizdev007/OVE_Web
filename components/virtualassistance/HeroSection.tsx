@@ -96,7 +96,7 @@ const HeroSection = (HeroData:any) => {
                         <div><span dangerouslySetInnerHTML={{__html:HeroData?.HeroData?.heroformsection?.formsubtitle ?? "Same-Day Response | Strict NDA, 100% Confidential" }}/></div>
                     </div>
                     <hr className=""></hr>
-                    <form onSubmit={handleSubmit}  className="space-y-4 md:p-8 p-4">
+                    <form onSubmit={handleSubmit}  className="space-y-4 md:p-8 p-4 dark:text-black">
                         <div className="mt-1 flex w-full border overflow-hidden border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
                             <label htmlFor="name" className="hidden text-sm font-medium text-gray-700">
                                 Full Name *

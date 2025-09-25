@@ -51,7 +51,7 @@ export default function ImageSteps(StepsBlock:any) {
                     return (
                         <div
                             key={index}
-                            className={`border-oveblue rounded py-2 px-4 shadow-sm shadow-oveblue transition-all cursor-pointer ${open ? "border-b-4" : ""}`}
+                            className={`border-oveblue cursor-pointer dark:bg-gray-700 dark:text-white px-4 py-2 rounded shadow-oveblue shadow-sm transition-all ${open ? "border-b-4" : ""}`}
                             onClick={() => {
                                 toggle(index);
                                 setOpenIndex(openIndex === index ? null : index);
@@ -73,7 +73,7 @@ export default function ImageSteps(StepsBlock:any) {
                             </div>
 
                             <div className={`overflow-hidden transition-all border-t border-black duration-500 ease-in-out ${open ? "opacity-100 mt-4" : "max-h-0 opacity-0"}`}>
-                                <div className="pt-2 md:text-md text-gray-700 text-sm">
+                                <div className="pt-2 md:text-md text-gray-700 dark:text-white text-sm">
                                     <span dangerouslySetInnerHTML={{__html: item?.info || ""}}/>
                                 </div>
                                 {/* Image inside tab on small screens */}

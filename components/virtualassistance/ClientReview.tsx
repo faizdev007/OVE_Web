@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Rating from "../Rating";
-import TestimonialDev from "../TestimonialDev";
 import TestimonialArea from "./TestimonialArea";
 
 const ClientReview = (Testimonials:any) => {

@@ -34,7 +34,7 @@ export default function ServiceFooter() {
                             </div>
 
                             {/* Description */}
-                            <p className="text-sm text-gray-600 mb-4">
+                            <p className="text-sm text-gray-600 dark:text-white mb-4">
                                 At Optimal Virtual Employee, we specialize in providing top-notch virtual assistance services tailored to meet the unique needs of businesses worldwide. From administrative support to customer service, research, and more, our dedicated virtual assistants help you save time, cut costs, and boost productivity. With a focus on reliability, efficiency, and confidentiality, we act as an extension of your team — empowering you to focus on growth while we handle the rest.
                             </p>
 
@@ -42,41 +42,41 @@ export default function ServiceFooter() {
 
                         {/* Right Section - Links */}
                         <div className="lg:col-span-3 grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
-                        {/* Discover more */}
-                        <div>
-                            <h3 className="font-semibold mb-4">Discover more</h3>
-                            <ul className="space-y-2 text-sm text-gray-600">
-                                <li><a href="#IWS" className="hover:text-gray-900">Industries We Serve</a></li>
-                                <li><a href="#SWS" className="hover:text-gray-900">Services</a></li>
-                            </ul>
-                        </div>
-
-                        {/* Company */}
-                        <div>
-                            <h3 className="font-semibold mb-4">Company</h3>
-                            <ul className="space-y-2 text-sm text-gray-600">
-                            <li><a href="#FAQ" className="hover:text-gray-900">FAQs</a></li>
-                            <li><a href="/contact-us" className="hover:text-gray-900">Contact Us</a></li>
-                            </ul>
-                        </div>
-
-                        {/* Legal */}
-                        <div className="flex flex-col justify-between">
-                            <div className="">
-                                <h3 className="font-semibold mb-4">Legal</h3>
-                                <ul className="space-y-2 text-sm text-gray-600">
-                                <li><a href="/privacy-policy" className="hover:text-gray-900">Privacy Policy</a></li>
+                            {/* Discover more */}
+                            <div>
+                                <h3 className="font-semibold mb-4">Discover more</h3>
+                                <ul className="space-y-2 text-sm text-gray-600 dark:text-white">
+                                    <li><a href="#IWS" className="hover:text-gray-900 dark:hover:text-gray-400">Industries We Serve</a></li>
+                                    <li><a href="#SWS" className="hover:text-gray-900 dark:hover:text-gray-400">Services</a></li>
                                 </ul>
                             </div>
-                            <div className="flex gap-1 justify-center items-center mt-10">
-                                <Image src={'/assets/ssl-secure.webp'} width={120} height={60}  alt={'GDPR'}/>
-                                <Image src={'/assets/GDPR.webp'} width={120} height={60}  alt={'GDPR'}/>
+
+                            {/* Company */}
+                            <div>
+                                <h3 className="font-semibold mb-4">Company</h3>
+                                <ul className="space-y-2 text-sm text-gray-600 dark:text-white">
+                                <li><a href="#FAQ" className="hover:text-gray-900 dark:hover:text-gray-400">FAQs</a></li>
+                                <li><a href="/contact-us" className="hover:text-gray-900 dark:hover:text-gray-400">Contact Us</a></li>
+                                </ul>
                             </div>
-                        </div>
+
+                            {/* Legal */}
+                            <div className="flex flex-col justify-between">
+                                <div className="">
+                                    <h3 className="font-semibold mb-4">Legal</h3>
+                                    <ul className="space-y-2 text-sm text-gray-600 dark:text-white">
+                                    <li><a href="/privacy-policy" className="hover:text-gray-900 dark:hover:text-gray-400">Privacy Policy</a></li>
+                                    </ul>
+                                </div>
+                                <div className="flex gap-1 justify-center items-center mt-10">
+                                    <Image className="dark:bg-white px-1 rounded-2xl" src={'/assets/ssl-secure.webp'} width={120} height={60}  alt={'GDPR'}/>
+                                    <Image src={'/assets/GDPR.webp'} width={120} height={60}  alt={'GDPR'}/>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col md:flex-row gap-4 text-center md:text-start justify-between items-center text-black relative px-4 py-6 sm:px-6 lg:px-8 mx-auto">
+                <div className="flex flex-col md:flex-row gap-4 text-center md:text-start justify-between items-center text-black dark:text-white relative px-4 py-6 sm:px-6 lg:px-8 mx-auto">
                     <div className="text-xs">
                         @ Copywrite {new Date().getUTCFullYear()} Optimal Virtual Employee. All Rights Reserved.
                     </div>

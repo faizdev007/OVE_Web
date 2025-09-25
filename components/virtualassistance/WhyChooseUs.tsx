@@ -56,7 +56,7 @@ export default function ServiceWhyChooseUs( WhyChooseUs : any) {
                     return (
                         <div
                             key={index}
-                            className={`border-oveblue bg-oveblue/10 rounded py-2 px-4 shadow-sm shadow-oveblue transition-all cursor-pointer ${open ? "border-b-4" : ""}`}
+                            className={`border-oveblue bg-oveblue/10 dark:bg-gray-700 dark:text-white rounded py-2 px-4 shadow-sm shadow-oveblue transition-all cursor-pointer ${open ? "border-b-4" : ""}`}
                             onClick={() => toggle(index)}
                             aria-expanded={open}
                             >

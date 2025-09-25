@@ -14,8 +14,8 @@ const VACTA2 = (CTA2:any) => {
     return(
 
         <>   
-            <section className="text-black py-12 dark:py-12 flex flex-col items-center relative px-4 sm:px-6 lg:px-8 mx-auto">
-                <div className="w-full flex flex-col items-center p-8 rounded-3xl gap-6 bg-oveblue/10 border mx-auto">
+            <section className="text-black dark:text-white py-12 dark:py-12 flex flex-col items-center relative px-4 sm:px-6 lg:px-8 mx-auto">
+                <div className="w-full flex flex-col items-center p-8 rounded-3xl gap-6 bg-oveblue/10 dark:bg-gray-700 border mx-auto">
                     <h2 className="lg:text-3xl text-2xl font-bold text-center"><span dangerouslySetInnerHTML={{ __html: CTA2?.CTA2?.title ?? "From launch to legacy, we’ve built a model that scales with you. No matter where you are in the journey, we’ll make growth predictable, transparent, and frustration-free." }}/></h2>
                     <div className="flex gap-3 items-center">
                         <button type="button" onClick={() => setIsOpen(true)} aria-label="contact" className="rounded-full text-white cursor-pointer flex items-center gap-2 bg-oveblue px-4 py-2 hover:bg-gray-700"><span dangerouslySetInnerHTML={{ __html: CTA2?.CTA2?.buttonText ?? 'Start Saving Time. Get a Assistant'}}/>
