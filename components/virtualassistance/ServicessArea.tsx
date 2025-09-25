@@ -16,7 +16,7 @@ const steps = [
 export default function ServicessArea(ServicessArea:any) {
     let services = ServicessArea?.ServicessArea?.cardText ?? steps;
     return (
-        <section className="bg-gradient py-12 dark:py-12 flex flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
+        <section className="bg-oveblue/10 py-12 dark:py-12 flex flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
             {/* Main Header */}
             <div className="text-center max-w-4xl mx-auto">
                 <h2 className="text-3xl font-bold mb-2">

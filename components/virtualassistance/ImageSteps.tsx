@@ -32,7 +32,7 @@ export default function ImageSteps(StepsBlock:any) {
   };
 
   return (
-    <section className="bg-oveblue/10 py-12 dark:py-12 flex flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
+    <section className="py-12 dark:py-12 flex flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
         {/* Main Header */}
         <div className="text-center max-w-4xl mx-auto">
             <h2 className="text-3xl">
@@ -51,7 +51,7 @@ export default function ImageSteps(StepsBlock:any) {
                     return (
                         <div
                             key={index}
-                            className={`border-oveblue bg-oveblue/10 rounded py-2 px-4 shadow-sm shadow-oveblue transition-all cursor-pointer ${open ? "border-b-4" : ""}`}
+                            className={`border-oveblue rounded py-2 px-4 shadow-sm shadow-oveblue transition-all cursor-pointer ${open ? "border-b-4" : ""}`}
                             onClick={() => {
                                 toggle(index);
                                 setOpenIndex(openIndex === index ? null : index);
@@ -92,7 +92,7 @@ export default function ImageSteps(StepsBlock:any) {
             </div>
 
             {/* Right Side - Image for large screens */}
-            <div className="hidden md:block md:w-1/2 relative rounded-lg bg-oveblue/10">
+            <div className="hidden md:block md:w-1/2 relative rounded-lg">
                 <div className="flex h-full w-full items-center justify-center">
                     {openIndex !== null && (
                         <img
