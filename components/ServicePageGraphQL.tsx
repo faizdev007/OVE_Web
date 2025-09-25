@@ -147,7 +147,6 @@ export type ServicePageDataType = {
   testimonial?: {
     clients?: {
       title?: string;
-      slug?: string;
       content?: string;
       designation?:string;
       rating?: number | string | null;
@@ -166,6 +165,25 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
         categories {
           nodes {
             name
+            slug
+            clients {
+              nodes {
+                title
+                content
+                clientDesignation {
+                  designation
+                }
+                clientRating {
+                  rating
+                }
+                featuredImage {
+                  node {
+                    sourceUrl
+                    title
+                  }
+                }
+              }
+            }
           }
         }
         seo {
@@ -174,10 +192,10 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
           opengraphTitle
           opengraphDescription
         }
-        vaherosection{
+        vaherosection {
           herotitle
           herodescription
-          heroformsection{
+          heroformsection {
             formtitle
             formsubtitle
             formbuttontext
@@ -207,19 +225,19 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
             cardsvg
           }
         }
-        vacta{
-            vacta1{
-                vactatitle
-                vactabutton
-            }
-            vacta2{
-                vactatitle
-                vactabutton
-            }
-            vacta3{
-                vactatitle
-                vactabutton
-            }
+        vacta {
+          vacta1 {
+            vactatitle
+            vactabutton
+          }
+          vacta2 {
+            vactatitle
+            vactabutton
+          }
+          vacta3 {
+            vactatitle
+            vactabutton
+          }
         }
         vahovercard {
           group1 {
@@ -227,12 +245,12 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
             description
             cardtext {
               title
-              bgimage{
-                node{
+              bgimage {
+                node {
                   sourceUrl
                 }
               }
-              pagelink{
+              pagelink {
                 title
                 url
                 target
@@ -250,7 +268,7 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
         }
         vawcblock {
           vawcsideimage {
-            node{
+            node {
               sourceUrl
             }
           }
@@ -279,7 +297,7 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
           vacbsubtitle
           vacbicons {
             logo {
-              node{
+              node {
                 sourceUrl
               }
             }
@@ -290,10 +308,10 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
           vasbdescription
           vasbstorycard {
             storyimage {
-               node{
-                    sourceUrl
-                    altText
-                }
+              node {
+                sourceUrl
+                altText
+              }
             }
             title
             description
@@ -317,25 +335,6 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
           }
         }
       }
-      clients {
-        nodes {
-          title
-          slug
-          content
-          clientDesignation{
-            designation
-          }
-          clientRating {
-            rating
-          }
-          featuredImage {
-            node {
-              sourceUrl
-              title
-            }
-          }
-        }
-      }
     }
   `;
 
@@ -345,6 +344,8 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
 
   const service = raw?.service;
   const clients = raw?.clients?.nodes || [];
+
+  const firstCategory = service?.categories?.nodes?.[0];
 
   const structured: ServicePageDataType = {
     seo: service?.seo,
@@ -455,14 +456,13 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
     })),
 
     testimonial: {
-      clients: clients.map((c: any) => ({
+      clients: firstCategory?.clients?.nodes?.map((c: any) => ({
         title: c.title,
-        slug: c.slug,
         content: c.content,
-        designation: c.clientDesignation.designation,
+        designation: c.clientDesignation?.designation,
         rating: c.clientRating?.rating,
         featuredImage: c.featuredImage?.node,
-      })),
+      })) || [],
     },
   };
 
