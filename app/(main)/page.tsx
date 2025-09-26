@@ -70,31 +70,31 @@ export default function Home() {
 
       <HireBy/>
       <div className="relative">
-        <div className="bg-black">
+        <div className="bg-black hidden">
           <Image src={'/assets/gray.webp'} alt="compare" width={1000} height={1000} className="w-full dark:hidden"/>
         </div>
         <HiringProcess/>
       </div>
       <div className="relative">
-        <div className='bg-gray-100'>
+        <div className='bg-gray-100 hidden'>
           <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full dark:hidden"/>
         </div>
         <TrustedBySection/>
       </div>
       <div className="relative">
-        <div className='bg-black'>
+        <div className='bg-black hidden'>
           <Image src={'/assets/gray.webp'} alt="compare" width={1000} height={1000} className="w-full dark:hidden"/>
         </div>
         <WhyChooseUs/>
       </div>
       <div className="relative">
-        <div className="bg-gray-100">
+        <div className="bg-gray-100 hidden">
           <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full dark:hidden"/>
         </div>
         <OurProjectsSlider/>
       </div>
       <div className="relative">
-        <div className='bg-lightblack'>
+        <div className='bg-lightblack hidden'>
           <Image src={'/assets/gray.webp'} alt="compare" width={1000} height={1000} className="w-full dark:hidden"/>
         </div>
         <FaqSection/>

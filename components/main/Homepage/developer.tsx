@@ -82,6 +82,132 @@ function SamplePrevArrow(props: CustomArrowProps) {
 
 export default function DevelopersSlider({hire}:any) {
 
+  let developerquery = '';
+
+  if(hire?.categories[0] === 'Role'){
+    developerquery = `
+      query GetDevelopersBySlug {
+        role(id:"${hire?.slug}" idType:SLUG){
+          id
+          slug
+          developers(first: 12){
+            nodes {
+              id
+              title
+              slug
+              skills {
+                nodes {
+                  name
+                  slug
+                }
+              }
+              roles {
+                nodes {
+                  name
+                  slug
+                }
+              }
+              featuredImage {
+                node {
+                  sourceUrl
+                }
+              }
+              carddetails {
+                previouslyAt {
+                  node {
+                    altText
+                    sourceUrl
+                    title
+                  }
+                }
+                shortDetail
+              }
+            }
+          }
+        }
+      }
+    `;
+  }else if(hire?.categories[0] === 'Skill'){
+    developerquery = `
+      query GetDevelopersBySlug {
+        skill(id:"${hire?.slug}" idType:SLUG){
+          id
+          slug
+          developers(first: 12){
+            nodes {
+              id
+              title
+              slug
+              skills {
+                nodes {
+                  name
+                  slug
+                }
+              }
+              roles {
+                nodes {
+                  name
+                  slug
+                }
+              }
+              featuredImage {
+                node {
+                  sourceUrl
+                }
+              }
+              carddetails {
+                previouslyAt {
+                  node {
+                    altText
+                    sourceUrl
+                    title
+                  }
+                }
+                shortDetail
+              }
+            }
+          }
+        }
+      }
+    `;
+  }else{
+    developerquery = `
+        {
+          developers(first: 12) {
+            nodes {
+              skills{
+                nodes{
+                  name
+                  slug
+                }
+              }
+              id
+              title
+              slug
+              featuredImage {
+                node {
+                  sourceUrl
+                }
+              }
+              carddetails {
+                previouslyAt {
+                  node {
+                    altText
+                    sourceUrl
+                    title
+                  }
+                }
+                shortDetail
+              }
+              roles(first: 3) {
+                nodes { name slug }
+              }
+            }
+          }
+        }
+      `;
+  }
+
   const [developerList,setDeveloperList] = useState<CardDev[] | null>(null);
   const [settings, setSettings] = useState<Settings | null>(null);
   const [loading, setLoading] = useState(true);
@@ -143,9 +269,9 @@ export default function DevelopersSlider({hire}:any) {
         }
       `;
       try {
-        const data = await fetchGraphQL(QUERY);
-        const nodes: GqlDeveloperNode[] = data?.developers?.nodes ?? [];
-
+        const data = await fetchGraphQL(developerquery);
+        const nodes: GqlDeveloperNode[] = data?.role?.developers?.nodes ?? data?.skill?.developers?.nodes ?? data?.developers?.nodes ?? [];
+        
         // Map GraphQL → card shape your UI expects
         const mapped: CardDev[] = nodes.map((n) => ({
           name: n.title,
