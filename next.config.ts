@@ -71,6 +71,16 @@ const nextConfig: NextConfig = {
       //   destination: "/", // Or /404 if you want a not-found page
       //   permanent: true,
       // }
+      {
+        source: "/services",
+        destination: "/", // Or /404 if you want a not-found page
+        permanent: true,
+      },
+      {
+        source: "/services/:path*",
+        destination: "/", // Or /404 if you want a not-found page
+        permanent: true,
+      }
     ];
   },
   // async rewrites() {
