@@ -269,7 +269,7 @@ export default function DevelopersSlider({hire}:any) {
         }
       `;
       try {
-        const data = await fetchGraphQL(developerquery);
+        const data = await fetchGraphQL(QUERY);
         const nodes: GqlDeveloperNode[] = data?.role?.developers?.nodes ?? data?.skill?.developers?.nodes ?? data?.developers?.nodes ?? [];
         
         // Map GraphQL → card shape your UI expects

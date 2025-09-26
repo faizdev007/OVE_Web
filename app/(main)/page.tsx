@@ -67,34 +67,35 @@ export default function Home() {
 
       {/* Render when data is ready */}
       <DevelopersSlider/>
-
+      
       <HireBy/>
+      
       <div className="relative">
-        <div className="bg-black hidden">
+        <div className="bg-black">
           <Image src={'/assets/gray.webp'} alt="compare" width={1000} height={1000} className="w-full dark:hidden"/>
         </div>
         <HiringProcess/>
       </div>
       <div className="relative">
-        <div className='bg-gray-100 hidden'>
+        <div className='bg-gray-100'>
           <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full dark:hidden"/>
         </div>
         <TrustedBySection/>
       </div>
       <div className="relative">
-        <div className='bg-black hidden'>
+        <div className='bg-black'>
           <Image src={'/assets/gray.webp'} alt="compare" width={1000} height={1000} className="w-full dark:hidden"/>
         </div>
         <WhyChooseUs/>
       </div>
       <div className="relative">
-        <div className="bg-gray-100 hidden">
+        <div className="bg-gray-100">
           <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full dark:hidden"/>
         </div>
         <OurProjectsSlider/>
       </div>
       <div className="relative">
-        <div className='bg-lightblack hidden'>
+        <div className='bg-lightblack'>
           <Image src={'/assets/gray.webp'} alt="compare" width={1000} height={1000} className="w-full dark:hidden"/>
         </div>
         <FaqSection/>

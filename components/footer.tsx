@@ -41,7 +41,7 @@ export default function Footer() {
 
     return (
         <div className={`relative${loading ? ' hidden' : ''}`}>
-            <div className="bg-gray-100 dark:hidden hidden">
+            <div className="bg-gray-100 dark:hidden">
                 <Image src={'/assets/bgblack.webp'} alt="compare" width={1000} height={1000} className="w-full"/>
             </div>
             <div className="gird divide-y-2 footerbg divide-gray-300 relative">
