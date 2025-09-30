@@ -1,6 +1,6 @@
 'use client';
 
-import { fetchGraphQL } from "@/app/api/GraphQL/route";
+import { fetchGraphQL } from "@/lib/GraphQL";
 import { useEffect, useState } from "react";
 import './style.css';
 

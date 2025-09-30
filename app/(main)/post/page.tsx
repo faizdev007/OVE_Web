@@ -1,5 +1,5 @@
 // app/page.tsx
-import { fetchGraphQL } from "@/app/api/GraphQL/route";
+import { fetchGraphQL } from "@/lib/GraphQL";
 
 export default async function HomePage() {
   const data = await fetchGraphQL(`
