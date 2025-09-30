@@ -1,4 +1,4 @@
-import { POST } from "@/app/api/GraphQL/route";
+import { fetchGraphQL } from "@/lib/GraphQL";
 import { notFound } from "next/navigation";
 
 export type ServicePageDataType = {
@@ -337,7 +337,7 @@ const ServciePageData = async ({ slug }: { slug: string }) => {
     }
   `;
 
-  const raw = await POST(QUERY, { slug });
+  const raw = await fetchGraphQL(QUERY, { slug });
 
   if (!raw?.service) return notFound();
 

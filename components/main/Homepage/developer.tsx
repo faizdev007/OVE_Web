@@ -6,7 +6,7 @@ import React from 'react';
 import Slider, { type Settings, type CustomArrowProps } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { POST } from "@/app/api/GraphQL/route";
+import { fetchGraphQL } from '@/lib/GraphQL';
 
 type GqlDeveloperNode = {
   id: string;
@@ -269,7 +269,7 @@ export default function DevelopersSlider({hire}:any) {
         }
       `;
       try {
-        const data = await POST(QUERY);
+        const data = await fetchGraphQL(QUERY);
         const nodes: GqlDeveloperNode[] = data?.role?.developers?.nodes ?? data?.skill?.developers?.nodes ?? data?.developers?.nodes ?? [];
         
         // Map GraphQL → card shape your UI expects
