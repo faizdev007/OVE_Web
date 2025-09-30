@@ -1,6 +1,6 @@
 // lib/graphqlClient.ts
 export async function fetchGraphQL(query: string, variables: any = {}) {
-  const res = await fetch("https://admin.optimalvirtualemployee.com/graphql", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_WP_BASE_URL}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

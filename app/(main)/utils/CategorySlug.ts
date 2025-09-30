@@ -1,4 +1,4 @@
-import { fetchGraphQL } from "@/lib/graphqlClient";
+import { fetchGraphQL } from "@/app/api/GraphQL/route";
 
 type CategorySlug = {
   category: {

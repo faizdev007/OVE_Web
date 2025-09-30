@@ -1,4 +1,4 @@
-import { fetchGraphQL } from "@/lib/graphqlClient";
+import { fetchGraphQL } from "@/app/api/GraphQL/route";
 import { notFound } from "next/navigation";
 
 export type HirePageDataType = {

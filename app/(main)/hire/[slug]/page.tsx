@@ -8,7 +8,8 @@ import { notFound } from "next/navigation";
 
 // ✅ Metadata only
 export async function generateMetadata({ params }: any) {
-  const { slug } = params;
+  const awaitedParams = await params;
+  const { slug } = awaitedParams;
   const data = await HirePageData({ slug });
   const seo = data?.seo;
   return generateMetadataFromSeo(seo || {});
@@ -16,7 +17,8 @@ export async function generateMetadata({ params }: any) {
 
 // ✅ Page component fetches its own data
 export default async function HirePage({ params }: any) {
-  const { slug } = params;
+  const awaitedParams = await params;
+  const { slug } = awaitedParams;
   const data = await HirePageData({ slug });
 
   const category = data?.categories || "";

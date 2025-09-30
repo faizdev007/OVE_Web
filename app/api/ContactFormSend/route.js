@@ -14,16 +14,16 @@ export async function POST(request) {
         port: 587,                    // TLS port
         secure: false,                // Use TLS, but not SSL directly
         auth: {
-            user: process.env.EMAIL_USER,   // Your Microsoft email
-            pass: process.env.EMAIL_PASS, // Password or App Password
+            user: process.env.NEXT_PUBLIC_EMAIL_USER,   // Your Microsoft email
+            pass: process.env.NEXT_PUBLIC_EMAIL_PASS, // Password or App Password
         },
         requireTLS: true,
     });
 
     try {
         await transporter.sendMail({
-        from: `"OVE" <${process.env.EMAIL_USER}>`,
-        to: process.env.EMAIL_TO, // Your receiving email address,'Nakul@optimalvirtualemployee.com'
+        from: `"OVE" <${process.env.NEXT_PUBLIC_EMAIL_USER}>`,
+        to: process.env.NEXT_PUBLIC_EMAIL_TO, // Your receiving email address,'Nakul@optimalvirtualemployee.com'
         subject: 'New Contact Form Submission',
         html: `<!DOCTYPE html>
                 <html>

@@ -6,7 +6,7 @@ import React from 'react';
 import Slider, { type Settings, type CustomArrowProps } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { fetchGraphQL } from "@/lib/graphqlClient";
+import { fetchGraphQL } from "@/app/api/GraphQL/route";
 
 type GqlDeveloperNode = {
   id: string;
