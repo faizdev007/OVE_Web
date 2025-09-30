@@ -1,4 +1,4 @@
-import { fetchGraphQL } from "@/app/api/GraphQL/route";
+import { POST } from "@/app/api/GraphQL/route";
 import { notFound } from "next/navigation";
 
 export type HirePageDataType = {
@@ -216,7 +216,7 @@ const HirePageData = async ({ slug }: { slug: string }) => {
     }
   `;
 
-  const raw = await fetchGraphQL(QUERY, { slug });
+  const raw = await POST(QUERY, { slug });
 
   if (!raw?.hire) return notFound();
 
