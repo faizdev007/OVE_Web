@@ -72,12 +72,12 @@ const nextConfig: NextConfig = {
       //   permanent: true,
       // }
       {
-        source: "/services",
+        source: "/lp",
         destination: "/", // Or /404 if you want a not-found page
         permanent: true,
       },
       {
-        source: "/services/:path*",
+        source: "/lp/:path*",
         destination: "/", // Or /404 if you want a not-found page
         permanent: true,
       }
