@@ -25,7 +25,7 @@ export async function POST(request) {
         await transporter.sendMail({
         from: `"OVE" <${process.env.NEXT_PUBLIC_EMAIL_USER}>`,
         to: process.env.NEXT_PUBLIC_EMAIL_TO, // Your receiving email address,'Nakul@optimalvirtualemployee.com'
-        subject: 'New Form Submission',
+        subject: 'New Virtual Assistant Form Submission',
         html: `<!DOCTYPE html>
                 <html>
                 <head>
@@ -86,7 +86,7 @@ export async function POST(request) {
                 <body>
                     <div class="email-container">
                     <div class="email-header">
-                        <h1>Virtual Assistant Query</h1>
+                        <h1>Virtual Assistant Form Inquiry</h1>
                     </div>
                     <div class="email-body">
                         <table style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif;">

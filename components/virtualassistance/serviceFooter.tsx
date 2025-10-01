@@ -18,7 +18,7 @@ export default function ServiceFooter() {
         <>
          <div className={`relative block`}>
             <div className="gird divide-y-2 divide-gray-300 relative">
-                <div className="pb-12 flex dark:py-12 flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
+                <div className="py-12 flex dark:py-12 flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
                     <div className="mx-auto grid gap-10 lg:grid-cols-5">
                         {/* Left Section */}
                         <div className="lg:col-span-2">
@@ -69,8 +69,8 @@ export default function ServiceFooter() {
                                     </ul>
                                 </div>
                                 <div className="flex gap-1 justify-center items-center mt-10">
-                                    <Image className="dark:bg-white px-1 rounded-2xl" src={'/assets/ssl-secure.webp'} width={120} height={60}  alt={'GDPR'}/>
-                                    <Image src={'/assets/GDPR.webp'} width={120} height={60}  alt={'GDPR'}/>
+                                    <Image className="dark:bg-white px-1 rounded-2xl w-auto h-auto" src={'/assets/ssl-secure.webp'} width={120} height={60}  alt={'GDPR'}/>
+                                    <Image className="w-auto h-auto" src={'/assets/GDPR.webp'} width={120} height={60}  alt={'GDPR'}/>
                                 </div>
                             </div>
                         </div>

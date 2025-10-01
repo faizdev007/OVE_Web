@@ -9,8 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroui/input": "^2.4.27",
+    "@heroui/react": "^2.8.4",
+    "@heroui/system": "^2.4.22",
+    "@heroui/theme": "^2.4.22",
     "@tailwindcss/typography": "^0.5.16",
-    "framer-motion": "^12.23.15",
+    "framer-motion": "^12.23.22",
     "next": "^15.5.2",
     "nodemailer": "^7.0.5",
     "react": "19.1.0",

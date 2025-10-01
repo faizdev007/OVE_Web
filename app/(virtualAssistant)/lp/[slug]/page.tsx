@@ -1,6 +1,5 @@
 // app/hire/[slug]/page.tsx
 import { generateMetadataFromSeo } from "@/app/(main)/utils/seo";
-import GlobalNotFound from "@/app/global-not-found";
 import ServicePage from "@/components/Pages/ServicePage";
 import ServciePageData from "@/components/ServicePageGraphQL";
 import { notFound } from "next/navigation";
