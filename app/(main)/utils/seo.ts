@@ -9,6 +9,8 @@ interface SeoProps {
   opengraphTitle?: string;
   opengraphDescription?: string;
   opengraphUrl?: string;
+  index?:boolean;
+  follow?:boolean;
   opengraphImage?: {
     sourceUrl: string;
   };
@@ -25,8 +27,8 @@ export function generateMetadataFromSeo(seoData: SeoProps): Metadata {
         description: seoData.opengraphDescription ?? description,
         },
         robots: {
-            index: false,
-            follow: false,
+            index: seoData.index ?? true,
+            follow: seoData.follow ?? true,
         },
         other: {
             "google-site-verification" : "xqpfQdsNQE8sN0vLhE3D-UOWjlDCbyl36rzarrerKZ",

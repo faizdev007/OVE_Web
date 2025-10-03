@@ -166,14 +166,14 @@ export default function AboutPage()
                                 </div>
                             </div>
                             <div className="flex aspect-[2/1] w-full justify-end items-center">
-                                <Image src={'/assets/about/4.webp'} alt="slide" width={500} height={200} className="object-cover rounded-md shadow-xl drop-shadow shadow-gray-900"/>
+                                <Image src={'/assets/about/4.webp'} alt="slide1" width={500} height={200} className="w-auto h-auto object-cover rounded-md shadow-xl drop-shadow shadow-gray-900"/>
                             </div>
                         </div>
                     </section>
                     <section className="relative py-4 md:flex md:flex-rows flex-col-reverse text-white px-4 sm:px-6 lg:px-8 mx-auto">
                         <div className="md:grid flex flex-col items-center md:grid-cols-2 gap-4 mb-4">
                             <div className="flex justify-center aspect-[2/1] w-full md:justify-start items-center">
-                                <Image src={'/assets/about/2.webp'} alt="slide" width={500} height={200} className="object-cover rounded-md shadow-xl drop-shadow shadow-gray-900"/>
+                                <Image src={'/assets/about/2.webp'} alt="slide2" width={500} height={200} className="w-auto h-auto object-cover rounded-md shadow-xl drop-shadow shadow-gray-900"/>
                             </div>
                             <div className="flex flex-col justify-center">
                                 <div className="mb-10">
@@ -206,7 +206,7 @@ export default function AboutPage()
                                 </div>
                             </div>
                             <div className="flex aspect-[2/1] w-full justify-end items-center">
-                                <Image src={'/assets/about/3.webp'} alt="slide" width={500} height={333} className="object-cover rounded-md shadow-xl drop-shadow shadow-gray-900"/>
+                                <Image src={'/assets/about/3.webp'} alt="slide3" width={500} height={333} className="w-auto h-auto object-cover rounded-md shadow-xl drop-shadow shadow-gray-900"/>
                             </div>
                         </div>
                     </section>
@@ -241,7 +241,7 @@ export default function AboutPage()
                     </div>
                 </section>
             </div>
-            <section className="p-12 hidden text-white px-4 sm:px-6 lg:px-8 mx-auto">
+            {/* <section className="p-12 hidden text-white px-4 sm:px-6 lg:px-8 mx-auto">
                 <h2 className="text-oveblue mb-10 text-center font-bold text-4xl">
                     Here are a few words shared by our Employees
                 </h2>
@@ -284,7 +284,7 @@ export default function AboutPage()
                     ))}
                     </Swiper>
                 </div>
-            </section>
+            </section> */}
             <div className="relative">
                 <div className='bg-[#1b1b1b] dark:hidden'>
                     <Image src={'/assets/gray.webp'} alt="compare" width={1000} height={1000} className="w-full"/>
