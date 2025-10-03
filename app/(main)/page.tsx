@@ -68,7 +68,7 @@ export default function Home() {
       </div>
       <div className="relative">
         <div className='bg-lightblack'>
-          <Image src={'/assets/gray.webp'} alt="compare" width={1000} height={1000} className="w-full dark:hidden"/>
+          <Image src={'/assets/white.png'} alt="compare" width={1000} height={1000} className="w-full dark:hidden"/>
         </div>
         <FaqSection/>
       </div>

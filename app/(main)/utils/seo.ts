@@ -31,7 +31,7 @@ export function generateMetadataFromSeo(seoData: SeoProps): Metadata {
             follow: seoData.follow ?? true,
         },
         other: {
-            "google-site-verification" : "xqpfQdsNQE8sN0vLhE3D-UOWjlDCbyl36rzarrerKZ",
+            "google-site-verification" : "xqpfQdsNQE8sN0vLhE3D-UOWjlDCbyl36rzarrerKZ8",
         },
     };
 }

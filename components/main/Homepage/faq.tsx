@@ -52,7 +52,7 @@ export default function FaqSection(FAQ:any) {
   };
 
   return (
-    <div className='py-12 dark:py-12 relative bg-gray-100 dark:bg-gray-700'>
+    <div className='py-12 dark:py-12 relative dark:bg-gray-700'>
         <h2 className="xl:text-5xl md:text-3xl text-2xl font-bold mb-6 text-center">
           Frequently Asked Questions
         </h2>
