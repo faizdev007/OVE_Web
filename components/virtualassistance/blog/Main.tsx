@@ -192,7 +192,7 @@ const Blogs = (blogdata:any)=>{
                 <div className="gap-5 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
                     {listdata.map((item:any) => (
                         /* eslint-disable no-console */
-                        <Card key={item.id} className="border rounded-lg shadow-lg hover:shadow-2xl" isPressable shadow="sm" onClick={() => router.push(`/blog/${item.slug}`)}>
+                        <Card key={item.id} className="border rounded-lg shadow-lg hover:shadow-2xl" isPressable shadow="sm">
                             <CardBody className="overflow-visible p-0">
                                 <Image
                                     alt={item.featuredImage.title}
@@ -204,14 +204,20 @@ const Blogs = (blogdata:any)=>{
                                 />
                             </CardBody>
                             <CardFooter className="text-small h-full">
-                                <div className="text-start h-full flex flex-col justify-between">
-                                    <b className="mb-4" title={item.title}>{item.title}</b>
+                                <div className="text-start h-full flex flex-col justify-between overflow-hidden">
+                                    <div className="mb-2 flex overflow-x-auto gap-2 ovescrollhide">
+                                        {item.tags.map((tag:any,index:number)=>(
+                                            <span onClick={() => router.push(`/blog/${tag.slug}`)} key={index} className="border text-nowrap rounded-full bg-oveblue text-white hover:text-yellow-50 hover:bg-oveblue/70 p-1 px-2 text-xs">
+                                                {tag.name}
+                                            </span>
+                                        ))}
+                                    </div>
+                                    <b onClick={() => router.push(`/blog/${item.slug}`)} className="mb-4" title={item.title}>{item.title}</b>
                                     <div className="flex justify-between">
                                         <div className="flex items-center gap-2">
                                             <img className="rounded-full aspect-[1/1] h-10 w-10" src={item.author.avatar} alt=""/>
                                             <span className="capitalize text-black/50">by {item.author.name}</span>
                                         </div>
-                                        <span className="text-gray-600 text-sm mb-2 flex items-end">{item.date}</span>
                                     </div>
                                 </div>
                             </CardFooter>

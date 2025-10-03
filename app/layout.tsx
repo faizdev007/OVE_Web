@@ -1,7 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import CookieBanner from "@/components/CookieConsentBanner";
 import Analytics from "@/components/CookieConcentcheck";
 import { generateMetadataFromSeo } from "./(main)/utils/seo";
 
@@ -37,12 +36,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        {/* Google Tag Manager Script for the head */}
-        <>
-          <Analytics />
-        </>
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} opensans antialiased scroll-smooth`}
       >
@@ -56,9 +49,7 @@ export default function RootLayout({
           ></iframe>
         </noscript>
         {/* End Google Tag Manager (noscript) */}
-
         {children}
-        <CookieBanner/>
       </body>
     </html>
   );

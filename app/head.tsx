@@ -1,15 +1,11 @@
-'use client';
-
-import Script from "next/script";
-import { getCookieConsentValue } from "react-cookie-consent";
-
-export default function Analytics() {
-  const consent = getCookieConsentValue("gdpr-consent");
-  
+export default function Head() {
   return (
-    <Script id="gtm-script" strategy="afterInteractive">
-      {`
-        (function(w,d,s,l,i){
+    <>
+      {/* Google Tag Manager Script */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function(w,d,s,l,i){
           w[l]=w[l]||[];
           w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});
@@ -19,7 +15,9 @@ export default function Analytics() {
           j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
           f.parentNode.insertBefore(j,f);
           })(window,document,'script','dataLayer','GTM-5K42N2M2');
-      `}
-    </Script>
+          `,
+        }}
+      />
+    </>
   );
 }

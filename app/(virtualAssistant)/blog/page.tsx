@@ -6,11 +6,14 @@ type Blog = {
   id: string; // GraphQL IDs are often strings, not numbers
   slug: string;
   title: string;
-  date: string;
   featuredImage?: {
     sourceUrl?: string;
     title?: string;
   };
+  tags?: {
+    name?: string;
+    slug?: string;
+  }[];
   author?: {
     name?: string;
     avatar?: string;
@@ -24,11 +27,16 @@ const datalist = async (): Promise<Blog[]> => {
                 id
                 slug
                 title
-                date
                 featuredImage{
                     node{
                         sourceUrl
                         title
+                    }
+                }
+                tags{
+                    nodes{
+                    name
+                    slug
                     }
                 }
                 author{
@@ -51,15 +59,19 @@ const datalist = async (): Promise<Blog[]> => {
         id: item.id,
         slug: item.slug,
         title: item.title,
-        date: new Date(item.date).toLocaleDateString("en-GB", {
-            day: "2-digit",
-            month: "2-digit",
-            year: "2-digit",
-        }),
+        // date: new Date(item.date).toLocaleDateString("en-GB", {
+        //     day: "2-digit",
+        //     month: "2-digit",
+        //     year: "2-digit",
+        // }),
         featuredImage: {
             sourceUrl: item.featuredImage?.node?.sourceUrl ?? undefined,
             title: item.featuredImage?.node?.title ?? undefined,
         },
+        tags: item.tags?.nodes?.map((tag: any) => ({
+            name: tag.name,
+            slug: tag.slug,
+        })) ?? [],
         author: {
             name: item.author?.node?.name ?? "",
             avatar: item.author?.node?.mediaItems?.nodes?.[0]?.sourceUrl ?? "",
