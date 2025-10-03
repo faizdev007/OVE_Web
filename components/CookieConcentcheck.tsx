@@ -1,11 +1,8 @@
 'use client';
 
 import Script from "next/script";
-import { getCookieConsentValue } from "react-cookie-consent";
 
-export default function Analytics() {
-  const consent = getCookieConsentValue("gdpr-consent");
-  
+export default function Analytics() {  
   return (
     <Script id="gtm-script" strategy="afterInteractive">
       {`
