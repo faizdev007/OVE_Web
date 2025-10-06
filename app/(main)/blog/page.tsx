@@ -3,21 +3,26 @@ import { fetchGraphQL } from "@/lib/GraphQL";
 
 // Define Blog type (not as array, but as a single object type)
 type Blog = {
-  id: string; // GraphQL IDs are often strings, not numbers
-  slug: string;
-  title: string;
-  featuredImage?: {
-    sourceUrl?: string;
-    title?: string;
-  };
-  tags?: {
-    name?: string;
-    slug?: string;
-  }[];
-  author?: {
-    name?: string;
-    avatar?: string;
-  };
+    id: string; // GraphQL IDs are often strings, not numbers
+    slug: string;
+    title: string;
+    postcategories?: {  
+        name?: string;
+        slug?: string;
+    }[];
+    category?: string;
+    featuredImage?: {
+        sourceUrl?: string;
+        title?: string;
+    };
+    tags?: {
+        name?: string;
+        slug?: string;
+    }[];
+    author?: {
+        name?: string;
+        avatar?: string;
+    };
 };
 
 const datalist = async (): Promise<Blog[]> => {
@@ -27,6 +32,12 @@ const datalist = async (): Promise<Blog[]> => {
                 id
                 slug
                 title
+                postcategories{
+                    nodes{
+                        name
+                        slug
+                    }
+                }
                 featuredImage{
                     node{
                         sourceUrl
@@ -59,6 +70,11 @@ const datalist = async (): Promise<Blog[]> => {
         id: item.id,
         slug: item.slug,
         title: item.title,
+        postcategories: item.postcategories?.nodes?.map((cat: any) => ({
+            name: cat.name,
+            slug: cat.slug,
+        })) ?? [],
+        category: item.postcategories?.nodes[0]?.slug ?? "",
         featuredImage: {
             sourceUrl: item.featuredImage?.node?.sourceUrl ?? undefined,
             title: item.featuredImage?.node?.title ?? undefined,

@@ -93,10 +93,10 @@ const list2 = [
     }
 ];
 
-const Blogs = (blogdata:any)=>{
+const Cateposts = (blogdata:any)=>{
+    console.log("Received blogdata:", blogdata?.listdata);
     const router = useRouter();
-    const listdata= blogdata?.blogdata ?? list;
-    console.log("Received blogdata:", blogdata?.blogdata);
+    const listdata= blogdata?.listdata?.posts?.nodes ?? list;
     
     const [searchQuery, setSearchQuery] = React.useState("");
   
@@ -113,7 +113,7 @@ const Blogs = (blogdata:any)=>{
             </div>
             <div className="mb-12">
                 <div className="flex justify-between w-full">
-                    <h1 className="text-3xl font-bold mb-8">Popular Posts</h1>
+                    <h2 className="text-3xl font-bold mb-8">{blogdata?.listdata?.name}</h2>
                     <div className="flex flex-wrap md:flex-nowrap gap-4">
                         <Form>
                             <div className="flex w-full max-w-md gap-2">
@@ -138,66 +138,10 @@ const Blogs = (blogdata:any)=>{
                         </Form>
                     </div>
                 </div>
-                <div className="md:flex-row hidden flex-col gap-4">
-                    <div className="basis-1/2">
-                        {list2.map((item,index) => (
-                            /* eslint-disable no-console */
-                            index === 0 &&
-                            /* eslint-disable no-console */
-                            <Card key={index} className="border rounded-lg shadow-lg hover:shadow-2xl" isPressable shadow="sm" onPress={() => console.log("item pressed")}>
-                                <CardBody className="overflow-visible p-0">
-                                    <Image
-                                    alt={item.title}
-                                    className="w-full object-cover opacity-90"
-                                    radius="lg"
-                                    shadow="sm"
-                                    src={item.img}
-                                    width="100%"
-                                    />
-                                </CardBody>
-                                <CardFooter className="text-small">
-                                    <div className="text-start">
-                                        <b>{item.title}</b>
-                                        <p className="text-gray-600 text-sm mb-2">{item.date}</p>
-                                        <p className="text-gray-800">{item.summary}</p>
-                                    </div>
-                                </CardFooter>
-                            </Card>
-                        ))}
-                    </div>
-                    <div className="basis-1/2">
-                        <div className="gap-5 grid sm:grid-cols-2">
-                            {list2.map((item,index) => (
-                                /* eslint-disable no-console */
-                                <Card key={index} className="border rounded-lg shadow-lg hover:shadow-2xl" isPressable shadow="sm" onPress={() => console.log("item pressed")}>
-                                    <CardBody className="overflow-visible p-0">
-                                        <Image
-                                        alt={item.title}
-                                        className="w-full object-cover opacity-90"
-                                        radius="lg"
-                                        shadow="sm"
-                                        src={item.img}
-                                        width="100%"
-                                        />
-                                    </CardBody>
-                                    <CardFooter className="text-small">
-                                        <div className="text-start">
-                                            <b>{item.title}</b>
-                                            <p className="text-gray-600 text-sm mb-2">{item.date}</p>
-                                            <p className="text-gray-800">{item.summary}</p>
-                                        </div>
-                                    </CardFooter>
-                                </Card>
-                            ))}
-                        </div>
-                    </div>
-                </div>
             </div>
             <div className="mb-12">
-                <h2 className="text-3xl font-bold mb-8">Latest Updates</h2>
                 <div className="gap-5 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
                     {listdata.map((item:any) => (
-                        item.category &&
                         /* eslint-disable no-console */
                         <Card key={item.id} className="border rounded-lg shadow-lg hover:shadow-2xl" isPressable shadow="sm">
                             <CardBody className="overflow-visible p-0">
@@ -213,13 +157,11 @@ const Blogs = (blogdata:any)=>{
                             <CardFooter className="text-small h-full">
                                 <div className="text-start h-full flex flex-col justify-between overflow-hidden">
                                     <div className="mb-2 flex overflow-x-auto gap-2 ovescrollhide">
-                                        {item.postcategories.map((tag:any,index:number)=>(
-                                            <a href={`/blog/${tag.slug}`} key={index} className="border text-nowrap rounded-full bg-oveblue text-white hover:text-yellow-50 hover:bg-oveblue/70 p-1 px-2 text-xs">
-                                                {tag.name}
-                                            </a>
-                                        ))}
+                                        <a href={`/blog/${blogdata?.listdata?.slug}`} className="border text-nowrap rounded-full bg-oveblue text-white hover:text-yellow-50 hover:bg-oveblue/70 p-1 px-2 text-xs">
+                                            {blogdata?.listdata?.name}
+                                        </a>
                                     </div>
-                                    <a href={`/blog/${item.category}/${item.slug}`} className="mb-4" title={item.title}>{item.title}</a>
+                                    <a href={`/blog/${blogdata?.listdata?.slug}/${item.slug}`} className="mb-4" title={item.title}>{item.title}</a>
                                     <div className="flex justify-between">
                                         <div className="flex items-center gap-2">
                                             <img className="rounded-full aspect-[1/1] h-10 w-10" src={item.author.avatar} alt=""/>
@@ -236,4 +178,4 @@ const Blogs = (blogdata:any)=>{
     );
 }
 
-export default Blogs;
+export default Cateposts;

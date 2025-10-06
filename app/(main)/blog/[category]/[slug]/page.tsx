@@ -90,7 +90,10 @@ const getSingleBlog = async (slug: string): Promise<Blog | null> => {
 export default async function Page({ params }: any) {
 
     const awaitedParams = await params;
+
     const currentslug = awaitedParams.slug;
+
+    console.log("Fetching blog for slug:", currentslug);
 
     const blog = await getSingleBlog(currentslug);
 
