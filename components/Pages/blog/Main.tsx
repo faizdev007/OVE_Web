@@ -85,12 +85,12 @@ const list2 = [
         date: "2024-06-10",
     },
     {
-        title: "Lemon",
+        title: "Raspberry",
         img: "/assets/blog/blog-bg.webp",
-        price: "$5.30",
+        price: "$10.00",
         summary: "Best practices for optimizing your website's speed and UX.",
         date: "2024-06-10",
-    },
+    }
 ];
 
 const Blogs = (blogdata:any)=>{
@@ -139,25 +139,30 @@ const Blogs = (blogdata:any)=>{
                 </div>
                 <div className="flex md:flex-row flex-col gap-4">
                     <div className="basis-1/2">
-                        <Card className="border rounded-lg shadow-lg hover:shadow-2xl w-full h-full" isPressable shadow="sm" onPress={() => console.log("item pressed")}>
-                            <CardBody className="overflow-visible p-0">
-                                <Image
-                                alt={"First Title"}
-                                className="w-full object-cover h-auto opacity-90"
-                                radius="lg"
-                                shadow="sm"
-                                src={'/assets/blog/blog-bg.webp'}
-                                width="100%"
-                                />
-                            </CardBody>
-                            <CardFooter className="text-small">
-                                <div className="text-start">
-                                    <b>{'This is Title'}</b>
-                                    <p className="text-gray-600 text-sm mb-2">{'2024-06-10'}</p>
-                                    <p className="text-gray-800">{"Best practices for optimizing your website's speed and UX."}</p>
-                                </div>
-                            </CardFooter>
-                        </Card>
+                        {list2.map((item,index) => (
+                            /* eslint-disable no-console */
+                            index === 0 &&
+                            /* eslint-disable no-console */
+                            <Card key={index} className="border rounded-lg shadow-lg hover:shadow-2xl" isPressable shadow="sm" onPress={() => console.log("item pressed")}>
+                                <CardBody className="overflow-visible p-0">
+                                    <Image
+                                    alt={item.title}
+                                    className="w-full object-cover opacity-90"
+                                    radius="lg"
+                                    shadow="sm"
+                                    src={item.img}
+                                    width="100%"
+                                    />
+                                </CardBody>
+                                <CardFooter className="text-small">
+                                    <div className="text-start">
+                                        <b>{item.title}</b>
+                                        <p className="text-gray-600 text-sm mb-2">{item.date}</p>
+                                        <p className="text-gray-800">{item.summary}</p>
+                                    </div>
+                                </CardFooter>
+                            </Card>
+                        ))}
                     </div>
                     <div className="basis-1/2">
                         <div className="gap-5 grid sm:grid-cols-2">
@@ -167,7 +172,7 @@ const Blogs = (blogdata:any)=>{
                                     <CardBody className="overflow-visible p-0">
                                         <Image
                                         alt={item.title}
-                                        className="w-full object-cover h-[140px] opacity-90"
+                                        className="w-full object-cover opacity-90"
                                         radius="lg"
                                         shadow="sm"
                                         src={item.img}

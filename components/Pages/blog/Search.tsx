@@ -1,7 +1,6 @@
 'use client';
 import React from "react";
 import {Card, CardBody, CardFooter, Image} from "@heroui/react";
-import {Input} from "@heroui/input";
 
 type BlogPost = {
     id: number;

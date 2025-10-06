@@ -24,12 +24,12 @@ const steps = [
 
 export default function ImageSteps(StepsBlock:any) {
     let stepdata = StepsBlock?.StepsBlock?.cards ?? steps;
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const [activeIndex, setActiveIndex] = useState<number | null>(0);
+    const [openIndex, setOpenIndex] = useState<number | null>(0);
+    const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
-  const toggle = (index: number) => {
-    setActiveIndex(prev => (prev === index ? null : index));
-  };
+    const toggle = (index: number) => {
+        setActiveIndex(prev => (prev === index ? null : index));
+    };
 
   return (
     <section className="py-12 dark:py-12 flex flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
@@ -96,10 +96,10 @@ export default function ImageSteps(StepsBlock:any) {
                 <div className="flex h-full w-full items-center justify-center">
                     {openIndex !== null && (
                         <img
-                        key={openIndex} // 👈 important: forces React to remount the image on index change
-                        src={stepdata[openIndex].image}
-                        alt={stepdata[openIndex].title}
-                        className="rounded-lg w-full p-1 object-contain aspect-video opacity-0 animate-fadeIn"
+                            key={openIndex} // 👈 important: forces React to remount the image on index change
+                            src={stepdata[openIndex].image}
+                            alt={stepdata[openIndex].title}
+                            className="rounded-lg w-full p-1 object-contain aspect-video opacity-0 animate-fadeIn"
                         />
                     )}
                 </div>

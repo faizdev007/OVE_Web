@@ -1,4 +1,4 @@
-import Blogs from "@/components/virtualassistance/blog/Main";
+import Blogs from "@/components/Pages/blog/Main";
 import { fetchGraphQL } from "@/lib/GraphQL";
 
 // Define Blog type (not as array, but as a single object type)
@@ -42,10 +42,10 @@ const datalist = async (): Promise<Blog[]> => {
                 author{
                     node{
                     name
-                        mediaItems{
-                            nodes{
-                            sourceUrl
-                            }
+                        avatar{
+                            url
+                            height
+                            width
                         }
                     }
                 }
@@ -59,11 +59,6 @@ const datalist = async (): Promise<Blog[]> => {
         id: item.id,
         slug: item.slug,
         title: item.title,
-        // date: new Date(item.date).toLocaleDateString("en-GB", {
-        //     day: "2-digit",
-        //     month: "2-digit",
-        //     year: "2-digit",
-        // }),
         featuredImage: {
             sourceUrl: item.featuredImage?.node?.sourceUrl ?? undefined,
             title: item.featuredImage?.node?.title ?? undefined,
@@ -74,7 +69,7 @@ const datalist = async (): Promise<Blog[]> => {
         })) ?? [],
         author: {
             name: item.author?.node?.name ?? "",
-            avatar: item.author?.node?.mediaItems?.nodes?.[0]?.sourceUrl ?? "",
+            avatar: item.author?.node?.avatar?.url ?? "",
         }
     })) ?? [];
 
