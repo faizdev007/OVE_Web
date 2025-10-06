@@ -87,12 +87,12 @@ const getSingleBlog = async (slug: string): Promise<Blog | null> => {
 };
 
 // Example Next.js Page
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function Page({ params }: any) {
 
     const awaitedParams = await params;
-    const { slug } = awaitedParams;
+    const currentslug = awaitedParams.slug;
 
-    const blog = await getSingleBlog(slug);
+    const blog = await getSingleBlog(currentslug);
 
     if (!blog) {
         return <div>Blog not found</div>;
