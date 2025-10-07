@@ -241,50 +241,6 @@ export default function AboutPage()
                     </div>
                 </section>
             </div>
-            {/* <section className="p-12 hidden text-white px-4 sm:px-6 lg:px-8 mx-auto">
-                <h2 className="text-oveblue mb-10 text-center font-bold text-4xl">
-                    Here are a few words shared by our Employees
-                </h2>
-
-                <div className="w-full">
-                    <Swiper
-                    modules={[Navigation, Autoplay]}
-                    spaceBetween={30}
-                    loop={true}
-                    autoplay={{ delay: 3000, disableOnInteraction: false }}
-                    speed={1000}
-                    breakpoints={{
-                        320: { slidesPerView: 1 },
-                        640: { slidesPerView: 2 },
-                        1024: { slidesPerView: 4 },
-                    }}
-                    className="w-full"
-                    >
-                    {logos.map((src, index) => (
-                        <SwiperSlide key={index} className="h-full">
-                        <div className="flex flex-col justify-between p-4 h-[300px] w-full bg-stone-700 rounded-md shadow">
-                            <p className="text-sm mb-4">
-                            Lorem ipsum amet consectetur adipiscing elit eiusmod tempor incididunt ut labore.
-                            </p>
-                            <div className="flex gap-2 items-center">
-                            <Image
-                                src="/assets/developer/dev1.webp"
-                                alt="dev"
-                                height={40}
-                                width={40}
-                                className="object-cover h-10 w-10 rounded-full"
-                            />
-                            <div>
-                                <h4 className="font-bold text-sm">Jennifer Deoche</h4>
-                                <span className="text-xs">Project Manager</span>
-                            </div>
-                            </div>
-                        </div>
-                        </SwiperSlide>
-                    ))}
-                    </Swiper>
-                </div>
-            </section> */}
             <div className="relative">
                 <div className='bg-[#1b1b1b] dark:hidden'>
                     <Image src={'/assets/gray.webp'} alt="compare" width={1000} height={1000} className="w-full"/>

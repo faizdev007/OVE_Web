@@ -2,6 +2,7 @@
 import React from "react";
 import {Button, Card, CardBody, CardFooter, Form, Image} from "@heroui/react";
 import { useRouter } from "next/navigation";
+import Breadcrumb from "@/components/Breadcrumb";
 
 const list = [
     {
@@ -94,7 +95,7 @@ const list2 = [
 ];
 
 const Cateposts = (blogdata:any)=>{
-    console.log("Received blogdata:", blogdata?.listdata);
+    console.log("Received blogdata:", blogdata);
     const router = useRouter();
     const listdata= blogdata?.listdata?.posts?.nodes ?? list;
     
@@ -107,13 +108,9 @@ const Cateposts = (blogdata:any)=>{
 
     return (
         <main className="mx-auto py-10 px-4">
-            <div className="mb-12">
-                <h1 className="2xl:text-5xl md:text-3xl text-2xl font-bold mb-8">Software Innovation Starts Here</h1>
-                <p>Tap into the power of our top 1% software engineers and 675+ digital transformation experts. Get insights to drive your business forward in today’s competitive landscape.</p>
-            </div>
-            <div className="mb-12">
-                <div className="flex justify-between w-full">
-                    <h2 className="text-3xl font-bold mb-8">{blogdata?.listdata?.name}</h2>
+            <div className="mb-6 bg-oveblue/20 p-2 border rounded-lg">
+                <div className="lg:flex justify-between w-full">
+                    <h2 className="text-3xl font-bold">{blogdata?.listdata?.name}</h2>
                     <div className="flex flex-wrap md:flex-nowrap gap-4">
                         <Form>
                             <div className="flex w-full max-w-md gap-2">
@@ -126,7 +123,7 @@ const Cateposts = (blogdata:any)=>{
                                             handleSearch();
                                         }
                                     }}
-                                    className="flex-1 border border-black p-1 rounded-lg"
+                                    className="flex-1 border bg-white border-black p-1 rounded-lg"
                                 />
                                 <Button  
                                     onPress={handleSearch}
@@ -138,12 +135,32 @@ const Cateposts = (blogdata:any)=>{
                         </Form>
                     </div>
                 </div>
+                <hr className="border-gray-400 my-3"/>
+                <div className="">
+                    {blogdata?.listdata?.categories && blogdata?.listdata?.categories.length > 0 && (
+                        <div className="flex flex-wrap gap-2">
+                            {blogdata?.listdata?.categories.map((cat:any) => (
+                                cat.name !== blogdata?.listdata?.name && 
+                                <a
+                                    key={cat.slug}
+                                    href={`/blog/${cat.slug}`}
+                                    className="px-3 py-1 border bg-white text-black hover:bg-oveblue/90 hover:text-white rounded-full text-sm"
+                                >
+                                    {cat.name}
+                                </a>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            </div>
+            <div className="mb-6">
+                <Breadcrumb items={blogdata?.listdata?.seo?.breadcrumbs} />
             </div>
             <div className="mb-12">
                 <div className="gap-5 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
-                    {listdata.map((item:any) => (
+                    {listdata.length !== 0 ? listdata.map((item:any) => (
                         /* eslint-disable no-console */
-                        <Card key={item.id} className="border rounded-lg shadow-lg hover:shadow-2xl" isPressable shadow="sm">
+                        <Card key={item.id} className="border cursor-auto rounded-lg shadow-lg hover:shadow-2xl" isPressable shadow="sm">
                             <CardBody className="overflow-visible p-0">
                                 <Image
                                     alt={item.featuredImage.title}
@@ -156,22 +173,23 @@ const Cateposts = (blogdata:any)=>{
                             </CardBody>
                             <CardFooter className="text-small h-full">
                                 <div className="text-start h-full flex flex-col justify-between overflow-hidden">
-                                    <div className="mb-2 flex overflow-x-auto gap-2 ovescrollhide">
-                                        <a href={`/blog/${blogdata?.listdata?.slug}`} className="border text-nowrap rounded-full bg-oveblue text-white hover:text-yellow-50 hover:bg-oveblue/70 p-1 px-2 text-xs">
-                                            {blogdata?.listdata?.name}
-                                        </a>
-                                    </div>
-                                    <a href={`/blog/${blogdata?.listdata?.slug}/${item.slug}`} className="mb-4" title={item.title}>{item.title}</a>
                                     <div className="flex justify-between">
-                                        <div className="flex items-center gap-2">
-                                            <img className="rounded-full aspect-[1/1] h-10 w-10" src={item.author.avatar} alt=""/>
+                                        <div className="flex items-center gap-2 mb-4">
+                                            <img className="rounded-full aspect-[1/1] h-7 w-7" src={item.author.avatar} alt=""/>
                                             <span className="capitalize text-black/50">by {item.author.name}</span>
                                         </div>
+                                    </div> 
+                                    <a href={`/blog/${blogdata?.listdata?.slug}/${item.slug}`} className="mb-4 hover:text-oveblue/80 font-bold" title={item.title}>{item.title}</a>
+                                    <hr className="border-gray-300"/>
+                                    <div className="mt-3 flex overflow-x-auto items-center gap-2 ovescrollhide">
+                                        {blogdata?.listdata?.name}
                                     </div>
                                 </div>
                             </CardFooter>
                         </Card>
-                    ))}
+                    )) : (
+                        <p className="text-center col-span-5 underline mt-10 font-bold w-full">No posts found in this category.</p>
+                    )}
                 </div>
             </div>
         </main>

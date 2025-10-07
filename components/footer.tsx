@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import Footerlinks from "./main/Homepage/footerlinks";
 
 export default function Footer() {
     const [loading, setLoading] = useState(true);
@@ -40,7 +39,7 @@ export default function Footer() {
     ];
 
     return (
-        <div className={`relative${loading ? ' hidden' : ''}`}>
+        <div className={`relative`}>
             <div className="dark:hidden">
                 <Image src={'/assets/bgblack.webp'} alt="compare" width={1000} height={1000} className="w-full"/>
             </div>

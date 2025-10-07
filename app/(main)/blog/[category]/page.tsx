@@ -29,6 +29,10 @@ type CategoryBlog = {
     posts?: {
         nodes?: Blog[];
     };
+    categories?: {
+        name?: string;
+        slug?: string;
+    }[];
 };
 
 const datalist = async (slug: string): Promise<CategoryBlog | null> => {
@@ -66,6 +70,13 @@ const datalist = async (slug: string): Promise<CategoryBlog | null> => {
                 }
             }
         }
+        allPostcategories{
+          nodes{
+            id
+            slug
+            name
+          }
+        }
     }`;
 
     const response = await fetchGraphQL(query, { slug });
@@ -93,6 +104,10 @@ const datalist = async (slug: string): Promise<CategoryBlog | null> => {
           },
         })) ?? [],
     },
+    categories: response?.allPostcategories?.nodes?.map((cat: any) => ({
+        name: cat.name,
+        slug: cat.slug,
+    })) ?? [],
   };
 };
 

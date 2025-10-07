@@ -96,7 +96,6 @@ const list2 = [
 const Blogs = (blogdata:any)=>{
     const router = useRouter();
     const listdata= blogdata?.blogdata ?? list;
-    console.log("Received blogdata:", blogdata?.blogdata);
     
     const [searchQuery, setSearchQuery] = React.useState("");
   
@@ -112,8 +111,8 @@ const Blogs = (blogdata:any)=>{
                 <p>Tap into the power of our top 1% software engineers and 675+ digital transformation experts. Get insights to drive your business forward in today’s competitive landscape.</p>
             </div>
             <div className="mb-12">
-                <div className="flex justify-between w-full">
-                    <h1 className="text-3xl font-bold mb-8">Popular Posts</h1>
+                <div className="lg:flex justify-between w-full mb-8">
+                    <h1 className="text-3xl font-bold"></h1>
                     <div className="flex flex-wrap md:flex-nowrap gap-4">
                         <Form>
                             <div className="flex w-full max-w-md gap-2">
@@ -126,7 +125,7 @@ const Blogs = (blogdata:any)=>{
                                             handleSearch();
                                         }
                                     }}
-                                    className="flex-1 border border-black p-1 rounded-lg"
+                                    className="flex-1 w-full border border-black p-1 rounded-lg"
                                 />
                                 <Button  
                                     onPress={handleSearch}
@@ -137,6 +136,9 @@ const Blogs = (blogdata:any)=>{
                             </div>
                         </Form>
                     </div>
+                </div>
+                <div className="lg:flex justify-between mb-8 w-full">
+                    <h1 className="text-3xl font-bold">Popular Posts</h1>
                 </div>
                 <div className="md:flex-row hidden flex-col gap-4">
                     <div className="basis-1/2">
@@ -199,7 +201,7 @@ const Blogs = (blogdata:any)=>{
                     {listdata.map((item:any) => (
                         item.category &&
                         /* eslint-disable no-console */
-                        <Card key={item.id} className="border rounded-lg shadow-lg hover:shadow-2xl" isPressable shadow="sm">
+                        <Card key={item.id} className="border cursor-auto rounded-lg shadow-lg hover:shadow-2xl" isPressable shadow="sm">
                             <CardBody className="overflow-visible p-0">
                                 <Image
                                     alt={item.featuredImage.title}
@@ -219,10 +221,10 @@ const Blogs = (blogdata:any)=>{
                                             </a>
                                         ))}
                                     </div>
-                                    <a href={`/blog/${item.category}/${item.slug}`} className="mb-4" title={item.title}>{item.title}</a>
+                                    <a href={`/blog/${item.category}/${item.slug}`} className="mb-4 hover:text-oveblue/80 font-bold" title={item.title}>{item.title}</a>
                                     <div className="flex justify-between">
                                         <div className="flex items-center gap-2">
-                                            <img className="rounded-full aspect-[1/1] h-10 w-10" src={item.author.avatar} alt=""/>
+                                            <img className="rounded-full aspect-[1/1] h-7 w-7" src={item.author.avatar} alt=""/>
                                             <span className="capitalize text-black/50">by {item.author.name}</span>
                                         </div>
                                     </div>
