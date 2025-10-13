@@ -9,26 +9,28 @@ interface SeoProps {
   opengraphTitle?: string;
   opengraphDescription?: string;
   opengraphUrl?: string;
-  index?:boolean;
-  follow?:boolean;
   opengraphImage?: {
     sourceUrl: string;
+  };
+  robots?: {
+      index: boolean;
+      follow: boolean;
   };
 }
 
 export function generateMetadataFromSeo(seoData: SeoProps): Metadata {
-    let title = seoData.title ?? seoData.opengraphTitle ?? "Find and Hire Developers for Startups — Optimal Virtual Employee — Top 3% Remote Talent";
-    let description = seoData.metaDesc ?? seoData.opengraphDescription ?? "Find and hire pre-vetted remote developers from the top 3% global talent pool. Optimal Virtual Employee helps startups build reliable tech teams fast — affordable, flexible & scalable.";
+    let title = seoData?.title ?? seoData?.opengraphTitle ?? "Find and Hire Developers for Startups — Optimal Virtual Employee — Top 3% Remote Talent";
+    let description = seoData?.metaDesc ?? seoData?.opengraphDescription ?? "Find and hire pre-vetted remote developers from the top 3% global talent pool. Optimal Virtual Employee helps startups build reliable tech teams fast — affordable, flexible & scalable.";
     return {
         title:title,
         description:description,
         openGraph: {
-        title: seoData.opengraphTitle ?? title,
-        description: seoData.opengraphDescription ?? description,
+        title: seoData?.opengraphTitle ?? title,
+        description: seoData?.opengraphDescription ?? description,
         },
         robots: {
-            index: seoData.index ?? true,
-            follow: seoData.follow ?? true,
+            index: seoData?.robots?.index ?? true,
+            follow: seoData?.robots?.follow ?? true,
         },
         other: {
             "google-site-verification" : "xqpfQdsNQE8sN0vLhE3D-UOWjlDCbyl36rzarrerKZ8",

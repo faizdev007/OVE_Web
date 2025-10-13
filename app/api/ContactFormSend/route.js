@@ -10,20 +10,17 @@ export async function GET() {
 export async function POST(request) {
     const data = await request.json();
     const transporter = nodemailer.createTransport({
-        host: "smtp.office365.com",   // Microsoft/Outlook SMTP host
-        port: 587,                    // TLS port
-        secure: false,                // Use TLS, but not SSL directly
+        service: 'gmail', // or use SMTP
         auth: {
-            user: process.env.NEXT_PUBLIC_EMAIL_USER,   // Your Microsoft email
-            pass: process.env.NEXT_PUBLIC_EMAIL_PASS, // Password or App Password
+        user: 'faizdev007@gmail.com',     // Your email
+        pass: 'sekmsdpycyaonbnk',     // App password (not your real password!)
         },
-        requireTLS: true,
     });
 
     try {
         await transporter.sendMail({
-        from: `"OVE" <${process.env.NEXT_PUBLIC_EMAIL_USER}>`,
-        to: process.env.NEXT_PUBLIC_EMAIL_TO, // Your receiving email address,'Nakul@optimalvirtualemployee.com'
+        from: `"OVE" <faizdev007@gmail.com>`,
+        to: ['faizdev007@gmail.com','Nakul@optimalvirtualemployee.com','ronnie@optimalvirtualemployee.com','dshah@optimalvirtualemployee.com'], // Your receiving email address ,'ronnie@optimalvirtualemployee.com','dshah@optimalvirtualemployee.com'
         subject: 'New Contact Form Submission',
         html: `<!DOCTYPE html>
                 <html>
@@ -105,10 +102,6 @@ export async function POST(request) {
                                 <tr> 
                                     <td style="padding: 8px; border: 1px solid #ccc;">Phone</td> 
                                     <td style="padding: 8px; border: 1px solid #ccc;">${data.phone}</td> 
-                                </tr> 
-                                <tr> 
-                                    <td style="padding: 8px; border: 1px solid #ccc;">Service</td> 
-                                    <td style="padding: 8px; border: 1px solid #ccc;">${data.service}</td> 
                                 </tr> 
                                 <tr> 
                                     <td style="padding: 8px; border: 1px solid #ccc;">Message</td> 

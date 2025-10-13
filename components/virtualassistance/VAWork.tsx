@@ -23,7 +23,7 @@ export default function VAWork(StoryBlock:any) {
 
             <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-4'>
                 {stories.map((info:any,key:number)=>(
-                    <div key={key} className='md:p-4 p-2 border rounded-2xl shadow-xl !items-center dark:bg-gray-700'>
+                    <div key={key} className='md:p-4 p-2 border rounded-2xl shadow-xl !items-center'>
                         <div className=''>
                             <img className='aspect-video' src={info?.image ?? ''} alt={'story1'}/>
                             <h3 className='font-bold my-2 text-xl'>{info?.title ?? 'Big dreams, lean teams'}</h3>

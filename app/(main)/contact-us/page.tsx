@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
@@ -6,7 +6,6 @@ import { onlyNumber } from '@/app/globals'; // adjust path if needed
 import { useRouter } from 'next/navigation';
 
 export default function ContactPage() {
-    const router = useRouter();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -96,11 +95,12 @@ export default function ContactPage() {
         const result = await res.json();
             if (res.ok) {
                 sessionStorage.setItem("thankyoucall", "true");
-                router.push('/thank-you');
+                // router.push('/thank-you');
                 setresMessage('Message Send Successfully!');
                 setMessageBlock(true);
                 setStatus(false);
                 setFormData({ name: '', email: '', country: '', phone: '', message: '' });
+                window.location.href = "/thank-you";
             } else {
                 setError('Failed to send message. Please try again later.');
                 setMessageBlock(true);
@@ -271,7 +271,7 @@ export default function ContactPage() {
                             ))}
                         </div>
                     </div>
-                    <div className="flex gap-4 mb-6 text-blue-600 font-bold md:text-sm text-xs mt-4">
+                    <div className="hidden gap-4 mb-6 text-blue-600 font-bold md:text-sm text-xs mt-4">
                         <a href={'tel:+12028499199'} aria-label={"12028499199"} className="hover:underline">📞 Book A Call</a>
                         <a href={'mailto:enquiry@optimalvirtualemployee.com'} aria-label={"enquiry@optimalvirtualemployee.com"} className="hover:underline">✉️ Email us</a>
                     </div>

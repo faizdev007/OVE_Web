@@ -1,9 +1,18 @@
-import { fetchGraphQL } from "@/lib/GraphQL";
+import { fetchGraphQL } from "@/lib/graphqlClient";
 
 type CategorySlug = {
   category: {
     hires: { nodes: { title: string; slug: string ; cardicon:{ icon: { node:{ sourceUrl:string; } } }}[] };
   } | null;
+} | null;
+
+type TagSlug = {
+    hireTags: {
+        nodes: {    
+            name: string;
+            hires: { nodes: { title: string; slug: string ; cardicon:{ icon: { node:{ sourceUrl:string; } } }}[] };
+        }[];
+    } | null;
 } | null;
 
 // role base slugs
@@ -54,5 +63,32 @@ export async function SkillBaseSlug(number=7): Promise<CategorySlug> {
         }
     `;
     const data = await fetchGraphQL(SKILL_BASE_SLUG_QUERY);
+    return data;
+}
+
+export async function SkillByTag(): Promise<TagSlug> {
+        const TAG_BASE_SLUG_QUERY = `
+        query SkillByTagBaseSlug {
+            hireTags{
+                nodes{
+                    name
+                    hires{
+                        nodes{
+                            title
+                            slug
+                            cardicon {
+                                icon {
+                                    node {
+                                        sourceUrl
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    `;
+    const data = await fetchGraphQL(TAG_BASE_SLUG_QUERY);
     return data;
 }

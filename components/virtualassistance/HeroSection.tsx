@@ -39,11 +39,12 @@ const HeroSection = (HeroData:any) => {
         const result = await res.json();
             if (res.ok) {
                 sessionStorage.setItem("thankyoucall", "true");
-                router.push('/thank-you');
+                // router.replace("/thank-you");
                 setFormData({ name: '', email: '', phone: '', message: '' });
                 setresMessage('Message Send Successfully!');
                 setMessageBlock(true);
                 setStatus(false);
+                window.location.href = "/thank-you";
             } else {
                 setError('Failed to send message. Please try again later.');
                 setMessageBlock(true);
@@ -96,7 +97,7 @@ const HeroSection = (HeroData:any) => {
                         <div><span dangerouslySetInnerHTML={{__html:HeroData?.HeroData?.heroformsection?.formsubtitle ?? "Same-Day Response | Strict NDA, 100% Confidential" }}/></div>
                     </div>
                     <hr className=""></hr>
-                    <form onSubmit={handleSubmit}  className="space-y-4 md:p-8 p-4 dark:text-black">
+                    <form onSubmit={handleSubmit}  className="space-y-4 md:p-8 p-4">
                         <div className="mt-1 flex w-full border overflow-hidden border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
                             <label htmlFor="name" className="hidden text-sm font-medium text-gray-700">
                                 Full Name *
@@ -171,7 +172,7 @@ const HeroSection = (HeroData:any) => {
                         </div>
                         <button
                             type="submit"
-                            className="w-full bg-blue-600 p-4 text-white uppercase cursor-pointer rounded-md font-semibold hover:bg-blue-700 transition"
+                            className="w-full gtmsubmit bg-blue-600 p-4 text-white uppercase cursor-pointer rounded-md font-semibold hover:bg-blue-700 transition"
                             disabled={status}
                         >
                             {status ? (

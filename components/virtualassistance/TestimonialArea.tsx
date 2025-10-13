@@ -62,7 +62,7 @@ export default function TestimonialArea(ClientTestimonials:any) {
 
     const [settings, setSettings] = useState({
         infinite: true,
-        autoplay: true,
+        // autoplay: true,
         autoplaySpeed: 3000,
         speed: 500,
         slidesToShow: 4,  // Default value for larger screens

@@ -19,12 +19,12 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.9 }}
-        className="bg-white dark:bg-gray-700 rounded-2xl shadow-xl w-full max-w-4xl p-6 relative"
+        className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl w-full max-w-4xl p-6 relative"
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 text-gray-500 dark:text-white hover:text-gray-800 dark:hover:text-white"
+          className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 dark:hover:text-white"
         >
           ✕
         </button>

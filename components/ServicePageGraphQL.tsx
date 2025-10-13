@@ -1,4 +1,5 @@
-import { fetchGraphQL } from "@/lib/GraphQL";
+import GlobalNotFound from "@/app/global-not-found";
+import { fetchGraphQL } from "@/lib/graphqlClient";
 import { notFound } from "next/navigation";
 
 export type ServicePageDataType = {

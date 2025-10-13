@@ -146,7 +146,7 @@ const ClientSuccessStories = (ClientStories:any) => {
                                 </div>
                                 <div className="">
                                   <Rating rating={item?.rating}/>
-                                  <h2 className="my-2 text-gray-600 font-bold text-lg">{item?.clientName}</h2>
+                                  <h2 className="my-2 font-bold text-lg">{item?.clientName}</h2>
                                   <h3 className="text-gray-600 font-bold">{item?.clientDesignation}</h3>
                                 </div>
                                 {/* <ul className="list-disc hidden list-inside text-gray-700 space-y-2">

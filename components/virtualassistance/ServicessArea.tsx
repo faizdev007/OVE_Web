@@ -25,11 +25,11 @@ export default function ServicessArea(ServicessArea:any) {
                 <p>{ServicessArea?.ServicessArea?.description ?? "In today's fast-paced business environment, efficiency and cost-effectiveness are paramount. Many businesses, from startups to established enterprises, are turning to virtual assistants (VAs) to streamline operations, reduce overhead, and free up valuable time for core business activities. However, the quality and reliability of VA services can vary significantly."}</p>
             </div>
 
-            <div className='grid md:grid-cols-3 gap-4'>
+            <div className='grid md:grid-cols-3 gap-10'>
                 {services.map((step:string, idx:number) => (
                     <div
                         key={idx}
-                        className="dark:bg-gray-700 shadow-lg dark:border-white dark:hover:shadow-lg dark:hover:shadow-white p-4 relative rounded-lg text-center va-card"
+                        className="va-card shadow-lg rounded-lg p-4 text-center relative"
                     >
                         <h2 style={{ fontSize: '1.25rem', fontWeight: 600 }}>{step}</h2>
                         <style jsx>{`
