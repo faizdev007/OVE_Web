@@ -2,82 +2,69 @@
 'use client';
 
 const data = {
-    heading: ['Factors', 'Optimal Virtual Employee', 'Arc.dev', 'Uplers', 'Toptal'],
+    heading: [
+        "Factors",
+        "Optimal Virtual Employee",
+        "In-house",
+        "Freelancer",
+    ],
     badge: 'BEST VALUE',
-    rows:[ 
-        {
-            tableData: {
-            data1: "Starting Salary (Monthly)",
-            data2: "$1,500–$3,000",
-            data3: "$6,000–$10,000",
-            data4: "$4,000–$8,000",
-            data5: "$8,000–$12,000",
-            }
-        },
-        {
-            tableData: {
-            data1: "Licensing Cost (Hardware/Software)",
-            data2: "Zero",
-            data3: "Extra Cost",
-            data4: "Extra Cost",
-            data5: "Extra Cost",
-            }
-        },
-        {
-            tableData: {
-            data1: "Project Management Fee",
-            data2: "Free",
-            data3: "$20–$35/hour",
-            data4: "$15–$30/hour",
-            data5: "$25–$45/hour",
-            }
-        },
-        {
-            tableData: {
-            data1: "Timesheet/Proof of Work",
-            data2: "Advanced timesheet with screenshots",
-            data3: "Advanced timesheet with screenshots",
-            data4: "Advanced timesheet with screenshots",
-            data5: "Advanced timesheet with screenshots",
-            }
-        },
-        {
-            tableData: {
-            data1: "AI & Human Vetting",
-            data2: "AI screening + human evaluation",
-            data3: "AI screening + human review",
-            data4: "AI screening + human review",
-            data5: "AI screening + human review",
-            }
-        },
-        {
-            tableData: {
-            data1: "Support & Timezone",
-            data2: "Business hours support",
-            data3: "Business hours support",
-            data4: "Business hours support",
-            data5: "Business hours support",
-            }
-        },
-        {
-            tableData: {
-            data1: "Time to Hire",
-            data2: "1–2 weeks",
-            data3: "2–4 weeks",
-            data4: "2–3 weeks",
-            data5: "1–3 weeks",
-            }
-        },
-        {
-            tableData: {
-            data1: "Management Fee",
-            data2: "$799 (Fixed Fee)",
-            data3: "15–30% of total bill",
-            data4: "10–25% of total bill",
-            data5: "20–40% of total bill",
-            }
-        }
-    ]
+    rows:[
+            [
+                "Time to get right developers",
+                "1 day – 2 weeks",
+                "4 – 12 weeks",
+                "1 – 12 weeks",
+            ],
+            [
+                "Time to start a project",
+                "1 day – 2 weeks",
+                "2 – 10 weeks",
+                "1 – 10 weeks",
+            ],
+            [
+                "Project failure risk",
+                "Extremely low (98% success ratio)",
+                "Low",
+                "Very High",
+            ],
+            [
+                "Pricing (weekly average)",
+                "1.5X",
+                "2X",
+                "1X",
+            ],
+            [
+                "Dedicated resources",
+                "Yes",
+                "Yes",
+                "Some",
+            ],
+            [
+                "Recruitment Cost",
+                "Zero",
+                "High",
+                "Zero",
+            ],
+            [
+                "Hardware & Infra Cost",
+                "included",
+                "High",
+                "Self-provided",
+            ],
+            [
+                "Dedicated Delivery Manager",
+                "Included",
+                "Additional resource required",
+                "Not available",
+            ],
+            [
+                "Productivity Tracking Software",
+                "Zero",
+                "Extra license costs",
+                "Usually none",
+            ]
+        ]
 };
 
 const CTable = (PriceTable:any) =>{
