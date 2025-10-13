@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroui/react": "^2.8.5",
     "@tailwindcss/typography": "^0.5.16",
     "firebase": "^12.3.0",
     "framer-motion": "^12.23.15",
