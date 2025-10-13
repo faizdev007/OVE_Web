@@ -5,12 +5,11 @@ import Hiredeveloper from "../main/Hire/Hiredeveloper";
 import OurClientSay from "../main/Hire/OurClientSay";
 import DevelopersSlider from "../main/Homepage/developer";
 import CTA from "../main/Hire/CTA";
-import HiringProcess from "../main/Homepage/hiringprocess";
 import HireThroughOVE from "../main/Hire/HireThroughOVE";
 import Expertise from "../main/Hire/Expertise";
 import CTable from "../main/Hire/CompairTable";
 import FaqSection from "../main/Homepage/faq";
-import Client from "../main/Hire/Client";
+import WSF from "../main/Hire/WhySearchFor";
 
 export default function HirePageComponent({hireData}:any) {
     return (
@@ -36,20 +35,14 @@ export default function HirePageComponent({hireData}:any) {
                 </div>
                 <CTA/>
             </section>
-            <section className="relative bg-gray-100">
-                <div className="bg-oveblue">
-                    <Image
-                    src="/assets/gray.webp"
-                    alt="compare"
-                    width={1000}
-                    height={1000}
-                    className="w-full dark:hidden"
-                    />
+            <div className="relative">
+                <div className="bg-oveblue dark:hidden">
+                <Image src={'/assets/white.png'} alt="compare" width={1000} height={1000} className="w-full" />
                 </div>
-                <Hiredeveloper hireDev={hireData?.hirePage?.whyHireDeveloperSection}/>
-            </section>
+                <WSF />
+            </div>
             <div className="relative blackgradiant">
-                <div className="bg-gray-100 dark:hidden">
+                <div className="bg-white dark:hidden">
                     <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full" />
                 </div>
                 <CTable PriceTable={[]} />
@@ -91,13 +84,19 @@ export default function HirePageComponent({hireData}:any) {
                 </div>
                 <CTA />
             </div>
-
-            <div className="relative">
-                <div className="bg-oveblue dark:hidden">
-                <Image src={'/assets/offWhite.png'} alt="compare" width={1000} height={1000} className="w-full" />
+            <section className="relative bg-gray-100">
+                <div className="bg-oveblue">
+                    <Image
+                    src="/assets/gray.webp"
+                    alt="compare"
+                    width={1000}
+                    height={1000}
+                    className="w-full dark:hidden"
+                    />
                 </div>
+                <Hiredeveloper hireDev={hireData?.hirePage?.whyHireDeveloperSection}/>
                 <FaqSection FAQ={[]} />
-            </div>
+            </section>
         </>
     )
 }
