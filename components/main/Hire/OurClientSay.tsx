@@ -14,8 +14,14 @@ function OurClientSay({ wochts }: any) {
 
   const [progress, setProgress] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const autoplayDuration = 5000; // 5 seconds per slide
+  const autoplayDuration = 5000; // 5 seconds
 
+  useEffect(() => {
+    setNav1(sliderRef1.current);
+    setNav2(sliderRef2.current);
+  }, []);
+
+  // === Main slider settings (only this one autoplay) ===
   const baseSettings: Settings = {
     infinite: true,
     autoplay: true,
@@ -23,8 +29,8 @@ function OurClientSay({ wochts }: any) {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    swipeToSlide: true,
     pauseOnHover: true,
+    arrows: false,
     waitForAnimate: false,
     beforeChange: (_, next) => {
       setCurrentSlide(next);
@@ -32,16 +38,11 @@ function OurClientSay({ wochts }: any) {
     },
   };
 
-  useEffect(() => {
-    setNav1(sliderRef1.current);
-    setNav2(sliderRef2.current);
-  }, []);
-
-  // progress bar animation for current slide only
+  // === Progress bar timer ===
   useEffect(() => {
     let interval: NodeJS.Timeout;
-    
-    const step = 100 / (autoplayDuration / 100); // % increment
+    const step = 100 / (autoplayDuration / 100); // 100 steps per 5s
+
     const startProgress = () => {
       setProgress(0);
       interval = setInterval(() => {
@@ -81,11 +82,7 @@ function OurClientSay({ wochts }: any) {
             <div className="dark:bg-gray-800 grid border rounded-lg divide-x lg:grid-cols-2 shadow-lg">
               {client.clientVideo && (
                 <div className="aspect-video p-2">
-                  <video
-                    controls
-                    muted
-                    className="rounded-lg aspect-video w-full h-auto"
-                  >
+                  <video controls muted className="rounded-lg aspect-video w-full h-auto">
                     <source src={client.clientVideo.url} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
@@ -93,9 +90,7 @@ function OurClientSay({ wochts }: any) {
               )}
               <div className="flex flex-col justify-center gap-6 p-2">
                 <div
-                  dangerouslySetInnerHTML={{
-                    __html: client.clientDescription ?? "",
-                  }}
+                  dangerouslySetInnerHTML={{ __html: client.clientDescription ?? "" }}
                   className="text-gray-700 dark:text-gray-300"
                 />
                 <div>
@@ -113,7 +108,7 @@ function OurClientSay({ wochts }: any) {
         )) || <div className="p-4">Loading...</div>}
       </Slider>
 
-      {/* === Thumbnail Slider === */}
+      {/* === Thumbnail Slider (NO autoplay) === */}
       <Slider
         asNavFor={nav1 ?? undefined}
         ref={sliderRef2}
@@ -121,14 +116,12 @@ function OurClientSay({ wochts }: any) {
         swipeToSlide
         focusOnSelect
         centerMode
-        autoplay
-        autoplaySpeed={autoplayDuration}
-        beforeChange={(_, next) => setCurrentSlide(next)}
+        autoplay={false}
       >
         {wochts?.wochtsClients?.map((client: any, index: number) => (
           <div key={index}>
             <div
-              className={`mx-2 items-center cursor-pointer border rounded-md  shadow ${
+              className={`mx-2 items-center cursor-pointer border rounded-md shadow ${
                 index === currentSlide
                   ? "border-oveblue bg-oveblue/10"
                   : "border-gray-200"
@@ -141,9 +134,7 @@ function OurClientSay({ wochts }: any) {
                       client.clientThumbnail?.node?.sourceUrl ||
                       "https://via.placeholder.com/150"
                     }
-                    alt={
-                      client.clientThumbnail?.node?.title || client.clientName
-                    }
+                    alt={client.clientThumbnail?.node?.title || client.clientName}
                     className="mx-auto rounded-full object-cover h-14 w-14 border-2 border-oveblue"
                   />
                 </div>
@@ -157,12 +148,12 @@ function OurClientSay({ wochts }: any) {
                 </div>
               </div>
 
-              {/* === Progress Bar (only current slide fills) === */}
+              {/* === Progress Bar === */}
               <div className="relative w-11/12 mx-auto h-2 bg-gray-200 rounded-full overflow-hidden my-2">
                 <div
                   className="absolute left-0 top-0 h-2 bg-oveblue transition-all duration-100 linear"
                   style={{
-                    width: index === currentSlide ? `${progress}%` : "0%",
+                    width: index === currentSlide ? `${progress+2}%` : "0%",
                   }}
                 ></div>
               </div>
