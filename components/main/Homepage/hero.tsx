@@ -16,7 +16,7 @@ export default function Herosection({herodata}: any)
             <div className={`w-full mx-auto h-full lg:grid grid-cols-2 items-center`}>  
                 <div className='p-4 flex flex-col h-full md:justify-between justify-center gap-3 text-center md:text-start'>
                     <div className="flex flex-col gap-6 2xl:gap-18">
-                        <h1 className='text-4xl xl:text-5xl flex flex-col gap-4 font-bold text-oveblue'>
+                        <h1 className='text-4xl xl:text-5xl leading-tight flex flex-col gap-4 font-bold text-oveblue'>
                             <span dangerouslySetInnerHTML={{__html:heroelement?.title ?? "Need Developers On Demand? We’re Your Augmentation Partner"}}></span>
                         </h1>
                         <div className='text-sm lg:text-md xl:text-xl 2xl:text-2xl'><span dangerouslySetInnerHTML={{__html:heroelement?.description ?? 'Reduce your time to hire from months to days. Our remote staff augmentation connects you with pre-vetted developers who onboard quickly and start delivering real value from day one.'}}/></div>
