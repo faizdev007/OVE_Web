@@ -42,7 +42,6 @@ function OurClientSay({ wochts }: any) {
     let interval: NodeJS.Timeout;
     
     const step = 100 / (autoplayDuration / 100); // % increment
-    console.log(step);
     const startProgress = () => {
       setProgress(0);
       interval = setInterval(() => {
@@ -79,9 +78,9 @@ function OurClientSay({ wochts }: any) {
       <Slider {...baseSettings} asNavFor={nav2 ?? undefined} ref={sliderRef1}>
         {wochts?.wochtsClients?.map((client: any, index: number) => (
           <div key={index} className="p-4">
-            <div className="dark:bg-gray-800 p-2 rounded-lg bg-oveblue/20 grid lg:grid-cols-2 gap-2">
+            <div className="dark:bg-gray-800 grid border rounded-lg divide-x lg:grid-cols-2 shadow-lg">
               {client.clientVideo && (
-                <div className="aspect-video">
+                <div className="aspect-video p-2">
                   <video
                     controls
                     muted
@@ -92,7 +91,7 @@ function OurClientSay({ wochts }: any) {
                   </video>
                 </div>
               )}
-              <div className="flex flex-col justify-center gap-6">
+              <div className="flex flex-col justify-center gap-6 p-2">
                 <div
                   dangerouslySetInnerHTML={{
                     __html: client.clientDescription ?? "",
@@ -129,7 +128,7 @@ function OurClientSay({ wochts }: any) {
         {wochts?.wochtsClients?.map((client: any, index: number) => (
           <div key={index}>
             <div
-              className={`mx-2 items-center cursor-pointer border rounded-md ${
+              className={`mx-2 items-center cursor-pointer border rounded-md  shadow ${
                 index === currentSlide
                   ? "border-oveblue bg-oveblue/10"
                   : "border-gray-200"

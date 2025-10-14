@@ -36,9 +36,9 @@ const steps = [
 ];
 
 
-const HireThroughOVE = (hiringProcess:any) => {
-    const processSteps = hiringProcess?.hiringProcess?.steps ?? steps;
-    const processTitle = hiringProcess?.hiringProcess?.title ?? 'How To Hire Developer Through Optimal Virtual Employee'
+const HireThroughOVE = ({hiringProcess}:any) => {
+    const processSteps = hiringProcess?.steps ?? steps;
+    const processTitle = hiringProcess?.title ?? 'How To Hire Developer Through Optimal Virtual Employee'
     return (
         <section className="py-20 blackgradiant text-white flex flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
             <h2 className="md:mb-12 capitalize text-center font-bold md:text-4xl text-3xl"><span dangerouslySetInnerHTML={{ __html: processTitle }}/></h2>

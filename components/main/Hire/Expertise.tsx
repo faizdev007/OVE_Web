@@ -13,16 +13,18 @@ const listinfos = [
   { question: "Python Migration & Integration", answer: "Migrate to Python and integrate systems." },
 ];
 
-export default function Expertise( Expertise : any) {
+export default function Expertise( {Expertise} : any) {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   const toggle = (index: number) => {
     setActiveIndex(prev => (prev === index ? null : index));
   };
 
-  const roleTitleHTML = Expertise?.Expertise?.title ?? "Expertise Of Our Full-Stack Developer";
+  const roleTitleHTML = Expertise?.title ? Expertise?.title : "Expertise Of Our Full-Stack Developer";
 
-  const qnalist = Expertise?.Expertise?.qna ?? listinfos;
+  const description = Expertise?.description ? Expertise?.description : 'Our full-stack developers excel at building complete web applications from conception to deployment. They seamlessly integrate frontend user interfaces with robust backend systems, handle database design, API development, and ensure optimal performance across the entire technology stack for maximum business impact.';
+
+  const qnalist = Expertise?.qna.length > 0 ? Expertise?.qna : listinfos;
 
   return (
     <section className="bg-gradient pb-12 dark:py-12 flex flex-col gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
@@ -33,7 +35,7 @@ export default function Expertise( Expertise : any) {
                   <span dangerouslySetInnerHTML={{ __html: roleTitleHTML }} />
               </h2>
               <div className="mt-4 text-lg mb-4">
-                  <span dangerouslySetInnerHTML={{ __html: Expertise?.Expertise?.description  as string }} />
+                  <span dangerouslySetInnerHTML={{ __html: description  as string }} />
               </div>
             </div>
 

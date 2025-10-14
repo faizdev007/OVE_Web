@@ -16,12 +16,12 @@ export default function HirePageComponent({hireData}:any) {
         <>
             <HeroSection />
             <DevelopersSlider/>
-            <HireThroughOVE/>
+            <HireThroughOVE hiringProcess={hireData?.hiringProcess}/>
             <div className="relative">
                 <div className="bg-lightblack dark:hidden">
                     <Image src="/assets/white.png" alt="bg" width={1000} height={1000} className="w-full" />
                 </div>
-                <Expertise />
+                <Expertise Expertise={hireData?.expertise}/>
             </div>
             <section className="relative bg-oveblue">
                 <div className="bg-white">
@@ -33,19 +33,19 @@ export default function HirePageComponent({hireData}:any) {
                     className="w-full dark:hidden"
                     />
                 </div>
-                <CTA/>
+                <CTA CTA={hireData.cta.one}/>
             </section>
             <div className="relative">
                 <div className="bg-oveblue dark:hidden">
                 <Image src={'/assets/white.png'} alt="compare" width={1000} height={1000} className="w-full" />
                 </div>
-                <WSF />
+                <WSF WhyHire={hireData?.whyHire}/>
             </div>
             <div className="relative blackgradiant">
                 <div className="bg-white dark:hidden">
                     <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full" />
                 </div>
-                <CTable PriceTable={[]} />
+                <CTable PriceTable={hireData?.priceTable ?? []} />
             </div>
             <section className="relative">
                 <div className="bg-[#404040]">
@@ -61,9 +61,8 @@ export default function HirePageComponent({hireData}:any) {
             </section>
             <div className="relative hidden">
                 <div className="bg-lightblack dark:hidden">
-                <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full" />
+                    <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full" />
                 </div>
-                
             </div>
             <section className="relative bg-gray-100">
                 <div className="bg-black">
@@ -82,7 +81,7 @@ export default function HirePageComponent({hireData}:any) {
                 <div className="bg-gray-100 dark:hidden">
                 <Image src={'/assets/oveblue.png'} alt="compare" width={1000} height={1000} className="w-full" />
                 </div>
-                <CTA />
+                <CTA CTA={hireData.cta.two}/>
             </div>
             <section className="relative bg-gray-100">
                 <div className="bg-oveblue">
@@ -95,7 +94,7 @@ export default function HirePageComponent({hireData}:any) {
                     />
                 </div>
                 <Hiredeveloper hireDev={hireData?.hirePage?.whyHireDeveloperSection}/>
-                <FaqSection FAQ={[]} />
+                <FaqSection FAQ={hireData?.faq ?? []} />
             </section>
         </>
     )
