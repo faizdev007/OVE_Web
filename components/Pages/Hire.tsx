@@ -1,5 +1,4 @@
 import Image from "next/image";
-import HeroSection from "../main/Hire/Hero";
 import HireBySec from "../main/Hire/HireBySec";
 import Hiredeveloper from "../main/Hire/Hiredeveloper";
 import OurClientSay from "../main/Hire/OurClientSay";
@@ -10,11 +9,12 @@ import Expertise from "../main/Hire/Expertise";
 import CTable from "../main/Hire/CompairTable";
 import FaqSection from "../main/Homepage/faq";
 import WSF from "../main/Hire/WhySearchFor";
+import HeroForHire from "../main/Hire/HeroForHire";
 
 export default function HirePageComponent({hireData}:any) {
     return (
         <>
-            <HeroSection />
+            <HeroForHire hire={hireData?.hirePage}/>
             <DevelopersSlider/>
             <HireThroughOVE hiringProcess={hireData?.hiringProcess}/>
             <div className="relative">
