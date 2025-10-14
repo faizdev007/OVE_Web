@@ -29,8 +29,8 @@ function OurClientSay({ wochts }: any) {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    pauseOnHover: true,
-    arrows: false,
+    pauseOnHover: false,
+    arrows: true,
     waitForAnimate: false,
     beforeChange: (_, next) => {
       setCurrentSlide(next);
@@ -43,10 +43,13 @@ function OurClientSay({ wochts }: any) {
     let interval: NodeJS.Timeout;
     const step = 100 / (autoplayDuration / 100); // 100 steps per 5s
 
+    console.log(step);
+
     const startProgress = () => {
       setProgress(0);
       interval = setInterval(() => {
         setProgress((prev) => {
+          console.log(prev);
           if (prev >= 100) {
             clearInterval(interval);
             return 100;
@@ -153,7 +156,7 @@ function OurClientSay({ wochts }: any) {
                 <div
                   className="absolute left-0 top-0 h-2 bg-oveblue transition-all duration-100 linear"
                   style={{
-                    width: index === currentSlide ? `${progress+2}%` : "0%",
+                    width: index === currentSlide ? `${progress}%` : "0%",
                   }}
                 ></div>
               </div>
