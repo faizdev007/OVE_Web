@@ -120,6 +120,10 @@ function OurClientSay({ wochts }: any) {
         focusOnSelect
         centerMode
         autoplay={false}
+        beforeChange={()=>{
+            setProgress(0)
+          }
+        }
       >
         {wochts?.wochtsClients?.map((client: any, index: number) => (
           <div key={index}>
