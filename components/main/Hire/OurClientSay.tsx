@@ -43,13 +43,10 @@ function OurClientSay({ wochts }: any) {
     let interval: NodeJS.Timeout;
     const step = 100 / (autoplayDuration / 100); // 100 steps per 5s
 
-    console.log(step);
-
     const startProgress = () => {
       setProgress(0);
       interval = setInterval(() => {
         setProgress((prev) => {
-          console.log(prev);
           if (prev >= 100) {
             clearInterval(interval);
             return 100;
