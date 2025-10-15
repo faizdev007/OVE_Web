@@ -24,16 +24,16 @@ const SingleBlog = (post:any) => {
                 </div>
             </div>
             <div className='my-4 gap-2 flex items-center justify-between'>    
-                <Breadcrumb items={post?.seo?.breadcrumbs} />
+                <Breadcrumb/>
             </div>
             <div className="mb-12 mx-auto blog-content">
-                <h1 className='lg:!text-5xl'>{post.title}</h1>
-                <div className="text-gray-600 flex items-center gap-4">
-                    <span><img className='w-12 h-12' src={post?.author?.avatar} alt={post.author?.name}/></span>
-                    <span>Write By {post.author?.name}</span>
-                </div>
                 <div className='lg:flex gap-2'>
                     <div className='lg:w-3/4'>
+                        <h1 className='lg:!text-5xl'>{post.title}</h1>
+                        <div className="text-gray-600 flex items-center gap-4">
+                            <span><img className='w-12 h-12' src={post?.author?.avatar} alt={post.author?.name}/></span>
+                            <span>Write By {post.author?.name}</span>
+                        </div>
                         <div className="w-full" dangerouslySetInnerHTML={{ __html: post.content }} />
                     </div>
                     <div className='lg:w-1/4'>

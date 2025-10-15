@@ -95,23 +95,21 @@ const list2 = [
 ];
 
 const Cateposts = (blogdata:any)=>{
-    console.log("Received blogdata:", blogdata);
     const router = useRouter();
     const listdata= blogdata?.listdata?.posts?.nodes ?? list;
     
     const [searchQuery, setSearchQuery] = React.useState("");
   
     const handleSearch = () => {
-        console.log("Searching for:", searchQuery);
         // Implement actual search functionality here
     };
 
     return (
         <main className="mx-auto py-10 px-4">
-            <div className="mb-6 bg-oveblue/20 p-2 border rounded-lg">
+            <div className="mb-6 p-2 rounded-lg">
                 <div className="lg:flex justify-between w-full">
                     <h2 className="text-3xl font-bold">{blogdata?.listdata?.name}</h2>
-                    <div className="flex flex-wrap md:flex-nowrap gap-4">
+                    <div className="hidden flex-wrap md:flex-nowrap gap-4">
                         <Form>
                             <div className="flex w-full max-w-md gap-2">
                                 <input
@@ -144,7 +142,7 @@ const Cateposts = (blogdata:any)=>{
                                 <a
                                     key={cat.slug}
                                     href={`/blog/${cat.slug}`}
-                                    className="px-3 py-1 border bg-white text-black hover:bg-oveblue/90 hover:text-white rounded-full text-sm"
+                                    className="px-3 py-1 border bg-oveblue/20 text-black hover:bg-oveblue/90 hover:text-white rounded-full text-sm"
                                 >
                                     {cat.name}
                                 </a>
@@ -154,7 +152,7 @@ const Cateposts = (blogdata:any)=>{
                 </div>
             </div>
             <div className="mb-6">
-                <Breadcrumb items={blogdata?.listdata?.seo?.breadcrumbs} />
+                <Breadcrumb/>
             </div>
             <div className="mb-12">
                 <div className="gap-5 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">

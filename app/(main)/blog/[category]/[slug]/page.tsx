@@ -19,11 +19,6 @@ type Blog = {
     name?: string;
     avatar?: string;
   };
-  seo?: {
-    breadcrumbs?: {
-      url?: string;
-    }[];
-  };
 };
 
 // Fetch single blog by slug
@@ -33,12 +28,6 @@ const getSingleBlog = async (slug: string): Promise<Blog | null> => {
       post(id: $slug, idType: SLUG) {
         id
         slug
-        seo{
-            breadcrumbs{
-                url
-                text
-            }
-        }
         title
         content
         tags {
@@ -81,8 +70,7 @@ const getSingleBlog = async (slug: string): Promise<Blog | null> => {
     author: {
       name: post.author?.node?.name,
       avatar: post.author?.node?.avatar?.url,
-    },
-    seo: post.seo,
+    }
   };
 };
 
@@ -92,8 +80,6 @@ export default async function Page({ params }: any) {
     const awaitedParams = await params;
 
     const currentslug = awaitedParams.slug;
-
-    console.log("Fetching blog for slug:", currentslug);
 
     const blog = await getSingleBlog(currentslug);
 

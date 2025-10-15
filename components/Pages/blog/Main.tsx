@@ -100,7 +100,6 @@ const Blogs = (blogdata:any)=>{
     const [searchQuery, setSearchQuery] = React.useState("");
   
     const handleSearch = () => {
-        console.log("Searching for:", searchQuery);
         // Implement actual search functionality here
     };
 
@@ -113,7 +112,7 @@ const Blogs = (blogdata:any)=>{
             <div className="mb-12">
                 <div className="lg:flex justify-between w-full mb-8">
                     <h1 className="text-3xl font-bold"></h1>
-                    <div className="flex flex-wrap md:flex-nowrap gap-4">
+                    <div className="flex-wrap hidden md:flex-nowrap gap-4">
                         <Form>
                             <div className="flex w-full max-w-md gap-2">
                                 <input
@@ -225,7 +224,7 @@ const Blogs = (blogdata:any)=>{
                                     <div className="flex justify-between">
                                         <div className="flex items-center gap-2">
                                             <img className="rounded-full aspect-[1/1] h-7 w-7" src={item.author.avatar} alt=""/>
-                                            <span className="capitalize text-black/50">by {item.author.name}</span>
+                                            <span className="capitalize text-black/50 dark:text-white">by {item.author.name}</span>
                                         </div>
                                     </div>
                                 </div>
