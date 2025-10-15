@@ -142,7 +142,7 @@ const Cateposts = (blogdata:any)=>{
                                 <a
                                     key={cat.slug}
                                     href={`/blog/${cat.slug}`}
-                                    className="px-3 py-1 border bg-oveblue/20 text-black hover:bg-oveblue/90 hover:text-white rounded-full text-sm"
+                                    className="px-3 py-1 border bg-oveblue/20 text-black dark:text-white hover:bg-oveblue/90 hover:text-white rounded-full text-sm"
                                 >
                                     {cat.name}
                                 </a>
@@ -174,7 +174,7 @@ const Cateposts = (blogdata:any)=>{
                                     <div className="flex justify-between">
                                         <div className="flex items-center gap-2 mb-4">
                                             <img className="rounded-full aspect-[1/1] h-7 w-7" src={item.author.avatar} alt=""/>
-                                            <span className="capitalize text-black/50">by {item.author.name}</span>
+                                            <span className="capitalize text-black/50 dark:text-white">by {item.author.name}</span>
                                         </div>
                                     </div> 
                                     <a href={`/blog/${blogdata?.listdata?.slug}/${item.slug}`} className="mb-4 hover:text-oveblue/80 font-bold" title={item.title}>{item.title}</a>
