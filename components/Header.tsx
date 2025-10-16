@@ -89,14 +89,14 @@ const companyM = [{
   }, []);
 
   return (
-    <header className="bg-white font-bold dark:bg-gray-700 text-black dark:text-white shadow-md sticky top-0 z-50">
+    <header className="bg-black font-bold dark:bg-gray-700 text-white border-b dark:text-white shadow-md sticky top-0 z-50">
       <div className="mx-auto flex items-center justify-between px-4 py-2 relative">
         {/* Logo */}
         <a href={'/'} className="flex items-center">
           { darkmod ? (
             <Image loading='eager' priority src={"/assets/logo2.webp"} width={125} height={100} className='h-12 w-auto' alt="OVE" />
           ) : (
-            <Image loading='eager' priority src={"/assets/logo.webp"} width={500} height={450} className='h-12 w-auto' alt="OVE" />
+            <Image loading='eager' priority src={"/assets/whiteLogo.webp"} width={500} height={450} className='h-12 w-auto' alt="OVE" />
           ) }
         </a>
 
@@ -143,7 +143,7 @@ const companyM = [{
             </button>
 
             {/* Simple dropdown */}
-            <div className="absolute left-0 top-full -top-3 w-48 bg-white dark:bg-gray-800 shadow-md rounded-md hidden overflow-hidden group-hover:block z-40">
+            <div className="absolute left-0 top-full -top-3 w-48 bg-black dark:bg-gray-800 shadow-md rounded-md hidden overflow-hidden group-hover:block z-40">
               <a href="/about-us" className="block px-4 py-2 hover:bg-gray-100 hover:text-blue-600 dark:hover:bg-gray-700">
                 About Us
               </a>
@@ -263,7 +263,7 @@ const companyM = [{
           menuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="px-4 py-4 flex flex-col gap-2 border-t bg-white dark:bg-gray-800">
+        <div className="px-4 py-4 flex flex-col gap-2 border-t bg-black dark:bg-gray-800">
           <a href="/" className="block hover:text-blue-600 dark:hover:text-blue-400">
             Home
           </a>
