@@ -13,7 +13,7 @@ const WSF = ({WhyHire}:any) => {
                 <div className="lg:flex gap-4 items-center">
                     <div className="flex flex-col gap-6">
                         <h4 className="text-oveblue mb-8 capitalize font-bold text-4xl"><span dangerouslySetInnerHTML={{ __html: WhyHire?.title ? WhyHire?.title : 'Why search for Hire Full-Stack Developer for hir through Optimal Virtual Employee ?' }}/></h4>
-                        <p><span dangerouslySetInnerHTML={{ __html: WhyHire?.description ? WhyHire?.description : 'If you’ve ever tried to hire remote developers you know the struggle. You can’t meet them in person, which makes assessing their real talents almost impossible. So, you end up with a churn rate that’s through the roof. Now, you’re spending all your time policing contractors or finding devs to hire.' }}/></p>
+                        <p className="page-content"><span dangerouslySetInnerHTML={{ __html: WhyHire?.description ? WhyHire?.description : 'If you’ve ever tried to hire remote developers you know the struggle. You can’t meet them in person, which makes assessing their real talents almost impossible. So, you end up with a churn rate that’s through the roof. Now, you’re spending all your time policing contractors or finding devs to hire.' }}/></p>
                     </div>
                     <div className="w-full flex justify-center items-center">
                         <img src={WhyHire?.image?.sourceUrl ?? '/assets/hire/choose.webp'} className="" alt="choose" width={300} height={300}/>
@@ -23,7 +23,7 @@ const WSF = ({WhyHire}:any) => {
                     {qnalist.map((value:any,index:number)=>(
                         <div key={index} className="grid md:grid-cols-2 border-t gap-4 py-10">
                             <div className="text-3xl font-bold">{value?.question ?? 'Prime your hiring pipeline'}</div>
-                            <div className="">{value?.answer ?? 'Access a pool of 1300+ vetted, senior engineers so you can hire remote developers easier. Our always-on hiring pipeline means you never have to wait. Tell us your needs and we respond with a list of devs that meet your needs within 48 hours.'}</div>
+                            <div className="page-content">{value?.answer ?? 'Access a pool of 1300+ vetted, senior engineers so you can hire remote developers easier. Our always-on hiring pipeline means you never have to wait. Tell us your needs and we respond with a list of devs that meet your needs within 48 hours.'}</div>
                         </div>
                     ))}
                 </div>

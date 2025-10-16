@@ -52,7 +52,7 @@ const HireThroughOVE = ({hiringProcess}:any) => {
                             }
                         </div>
                         <h3 className="md:text-2xl text-center text-xl font-bold">{step?.title}</h3>
-                        <p>{step?.description}</p>
+                        <p className="page-content">{step?.description}</p>
                     </div>
                 ))}
             </div>

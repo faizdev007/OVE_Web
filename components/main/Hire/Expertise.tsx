@@ -31,10 +31,10 @@ export default function Expertise( {Expertise} : any) {
         {/* Main Header */}
         <div className="lg:flex relative z-20 gap-2 justify-between">
             <div className="lg:w-1/2">
-              <h2 className="text-3xl font-bold">
+              <h2 className="text-3xl font-bold mb-4">
                   <span dangerouslySetInnerHTML={{ __html: roleTitleHTML }} />
               </h2>
-              <div className="mt-4 text-lg mb-4">
+              <div className="mt-4 text-lg mb-4 page-content">
                   <span dangerouslySetInnerHTML={{ __html: description  as string }} />
               </div>
             </div>
@@ -65,7 +65,7 @@ export default function Expertise( {Expertise} : any) {
                         </div>
 
                         <div className={`overflow-hidden transition-all border-t border-white duration-500 ease-in-out ${open ? "max-h-40 opacity-100 mt-4" : "max-h-0 opacity-0"}`}>
-                            <p className="text-gray-300 dark:text-white pt-2 md:text-lg text-sm">
+                            <p className="text-gray-300 dark:text-white pt-2 md:text-lg text-sm page-content">
                               <span dangerouslySetInnerHTML={{__html: item?.answer || ""}}/>
                             </p>
                         </div>
