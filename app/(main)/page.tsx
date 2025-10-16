@@ -292,7 +292,7 @@ export default async function Home() {
 
       {/* FAQ */}
       <section className="relative">
-        <div className="bg-lightblack">
+        <div className="bg-black">
           <Image
             src="/assets/gray.webp"
             alt="compare"
