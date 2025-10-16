@@ -51,7 +51,7 @@ export default function Expertise( {Expertise} : any) {
                         aria-expanded={open}
                         >
                         <div className="flex justify-between items-center gap-2">
-                            <p className="font-bold md:text-xl">{item?.question}</p>
+                            <span className="font-bold md:text-xl">{item?.question}</span>
                             <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -64,7 +64,7 @@ export default function Expertise( {Expertise} : any) {
                             </svg>
                         </div>
 
-                        <div className={`overflow-hidden transition-all border-t border-white duration-500 ease-in-out ${open ? "max-h-40 opacity-100 mt-4" : "max-h-0 opacity-0"}`}>
+                        <div className={`overflow-hidden transition-all border-t border-white duration-500 ease-in-out ${open ? "max-h-40 opacity-100 mt-2" : "max-h-0 opacity-0"}`}>
                             <p className="text-gray-300 dark:text-white pt-2 md:text-lg text-sm page-content">
                               <span dangerouslySetInnerHTML={{__html: item?.answer || ""}}/>
                             </p>

@@ -80,7 +80,7 @@ export default function FaqSection({FAQ}:any) {
                 onClick={() => toggle(index)}
                 >
                 <div className="flex justify-between items-center gap-2">
-                    <p className="font-bold md:text-xl text-black">{item.question}</p>
+                    <span className="font-bold md:text-xl text-black">{item.question}</span>
                     <div className=''>
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={`size-7 text-oveblue font-bold transition-transform duration-300 ${
                           activeIndex === index ? 'rotate-135' : ''
@@ -92,10 +92,10 @@ export default function FaqSection({FAQ}:any) {
                 
                 <div
                     className={`overflow-hidden transition-all border-t border-gray-400 duration-500 ease-in-out ${
-                        activeIndex === index ? 'max-h-40 opacity-100 mt-4' : 'max-h-0 opacity-0'
+                        activeIndex === index ? 'max-h-40 opacity-100 mt-2' : 'max-h-0 opacity-0'
                     }`}
                     >
-                    <p className="text-gray-600 pt-2 md:text-lg text-sm">
+                    <p className="text-gray-600 page-content pt-2 md:text-lg text-sm">
                       <span dangerouslySetInnerHTML={{__html: item.answer || ""}}/>
                     </p>
                 </div>
