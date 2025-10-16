@@ -30,14 +30,14 @@ export default function ServicePage({pageData}:any) {
       <ImageSteps StepsBlock={pageData?.stepCard}/>
       <div id="SWS" className="scroll-mt-18 scroll-smooth">
         <ServicessArea ServicessArea={pageData?.hoverCards?.group2}/>
+        <VACTA CTA={pageData?.cta?.one}/>
       </div>
-      <VACTA CTA={pageData?.cta?.one}/>
       <SkillsVA Skills={pageData?.cursorBlock}/>
-      <div id="SS" className="scroll-mt-18 scroll-smooth bg-oveblue/10">
+      <div id="SS" className="scroll-mt-18 dark:bg-gray-700 scroll-smooth bg-oveblue/10">
         <ClientSuccessStories ClientStories={pageData?.clientStories}/>
         <ClientReview Testimonials={pageData?.testimonial}/>
+        <VACTA CTA={pageData?.cta?.two}/>
       </div>
-      <VACTA CTA={pageData?.cta?.two}/>
       <div id="WWS" className="scroll-mt-18 scroll-smooth">
         <ServiceWhyChooseUs WhyChooseUs={pageData?.whyChoose}/>
       </div>

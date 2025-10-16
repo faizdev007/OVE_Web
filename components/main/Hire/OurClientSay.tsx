@@ -30,7 +30,7 @@ function OurClientSay({ wochts }: any) {
     slidesToShow: 1,
     slidesToScroll: 1,
     pauseOnHover: false,
-    arrows: true,
+    arrows: false,
     waitForAnimate: false,
     beforeChange: (_, next) => {
       setCurrentSlide(next);
@@ -113,9 +113,9 @@ function OurClientSay({ wochts }: any) {
         asNavFor={nav1 ?? undefined}
         ref={sliderRef2}
         slidesToShow={4}
-        swipeToSlide
-        focusOnSelect
-        centerMode
+        swipeToSlide={true}
+        focusOnSelect={true}
+        centerMode={true}
         autoplay={false}
         beforeChange={()=>{
             setProgress(0)

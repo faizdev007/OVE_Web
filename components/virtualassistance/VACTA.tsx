@@ -13,7 +13,7 @@ const VACTA = (CTA:any) => {
       }, []);
     return (
         <>   
-            <section className="bg-oveblue/10 py-12 dark:py-12 flex flex-col items-center gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
+            <section className="bg-oveblue/10 dark:bg-transparent py-12 dark:py-12 flex flex-col items-center gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
                 <h2 className="lg:text-3xl text-2xl font-bold text-center"><span dangerouslySetInnerHTML={{ __html: CTA?.CTA?.title ?? "Still Wasting Time Recruiting Now ?" }}/></h2>
                 <div className="flex gap-3 items-center">
                     <button type="button" onClick={() => setIsOpen(true)} aria-label="contact" className="rounded-md text-white cursor-pointer flex items-center gap-2 bg-oveblue px-4 py-2 hover:bg-gray-700"><span dangerouslySetInnerHTML={{ __html: CTA?.CTA?.buttonText ?? 'Book A Free Consultation Now'}}/>

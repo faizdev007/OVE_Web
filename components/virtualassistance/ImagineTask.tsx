@@ -68,7 +68,7 @@ const ImagineTask = (Information:any) => {
     let caricon = Information?.Information?.cards ?? cards;
     return(
         <section className="text-white bg-oveblue/10 py-12 dark:py-12 flex flex-col items-center gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
-            <div className="mx-auto p-2 py-3 text-black text-center w-full">
+            <div className="mx-auto p-2 py-3 text-black dark:text-white text-center w-full">
                 <h2 className="text-3xl font-bold mb-2">
                     {Information?.Information?.title ?? 'Imagine Your Remote Assistant Doing All These Tasks for You...'}
                 </h2>

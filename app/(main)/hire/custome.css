@@ -86,7 +86,7 @@
 }
 
 .page-content ol li::marker {
-  color: #9333ea; /* Tailwind purple-600 */
+  color: #2563eb; /* Tailwind purple-600 */
 }
 
 /* Nested list indentation */

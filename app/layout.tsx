@@ -102,7 +102,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* ✅ GTM script */}
-        <Script id="gtm-script" strategy="beforeInteractive">
+        {/* <Script id="gtm-script" strategy="beforeInteractive">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -110,28 +110,14 @@ export default function RootLayout({
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-5K42N2M2');
           `}
-        </Script>
-        {/* ✅ Global Google Tag (gtag.js) */}
-        <Script
-          id="google-ads-global"
-          strategy="afterInteractive"
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=GTM-5K42N2M2"
-        />
-        <Script id="google-ads-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'GTM-5K42N2M2');
-          `}
-        </Script>
-        <Script
+        </Script> */}
+        {/* ✅ JSON-LD for Organization */}
+        {/* <Script
           id="organization-schema"
           type="application/ld+json"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        ></Script>
+        ></Script> */}
       </head>
       <body
         className={`${inter.className} ${geistSans.variable} ${geistMono.variable} opensans antialiased scroll-smooth`}

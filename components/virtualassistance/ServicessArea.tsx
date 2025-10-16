@@ -29,7 +29,7 @@ export default function ServicessArea(ServicessArea:any) {
                 {services.map((step:string, idx:number) => (
                     <div
                         key={idx}
-                        className="va-card shadow-lg rounded-lg p-4 text-center relative"
+                        className="va-card shadow-lg dark:bg-gray-700 dark:shadow-white/20 rounded-lg p-4 text-center relative"
                     >
                         <h2 style={{ fontSize: '1.25rem', fontWeight: 600 }}>{step}</h2>
                         <style jsx>{`

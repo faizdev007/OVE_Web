@@ -26,7 +26,7 @@ export default function ServiceWhyChooseUs( WhyChooseUs : any) {
   const features = WhyChooseUs?.WhyChooseUs?.features ?? listinfos;
 
   return (
-    <section className="bg-gradient py-12 dark:py-12 flex flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
+    <section className="bg-gradient py-12 dark:py-12 dark:text-white flex flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
         {/* Main Header */}
         <div className="text-center hidden max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold">
@@ -49,14 +49,14 @@ export default function ServiceWhyChooseUs( WhyChooseUs : any) {
                 <img src={WhyChooseUs?.WhyChooseUs?.sideImage ?? '/assets/virtualassistance/WhyOVE.webp'} alt="why block Image" className="w-2/3 h-auto"/>
             </div>
 
-            <div className="lg:w-1/2 w-full text-black md:p-6 p-2">
+            <div className="lg:w-1/2 w-full text-black dark:text-white md:p-6 p-2">
                 <div className="w-full space-y-4">
                     {features.map((item:any, index:number) => {
                     const open = activeIndex === index;
                     return (
                         <div
                             key={index}
-                            className={`border-oveblue bg-oveblue/10 rounded py-2 px-4 shadow-sm shadow-oveblue transition-all cursor-pointer ${open ? "border-b-4" : ""}`}
+                            className={`border-oveblue bg-oveblue/10 rounded py-2 px-4 shadow-sm shadow-oveblue dark:bg-gray-600 transition-all cursor-pointer ${open ? "border-b-4" : ""}`}
                             onClick={() => toggle(index)}
                             aria-expanded={open}
                             >

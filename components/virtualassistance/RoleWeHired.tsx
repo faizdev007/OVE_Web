@@ -57,7 +57,7 @@ const steps = [
 export default function RoleWeHired(RoleBaseHired:any) {
     let rolesteps = RoleBaseHired?.RoleBaseHired?.cardText ?? steps;
     return (
-        <section className="bg-gradient py-12 dark:py-12 flex flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
+        <section className="bg-gradient py-12 dark:py-12 dark:bg-gray-700 flex flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
             {/* Main Header */}
             <div className="text-center max-w-4xl mx-auto">
                 <h2 className="text-3xl font-bold mb-2">

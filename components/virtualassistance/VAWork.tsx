@@ -10,7 +10,7 @@ const steps = [
 export default function VAWork(StoryBlock:any) {
     let stories = StoryBlock?.StoryBlock?.stories ?? steps;
     return (
-        <section className="bg-gradient py-12 dark:py-12 flex flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
+        <section className="bg-gradient py-12 dark:py-12 dark:text-white  flex flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
             {/* Main Header */}
             <div className="max-w-7xl mx-auto">
                 <h2 className="text-3xl font-bold text-center mb-10">
@@ -23,7 +23,7 @@ export default function VAWork(StoryBlock:any) {
 
             <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-4'>
                 {stories.map((info:any,key:number)=>(
-                    <div key={key} className='md:p-4 p-2 border rounded-2xl shadow-xl !items-center'>
+                    <div key={key} className='md:p-4 p-2 border dark:bg-gray-600 rounded-2xl shadow-xl !items-center'>
                         <div className=''>
                             <img className='aspect-video' src={info?.image ?? ''} alt={'story1'}/>
                             <h3 className='font-bold my-2 text-xl'>{info?.title ?? 'Big dreams, lean teams'}</h3>

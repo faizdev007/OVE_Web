@@ -98,7 +98,7 @@ const HeroSection = (HeroData:any) => {
                     </div>
                     <hr className=""></hr>
                     <form onSubmit={handleSubmit}  className="space-y-4 md:p-8 p-4">
-                        <div className="mt-1 flex w-full border overflow-hidden border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                        <div className="mt-1 flex w-full border overflow-hidden border-gray-300 dark:text-black rounded-md focus:ring-blue-500 focus:border-blue-500">
                             <label htmlFor="name" className="hidden text-sm font-medium text-gray-700">
                                 Full Name *
                             </label>
@@ -118,7 +118,7 @@ const HeroSection = (HeroData:any) => {
                                 autoComplete="false"
                             />
                         </div>
-                        <div className="mt-1 flex w-full border overflow-hidden border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                        <div className="mt-1 flex w-full border overflow-hidden border-gray-300 dark:text-black rounded-md focus:ring-blue-500 focus:border-blue-500">
                             <label htmlFor="email" className="hidden text-sm font-medium text-gray-700">
                                 Email Address *
                             </label>
@@ -139,7 +139,7 @@ const HeroSection = (HeroData:any) => {
                                 autoComplete="false"
                             />
                         </div>
-                        <div className="mt-1 flex w-full border overflow-hidden border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                        <div className="mt-1 flex w-full border overflow-hidden border-gray-300 dark:text-black rounded-md focus:ring-blue-500 focus:border-blue-500">
                             <label htmlFor="phone" className="hidden text-sm font-medium text-gray-700">
                                 Phone No (Optional)
                             </label>
@@ -150,7 +150,7 @@ const HeroSection = (HeroData:any) => {
                             </span>
                             <input type="tel" id="phone" value={formData.phone} onChange={handleChange} name="phone" onInput={onlyNumber} maxLength={15} placeholder="Enter Phone Number" className="p-2 w-full rounded-e-md" autoComplete="false"/>
                         </div>
-                        <div>
+                        <div className="dark:text-black">
                             <label htmlFor="message" className="hidden text-sm font-medium text-gray-700">
                                 Your Requirements *
                             </label>
@@ -197,7 +197,7 @@ const HeroSection = (HeroData:any) => {
                                     <span dangerouslySetInnerHTML={{__html:HeroData?.HeroData?.heroformsection?.formbuttontext ?? "Book Your Free Consultation"}}/>
                                 )}
                         </button>
-                        <p className="text-center text-xs">*No strings attached, just actionable insights.</p>
+                        <p className="text-center text-xs dark:text-black">*No strings attached, just actionable insights.</p>
                     </form>
                 </div>
             </div>
