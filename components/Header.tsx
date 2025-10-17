@@ -89,7 +89,7 @@ const companyM = [{
   }, []);
 
   return (
-    <header className="bg-black font-bold dark:bg-gray-700 text-white border-b dark:text-white shadow-md sticky top-0 z-50">
+    <header className="bg-black font-bold dark:bg-gray-700 text-white border-b border-gray-700 dark:text-white shadow-md sticky top-0 z-50">
       <div className="mx-auto flex items-center justify-between px-4 py-2 relative">
         {/* Logo */}
         <a href={'/'} className="flex items-center">
@@ -164,10 +164,10 @@ const companyM = [{
           {/* hidden section ends here */}
         </nav>
         <div className='lg:flex gap-6 items-center hidden'>
-            <a href="/contact-us" className="border-2 border-oveblue hover:bg-blue-700 text-oveblue hover:text-white px-4 py-2 rounded-md transition">
+            <a href="/contact-us" className="border-2 border-oveblue hover:bg-blue-700 text-white px-4 py-2 rounded-md transition">
                 Schedule A Call
             </a>
-            <a href="/contact-us" className="bg-oveblue hover:bg-blue-700 text-white px-4 py-2 rounded-md transition">
+            <a href="/contact-us" className="bg-oveblue hover:bg-blue-700 text-white border-2 border-oveblue px-4 py-2 rounded-md transition">
                 Start Hiring
             </a>
         </div>
