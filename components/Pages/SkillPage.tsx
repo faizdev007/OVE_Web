@@ -37,7 +37,7 @@ export default function RolePage({PageData}:any) {
       <HireThroughOVE hiringProcess={PageData?.hiringProcess} />
 
       <div className="relative">
-        <div className="bg-lightblack dark:hidden">
+        <div className="bg-black dark:hidden">
           <Image src="/assets/white.png" alt="bg" width={1000} height={1000} className="w-full" />
         </div>
         <Expertise Expertise={PageData?.expertise} />
@@ -57,7 +57,7 @@ export default function RolePage({PageData}:any) {
         <WSF WhyHire={PageData?.whyHire} />
       </div>
 
-      <div className="relative blackgradiant">
+      <div className="relative bg-black">
         <div className="bg-white dark:hidden">
           <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full" />
         </div>
@@ -65,7 +65,7 @@ export default function RolePage({PageData}:any) {
       </div>
 
       <div className="relative">
-        <div className="bg-lightblack dark:hidden">
+        <div className="bg-black dark:hidden">
           <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full" />
         </div>
         <Client Testimonials={PageData?.testimonial}/>

@@ -93,9 +93,11 @@ const list2 = [
     }
 ];
 
-const Blogs = (blogdata:any)=>{
+const Blogs = ({blogdata}:any)=>{
+    console.log(blogdata);
     const router = useRouter();
-    const listdata= blogdata?.blogdata ?? list;
+    const listdata= blogdata ?? list;
+    const postcat = blogdata[0].postcategories ?? '';
     
     const [searchQuery, setSearchQuery] = React.useState("");
   
@@ -109,7 +111,28 @@ const Blogs = (blogdata:any)=>{
                 <h1 className="2xl:text-5xl md:text-3xl text-2xl font-bold mb-8">Software Innovation Starts Here</h1>
                 <p>Tap into the power of our top 1% software engineers and 675+ digital transformation experts. Get insights to drive your business forward in today’s competitive landscape.</p>
             </div>
-            <div className="mb-12">
+            <div className="mb-8">
+                <h2 className="2xl:text-5xl md:text-3xl text-2xl font-bold">All our articles</h2>
+                <strong className="md:text-3xl text-2xl font-bold text-gray-400">Let's read</strong>
+                <hr className="border-gray-200 my-3"/>
+                <div className="">
+                    {postcat && postcat.length > 0 && (
+                        <div className="flex flex-wrap gap-2">
+                            {postcat.map((cat:any) => (
+                                cat.name !== blogdata?.listdata?.name && 
+                                <a
+                                    key={cat.slug}
+                                    href={`/blog/${cat.slug}`}
+                                    className="px-3 py-1 border bg-oveblue/20 text-black dark:text-white hover:bg-oveblue/90 hover:text-white rounded-full text-sm"
+                                >
+                                    {cat.name}
+                                </a>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            </div>
+            <div className="mb-12 hidden">
                 <div className="lg:flex justify-between w-full mb-8">
                     <h1 className="text-3xl font-bold"></h1>
                     <div className="flex-wrap hidden md:flex-nowrap gap-4">

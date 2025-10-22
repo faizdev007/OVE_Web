@@ -113,6 +113,10 @@ const companyM = [{
           <a href="/privacy-policy" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
             Privacy Policy
           </a>
+
+          <a href="/blog" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
+            Blog
+          </a>
           
           {/* this section menu is hidden */}
 
@@ -274,6 +278,9 @@ const companyM = [{
 
           <a href="/privacy-policy" className="block hover:text-blue-600 dark:hover:text-blue-400">
             Privacy Policy
+          </a>
+          <a href="/blog" className="block hover:text-blue-600 dark:hover:text-blue-400">
+            Blog
           </a>
 
           <hr className='my-2 border-2 rounded border-gray-600'></hr>

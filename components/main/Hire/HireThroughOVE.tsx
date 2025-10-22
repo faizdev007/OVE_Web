@@ -40,7 +40,7 @@ const HireThroughOVE = ({hiringProcess}:any) => {
     const processSteps = hiringProcess?.steps ?? steps;
     const processTitle = hiringProcess?.title ?? 'How To Hire Developer Through Optimal Virtual Employee'
     return (
-        <section className="py-20 blackgradiant text-white flex flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
+        <section className="py-20 bg-black text-white flex flex-col gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">
             <h2 className="md:mb-12 capitalize text-center font-bold md:text-4xl text-3xl"><span dangerouslySetInnerHTML={{ __html: processTitle }}/></h2>
             <div className="md:grid space-y-4 md:grid-cols-2 2xl:grid-cols-4 gap-6 2xl:gap-4 mb-6">
                 {processSteps.map((step:any, index:number) => (

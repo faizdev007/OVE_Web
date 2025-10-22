@@ -18,7 +18,7 @@ export default function HirePageComponent({hireData}:any) {
             <DevelopersSlider/>
             <HireThroughOVE hiringProcess={hireData?.hiringProcess}/>
             <div className="relative">
-                <div className="bg-lightblack dark:hidden">
+                <div className="bg-black dark:hidden">
                     <Image src="/assets/white.png" alt="bg" width={1000} height={1000} className="w-full" />
                 </div>
                 <Expertise Expertise={hireData?.expertise}/>
@@ -41,14 +41,14 @@ export default function HirePageComponent({hireData}:any) {
                 </div>
                 <WSF WhyHire={hireData?.whyHire}/>
             </div>
-            <div className="relative blackgradiant">
+            <div className="relative bg-black">
                 <div className="bg-white dark:hidden">
                     <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full" />
                 </div>
                 <CTable PriceTable={hireData?.priceTable ?? []} />
             </div>
             <section className="relative">
-                <div className="bg-[#404040]">
+                <div className="bg-black">
                     <Image
                     src="/assets/black.png"
                     alt="compare"
