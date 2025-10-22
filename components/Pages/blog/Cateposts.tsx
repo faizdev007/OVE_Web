@@ -106,49 +106,43 @@ const Cateposts = (blogdata:any)=>{
 
     return (
         <main className="mx-auto py-10 px-4">
-            <div className="mb-6 p-2 rounded-lg">
-                <div className="lg:flex justify-between w-full">
-                    <h2 className="text-3xl font-bold">{blogdata?.listdata?.name}</h2>
-                    <div className="hidden flex-wrap md:flex-nowrap gap-4">
-                        <Form>
-                            <div className="flex w-full max-w-md gap-2">
-                                <input
-                                    placeholder="Enter your search query"
-                                    value={searchQuery}
-                                    onChange={(e) => setSearchQuery(e.target.value)}
-                                    onKeyDown={(e) => {
-                                        if (e.key === "Enter") {
-                                            handleSearch();
-                                        }
-                                    }}
-                                    className="flex-1 border bg-white border-black p-1 rounded-lg"
-                                />
-                                <Button  
-                                    onPress={handleSearch}
-                                    className="self-end border bg-oveblue/90 text-white hover:bg-oveblue/70 rounded-lg"
-                                >
-                                    Search
-                                </Button>
-                            </div>
-                        </Form>
-                    </div>
+            <div className="mb-6 rounded-lg">
+                <div className="mb-12">
+                    <h1 className="2xl:text-5xl md:text-3xl text-2xl font-bold mb-8">Software Innovation Starts Here</h1>
+                    <p>Tap into the power of our top 1% software engineers and 675+ digital transformation experts. Get insights to drive your business forward in today’s competitive landscape.</p>
                 </div>
-                <hr className="border-gray-400 my-3"/>
                 <div className="">
-                    {blogdata?.listdata?.categories && blogdata?.listdata?.categories.length > 0 && (
-                        <div className="flex flex-wrap gap-2">
-                            {blogdata?.listdata?.categories.map((cat:any) => (
-                                cat.name !== blogdata?.listdata?.name && 
+                    <h2 className="2xl:text-5xl md:text-3xl text-2xl font-bold">All our articles</h2>
+                    <strong className="md:text-3xl text-2xl font-bold text-gray-400">Let's read</strong>
+                    <hr className="border-gray-200 my-3"/>
+                    <div className="">
+                        {blogdata?.listdata?.categories && blogdata?.listdata?.categories.length > 0 && (
+                            <div className="flex flex-wrap gap-2">
                                 <a
-                                    key={cat.slug}
-                                    href={`/blog/${cat.slug}`}
+                                    href={`/blog`}
                                     className="px-3 py-1 border bg-oveblue/20 text-black dark:text-white hover:bg-oveblue/90 hover:text-white rounded-full text-sm"
                                 >
-                                    {cat.name}
+                                    All
                                 </a>
-                            ))}
-                        </div>
-                    )}
+                                {blogdata?.listdata?.categories.map((cat:any) => (
+                                    cat.name !== blogdata?.listdata?.name && 
+                                    <a
+                                        key={cat.slug}
+                                        href={`/blog/${cat.slug}`}
+                                        className="px-3 py-1 border bg-oveblue/20 text-black dark:text-white hover:bg-oveblue/90 hover:text-white rounded-full text-sm"
+                                    >
+                                        {cat.name}
+                                    </a>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                </div>
+                <div className="hidden">
+                    <div className="lg:flex justify-between w-full">
+                        <h2 className="text-3xl font-bold">{blogdata?.listdata?.name}</h2>
+                    </div>
+                    <hr className="border-gray-400 my-3"/>
                 </div>
             </div>
             <div className="mb-6">
