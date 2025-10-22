@@ -93,11 +93,7 @@ const companyM = [{
       <div className="mx-auto flex items-center justify-between px-4 py-2 relative">
         {/* Logo */}
         <a href={'/'} className="flex items-center">
-          { darkmod ? (
-            <Image loading='eager' priority src={"/assets/logo2.webp"} width={125} height={100} className='h-12 w-auto' alt="OVE" />
-          ) : (
-            <Image loading='eager' priority src={"/assets/whiteLogo.webp"} width={500} height={450} className='h-12 w-auto' alt="OVE" />
-          ) }
+          <Image loading='eager' priority src={"/assets/whiteLogo.webp"} width={125} height={100} className='h-12 w-auto' alt="OVE" />
         </a>
 
         {/* Desktop Menu */}
