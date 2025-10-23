@@ -69,7 +69,7 @@ function SamplePrevArrow(props: CustomArrowProps) {
       <button
         type="button"
         aria-label="Previous"
-        className="bg-oveblue/40 w-12 h-12 rounded-full opacity-90 flex justify-center items-center hover:bg-blue-600 border border-white cursor-pointer font-bold"
+        className="bg-carblue/40 w-12 h-12 rounded-full opacity-90 flex justify-center items-center hover:bg-blue-600 border border-white cursor-pointer font-bold"
         onClick={onClick}
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-7 text-white drop-shadow-lg">
@@ -197,15 +197,7 @@ export default function DevelopersSlider({hire}:any) {
 
   if(loading){
     return (
-      <section className="bg-black dark:bg-gray-800 relative px-4 py-12 sm:px-6 lg:px-8 mx-auto">
-      <Image
-        loading="lazy"
-        width={100}
-        height={100}
-        className="absolute hidden object-cover bottom-0 w-full start-0 end-0"
-        src="/assets/cloudbg.webp"
-        alt="cloudbg"
-      />
+      <section className="relative px-4 py-12 sm:px-6 lg:px-8 mx-auto">
       <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center text-white mb-12">
         Meet Our Developers
       </h2>
@@ -256,11 +248,11 @@ export default function DevelopersSlider({hire}:any) {
   }
 
   return (
-    <section className="bg-black dark:bg-gray-800 relative px-4 py-12 sm:px-6 lg:px-8 mx-auto">
+    <section className=" relative px-4 py-12 sm:px-6 lg:px-8 mx-auto">
       <Image loading="lazy" width={100} height={100}
              className="absolute hidden object-cover bottom-0 w-full start-0 end-0"
              src="/assets/cloudbg.webp" alt="cloudbg" />
-      <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center text-white mb-12">
+      <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center text-black mb-12">
         Meet Our Developers
       </h2>
 
@@ -271,7 +263,7 @@ export default function DevelopersSlider({hire}:any) {
               {developerList.map((dev, index) => (
                 <div key={index} className="px-1 py-2">
                   <div
-                    className="bg-oveblue gap-4 flex flex-col justify-around mt-25 aspect-[1/1.2] text-white relative rounded-xl shadow-md hover:shadow-lg"
+                    className="bg-carblue gap-4 flex flex-col justify-around mt-25 aspect-[1/1.2] text-white relative rounded-xl shadow-md hover:shadow-lg"
                     style={{ border: `3px solid ${dev.color || '#3AA0FF'}` }}
                   >
                     <div className="relative w-2/3 flex items-center justify-center aspect-[3/1] mx-auto">

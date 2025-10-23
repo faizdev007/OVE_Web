@@ -2,6 +2,7 @@
 
 import useInView from "../../useInView";
 import TrustedBy from "./trustedby";
+import '@/app/(main)/hire/custome.css';
 
 export default function Herosection({herodata}: any)
 {
@@ -10,26 +11,31 @@ export default function Herosection({herodata}: any)
 
     const { elementRef, isVisible } = useInView();
     
-    return(<section className="bg-black dark:bg-gray-800 text-white">
-    <div ref={elementRef} className="relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-        <div className='flex items-center pt-8'>
-            <div className={`w-full mx-auto h-full lg:grid grid-cols-2 items-center`}>  
-                <div className='p-4 flex flex-col h-full md:justify-between justify-center gap-3 text-center md:text-start'>
+    return(<section className=" text-white">
+    <div ref={elementRef} className="relative h-screen px-4 sm:px-6 lg:px-8 mx-auto">
+        <div className='flex h-full items-center'>
+            <div className={`w-full mx-auto max-w-7xl items-center`}>  
+                <div className='p-4 flex flex-col h-full md:justify-between justify-center gap-8 text-center'>
+                    <video autoPlay muted loop playsInline className="hero-video">
+                        <source src={'/assets/videos/herobg.mp4'} type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                    <div className="overlay"></div>
                     <div className="flex flex-col gap-6 2xl:gap-18">
-                        <h1 className='text-4xl xl:text-5xl leading-tight flex flex-col gap-4 font-bold text-oveblue'>
+                        <h1 className='page-content text-white'>
                             <span dangerouslySetInnerHTML={{__html:heroelement?.title ?? "Need Developers On Demand? We’re Your Augmentation Partner"}}></span>
                         </h1>
                         <div className='text-sm lg:text-md xl:text-xl 2xl:text-2xl'><span dangerouslySetInnerHTML={{__html:heroelement?.description ?? 'Reduce your time to hire from months to days. Our remote staff augmentation connects you with pre-vetted developers who onboard quickly and start delivering real value from day one.'}}/></div>
                     </div>
-                    <div className='text-center max-w-auto'>
+                    <div className='text-center max-w-xl mx-auto w-full'>
                         <div className="flex gap-3 md:flex-row flex-col items-start">
                             {/* Primary CTA */}
                             <div className="w-full">
                                 <a
                                 href="/contact-us"
                                 aria-label="Get Started"
-                                className="w-full flex justify-center items-center text-center bg-oveblue text-white 
-                                            hover:bg-blue-700 transition-all duration-200 
+                                className="w-full flex justify-center items-center text-center bg-btnblue text-white 
+                                            hover:bg-btnblue/90 transition-all duration-200 
                                             lg:p-3 p-2 2xl:text-xl text-sm font-bold rounded-lg shadow-md 
                                             hover:shadow-lg"
                                 >
@@ -39,7 +45,7 @@ export default function Herosection({herodata}: any)
                             </div>
 
                             {/* OR Divider */}
-                            <span className="font-bold w-full md:w-auto md:text-2xl text-lg mt-1 md:mt-[1.3%] text-center text-gray-500">
+                            <span className="font-bold hidden w-full md:w-auto md:text-2xl text-lg mt-1 md:mt-[1.3%] text-center text-gray-500">
                                 OR
                             </span>
 
@@ -47,7 +53,7 @@ export default function Herosection({herodata}: any)
                             <a
                                 href="/contact-us"
                                 aria-label="Book a 15-min Call"
-                                className="w-full flex justify-center items-center text-center border-2 border-oveblue text-oveblue 
+                                className="w-full hidden justify-center items-center text-center border-2 border-oveblue text-oveblue 
                                         hover:bg-oveblue hover:text-white transition-all duration-200
                                         lg:p-3 p-2 2xl:text-xl text-sm font-bold rounded-lg shadow-sm hover:shadow-md"
                             >
@@ -56,7 +62,7 @@ export default function Herosection({herodata}: any)
                         </div>
                     </div>
                 </div>
-                <div className='p-4 flex items-start h-full'>
+                <div className='p-4 hidden items-start h-full'>
                     <div style={{ position: 'relative', width:'100%', aspectRatio: '16 / 9' }}>
                         <iframe 
                             loading="lazy" title="Gumlet video player"

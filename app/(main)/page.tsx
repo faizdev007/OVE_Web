@@ -224,7 +224,7 @@ export default async function Home() {
   }
 
   return (
-    <>
+    <div className="">
       {/* Hero Section */}
       <Herosection herodata={data} />
 
@@ -235,8 +235,8 @@ export default async function Home() {
       <HireBy/>
 
       {/* Hiring Process */}
-      <section className="relative">
-        <div className="bg-black">
+      <section className="relative py-12">
+        <div className="bg-black hidden">
           <Image
             src="/assets/gray.webp"
             alt="compare"
@@ -249,8 +249,8 @@ export default async function Home() {
       </section>
 
       {/* Trusted By Section */}
-      <section className="relative">
-        <div className="bg-gray-100">
+      <section className="relative py-12 bluegrabg">
+        <div className="bg-gray-100 hidden">
           <Image
             src="/assets/black.png"
             alt="compare"
@@ -263,8 +263,8 @@ export default async function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="relative">
-        <div className="bg-black">
+      <section className="relative py-12">
+        <div className="bg-black hidden">
           <Image
             src="/assets/gray.webp"
             alt="compare"
@@ -277,8 +277,8 @@ export default async function Home() {
       </section>
 
       {/* Projects */}
-      <section className="relative">
-        <div className="bg-gray-100">
+      <section className="relative py-12 bluegrabg">
+        <div className="bg-gray-100 hidden">
           <Image
             src="/assets/black.png"
             alt="compare"
@@ -291,8 +291,8 @@ export default async function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="relative">
-        <div className="bg-black">
+      <section className="relative py-12">
+        <div className="bg-black hidden">
           <Image
             src="/assets/gray.webp"
             alt="compare"
@@ -303,6 +303,6 @@ export default async function Home() {
         </div>
         <FaqSection FAQ={data.faq.list} />
       </section>
-    </>
+    </div>
   );
 }

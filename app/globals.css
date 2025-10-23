@@ -11,6 +11,20 @@
   --boxFill: #1b1b1b;
   --Pgradient: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(0, 0, 0, 0) 100%);
   --oveVA: linear-gradient(90deg,rgba(37, 98, 235, 1) 0%, rgba(11, 35, 92, 1) 60%);
+
+
+  /* new color platter */
+  --btnblue: #124ec7;
+  --blue2: #123580;
+  --blue3: #1b1859;
+  --blue4: #001133;
+  --blue5: #5170e0;
+  --blue6: #1b1454;
+  --blue7: #001133;
+  --blue8: #081533;
+  --secondtext: #616161;
+  --bluegradient: linear-gradient(315.98deg,#0B2051 -12.82%,#124EC6 73.24%);
+  --bluegradient2: linear-gradient(84.74deg,#0b2051 29%,#124ec6 93%);
 }
 
 @theme inline {
@@ -20,6 +34,9 @@
   --background-gradient: var(--Pgradient);
   --color-boxFill: var(--boxFill);
   --color-lightblack: var(--lightblack);
+  --color-headerblue: var(--blue7);
+  --color-btnblue: var(--btnblue);
+  --color-carblue: var(--blue3);
 }
 /* --font-sans: var(--font-geist-sans);
 --font-mono: var(--font-geist-mono); */
@@ -47,6 +64,10 @@ html {
 .footerbg{
   background: #020024;
   background: linear-gradient(180deg, rgba(2, 0, 36, 1) 20%, rgba(21, 93, 252, 1) 100%);  
+}
+
+.bluegrabg{
+  background: linear-gradient(315.98deg,#0B2051 -12.82%,#124EC6 73.24%);
 }
 
 .blackgradiant{
@@ -151,4 +172,41 @@ body.h1,h2,h3,h4,h5,h6{
   .animate-fadeIn {
     animation: fadeIn 0.6s ease-in-out forwards;
   }
+}
+
+
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* 0.4 = 40% dark overlay */
+  z-index: -1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
 }

@@ -22,7 +22,7 @@ export default function TrustedBySection({trustedbysection}: any) {
   const keymetrics = trustedbysection?.keyMetrics ?? stats;
   const states = stats;
   return (
-    <section className="bg-black dark:bg-gray-800 text-white relative px-4 pb-12 dark:py-12 sm:px-6 lg:px-8 mx-auto text-center flex flex-col gap-10">
+    <section className=" text-white relative px-4 pb-12 dark:py-12 sm:px-6 lg:px-8 mx-auto text-center flex flex-col gap-10">
       {/* Heading */}
       <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center">
         <span className="gradiantorg text-4xl lg:text-6xl md:text-5xl font-bold mb-4">{trustedbysection?.title ?? 'Trusted by'}</span>

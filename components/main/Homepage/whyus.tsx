@@ -32,7 +32,7 @@ export default function WhyChooseUs({whychooseus}: any) {
         {steps.map((item:any, i:number) => (
           <div key={i} className="flex flex-col items-center">
             <div className="rounded-t-full w-full border-2 border-b-0 p-3 border-dashed border-black dark:border-white overflow-hidden">
-              <div className={`pt-6 flex flex-col pb-32 justify-center items-center relative aspect-[1/1] px-4 rounded-t-full inset-shadow-xs inset-shadow-white`} style={{backgroundColor:"#1447e6"}}>
+              <div className={`pt-6 flex flex-col pb-32 justify-center items-center relative aspect-[1/1] px-4 rounded-t-full inset-shadow-xs inset-shadow-white bg-carblue`}>
                 <h3 className="text-white font-bold text-2xl lg:text-4xl text-shadow-lg">{item.title}</h3>
                 {item.span && (
                   <p className="text-white text-sm tracking-widest mt-1">{item.span}</p>

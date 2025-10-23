@@ -57,7 +57,7 @@ export default function HireBy() {
                     {[...Array(9)].map((_, i) => (
                         <div
                         key={i}
-                        className="bg-boxFill rounded shadow-md flex flex-col p-6 text-center justify-center items-center gap-4 animate-pulse"
+                        className="bg-carblue rounded shadow-md flex flex-col p-6 text-center justify-center items-center gap-4 animate-pulse"
                         >
                         <div className="aspect-[1/1] flex items-center justify-center">
                             <div className="h-12 w-12 bg-gray-600 rounded"></div>
@@ -65,7 +65,7 @@ export default function HireBy() {
                         <div className="h-4 w-20 bg-gray-600 rounded"></div>
                         </div>
                     ))}
-                    <div className="bg-boxFill rounded shadow-md flex flex-col p-6 text-center justify-center items-center gap-4 animate-pulse">
+                    <div className="bg-carblue rounded shadow-md flex flex-col p-6 text-center justify-center items-center gap-4 animate-pulse">
                         <div className="h-4 w-40 bg-gray-600 rounded"></div>
                         <div className="h-8 w-28 bg-gray-600 rounded"></div>
                     </div>
@@ -81,7 +81,7 @@ export default function HireBy() {
                     {[...Array(9)].map((_, i) => (
                         <div
                         key={i}
-                        className="bg-boxFill rounded shadow-md flex flex-col p-6 text-center justify-center items-center gap-4 animate-pulse"
+                        className="bg-carblue rounded shadow-md flex flex-col p-6 text-center justify-center items-center gap-4 animate-pulse"
                         >
                         <div className="aspect-[1/1] flex items-center justify-center">
                             <div className="h-12 w-12 bg-gray-600 rounded"></div>
@@ -89,7 +89,7 @@ export default function HireBy() {
                         <div className="h-4 w-20 bg-gray-600 rounded"></div>
                         </div>
                     ))}
-                    <div className="bg-boxFill rounded shadow-md flex flex-col p-6 text-center justify-center items-center gap-4 animate-pulse">
+                    <div className="bg-carblue rounded shadow-md flex flex-col p-6 text-center justify-center items-center gap-4 animate-pulse">
                         <div className="h-4 w-40 bg-gray-600 rounded"></div>
                         <div className="h-8 w-28 bg-gray-600 rounded"></div>
                     </div>
@@ -100,7 +100,7 @@ export default function HireBy() {
     }
 
     return (
-        <section className="bg-black dark:bg-gray-800 text-white relative px-4 py-12 sm:px-6 lg:px-8 mx-auto flex flex-col gap-10">
+        <section className="bluegrabg dark:bg-gray-800 text-white relative px-4 py-12 sm:px-6 lg:px-8 mx-auto flex flex-col gap-10">
             <div className='container mx-auto'> 
                 {/* Heading */}
                 <h2 className="text-3xl font-bold mb-4">
@@ -109,7 +109,7 @@ export default function HireBy() {
                 {/* Logos */}
                 <div className="gap-4 grid grid-cols-2 lg:grid-cols-5 md:grid-cols-3 md:text-sm space-2 text-xs">
                     {RoleCards?.map((role, i) => (
-                        <a href={role.slug} key={i} className="bg-boxFill hover:bg-oveblue rounded shadow-md">
+                        <a href={role.slug} key={i} className="bg-carblue hover:bg-carblue/90 rounded shadow-md">
                             <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
                                 <div className='aspect-[1/1] flex items-center justify-center'>
                                     <img src={role.logo} alt={role.name} width={60} height={60} className="grayscale object-container h-12 w-auto" />
@@ -118,10 +118,10 @@ export default function HireBy() {
                             </div>
                         </a>
                     ))}
-                    <div key='action1' className="bg-boxFill rounded shadow-md">
+                    <div key='action1' className="bg-carblue rounded shadow-md">
                         <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
                             <h2 className='font-bold uppercase'>Looking for Other role?</h2>
-                            <a href='/contact-us' className='border-2 border-oveblue text-oveblue hover:bg-oveblue hover:text-white font-bold md:text-lg text-sm rounded px-2 py-1 cursor-pointer'>Place Request</a>
+                            <a href='/contact-us' className='border-2 border-oveblue text-oveblue hover:bg-carblue/90 hover:text-white font-bold md:text-lg text-sm rounded px-2 py-1 cursor-pointer'>Place Request</a>
                         </div>
                     </div>
                 </div>
@@ -135,7 +135,7 @@ export default function HireBy() {
                 {/* Logos */}
                 <div className="gap-4 grid grid-cols-2 lg:grid-cols-5 md:grid-cols-3 md:text-sm space-2 text-xs">
                     {hirebyskill.map((skill, i) => (
-                        <a href={skill.slug} key={i} className="bg-boxFill hover:bg-oveblue rounded shadow-md">
+                        <a href={skill.slug} key={i} className="bg-carblue hover:bg-carblue/90 rounded shadow-md">
                             <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
                                 <div className='aspect-[1/1] flex items-center justify-center hover:grayscale'>
                                     <Image src={skill.logo} alt={skill.name} width={60} height={60} className="object-container h-12 w-auto" />
@@ -144,10 +144,10 @@ export default function HireBy() {
                             </div>
                         </a>
                     ))}
-                    <div key='action2' className="bg-boxFill rounded shadow-md">
+                    <div key='action2' className="bg-carblue rounded shadow-md">
                         <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
                             <h2 className='font-bold uppercase'>Looking for Other Skill?</h2>
-                            <a href='/contact-us' className='border-2 border-oveblue text-oveblue hover:bg-oveblue hover:text-white font-bold md:text-lg text-sm rounded px-2 py-1 cursor-pointer'>Place Request</a>
+                            <a href='/contact-us' className='border-2 border-oveblue text-oveblue hover:bg-carblue/90 hover:text-white font-bold md:text-lg text-sm rounded px-2 py-1 cursor-pointer'>Place Request</a>
                         </div>
                     </div>
                 </div>
