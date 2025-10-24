@@ -235,7 +235,7 @@ export default async function Home() {
       <HireBy/>
 
       {/* Hiring Process */}
-      <section className="relative py-12">
+      <section className="relative bglbLG py-12">
         <div className="bg-black hidden">
           <Image
             src="/assets/gray.webp"
@@ -249,7 +249,7 @@ export default async function Home() {
       </section>
 
       {/* Trusted By Section */}
-      <section className="relative py-12 bluegrabg">
+      <section className="relative py-12 bg-headerblue">
         <div className="bg-gray-100 hidden">
           <Image
             src="/assets/black.png"
@@ -277,7 +277,7 @@ export default async function Home() {
       </section>
 
       {/* Projects */}
-      <section className="relative py-12 bluegrabg">
+      <section className="relative py-12 bgb2LG">
         <div className="bg-gray-100 hidden">
           <Image
             src="/assets/black.png"

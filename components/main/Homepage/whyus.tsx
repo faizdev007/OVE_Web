@@ -22,7 +22,7 @@ const items = [
 export default function WhyChooseUs({whychooseus}: any) {
   const steps = whychooseus?.steps.length !== 0 ? whychooseus?.steps : items;
   return (
-    <section className="relative px-4 pb-12 dark:py-12 sm:px-6 lg:px-8 mx-auto text-center dark:bg-gray-700 dark:text-white">
+    <section className="relative px-4 pb-12 dark:py-12 sm:px-6 lg:px-8 mx-auto headingtext text-center dark:bg-gray-700 dark:text-white">
       <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center mb-5">{whychooseus?.title ?? 'Why choose us'}</h2>
       <div className="text-gray-600 dark:text-white max-w-3xl mx-auto mb-12">
         <span dangerouslySetInnerHTML={{__html:whychooseus?.subtitle ?? "We don’t just connect you with developers — we deliver a seamless hiring experience backed by transparency, reliability, and support. Here’s why businesses love working with us"}}/>
@@ -32,7 +32,7 @@ export default function WhyChooseUs({whychooseus}: any) {
         {steps.map((item:any, i:number) => (
           <div key={i} className="flex flex-col items-center">
             <div className="rounded-t-full w-full border-2 border-b-0 p-3 border-dashed border-black dark:border-white overflow-hidden">
-              <div className={`pt-6 flex flex-col pb-32 justify-center items-center relative aspect-[1/1] px-4 rounded-t-full inset-shadow-xs inset-shadow-white bg-carblue`}>
+              <div className={`pt-6 flex flex-col pb-32 justify-center items-center relative aspect-[1/1] px-4 rounded-t-full inset-shadow-xs inset-shadow-white cardbLG`}>
                 <h3 className="text-white font-bold text-2xl lg:text-4xl text-shadow-lg">{item.title}</h3>
                 {item.span && (
                   <p className="text-white text-sm tracking-widest mt-1">{item.span}</p>

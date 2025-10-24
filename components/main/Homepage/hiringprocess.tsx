@@ -1,7 +1,6 @@
 'use client';
 
 import useInView from "@/components/useInView";
-import Image from "next/image";
 
 export default function HiringProcess({hiringprocessdata}: any)
 {
@@ -32,7 +31,7 @@ export default function HiringProcess({hiringprocessdata}: any)
     <>
         <section className="relative dark:bg-gray-900 pb-12 dark:py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto text-center">
-                <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                <h2 className="text-4xl font-bold headingtext dark:text-white mb-4">
                     <span dangerouslySetInnerHTML={{__html:hiringprocessdata?.title ?? 'Our Comprehensive Hiring Process'}}/>
                 </h2>
                 <div className="text-lg text-gray-600 dark:text-gray-300 mb-12">
@@ -44,7 +43,7 @@ export default function HiringProcess({hiringprocessdata}: any)
                 {hiresteps.map((stepItem:any, index:number) => (
                 <div
                     key={index}
-                    className="relative overflow-hidden bg-white dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition duration-300"
+                    className="relative bg-[#2562eb]/10 border border-gray-300 overflow-hidden dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition duration-300"
                         style={{ borderBottom: `3px solid #2562eb` }}
                     >
                     <div className="absolute top-4 right-4 text-5xl font-bold text-oveblue opacity-70">

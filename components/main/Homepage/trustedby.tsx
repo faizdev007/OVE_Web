@@ -35,10 +35,10 @@ export default function TrustedBy({trustedbyscroll}: any) {
   const herologos = trustedbyscroll.length !== 0 ? trustedbyscroll : logos;
   const { elementRef, isVisible } = useInView();
   return (
-    <section ref={elementRef} className="pb-10 pt-4 text-center">
+    <section ref={elementRef} className="py-4 text-center">
       <div className={`mx-auto flex items-center overflow-hidden animate-fade animate-once animate-ease-linear`}>
         {/* Left Static Text */}
-        <div className="min-w-[150px] text-white dark:border-black">
+        <div className="min-w-[150px] headingtext dark:text-white dark:border-black">
           <h2 className='text-lg md:text-2xl font-bold'>Trusted by</h2>
           <p className="md:text-sm text-sm text-gray-400">Top companies</p>
         </div>

@@ -19,6 +19,5 @@ export default function RootLayout({
         {/* End page layout data */}
         <CookieBanner/>
       </>
-
   );
 }

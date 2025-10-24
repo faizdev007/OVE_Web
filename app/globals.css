@@ -15,6 +15,7 @@
 
   /* new color platter */
   --btnblue: #124ec7;
+  --textblue1: #0b2051;
   --blue2: #123580;
   --blue3: #1b1859;
   --blue4: #001133;
@@ -24,7 +25,16 @@
   --blue8: #081533;
   --secondtext: #616161;
   --bluegradient: linear-gradient(315.98deg,#0B2051 -12.82%,#124EC6 73.24%);
-  --bluegradient2: linear-gradient(84.74deg,#0b2051 29%,#124ec6 93%);
+  --bgblue2LG: linear-gradient(84.74deg,#0b2051 29%,#124ec6 93%);
+  --bglightblueLG: linear-gradient(180deg,rgba(235, 235, 235, 0.68) 0%, rgba(196, 214, 255, 0.59) 60%);
+  --cardLG: linear-gradient(130deg,#112d5b 0%,#133689 69%);
+}
+
+nav a {
+  color: white;
+}
+nav a:hover {
+  color: var(--blue5);
 }
 
 @theme inline {
@@ -34,12 +44,55 @@
   --background-gradient: var(--Pgradient);
   --color-boxFill: var(--boxFill);
   --color-lightblack: var(--lightblack);
-  --color-headerblue: var(--blue7);
+  --color-headerblue: var(--blue4);
   --color-btnblue: var(--btnblue);
   --color-carblue: var(--blue3);
 }
 /* --font-sans: var(--font-geist-sans);
 --font-mono: var(--font-geist-mono); */
+
+
+
+
+
+.headingtext{
+  color: var(--textblue1);
+}
+
+.bglbLG{
+  background: var(--bglightblueLG);
+}
+
+.bgb2LG{
+  background: var(--bgblue2LG);
+}
+
+.cardbLG{
+  background: var(--bluegradient);
+}
+
+.cardLG{
+  background: var(--cardLG);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media (prefers-color-scheme: dark) {
   :root {

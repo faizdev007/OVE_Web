@@ -195,10 +195,12 @@ export default function DevelopersSlider({hire}:any) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // px-4 sm:px-6 lg:px-8
+
   if(loading){
     return (
-      <section className="relative px-4 py-12 sm:px-6 lg:px-8 mx-auto">
-      <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center text-white mb-12">
+      <section className="relative py-12 mx-auto">
+      <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center mb-12">
         Meet Our Developers
       </h2>
 
@@ -248,22 +250,22 @@ export default function DevelopersSlider({hire}:any) {
   }
 
   return (
-    <section className=" relative px-4 py-12 sm:px-6 lg:px-8 mx-auto">
+    <section className="relative py-12 mx-auto">
       <Image loading="lazy" width={100} height={100}
              className="absolute hidden object-cover bottom-0 w-full start-0 end-0"
              src="/assets/cloudbg.webp" alt="cloudbg" />
-      <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center text-black mb-12">
+      <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center headingtext mb-12">
         Meet Our Developers
       </h2>
 
-      <div className="relative rounded overflow-hidden mx-auto">
+      <div className="relative overflow-hidden mx-auto">
         <div className="slider-container relative z-10">
           {settings && developerList ? (
             <Slider {...settings}>
               {developerList.map((dev, index) => (
                 <div key={index} className="px-1 py-2">
                   <div
-                    className="bg-carblue gap-4 flex flex-col justify-around mt-25 aspect-[1/1.2] text-white relative rounded-xl shadow-md hover:shadow-lg"
+                    className="cardLG gap-4 flex flex-col justify-around mt-25 aspect-[1/1.2] text-white relative rounded-xl shadow-md hover:shadow-lg"
                     style={{ border: `3px solid ${dev.color || '#3AA0FF'}` }}
                   >
                     <div className="relative w-2/3 flex items-center justify-center aspect-[3/1] mx-auto">

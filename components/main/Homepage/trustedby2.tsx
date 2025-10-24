@@ -25,7 +25,7 @@ export default function TrustedBySection({trustedbysection}: any) {
     <section className=" text-white relative px-4 pb-12 dark:py-12 sm:px-6 lg:px-8 mx-auto text-center flex flex-col gap-10">
       {/* Heading */}
       <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center">
-        <span className="gradiantorg text-4xl lg:text-6xl md:text-5xl font-bold mb-4">{trustedbysection?.title ?? 'Trusted by'}</span>
+        <span className="text-4xl lg:text-6xl md:text-5xl font-bold mb-4">{trustedbysection?.title ?? 'Trusted by'}</span>
       </h2>
       <div className="max-w-4xl mx-auto text-white dark:text-white animate-fade">
         <span dangerouslySetInnerHTML={{__html:trustedbysection?.subtitle ?? 'Trusted by Companies That Shape the Future From Fortune 500 leaders to next-gen disruptors, our developers power innovation across industries — with speed, skill, and accountability at the core'}}/>
