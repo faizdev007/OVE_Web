@@ -29,8 +29,8 @@ export function generateMetadataFromSeo(seoData: SeoProps): Metadata {
         description: seoData?.opengraphDescription ?? description,
         },
         robots: {
-            index: seoData?.robots?.index ?? true,
-            follow: seoData?.robots?.follow ?? true,
+            index: false,
+            follow: false,
         },
         other: {
             "google-site-verification" : "xqpfQdsNQE8sN0vLhE3D-UOWjlDCbyl36rzarrerKZ8",
