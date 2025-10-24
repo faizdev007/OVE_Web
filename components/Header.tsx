@@ -88,8 +88,28 @@ const companyM = [{
     setdarkmod(isDarkMode);
   }, []);
 
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-      <header className="bg-headerblue font-bold dark:bg-gray-700 text-white border-gray-700 dark:text-white shadow-md sticky top-0 z-50">
+      <header
+          className={`${
+            scrolled
+              ? "bg-headerblue shadow-md dark:bg-gray-700 border-gray-700"
+              : "bg-transparent"
+          } font-bold text-white dark:text-white sticky top-0 z-50 transition-all duration-500`}
+        >
         <div className="mx-auto flex items-center justify-between px-4 py-2 relative">
           {/* Logo */}
           <a href={'/'} className="flex items-center">

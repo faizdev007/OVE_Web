@@ -11,7 +11,9 @@ export default function RootLayout({
   return (
       <>
         {/* page layout data */}
-        <Header/>
+        <div className="fixed z-90 w-full">
+          <Header/>
+        </div>
         {children}
         <Footer/>
         {/* End page layout data */}
