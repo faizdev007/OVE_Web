@@ -44,7 +44,7 @@ export default function Hiredeveloper({ hireDev }: any) {
   }, []);
 
   return (
-    <div className="relative py-12 sm:px-6 lg:px-8 mx-auto flex flex-col gap-10 dark:bg-black">
+    <div className="relative bglbLG py-12 sm:px-6 lg:px-8 mx-auto flex flex-col gap-10 dark:bg-black">
       <h1 className="text-3xl font-bold mb-4 text-center">
         {hireDev?.whdsTitle ?? "User Guide To Hire Backend Developer"}
       </h1>

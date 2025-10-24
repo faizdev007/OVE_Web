@@ -60,49 +60,56 @@ export default function PrivacyPolicy()
     
     if(!PPContent || !PPContent.length){
         return (
-            <section className="bg-gray-100 xl:h-max flex flex-col gap-6 dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto py-8">
-                {/* Heading */}
-                <div className="h-8 w-3/4 bg-gray-700 rounded animate-pulse" />
+            <div className="">
+                <h1 className="text-3xl py-10 pt-32 bg-headerblue text-white text-center font-bold mb-2">
+                    Privacy Policy
+                </h1>
+                <section className="bg-gray-100 pt-20 xl:h-max flex flex-col gap-6 dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto py-8">
+                    {/* Heading */}
+                    <div className="h-8 w-3/4 bg-gray-700 rounded animate-pulse" />
 
-                {/* Section Blocks */}
-                {Array.from({ length: 4 }).map((_, i) => (
-                    <div
-                    key={i}
-                    className="bg-gray-700 rounded-lg p-6 border border-gray-600 drop-shadow-sm animate-pulse space-y-4">
-                    {/* Section Title */}
-                    <div className="h-6 w-40 bg-gray-600 rounded" />
-                        {/* Section Content */}
-                        <div className="space-y-2">
-                            <div className="h-4 bg-gray-600 rounded w-full" />
-                            <div className="h-4 bg-gray-600 rounded w-5/6" />
-                            <div className="h-4 bg-gray-600 rounded w-2/3" />
+                    {/* Section Blocks */}
+                    {Array.from({ length: 4 }).map((_, i) => (
+                        <div
+                        key={i}
+                        className="bg-gray-700 rounded-lg p-6 border border-gray-600 drop-shadow-sm animate-pulse space-y-4">
+                        {/* Section Title */}
+                        <div className="h-6 w-40 bg-gray-600 rounded" />
+                            {/* Section Content */}
+                            <div className="space-y-2">
+                                <div className="h-4 bg-gray-600 rounded w-full" />
+                                <div className="h-4 bg-gray-600 rounded w-5/6" />
+                                <div className="h-4 bg-gray-600 rounded w-2/3" />
+                            </div>
                         </div>
-                    </div>
-                ))}
-            </section>
+                    ))}
+                </section>
+            </div>
         );
     }else{
         return(
             <>
-                <div className="relative ppstyle bg-gray-100 dark:bg-black/90 px-4 py-12 sm:px-6 lg:px-8 mx-auto">
-                    <h1 className="text-3xl text-center font-bold mb-2">
+                <div className="relative ppstyle bg-gray-100 dark:bg-black/90 mx-auto">
+                    <h1 className="text-3xl py-10 pt-32 bg-headerblue text-white text-center font-bold mb-2">
                         Privacy Policy
                     </h1>
-                    <p className="text-sm text-gray-500 mb-8">
-                        Last updated: September 8, 2025
-                    </p>
-                    {Object.values(PPContent).map((single,key)=>(
-                        <div key={key} className="mb-6 text-base/6">
-                            {single?.policyTitle && 
-                                <div className="bg-gray-200 p-3 dark:text-black border-s-3 mb-4 font-bold border-blue-700">
-                                    <span dangerouslySetInnerHTML={{__html: single?.policyTitle}}/>
+                    <div className=" px-4 py-12 sm:px-6 lg:px-8 ">
+                        <p className="text-sm text-gray-500 mb-8">
+                            Last updated: September 8, 2025
+                        </p>
+                        {Object.values(PPContent).map((single,key)=>(
+                            <div key={key} className="mb-6 text-base/6">
+                                {single?.policyTitle && 
+                                    <div className="bg-gray-200 p-3 dark:text-black border-s-3 mb-4 font-bold border-blue-700">
+                                        <span dangerouslySetInnerHTML={{__html: single?.policyTitle}}/>
+                                    </div>
+                                }
+                                <div>
+                                    <span dangerouslySetInnerHTML={{ __html: single.policyContent ?? "" }} />
                                 </div>
-                            }
-                            <div>
-                                <span dangerouslySetInnerHTML={{ __html: single.policyContent ?? "" }} />
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </>
         );

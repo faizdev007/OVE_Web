@@ -201,6 +201,7 @@
 /* Unordered list (bullet points) */
 .page-content ul {
   list-style-type: disc;
+  color:#123580;
 }
 
 /* Nested unordered list (circles instead of discs) */

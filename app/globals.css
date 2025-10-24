@@ -30,9 +30,6 @@
   --cardLG: linear-gradient(130deg,#112d5b 0%,#133689 69%);
 }
 
-nav a {
-  color: white;
-}
 nav a:hover {
   color: var(--blue5);
 }

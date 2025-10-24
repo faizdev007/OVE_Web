@@ -98,7 +98,12 @@ export default async function BlogPage() {
     
     return (
         <>
-            <Blogs blogdata={dataset}/>
+            <div className="">
+                <h1 className="text-3xl py-10 pt-32 bg-headerblue text-white text-center font-bold">
+                    Blog
+                </h1>
+                <Blogs blogdata={dataset}/>
+            </div>
         </>
     );
 }

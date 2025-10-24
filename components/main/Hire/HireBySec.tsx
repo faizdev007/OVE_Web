@@ -70,7 +70,7 @@ export default function HireBySec() {
     
     if(!RoleCards && !SkillTags) {
         return(
-            <section className="bg-black dark:bg-gray-800 text-white relative px-4 py-12 sm:px-6 lg:px-8 mx-auto flex flex-col gap-10">
+            <section className=" dark:bg-gray-800 text-white relative px-4 py-12 sm:px-6 lg:px-8 mx-auto flex flex-col gap-10">
                 <div className="container mx-auto">
                     {/* Heading Skeleton */}
                     <div className="h-8 w-64 bg-gray-700 rounded mb-4 animate-pulse"></div>
@@ -80,7 +80,7 @@ export default function HireBySec() {
                     {[...Array(9)].map((_, i) => (
                         <div
                         key={i}
-                        className="bg-boxFill rounded shadow-md flex flex-col p-6 text-center justify-center items-center gap-4 animate-pulse"
+                        className="cardLG rounded shadow-md flex flex-col p-6 text-center justify-center items-center gap-4 animate-pulse"
                         >
                         <div className="aspect-[1/1] flex items-center justify-center">
                             <div className="h-12 w-12 bg-gray-600 rounded"></div>
@@ -88,7 +88,7 @@ export default function HireBySec() {
                         <div className="h-4 w-20 bg-gray-600 rounded"></div>
                         </div>
                     ))}
-                    <div className="bg-boxFill rounded shadow-md flex flex-col p-6 text-center justify-center items-center gap-4 animate-pulse">
+                    <div className="cardLG rounded shadow-md flex flex-col p-6 text-center justify-center items-center gap-4 animate-pulse">
                         <div className="h-4 w-40 bg-gray-600 rounded"></div>
                         <div className="h-8 w-28 bg-gray-600 rounded"></div>
                     </div>
@@ -104,7 +104,7 @@ export default function HireBySec() {
                     {[...Array(9)].map((_, i) => (
                         <div
                         key={i}
-                        className="bg-boxFill rounded shadow-md flex flex-col p-6 text-center justify-center items-center gap-4 animate-pulse"
+                        className="cardLG rounded shadow-md flex flex-col p-6 text-center justify-center items-center gap-4 animate-pulse"
                         >
                         <div className="aspect-[1/1] flex items-center justify-center">
                             <div className="h-12 w-12 bg-gray-600 rounded"></div>
@@ -112,7 +112,7 @@ export default function HireBySec() {
                         <div className="h-4 w-20 bg-gray-600 rounded"></div>
                         </div>
                     ))}
-                    <div className="bg-boxFill rounded shadow-md flex flex-col p-6 text-center justify-center items-center gap-4 animate-pulse">
+                    <div className="cardLG rounded shadow-md flex flex-col p-6 text-center justify-center items-center gap-4 animate-pulse">
                         <div className="h-4 w-40 bg-gray-600 rounded"></div>
                         <div className="h-8 w-28 bg-gray-600 rounded"></div>
                     </div>
@@ -123,7 +123,7 @@ export default function HireBySec() {
     }
 
     return (
-        <section className="bg-black dark:bg-gray-800 text-white relative px-4 py-12 sm:px-6 lg:px-8 mx-auto flex flex-col gap-10">
+        <section className=" dark:bg-gray-800 relative px-4 py-12 sm:px-6 lg:px-8 mx-auto flex flex-col gap-10">
             <div className='container mx-auto'> 
                 {/* Heading */}
                 <h2 className="text-3xl font-bold mb-1">
@@ -133,19 +133,19 @@ export default function HireBySec() {
                 {/* Logos */}
                 <div className="gap-4 my-8 grid grid-cols-2 lg:grid-cols-5 md:grid-cols-3 md:text-sm space-2 text-xs">
                     {RoleCards?.map((role, i) => (
-                        <a href={role.slug} key={i} className="bg-boxFill hover:bg-oveblue rounded shadow-md">
+                        <a href={role.slug} key={i} className="cardLG hover:bg-oveblue rounded shadow-md">
                             <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
                                 <div className='aspect-[1/1] flex items-center justify-center'>
                                     <img src={role.logo} alt={role.name} width={60} height={60} className="grayscale object-container h-12 w-auto" />
                                 </div>
-                                <h2 className='capitalize font-bold'>{role.name}</h2>
+                                <h2 className='capitalize font-bold text-white'>{role.name}</h2>
                             </div>
                         </a>
                     ))}
-                    <div key='action1' className="bg-boxFill rounded shadow-md">
+                    <div key='action1' className="cardLG rounded shadow-md">
                         <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
-                            <h2 className='font-bold uppercase'>Looking for Other role?</h2>
-                            <a href='/contact-us' className='border-2 border-oveblue text-oveblue hover:bg-oveblue hover:text-white font-bold md:text-lg text-sm rounded px-2 py-1 cursor-pointer'>Place Request</a>
+                            <h2 className='font-bold uppercase text-white'>Looking for Other role?</h2>
+                            <a href='/contact-us' className='border-2 border-white text-white hover:bg-carblue/50 hover:text-white font-bold md:text-lg text-sm rounded px-2 py-1 cursor-pointer'>Place Request</a>
                         </div>
                     </div>
                 </div>
@@ -164,12 +164,12 @@ export default function HireBySec() {
                             <h3 className="text-2xl font-semibold mb-4 underline">{skill.name}</h3>
                             <div className="gap-4 grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 md:grid-cols-3 md:text-sm space-2 text-xs">
                                 {skill?.links.map((skill, i) => (
-                                    <a href={`hire/${skill?.slug}`} key={i} className="bg-boxFill border border-gray-100/20 hover:bg-oveblue rounded shadow-md">
+                                    <a href={`hire/${skill?.slug}`} key={i} className="cardLG border border-gray-100/20 hover:bg-oveblue rounded shadow-md">
                                         <div className='flex lg:flex-row flex-col p-2 text-center justify-center items-center gap-4'>
                                             <div className='aspect-[1/1] flex items-center justify-center hover:grayscale'>
                                                 <img src={skill?.icon} alt={skill?.title} width={20} height={20} className="object-container h-8 w-auto" />
                                             </div>
-                                            <h2 className='capitalize font-bold'>{skill?.title}</h2>
+                                            <h2 className='capitalize font-bold text-white'>{skill?.title}</h2>
                                         </div>
                                     </a>
                                 ))}

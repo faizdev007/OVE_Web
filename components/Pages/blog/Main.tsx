@@ -94,7 +94,6 @@ const list2 = [
 ];
 
 const Blogs = ({blogdata}:any)=>{
-    console.log(blogdata);
     const router = useRouter();
     const listdata= blogdata ?? list;
     const postcat = blogdata[0].postcategories ?? '';
@@ -105,9 +104,85 @@ const Blogs = ({blogdata}:any)=>{
         // Implement actual search functionality here
     };
 
+    if(!blogdata){
+        return(
+            <main className="mx-auto py-10 px-4">
+                {/* ===== Header Section ===== */}
+                <div className="mb-8">
+                    <h1 className="2xl:text-5xl md:text-3xl text-2xl font-bold mb-8">
+                    Software Innovation Starts Here
+                    </h1>
+                    <p className="text-gray-600 max-w-3xl">
+                    Tap into the power of our top 1% software engineers and 675+ digital transformation experts.
+                    Get insights to drive your business forward in today’s competitive landscape.
+                    </p>
+                </div>
+
+                {/* ===== Categories Section ===== */}
+                <div className="mb-8">
+                    <h2 className="2xl:text-5xl md:text-3xl text-2xl font-bold">
+                    All our articles
+                    </h2>
+                    <strong className="md:text-3xl text-2xl font-bold text-gray-400">
+                    Let's read
+                    </strong>
+                    <hr className="border-gray-200 my-3" />
+
+                    {/* Category Tags (Skeleton placeholders) */}
+                    <div className="flex flex-wrap gap-2">
+                    {[...Array(5)].map((_, i) => (
+                        <div
+                        key={i}
+                        className="px-6 py-2 bg-gray-200 dark:bg-gray-700 rounded-full animate-pulse w-24 h-6"
+                        ></div>
+                    ))}
+                    </div>
+                </div>
+
+                {/* ===== Search & Popular Posts (Hidden in this version) ===== */}
+                <div className="hidden mb-12">
+                    <div className="lg:flex justify-between w-full mb-8">
+                    <h1 className="text-3xl font-bold">Popular Posts</h1>
+                    </div>
+                </div>
+
+                {/* ===== Latest Updates Section ===== */}
+                <div className="mb-12">
+                    <h2 className="text-3xl font-bold mb-8">Latest Updates</h2>
+
+                    <div className="gap-5 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
+                    {[...Array(5)].map((_, i) => (
+                        <div
+                        key={i}
+                        className="border rounded-lg shadow-lg hover:shadow-2xl p-3 animate-pulse"
+                        >
+                        <div className="w-full aspect-video bg-gray-300 dark:bg-gray-700 mb-3 rounded-lg"></div>
+                        <div className="space-y-2">
+                            <div className="flex gap-2 overflow-hidden">
+                            {[...Array(2)].map((_, j) => (
+                                <div
+                                key={j}
+                                className="h-5 w-16 bg-gray-300 dark:bg-gray-700 rounded-full"
+                                ></div>
+                            ))}
+                            </div>
+                            <div className="h-5 w-3/4 bg-gray-300 dark:bg-gray-700 rounded"></div>
+                            <div className="flex items-center gap-3 mt-3">
+                            <div className="h-7 w-7 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                            <div className="h-4 w-20 bg-gray-300 dark:bg-gray-700 rounded"></div>
+                            </div>
+                        </div>
+                        </div>
+                    ))}
+                    </div>
+                </div>
+                </main>
+        )
+    }
+
     return (
         <main className="mx-auto py-10 px-4">
-            <div className="mb-12">
+            <div className="mb-8">
                 <h1 className="2xl:text-5xl md:text-3xl text-2xl font-bold mb-8">Software Innovation Starts Here</h1>
                 <p>Tap into the power of our top 1% software engineers and 675+ digital transformation experts. Get insights to drive your business forward in today’s competitive landscape.</p>
             </div>

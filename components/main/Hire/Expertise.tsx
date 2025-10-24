@@ -31,7 +31,7 @@ export default function Expertise( {Expertise} : any) {
         {/* Main Header */}
         <div className="lg:flex relative z-20 gap-2 justify-between">
             <div className="lg:w-1/2">
-              <h2 className="text-3xl font-bold mb-4">
+              <h2 className="text-3xl headingtext font-bold mb-4">
                   <span dangerouslySetInnerHTML={{ __html: roleTitleHTML }} />
               </h2>
               <div className="mt-4 text-lg mb-4 page-content">

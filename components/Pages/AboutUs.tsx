@@ -43,7 +43,7 @@ export default function AboutPageComponent({data}: any)
 
     if (loading) return (
         <>
-            <section className="bg-black p-12 justify-between relative flex lg:flex-row flex-col dark:bg-gray-800 text-white px-4 sm:px-6 lg:px-8 mx-auto">
+            <section className="bg-black p-12 pt-18 justify-between relative flex lg:flex-row flex-col dark:bg-gray-800 text-white px-4 sm:px-6 lg:px-8 mx-auto">
                 {/* Left side */}
                 <div className="relative block lg:w-[30%]">
                     <div className="md:p-10 w-full h-1/2 lg:absolute p-4 -end-40 md:top-10 md:rounded-md rounded-t bg-stone-800">
@@ -125,7 +125,7 @@ export default function AboutPageComponent({data}: any)
 
     return(
         <>
-            <section className="bg-black p-12 justify-between relative flex lg:flex-row flex-col dark:bg-gray-800 text-white px-4 sm:px-6 lg:px-8 mx-auto">
+            <section className="bg-black p-12 pt-18 justify-between relative flex lg:flex-row flex-col dark:bg-gray-800 text-white px-4 sm:px-6 lg:px-8 mx-auto">
                 <div className="relative lg:w-[30%]">
                     <div className="md:p-10 lg:absolute page-content p-4 -end-40 md:top-10 md:rounded-md rounded-t bg-stone-800">
                         {
@@ -154,11 +154,11 @@ export default function AboutPageComponent({data}: any)
                     />
                 </div>
             </section>
-            <div className="bg-black py-12">
+            <div className="py-12">
                 <div className="container mx-auto">
                     {data?.howWeWork ?
                         data?.howWeWork.map((value:any, idx:number) => (
-                        <section key={idx} className="relative py-4 md:flex md:flex-rows flex-col-reverse text-white px-4 sm:px-6 lg:px-8 mx-auto">
+                        <section key={idx} className="relative py-4 md:flex md:flex-rows flex-col-reverse px-4 sm:px-6 lg:px-8 mx-auto">
                             <div className="md:grid flex flex-col-reverse items-center md:grid-cols-2 gap-4 mb-4">
                             {/* Left / Right alternating */}
                             {idx % 2 === 0 ? (
@@ -285,12 +285,12 @@ export default function AboutPageComponent({data}: any)
                 }
                 </div>
             </div>
-            <div className="relative">
-                <div className='bg-black'>
+            <div className="relative bglbLG py-12">
+                <div className='bg-black hidden'>
                     <Image src={'/assets/darkbrown.webp'} alt="compare" width={1000} height={1000} className="w-full"/>
                 </div>
-                <section className="relative bg-[#1b1b1b] px-4 pb-12 sm:px-6 lg:px-8 mx-auto">
-                    <h2 className="xl:text-6xl md:text-4xl text-3xl text-white font-bold text-center mb-8">Our Executive Team</h2>
+                <section className="relative px-4 pb-12 sm:px-6 lg:px-8 mx-auto">
+                    <h2 className="xl:text-6xl md:text-4xl text-3xl headingtext font-bold text-center mb-8">Our Executive Team</h2>
                     <div className="container mx-auto grid items-center grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                         {team.map((member:any, index:number) => (
                             <div key={index} className="flex flex-col text-white w-full p-6 bg-stone-800 rounded-lg">
@@ -315,7 +315,7 @@ export default function AboutPageComponent({data}: any)
                 </section>
             </div>
             <div className="relative">
-                <div className='bg-[#1b1b1b] dark:hidden'>
+                <div className='bg-[#1b1b1b] dark:hidden hidden'>
                     <Image src={'/assets/gray.webp'} alt="compare" width={1000} height={1000} className="w-full"/>
                 </div>
                 <FaqSection FAQ={[]}/>

@@ -110,5 +110,12 @@ export default async function AboutPage()
 
     if (!data) return null; 
 
-    return <AboutPageComponent data={data} />;
+    return (
+        <div className="">
+            <h1 className="text-3xl py-10 pt-32 bg-headerblue text-white text-center font-bold">
+                About Us
+            </h1>
+            <AboutPageComponent data={data} />
+        </div>
+    )
 }

@@ -5,7 +5,7 @@ import Image from "next/image";
 const HeroForHire = ({hire}:any) => {
     return (
     <>
-        <section className="bg-black xl:h-max lg:flex gap-2 dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
+        <section className="bg-black pt-32 xl:h-max lg:flex gap-2 dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
             <div className="flex lg:w-[60%] flex-col h-full justify-between gap-8 items-center md:items-start py-6">
                 <div dangerouslySetInnerHTML={{ __html: hire?.content ?? '' }}  className="page-content"/>
                 <a href="/contact-us" className="bg-oveblue p-2 rounded w-max md:text-xl hover:bg-blue-700 px-6 font-bold border-5 border-oveblue/90 cursor-pointer flex gap-2 items-center hover:border-oveblue/50">Hire <span dangerouslySetInnerHTML={{ __html: hire?.title ?? 'Full-Stack Developer' }}/>

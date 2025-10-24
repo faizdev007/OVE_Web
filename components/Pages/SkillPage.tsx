@@ -13,6 +13,7 @@ import CTable from "@/components/main/Hire/CompairTable";
 import Client from "@/components/main/Hire/Client";
 
 export default function RolePage({PageData}:any) {
+
   if (!PageData) {
     // Loading skeleton or fallback
     return (
@@ -36,36 +37,36 @@ export default function RolePage({PageData}:any) {
       <DevelopersSlider hire={PageData} />
       <HireThroughOVE hiringProcess={PageData?.hiringProcess} />
 
-      <div className="relative">
-        <div className="bg-black dark:hidden">
+      <div className="relative py-12">
+        <div className="bg-black dark:hidden hidden">
           <Image src="/assets/white.png" alt="bg" width={1000} height={1000} className="w-full" />
         </div>
         <Expertise Expertise={PageData?.expertise} />
       </div>
 
-      <div className="relative h-full bg-oveblue w-full">
-        <div className="bg-white dark:hidden">
+      <div className="relative h-full bg-headerblue w-full py-12">
+        <div className="bg-white dark:hidden hidden">
           <Image src={'/assets/oveblue.png'} alt="compare" width={1000} height={1000} className="w-full" />
         </div>
         <CTA CTA={PageData?.cta?.one} />
       </div>
 
       <div className="relative">
-        <div className="bg-oveblue dark:hidden">
+        <div className="bg-oveblue dark:hidden hidden">
           <Image src={'/assets/white.png'} alt="compare" width={1000} height={1000} className="w-full" />
         </div>
         <WSF WhyHire={PageData?.whyHire} />
       </div>
 
-      <div className="relative bg-black">
-        <div className="bg-white dark:hidden">
+      <div className="relative bglbLG py-12">
+        <div className="bg-white dark:hidden hidden">
           <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full" />
         </div>
         <CTable PriceTable={PageData?.priceTable} />
       </div>
 
       <div className="relative">
-        <div className="bg-black dark:hidden">
+        <div className="bg-black dark:hidden hidden">
           <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full" />
         </div>
         <Client Testimonials={PageData?.testimonial}/>
@@ -73,15 +74,15 @@ export default function RolePage({PageData}:any) {
 
       <HireBy />
 
-      <div className="relative h-full bg-oveblue w-full">
-        <div className="bg-black dark:hidden">
+      <div className="relative h-full bg-headerblue w-full py-12">
+        <div className="bg-black dark:hidden hidden">
           <Image src={'/assets/oveblue.png'} alt="compare" width={1000} height={1000} className="w-full" />
         </div>
         <CTA CTA={PageData?.cta?.two} />
       </div>
 
       <div className="relative">
-        <div className="bg-oveblue dark:hidden">
+        <div className="bg-oveblue dark:hidden hidden">
           <Image src={'/assets/offWhite.png'} alt="compare" width={1000} height={1000} className="w-full" />
         </div>
         <FaqSection FAQ={PageData?.faq} />

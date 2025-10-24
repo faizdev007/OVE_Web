@@ -42,7 +42,7 @@ function SampleNextArrow(props: CustomArrowProps) {
   const { onClick } = props;
   return (
     <div
-      className="absolute z-20 h-full top-0 p-3 end-0 flex justify-end items-center"
+      className="absolute z-20 h-full top-0 p-3 mt-6 end-0 flex justify-end items-center"
       style={{ background: 'linear-gradient(270deg, rgba(2,0,36,1) 0%, rgba(0,0,0,0) 100%)' }}
     >
       <button
@@ -63,7 +63,7 @@ function SamplePrevArrow(props: CustomArrowProps) {
   const { onClick } = props;
   return (
     <div
-      className="absolute z-20 h-full top-0 p-3 start-0 flex justify-start items-center"
+      className="absolute z-20 h-full top-0 p-3 mt-6 start-0 flex justify-start items-center"
       style={{ background: 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,0,0) 100%)' }}
     >
       <button

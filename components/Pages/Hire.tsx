@@ -17,14 +17,14 @@ export default function HirePageComponent({hireData}:any) {
             <HeroForHire hire={hireData?.hirePage}/>
             <DevelopersSlider/>
             <HireThroughOVE hiringProcess={hireData?.hiringProcess}/>
-            <div className="relative">
-                <div className="bg-black dark:hidden">
+            <div className="relative py-12">
+                <div className="bg-black dark:hidden hidden">
                     <Image src="/assets/white.png" alt="bg" width={1000} height={1000} className="w-full" />
                 </div>
                 <Expertise Expertise={hireData?.expertise}/>
             </div>
-            <section className="relative bg-oveblue">
-                <div className="bg-white">
+            <section className="relative bg-headerblue py-12">
+                <div className="bg-white hidden">
                     <Image
                     src="/assets/oveblue.png"
                     alt="compare"
@@ -36,19 +36,19 @@ export default function HirePageComponent({hireData}:any) {
                 <CTA CTA={hireData.cta.one}/>
             </section>
             <div className="relative">
-                <div className="bg-oveblue dark:hidden">
+                <div className="bg-oveblue dark:hidden hidden">
                 <Image src={'/assets/white.png'} alt="compare" width={1000} height={1000} className="w-full" />
                 </div>
                 <WSF WhyHire={hireData?.whyHire}/>
             </div>
-            <div className="relative bg-black">
-                <div className="bg-white dark:hidden">
+            <div className="relative bglbLG py-12">
+                <div className="bg-white dark:hidden hidden">
                     <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full" />
                 </div>
                 <CTable PriceTable={hireData?.priceTable ?? []} />
             </div>
-            <section className="relative">
-                <div className="bg-black">
+            <section className="relative py-12">
+                <div className="bg-black hidden">
                     <Image
                     src="/assets/black.png"
                     alt="compare"
@@ -65,7 +65,7 @@ export default function HirePageComponent({hireData}:any) {
                 </div>
             </div>
             <section className="relative bg-gray-100">
-                <div className="bg-black">
+                <div className="bg-black hidden">
                     <Image
                     src="/assets/gray.webp"
                     alt="compare"
@@ -77,14 +77,14 @@ export default function HirePageComponent({hireData}:any) {
                 <OurClientSay wochts={hireData?.hirePage?.whatOurClientHaveToSay}/>
             </section>
 
-            <div className="relative h-full bg-oveblue w-full">
-                <div className="bg-gray-100 dark:hidden">
+            <div className="relative h-full bg-headerblue py-12 w-full">
+                <div className="bg-gray-100 dark:hidden hidden">
                 <Image src={'/assets/oveblue.png'} alt="compare" width={1000} height={1000} className="w-full" />
                 </div>
                 <CTA CTA={hireData.cta.two}/>
             </div>
-            <section className="relative bg-gray-100">
-                <div className="bg-oveblue">
+            <section className="relative">
+                <div className="bg-oveblue hidden">
                     <Image
                     src="/assets/gray.webp"
                     alt="compare"

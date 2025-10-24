@@ -72,8 +72,8 @@ const CTable = ({PriceTable}:any) =>{
     const rowsdata = PriceTable?.rows.length > 0 ? PriceTable?.rows : data.rows;
     return (
         <>
-            <section className="z-20 pb-12 dark:py-12 text-white flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-                <h2 className="text-[42px] font-bold"><span dangerouslySetInnerHTML={{ __html: PriceTable?.title ? PriceTable?.title : 'Still Wasting Weeks Recruiting Hire Full-Stack Developer ?' }}/></h2>
+            <section className="z-20 pb-12 dark:py-12 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
+                <h2 className="text-[42px] font-bold headingtext"><span dangerouslySetInnerHTML={{ __html: PriceTable?.title ? PriceTable?.title : 'Still Wasting Weeks Recruiting Hire Full-Stack Developer ?' }}/></h2>
                 <p className="text-[16px]"><span dangerouslySetInnerHTML={{__html:PriceTable?.subtitle ? PriceTable?.subtitle : 'Skip the hiring mess. Get top-tier python talent from us under 48 hours'}}/></p>
                 <div className="overflow-x-hidden w-full table-auto">
                     <div className="overflow-x-auto bg-gray-900 text-white p-6 rounded-lg shadow">

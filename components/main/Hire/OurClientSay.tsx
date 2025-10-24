@@ -63,7 +63,7 @@ function OurClientSay({ wochts }: any) {
   return (
     <div className="px-4 pb-12 sm:px-6 lg:px-8 mx-auto flex flex-col gap-6 slider-container dark:bg-black">
       <div className="text-center page-content">
-        <h2>{wochts?.wochtsTitle ?? "What Our Clients Have to Say About Us"}</h2>
+        <h2 className="headingtext">{wochts?.wochtsTitle ?? "What Our Clients Have to Say About Us"}</h2>
         <h4 className="text-lg font-medium mb-2">
           <span
             dangerouslySetInnerHTML={{
