@@ -266,7 +266,7 @@ export default function DevelopersSlider({hire}:any) {
                 <div key={index} className="px-1 py-2">
                   <div
                     className="cardLG gap-4 flex flex-col justify-around mt-25 aspect-[1/1.2] text-white relative rounded-xl shadow-md hover:shadow-lg"
-                    style={{ border: `3px solid ${dev.color || '#3AA0FF'}` }}
+                    
                   >
                     <div className="relative w-2/3 flex items-center justify-center aspect-[3/1] mx-auto">
                       <div className="overflow-hidden absolute -top-20 border border-gray-800 z-20 rounded-full aspect-[1/1]">
