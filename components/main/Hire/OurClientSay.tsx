@@ -158,7 +158,7 @@ function OurClientSay({ wochts }: any) {
                   </video>
                 </div>
               )}
-              <div className="flex flex-col justify-center gap-6 p-2">
+              <div className="flex flex-col justify-between gap-6 p-6">
                 <div
                   dangerouslySetInnerHTML={{ __html: client.clientDescription ?? "" }}
                   className="text-gray-700 dark:text-gray-300"

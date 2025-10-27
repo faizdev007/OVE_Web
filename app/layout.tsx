@@ -3,7 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { generateMetadataFromSeo } from "./(main)/utils/seo";
 
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Manrope } from "next/font/google";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,6 +14,13 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
@@ -104,7 +111,7 @@ export default function RootLayout({
         ></Script> */}
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} opensans antialiased scroll-smooth`}
+        className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} opensans antialiased scroll-smooth`}
       >
         {/* Google Tag Manager (noscript) */}
         <noscript>
