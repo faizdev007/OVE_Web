@@ -2,6 +2,7 @@
 // src/app/cookie-policy/page.tsx
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 export default function CookiePolicyPage() {
     const [loading, setLoading] = useState(true);
@@ -44,7 +45,7 @@ export default function CookiePolicyPage() {
             <h1 className="text-3xl py-10 pt-32 bg-headerblue text-white text-center font-bold mb-2">   
                 Cookie Policy
             </h1>
-            <div className="p-6">
+            <motion.div initial={{ opacity: 0}} whileInView={{ opacity: 1}} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }} className="p-6">
                 <p className="text-sm text-gray-500 mb-8">
                     Last updated: September 8, 2025
                 </p>
@@ -196,7 +197,7 @@ export default function CookiePolicyPage() {
                 page regularly. If we make significant changes, we will notify you via
                 our Website or email as appropriate.
                 </p>
-            </div>
+            </motion.div>
         </div>
         );
     }

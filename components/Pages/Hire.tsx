@@ -23,7 +23,7 @@ export default function HirePageComponent({hireData}:any) {
                 </div>
                 <Expertise Expertise={hireData?.expertise}/>
             </div>
-            <section className="relative bg-headerblue py-12">
+            <section className="relative bgb2rLG py-12">
                 <div className="bg-white hidden">
                     <Image
                     src="/assets/oveblue.png"
@@ -77,7 +77,7 @@ export default function HirePageComponent({hireData}:any) {
                 <OurClientSay wochts={hireData?.hirePage?.whatOurClientHaveToSay}/>
             </section>
 
-            <div className="relative h-full bg-headerblue py-12 w-full">
+            <div className="relative h-full bgb2rLG py-12 w-full">
                 <div className="bg-gray-100 dark:hidden hidden">
                 <Image src={'/assets/oveblue.png'} alt="compare" width={1000} height={1000} className="w-full" />
                 </div>

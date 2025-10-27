@@ -44,7 +44,7 @@ export default function RolePage({PageData}:any) {
         <Expertise Expertise={PageData?.expertise} />
       </div>
 
-      <div className="relative h-full bg-headerblue w-full py-12">
+      <div className="relative h-full bgb2rLG w-full py-12">
         <div className="bg-white dark:hidden hidden">
           <Image src={'/assets/oveblue.png'} alt="compare" width={1000} height={1000} className="w-full" />
         </div>
@@ -74,7 +74,7 @@ export default function RolePage({PageData}:any) {
 
       <HireBy />
 
-      <div className="relative h-full bg-headerblue w-full py-12">
+      <div className="relative h-full bgb2rLG w-full py-12">
         <div className="bg-black dark:hidden hidden">
           <Image src={'/assets/oveblue.png'} alt="compare" width={1000} height={1000} className="w-full" />
         </div>

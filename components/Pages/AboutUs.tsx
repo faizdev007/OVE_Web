@@ -158,7 +158,7 @@ export default function AboutPageComponent({data}: any)
             <section className="bg-black p-12 pt-18 justify-between relative flex lg:flex-row flex-col dark:bg-gray-800 text-white px-4 sm:px-6 lg:px-8 mx-auto">
                 <div className="relative lg:w-[30%]">
                     <div className="max-h-full overflow-auto md:py-10 p-4 lg:absolute page-content -end-40 md:top-10 md:rounded-md rounded-t bg-stone-800">
-                        <motion.div>
+                        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }}>
                             {
                                 data?.hero?.description ? 
                                 <span dangerouslySetInnerHTML={{__html:data?.hero?.description}}/>
@@ -190,7 +190,7 @@ export default function AboutPageComponent({data}: any)
                 <div className="container mx-auto">
                     {data?.howWeWork ?
                         data?.howWeWork.map((value:any, idx:number) => (
-                        <section key={idx} className="relative py-4 md:flex md:flex-rows flex-col-reverse px-4 sm:px-6 lg:px-8 mx-auto">
+                        <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }} key={idx} className="relative py-4 md:flex md:flex-rows flex-col-reverse px-4 sm:px-6 lg:px-8 mx-auto">
                             <div className="md:grid flex flex-col-reverse items-center md:grid-cols-2 gap-4 mb-4">
                             {/* Left / Right alternating */}
                             {idx % 2 === 0 ? (
@@ -247,12 +247,12 @@ export default function AboutPageComponent({data}: any)
                                 </>
                             )}
                             </div>
-                        </section>
+                        </motion.section>
                         )
                     )
                     :
                     <>
-                        <section className="relative py-4 md:flex md:flex-rows flex-col-reverse text-white px-4 sm:px-6 lg:px-8 mx-auto">
+                        <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }} className="relative py-4 md:flex md:flex-rows flex-col-reverse text-white px-4 sm:px-6 lg:px-8 mx-auto">
                             <div className="md:grid flex flex-col-reverse items-center md:grid-cols-2 gap-4 mb-4">
                                 <div className="flex flex-col justify-center">
                                     <div className="mb-10">
@@ -272,8 +272,8 @@ export default function AboutPageComponent({data}: any)
                                     <Image src={'/assets/about/4.webp'} alt="slide1" width={500} height={200} className="w-auto h-auto object-cover rounded-md shadow-xl drop-shadow shadow-gray-900"/>
                                 </div>
                             </div>
-                        </section>
-                        <section className="relative py-4 md:flex md:flex-rows flex-col-reverse text-white px-4 sm:px-6 lg:px-8 mx-auto">
+                        </motion.section>
+                        <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }} className="relative py-4 md:flex md:flex-rows flex-col-reverse text-white px-4 sm:px-6 lg:px-8 mx-auto">
                             <div className="md:grid flex flex-col items-center md:grid-cols-2 gap-4 mb-4">
                                 <div className="flex justify-center aspect-[2/1] w-full md:justify-start items-center">
                                     <Image src={'/assets/about/2.webp'} alt="slide2" width={500} height={200} className="w-auto h-auto object-cover rounded-md shadow-xl drop-shadow shadow-gray-900"/>
@@ -292,8 +292,8 @@ export default function AboutPageComponent({data}: any)
                                     </div>
                                 </div>
                             </div>
-                        </section>
-                        <section className="relative py-4 md:flex md:flex-rows flex-col-reverse text-white px-4 sm:px-6 lg:px-8 mx-auto">
+                        </motion.section>
+                        <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }} className="relative py-4 md:flex md:flex-rows flex-col-reverse text-white px-4 sm:px-6 lg:px-8 mx-auto">
                             <div className="md:grid flex flex-col-reverse items-center md:grid-cols-2 gap-4 mb-4">
                                 <div className="flex flex-col justify-center">
                                     <div className="mb-10">
@@ -312,7 +312,7 @@ export default function AboutPageComponent({data}: any)
                                     <Image src={'/assets/about/3.webp'} alt="slide3" width={500} height={333} className="w-auto h-auto object-cover rounded-md shadow-xl drop-shadow shadow-gray-900"/>
                                 </div>
                             </div>
-                        </section>
+                        </motion.section>
                     </>
                 }
                 </div>
@@ -321,7 +321,7 @@ export default function AboutPageComponent({data}: any)
                 <div className='bg-black hidden'>
                     <Image src={'/assets/darkbrown.webp'} alt="compare" width={1000} height={1000} className="w-full"/>
                 </div>
-                <section className="relative px-4 pb-12 sm:px-6 lg:px-8 mx-auto">
+                <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }} className="relative px-4 pb-12 sm:px-6 lg:px-8 mx-auto">
                     <h2 className="xl:text-6xl md:text-4xl text-3xl headingtext font-bold text-center mb-8">Our Executive Team</h2>
                     <div className="container mx-auto grid items-center grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                         {team.map((member:any, index:number) => (
@@ -344,7 +344,7 @@ export default function AboutPageComponent({data}: any)
                             </div>
                         ))}
                     </div>
-                </section>
+                </motion.section>
             </div>
             <div className="relative">
                 <div className='bg-[#1b1b1b] dark:hidden hidden'>

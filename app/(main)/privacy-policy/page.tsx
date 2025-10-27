@@ -3,6 +3,7 @@
 import { fetchGraphQL } from "@/lib/graphqlClient";
 import { useEffect, useState } from "react";
 import './style.css';
+import { motion } from "framer-motion";
 
 type PolicyBlock = {
   policyTitle?: string | null;
@@ -93,7 +94,7 @@ export default function PrivacyPolicy()
                     <h1 className="text-3xl py-10 pt-32 bg-headerblue text-white text-center font-bold mb-2">
                         Privacy Policy
                     </h1>
-                    <div className=" px-4 py-12 sm:px-6 lg:px-8 ">
+                    <motion.div initial={{ opacity: 0}} whileInView={{ opacity: 1}} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }} className=" px-4 py-12 sm:px-6 lg:px-8 ">
                         <p className="text-sm text-gray-500 mb-8">
                             Last updated: September 8, 2025
                         </p>
@@ -109,7 +110,7 @@ export default function PrivacyPolicy()
                                 </div>
                             </div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </>
         );

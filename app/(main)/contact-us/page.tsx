@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { onlyNumber } from '@/app/globals'; // adjust path if needed
 import { useRouter } from 'next/navigation';
+import { motion } from "framer-motion";
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
@@ -286,7 +287,7 @@ export default function ContactPage() {
                             <a href={'mailto:enquiry@optimalvirtualemployee.com'} aria-label={"enquiry@optimalvirtualemployee.com"} className="hover:underline">✉️ Email us</a>
                         </div>
                         
-                        <form onSubmit={handleSubmit} className="space-y-4">
+                        <motion.form initial={{ opacity: 0}} whileInView={{ opacity: 1}} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }} onSubmit={handleSubmit} className="space-y-4">
                             {MessageBlock &&
                                 <div className='absolute top-0 bottom-0 start-0 end-0 bg-white rounded-xl text-center'>
                                     <div className='text-center capitalize animate-jump-in animate-once h-full flex flex-col gap-4 items-center justify-center animate-ease-linear'>
@@ -345,12 +346,12 @@ export default function ContactPage() {
                                     'Send Your Query'
                                     )}
                             </button>
-                        </form>
+                        </motion.form>
                         </div>
                     </div>
                     {/* Right Panel */}
                     <div className="flex flex-col">
-                        <div className="space-y-6">
+                        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }} className="space-y-6">
                             <div>
                                 <h3 className="text-xl lg:text-3xl font-semibold text-white/60">Trusted by startups and Fortune 500 companies</h3>
                             </div>
@@ -359,10 +360,10 @@ export default function ContactPage() {
                             <li>👍 <strong className='text-white/80'>150+ Satisfied Customer</strong><br /><span className='text-white/60'>Startups to Fortune 500, we have worked with all.</span></li>
                             <li>👨‍💻 <strong className='text-white/80'>400+ Developers</strong><br /><span className='text-white/60'>Top 1% industry talent to ensure your digital success.</span></li>
                             </ul>
-                        </div>
+                        </motion.div>
 
                         {/* Logo List */}
-                        <div className="grid grid-cols-3 xl:grid-cols-4 gap-3 mt-8">
+                        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1}} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }} className="grid grid-cols-3 xl:grid-cols-4 gap-3 mt-8">
                             {logos.map((logo, i) => (
                                 <div key={i} className="lg:h-20 md:p-4 overflow-hidden bg-white rounded-md p-2 shadow border border-gray-900 shadow-gray-800 flex items-center justify-center">
                                     <Image
@@ -375,10 +376,10 @@ export default function ContactPage() {
                                     <span className="text-xs hidden font-medium">{logo}</span>
                                 </div>
                             ))}
-                        </div>
+                        </motion.div>
                     </div>
                 </main>
-                <div className="relative py-12">
+                <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }} className="relative py-12">
                     <div className="bg-black/90 dark:hidden hidden">
                         <Image
                             src="/assets/gray.webp"
@@ -457,7 +458,7 @@ export default function ContactPage() {
                             </div>
                         </div>
                     </section>
-                </div>
+                </motion.div>
             </div>
         </>
     );
