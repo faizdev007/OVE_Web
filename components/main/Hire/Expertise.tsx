@@ -2,6 +2,7 @@
 
 // import Image from "next/image";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 
 const listinfos = [
@@ -31,16 +32,16 @@ export default function Expertise( {Expertise} : any) {
         {/* Main Header */}
         <div className="lg:flex relative z-20 gap-2 justify-between">
             <div className="lg:w-1/2">
-              <h2 className="text-3xl headingtext font-bold mb-4">
+              <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }} className="text-3xl headingtext font-bold mb-4">
                   <span dangerouslySetInnerHTML={{ __html: roleTitleHTML }} />
-              </h2>
-              <div className="mt-4 text-lg mb-4 page-content">
+              </motion.h2>
+              <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease: "easeOut" }} viewport={{ once: true }} className="mt-4 text-lg mb-4 page-content">
                   <span dangerouslySetInnerHTML={{ __html: description  as string }} />
-              </div>
+              </motion.div>
             </div>
 
             <div className="lg:w-1/2 w-full cardLG text-white md:p-6 p-2 rounded-lg shadow-md">
-            <div className="w-full space-y-4">
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }} className="w-full space-y-4">
                 {qnalist.map((item:any, index:number) => {
                 const open = activeIndex === index;
                 return (
@@ -72,7 +73,7 @@ export default function Expertise( {Expertise} : any) {
                       </div>
                     );
                 })}
-            </div>
+            </motion.div>
             </div>
         </div>
     </section>

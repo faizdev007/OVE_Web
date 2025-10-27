@@ -1,4 +1,5 @@
 'use client';
+import { motion } from "framer-motion";
 
 const steps = [
     {
@@ -44,7 +45,7 @@ const HireThroughOVE = ({hiringProcess}:any) => {
             <h2 className="md:mb-12 capitalize text-center font-bold md:text-4xl text-3xl"><span dangerouslySetInnerHTML={{ __html: processTitle }}/></h2>
             <div className="md:grid space-y-4 md:grid-cols-2 2xl:grid-cols-4 gap-6 2xl:gap-4 mb-6">
                 {processSteps.map((step:any, index:number) => (
-                    <div key={index} className="flex aspect-[1/1] md:max-h-[300] w-full flex-col justify-center relative items-center gap-3 bg-boxFill p-6 rounded-lg border border-oveblue hover:border-oveblue/50 transition-all duration-300">
+                    <motion.div initial={{ opacity: 0, y: 40}} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5+(index/10+1), ease: "easeOut" }} viewport={{ once: true }} key={index} className="flex aspect-[1/1] md:max-h-[300] w-full flex-col justify-center relative items-center gap-3 bg-boxFill p-6 rounded-lg border border-oveblue hover:border-oveblue/50 transition-all duration-300">
                         <div className="relative w-max z-10 px-18 flex flex-col justify-center items-center">
                             <span className="text-[150px] z-20 text-oveblue/50 absolute start-0 w-full h-full hover:scale-125 transition-all flex items-center">{index+1}</span>
                             {step &&
@@ -53,12 +54,12 @@ const HireThroughOVE = ({hiringProcess}:any) => {
                         </div>
                         <h3 className="md:text-2xl text-center text-xl font-bold">{step?.title}</h3>
                         <p className="page-content">{step?.description}</p>
-                    </div>
+                    </motion.div>
                 ))}
             </div>
-            <div className="flex justify-center">
+            <motion.div initial={{ opacity: 0}} whileInView={{ opacity: 1}} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }} className="flex justify-center">
                 <a href="/contact-us" className="border-4 border-oveblue bg-oveblue hover:bg-blue-700 hover:drop-shadow-lg p-2 rounded-md w-max xl:text-3xl md:text-xl text-white px-6 font-bold cursor-pointer">Hire With Confidence</a>
-            </div>
+            </motion.div>
         </section>
     );
 };
