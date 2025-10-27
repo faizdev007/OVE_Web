@@ -196,12 +196,12 @@
 .page-content ol {
   margin: 1.25rem 0 1.5rem 1.5rem;
   padding-left: 1.25rem;
+  color: #1d4ed8;
 }
 
 /* Unordered list (bullet points) */
 .page-content ul {
   list-style-type: disc;
-  color:#123580;
 }
 
 /* Nested unordered list (circles instead of discs) */
@@ -228,15 +228,6 @@
 /* Improve spacing between list items with long text */
 .page-content li + li {
   margin-top: 0.4rem;
-}
-
-/* Optional: Add subtle hover or marker accent */
-.page-content ul li::marker {
-  color: #f9fafb; /* Tailwind’s blue-600 tone */
-}
-
-.page-content ol li::marker {
-  color: #f9fafb; /* Tailwind’s purple-600 tone */
 }
 
 /* Optional: Responsive improvement */

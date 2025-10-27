@@ -2,11 +2,14 @@
 
 import Image from "next/image";
 import FaqSection from "@/components/main/Homepage/faq";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 export default function AboutPageComponent({data}: any)
 {
     const [loading, setLoading] = useState(true);
+    
+    const scrollRef = useRef<HTMLDivElement>(null);
 
     const logos = [
         '/assets/companies/company1.webp',
@@ -37,8 +40,35 @@ export default function AboutPageComponent({data}: any)
             setLoading(false);
             return;
         }
-    },[]);
 
+        const scrollContainer = scrollRef.current;
+        if (!scrollContainer) return;
+
+        let scrollInterval: NodeJS.Timeout | null = null;
+
+        const startAutoScroll = () => {
+        scrollInterval = setInterval(() => {
+            if (scrollContainer) {
+            // Auto-scroll down slowly
+            scrollContainer.scrollTop += 1;
+            // Reset scroll when it reaches the bottom
+            if (
+                scrollContainer.scrollTop + scrollContainer.clientHeight >=
+                scrollContainer.scrollHeight
+            ) {
+                scrollContainer.scrollTop = 0;
+            }
+            }
+        }, 30); // adjust speed (lower = faster)
+        };
+
+        startAutoScroll();
+
+        // cleanup
+        return () => {
+            if (scrollInterval) clearInterval(scrollInterval);
+        };
+    },[]);
     
 
     if (loading) return (
@@ -127,19 +157,21 @@ export default function AboutPageComponent({data}: any)
         <>
             <section className="bg-black p-12 pt-18 justify-between relative flex lg:flex-row flex-col dark:bg-gray-800 text-white px-4 sm:px-6 lg:px-8 mx-auto">
                 <div className="relative lg:w-[30%]">
-                    <div className="md:p-10 lg:absolute page-content p-4 -end-40 md:top-10 md:rounded-md rounded-t bg-stone-800">
-                        {
-                            data?.hero?.description ? 
-                            <span dangerouslySetInnerHTML={{__html:data?.hero?.description}}/>
-                            : <>
-                                <h1 className="xl:text-4xl md:text-2xl text-xl md:mb-10 mb-4">Empowering Global Businesses with Elite Tech Talent</h1>
-                                <div className="md:max-h-48 2xl:max-h-full overflow-y-auto">
-                                    <p className="lg:text-lg text-xs mb-2">At Optimal Virtual Employee, we believe great technology begins with great people. Since our founding in 2008, we’ve been on a mission to bridge the talent gap for startups, growing businesses, and enterprise brands across the globe by offering flexible, reliable, and scalable staff augmentation solutions.</p>
-                                    <p className="lg:text-lg text-xs mb-2">Whether you're a founder building your first MVP or an enterprise scaling your development team, we help you find highly skilled full-time developers who are committed to your success—just like in-house team members.</p>
-                                    <p className="lg:text-lg text-xs mb-2">We don’t just fill positions. We help you build the right team, faster—with our unique combination of human vetting and AI-assisted shortlisting to match you with professionals who deliver from day one.</p>
-                                </div>
-                            </>
-                        }
+                    <div className="max-h-full overflow-auto md:py-10 p-4 lg:absolute page-content -end-40 md:top-10 md:rounded-md rounded-t bg-stone-800">
+                        <motion.div>
+                            {
+                                data?.hero?.description ? 
+                                <span dangerouslySetInnerHTML={{__html:data?.hero?.description}}/>
+                                : <>
+                                    <h1 className="xl:text-4xl md:text-2xl text-xl md:mb-10 mb-4">Empowering Global Businesses with Elite Tech Talent</h1>
+                                    <div className="md:max-h-48 2xl:max-h-full overflow-y-auto">
+                                        <p className="lg:text-lg text-xs mb-2">At Optimal Virtual Employee, we believe great technology begins with great people. Since our founding in 2008, we’ve been on a mission to bridge the talent gap for startups, growing businesses, and enterprise brands across the globe by offering flexible, reliable, and scalable staff augmentation solutions.</p>
+                                        <p className="lg:text-lg text-xs mb-2">Whether you're a founder building your first MVP or an enterprise scaling your development team, we help you find highly skilled full-time developers who are committed to your success—just like in-house team members.</p>
+                                        <p className="lg:text-lg text-xs mb-2">We don’t just fill positions. We help you build the right team, faster—with our unique combination of human vetting and AI-assisted shortlisting to match you with professionals who deliver from day one.</p>
+                                    </div>
+                                </>
+                            }
+                        </motion.div>
                     </div>
                 </div>
                 <div className="lg:w-[70%] md:rounded-md rounded-b-md">
