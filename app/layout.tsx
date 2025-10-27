@@ -1,38 +1,22 @@
 
 import "./globals.css";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import { generateMetadataFromSeo } from "./(main)/utils/seo";
-import Script from "next/script";
 
-import { IBM_Plex_Sans, Inter, Manrope } from "next/font/google";
-
-const ibmPlexSans = IBM_Plex_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  display: "swap",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  display: "swap",
-});
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  display: "swap",
-});
+import { Geist, Geist_Mono } from "next/font/google";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 // Default SEO data (fallback if a page doesn’t override)
@@ -120,7 +104,7 @@ export default function RootLayout({
         ></Script> */}
       </head>
       <body
-        className={`${inter.className} ${geistSans.variable} ${geistMono.variable} opensans antialiased scroll-smooth`}
+        className={`${geistSans.variable} ${geistMono.variable} opensans antialiased scroll-smooth`}
       >
         {/* Google Tag Manager (noscript) */}
         <noscript>

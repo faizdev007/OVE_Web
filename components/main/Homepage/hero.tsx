@@ -3,6 +3,7 @@
 import useInView from "../../useInView";
 import TrustedBy from "./trustedby";
 import '@/app/(main)/hire/custome.css';
+import { motion } from "framer-motion";
 
 export default function Herosection({herodata}: any)
 {
@@ -22,15 +23,15 @@ export default function Herosection({herodata}: any)
                     </video>
                     <div className="overlay"></div>
                     <div className="flex flex-col gap-6 2xl:gap-18">
-                        <h1 className='page-content text-white'>
+                        <motion.h1 initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className='page-content text-white'>
                             <span dangerouslySetInnerHTML={{__html:heroelement?.title ?? "Need Developers On Demand? We’re Your Augmentation Partner"}}></span>
-                        </h1>
-                        <div className='text-sm lg:text-md xl:text-xl 2xl:text-2xl'><span dangerouslySetInnerHTML={{__html:heroelement?.description ?? 'Reduce your time to hire from months to days. Our remote staff augmentation connects you with pre-vetted developers who onboard quickly and start delivering real value from day one.'}}/></div>
+                        </motion.h1>
+                        <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ delay:0.5, duration: 0.9 }} className='text-sm lg:text-md xl:text-xl 2xl:text-2xl'><span dangerouslySetInnerHTML={{__html:heroelement?.description ?? 'Reduce your time to hire from months to days. Our remote staff augmentation connects you with pre-vetted developers who onboard quickly and start delivering real value from day one.'}}/></motion.div>
                     </div>
                     <div className='text-center max-w-xl mx-auto w-full'>
                         <div className="flex gap-3 md:flex-row flex-col items-start">
                             {/* Primary CTA */}
-                            <div className="w-full">
+                            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ delay:0.9, duration: 0.9 }} className="w-full">
                                 <a
                                 href="/contact-us"
                                 aria-label="Get Started"
@@ -42,7 +43,7 @@ export default function Herosection({herodata}: any)
                                 {heroelement?.buttons?.action1?.title ?? '🚀 Get Started'}
                                 </a>
                                 <div className="mt-2 text-sm text-gray-300">👆🏼 $0 until you Hire</div>
-                            </div>
+                            </motion.div>
 
                             {/* OR Divider */}
                             <span className="font-bold hidden w-full md:w-auto md:text-2xl text-lg mt-1 md:mt-[1.3%] text-center text-gray-500">

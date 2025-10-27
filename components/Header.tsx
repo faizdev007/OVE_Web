@@ -136,7 +136,7 @@ const companyM = [{
                 Privacy Policy
               </a>
 
-              <a href="/blog" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
+              <a href="/blog" className="hidden hover:text-blue-600 dark:hover:text-blue-400 transition">
                 Blog
               </a>
               
@@ -300,7 +300,8 @@ const companyM = [{
             <a href="/privacy-policy" className="block hover:text-blue-600 dark:hover:text-blue-400">
               Privacy Policy
             </a>
-            <a href="/blog" className="block hover:text-blue-600 dark:hover:text-blue-400">
+            
+            <a href="/blog" className="hidden hover:text-blue-600 dark:hover:text-blue-400">
               Blog
             </a>
 
