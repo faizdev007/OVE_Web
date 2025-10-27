@@ -31,7 +31,7 @@ export default function HiringProcess({hiringprocessdata}: any)
     <>
         <section className="relative dark:bg-gray-900 pb-12 dark:py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto text-center">
-                <h2 className="text-4xl font-bold headingtext dark:text-white mb-4">
+                <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center headingtext mb-12">
                     <span dangerouslySetInnerHTML={{__html:hiringprocessdata?.title ?? 'Our Comprehensive Hiring Process'}}/>
                 </h2>
                 <div className="text-lg text-gray-600 dark:text-gray-300 mb-12">
