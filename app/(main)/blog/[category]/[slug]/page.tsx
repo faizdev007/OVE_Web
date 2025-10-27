@@ -87,7 +87,15 @@ export default async function Page({ params }: any) {
         return <div>Blog not found</div>;
     }
 
+    console.log(blog);
     return (
-        <SingleBlog {...blog} />
+      <>
+        <div className="">
+            <h1 className="xl:text-6xl md:text-4xl mb-12 text-3xl py-10 pt-32 bg-headerblue text-white text-center font-bold">
+                {blog.title}
+            </h1>
+            <SingleBlog {...blog} />
+        </div>
+      </>
     );
 }

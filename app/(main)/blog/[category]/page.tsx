@@ -120,6 +120,13 @@ export default async function BlogPage({ params }: any) {
     const dataset = await datalist(currentslug);
 
     return (
-        <Cateposts listdata={dataset}/>
+      <>
+        <div className="">
+            <h1 className="text-3xl py-10 pt-32 bg-headerblue text-white text-center font-bold">
+                {dataset?.name}
+            </h1>
+            <Cateposts listdata={dataset}/>
+        </div>
+      </>
     );
 }

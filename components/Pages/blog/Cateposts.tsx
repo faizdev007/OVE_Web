@@ -107,10 +107,6 @@ const Cateposts = (blogdata:any)=>{
     return (
         <main className="mx-auto py-10 px-4">
             <div className="mb-6 rounded-lg">
-                <div className="mb-12">
-                    <h1 className="2xl:text-5xl md:text-3xl text-2xl font-bold mb-8">Software Innovation Starts Here</h1>
-                    <p>Tap into the power of our top 1% software engineers and 675+ digital transformation experts. Get insights to drive your business forward in today’s competitive landscape.</p>
-                </div>
                 <div className="">
                     <h2 className="2xl:text-5xl md:text-3xl text-2xl font-bold">All our articles</h2>
                     <strong className="md:text-3xl text-2xl font-bold text-gray-400">Let's read</strong>

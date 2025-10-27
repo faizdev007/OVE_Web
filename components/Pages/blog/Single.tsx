@@ -12,7 +12,7 @@ const SingleBlog = (post:any) => {
     return (
     <>
         <main className="mx-auto py-10 px-4">
-            <div className='lg:flex items-center justify-between mb-4 flex-col sm:flex-row gap-4 bg-oveblue p-10 rounded-lg text-white'>
+            <div className='lg:flex items-center justify-between mb-4 flex-col sm:flex-row gap-4 cardLG p-10 rounded-lg text-white'>
                 <div className=''>
                     <h3 className='text-2xl'>Looking to Turn AI Challenges into Competitive Strengths?</h3>
                     <p className='font-bold'>From ethics to cost planning, we help businesses overcome AI roadblocks and achieve measurable success.</p>
@@ -29,16 +29,17 @@ const SingleBlog = (post:any) => {
             <div className="mb-12 mx-auto blog-content">
                 <div className='lg:flex gap-2'>
                     <div className='lg:w-3/4'>
-                        <h1 className='lg:!text-5xl'>{post.title}</h1>
+                        <h1 className='lg:!text-5xl hidden'>{post.title}</h1>
                         <div className="text-gray-600 flex items-center gap-4">
                             <span><img className='w-12 h-12' src={post?.author?.avatar} alt={post.author?.name}/></span>
                             <span>Write By {post.author?.name}</span>
                         </div>
+                        <hr/>
                         <div className="w-full" dangerouslySetInnerHTML={{ __html: post.content }} />
                     </div>
                     <div className='lg:w-1/4'>
-                        <div className='sticky text-white top-20 p-4 border bg-oveblue rounded-lg shadow-lg'>
-                            <span className='font-bold text-2xl'>Get Started With ValueCoders</span>
+                        <div className='sticky text-white top-20 p-4 border cardLG rounded-lg shadow-lg'>
+                            <span className='font-bold text-2xl'>Get Started With OVE</span>
                             <ul className='text-white list-white'>
                                 <li className='!text-white flex items-center gap-1'>
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
