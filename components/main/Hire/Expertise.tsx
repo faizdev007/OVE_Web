@@ -39,7 +39,7 @@ export default function Expertise( {Expertise} : any) {
               </div>
             </div>
 
-            <div className="lg:w-1/2 w-full blackgradiant text-white md:p-6 p-2 rounded-lg shadow-md">
+            <div className="lg:w-1/2 w-full cardLG text-white md:p-6 p-2 rounded-lg shadow-md">
             <div className="w-full space-y-4">
                 {qnalist.map((item:any, index:number) => {
                 const open = activeIndex === index;
@@ -64,7 +64,7 @@ export default function Expertise( {Expertise} : any) {
                             </svg>
                         </div>
 
-                        <div className={`overflow-hidden transition-all border-t border-white duration-500 ease-in-out ${open ? "max-h-40 opacity-100 mt-2" : "max-h-0 opacity-0"}`}>
+                        <div className={`overflow-hidden transition-all border-t border-white duration-500 ease-in-out ${open ? "max-h-100 opacity-100 mt-2" : "max-h-0 opacity-0"}`}>
                             <p className="text-gray-300 dark:text-white pt-2 md:text-lg text-sm page-content">
                               <span dangerouslySetInnerHTML={{__html: item?.answer || ""}}/>
                             </p>

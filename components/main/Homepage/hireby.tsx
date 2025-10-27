@@ -1,6 +1,6 @@
 'use client';
 
-import { RoleBaseSlug } from '@/app/(main)/utils/CategorySlug';
+import { RoleBaseSlug, SkillBaseSlug } from '@/app/(main)/utils/CategorySlug';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import {motion} from 'framer-motion';
@@ -31,6 +31,7 @@ const hirebyskill = [
 
 export default function HireBy() {
     const [RoleCards, setRoleCards] = useState<null | Array<{ name: string; slug: string; logo: string }>>(null);;
+    const [SkillCards, setSkillCards] = useState<null | Array<{ name: string; slug: string; logo: string }>>(null);;
     
     useEffect(() => {
         (async () => {
@@ -41,8 +42,20 @@ export default function HireBy() {
                 slug: `/hire/${role.slug}`,
                 logo: role.cardicon?.icon?.node?.sourceUrl || '/assets/hireby/roles/computer.webp',
             })) || []);
+
+            const skilllist = await SkillBaseSlug(14);
+            
+            setSkillCards(skilllist?.category?.hires?.nodes.map((role) => ({
+                name: role.title,
+                slug: `/hire/${role.slug}`,
+                logo: role.cardicon?.icon?.node?.sourceUrl || '/assets/hireby/roles/computer.webp',
+            })) || []);
+
         })();
     }, []);
+
+
+    console.log(SkillCards);
 
     if(!RoleCards){
         return(
@@ -108,7 +121,7 @@ export default function HireBy() {
                 {/* Logos */}
                 <div className="gap-4 grid grid-cols-2 lg:grid-cols-5 md:grid-cols-3 md:text-sm space-2 text-xs">
                     {RoleCards?.map((role, i) => (
-                        <a href={role.slug} key={i} className="cardLG hover:bg-carblue/50 rounded shadow-md">
+                        <a href={role.slug} key={i} className="cardLG hover:bg-carblue/50 rounded shadow-md hover:shadow-lg">
                             <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
                                 <div className='aspect-[1/1] flex items-center justify-center'>
                                     <img src={role.logo} alt={role.name} width={60} height={60} className="grayscale object-container h-12 w-auto" />
@@ -133,11 +146,11 @@ export default function HireBy() {
                 </h2>
                 {/* Logos */}
                 <div className="gap-4 grid grid-cols-2 lg:grid-cols-5 md:grid-cols-3 md:text-sm space-2 text-xs">
-                    {hirebyskill.map((skill, i) => (
-                        <a href={skill.slug} key={i} className="cardLG hover:bg-oveblue/50 rounded shadow-md">
+                    {SkillCards?.map((skill, i) => (
+                        <a href={skill.slug} key={i} className="cardLG hover:bg-oveblue/50 hover:shadow-lg rounded shadow-md">
                             <div className='flex flex-col p-6 text-center justify-center items-center gap-4'>
                                 <div className='aspect-[1/1] flex items-center justify-center hover:grayscale'>
-                                    <Image src={skill.logo} alt={skill.name} width={60} height={60} className="object-container h-12 w-auto" />
+                                    <img src={skill.logo} alt={skill.name} width={60} height={60} className="object-container h-12 w-auto" />
                                 </div>
                                 <h2 className='capitalize font-bold text-white'>{skill.name}</h2>
                             </div>
