@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Slider , { type Settings, type CustomArrowProps } from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css'; 
+import {motion} from 'framer-motion';
 
 import Image from 'next/image';
 
@@ -107,7 +108,7 @@ export default function OurProjectsSlider({projectslist}: any) {
   }, []);
 
   return (
-    <section className="relative px-4 pb-12 dark:py-12 sm:px-6 lg:px-8 mx-auto text-center">
+    <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }}  className="relative px-4 pb-12 dark:py-12 sm:px-6 lg:px-8 mx-auto text-center">
       {/* Heading */}
       <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center mb-5 text-white">{projectslist?.title ?? 'Things We’ve Shipped'}</h2>
       <div className="max-w-4xl mx-auto text-white mb-12">
@@ -161,6 +162,6 @@ export default function OurProjectsSlider({projectslist}: any) {
           </div>
         }
       </div>
-    </section>
+    </motion.section>
   );
 }

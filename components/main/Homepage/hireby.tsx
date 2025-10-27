@@ -3,6 +3,7 @@
 import { RoleBaseSlug } from '@/app/(main)/utils/CategorySlug';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import {motion} from 'framer-motion';
 
 const hirebyskill = [
   { name: 'React', logo: '/assets/hireby/skills/React.webp', slug: '#' },
@@ -29,8 +30,6 @@ const hirebyskill = [
 ];
 
 export default function HireBy() {
-    
-    const [SkillCards, setSkillCards] = useState(hirebyskill);
     const [RoleCards, setRoleCards] = useState<null | Array<{ name: string; slug: string; logo: string }>>(null);;
     
     useEffect(() => {
@@ -100,7 +99,7 @@ export default function HireBy() {
     }
 
     return (
-        <section className="bglbLG dark:bg-gray-800 headingtext relative px-4 py-12 sm:px-6 lg:px-8 mx-auto flex flex-col gap-10">
+        <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }}  className="bglbLG dark:bg-gray-800 headingtext relative px-4 py-12 sm:px-6 lg:px-8 mx-auto flex flex-col gap-10">
             <div className='container mx-auto'> 
                 {/* Heading */}
                 <h2 className="text-3xl font-bold mb-4">
@@ -152,6 +151,6 @@ export default function HireBy() {
                     </div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 }

@@ -5,6 +5,7 @@ import Slider, { Settings } from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Rating from "@/components/Rating";
+import {motion} from 'framer-motion';
 
 function OurClientSay({ wochts }: any) {
   wochts = wochts ?? {
@@ -131,7 +132,7 @@ function OurClientSay({ wochts }: any) {
   }, [currentSlide]);
 
   return (
-    <div className="px-4 pb-12 sm:px-6 lg:px-8 mx-auto flex flex-col gap-6 slider-container dark:bg-black">
+    <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }} className="px-4 pb-12 sm:px-6 lg:px-8 mx-auto flex flex-col gap-6 slider-container dark:bg-black">
       <div className="text-center">
         <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center headingtext mb-12 headingtext">{wochts?.wochtsTitle ?? "What Our Clients Have to Say About Us"}</h2>
         <h4 className="text-lg font-medium mb-2">
@@ -235,7 +236,7 @@ function OurClientSay({ wochts }: any) {
           </div>
         )) || <div className="p-2">Loading...</div>}
       </Slider>
-    </div>
+    </motion.div>
   );
 }
 

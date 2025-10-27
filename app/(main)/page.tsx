@@ -215,7 +215,7 @@ async function getHomePageData(): Promise<HomePageDataType | null> {
 // ----------------------
 export default async function Home() {
   const { data } = await getHomePageData().then((res) => ({ data: res }));
-  
+
   if (!data) {
     return (
       <div className="flex items-center justify-center h-screen">

@@ -1,4 +1,5 @@
 'use client';
+import {motion} from 'framer-motion';
 
 const companies = [
   { title: 'Barclays', url: '/assets/companies/company3.webp'},
@@ -22,7 +23,7 @@ export default function TrustedBySection({trustedbysection}: any) {
   const keymetrics = trustedbysection?.keyMetrics ?? stats;
   const states = stats;
   return (
-    <section className=" text-white relative px-4 pb-12 dark:py-12 sm:px-6 lg:px-8 mx-auto text-center flex flex-col gap-10">
+    <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }} className=" text-white relative px-4 pb-12 dark:py-12 sm:px-6 lg:px-8 mx-auto text-center flex flex-col gap-10">
       {/* Heading */}
       <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center">
         <span className="text-4xl lg:text-6xl md:text-5xl font-bold mb-4">{trustedbysection?.title ?? 'Trusted by'}</span>
@@ -48,6 +49,6 @@ export default function TrustedBySection({trustedbysection}: any) {
           </div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }

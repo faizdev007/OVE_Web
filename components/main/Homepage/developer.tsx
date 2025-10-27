@@ -7,6 +7,7 @@ import Slider, { type Settings, type CustomArrowProps } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { fetchGraphQL } from "@/lib/graphqlClient";
+import {motion} from 'framer-motion';
 
 type GqlDeveloperNode = {
   id: string;
@@ -250,7 +251,7 @@ export default function DevelopersSlider({hire}:any) {
   }
 
   return (
-    <section className="relative py-12 mx-auto">
+    <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }}  className="relative py-12 mx-auto">
       <Image loading="lazy" width={100} height={100}
              className="absolute hidden object-cover bottom-0 w-full start-0 end-0"
              src="/assets/cloudbg.webp" alt="cloudbg" />
@@ -334,6 +335,6 @@ export default function DevelopersSlider({hire}:any) {
           )}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
