@@ -1,3 +1,4 @@
+import OurClientSay from "@/components/main/Hire/OurClientSay";
 import "@/components/main/Homepage/customstyle.css";
 
 import DevelopersSlider from "@/components/main/Homepage/developer";
@@ -235,7 +236,7 @@ export default async function Home() {
       <HireBy/>
 
       {/* Hiring Process */}
-      <section className="relative bglbLG py-12">
+      <section className="relative py-12">
         <div className="bg-black hidden">
           <Image
             src="/assets/gray.webp"
@@ -246,6 +247,19 @@ export default async function Home() {
           />
         </div>
         <HiringProcess hiringprocessdata={data.hiringProcess}/>
+      </section>
+
+      <section className="relative bglbLG py-12">
+          <div className="bg-black hidden">
+              <Image
+              src="/assets/gray.webp"
+              alt="compare"
+              width={1000}
+              height={1000}
+              className="w-full dark:hidden"
+              />
+          </div>
+          <OurClientSay/>
       </section>
 
       {/* Trusted By Section */}

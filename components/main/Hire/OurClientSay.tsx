@@ -7,6 +7,76 @@ import "slick-carousel/slick/slick-theme.css";
 import Rating from "@/components/Rating";
 
 function OurClientSay({ wochts }: any) {
+  wochts = wochts ?? {
+      "wochtsTitle": "What Our Clients Have to Say About Us",
+      "wochtsSubtitle": "We are grateful for our clients’ trust in us, and we take great pride in delivering quality solutions that exceed their expectations. Here is what some of them have to say about us.",
+      "wochtsClients": [
+          {
+              "clientName": "Jenny Junkeer",
+              "clientDesignation": "CEO, Intent",
+              "clientDescription": "<p>OVE had great technical expertise, both in front-end and back-end development. Other project management was well organized. Account management was friendly and always available. I would give OVE ten out of ten!</p>\n",
+              "clientRatting": 5,
+              "clientThumbnail": {
+                  "node": {
+                      "sourceUrl": "https://staging.optimalvirtualemployee.com.au/wp-content/uploads/2025/10/jenny.webp",
+                      "title": "jenny"
+                  }
+              },
+              "clientVideo": {
+                  "title": "Jenny Junkeer",
+                  "url": "https://hire-ove.s3.ap-south-1.amazonaws.com/Jenny+Junkeer.mp4"
+              }
+          },
+          {
+              "clientName": "Mark Reisinger",
+              "clientDesignation": "MD, Web Zulu",
+              "clientDescription": "<p>The team at OVE has provided us with exceptional services in creating this one-of-a-kind portal, and it has been a fantastic experience. I was particularly impressed by how efficiently and quickly the team always came up with creative solutions to provide us with all the functionalities within the portal we had requested.</p>\n",
+              "clientRatting": 4.5,
+              "clientThumbnail": {
+                  "node": {
+                      "sourceUrl": "https://staging.optimalvirtualemployee.com.au/wp-content/uploads/2025/10/mark.webp",
+                      "title": "mark"
+                  }
+              },
+              "clientVideo": {
+                  "title": "Mark Reisinger",
+                  "url": "https://hire-ove.s3.ap-south-1.amazonaws.com/Mark+Reisinger.mp4"
+              }
+          },
+          {
+              "clientName": "Matt Lonergan",
+              "clientDesignation": "CEO, PMO PRO",
+              "clientDescription": "<p>Huge thank you to OVE; they have been a massive help in enabling us to start developing our project within a few weeks, so it&#8217;s been great! There have been two small bumps in the road, but overall, It&#8217;s been a fantastic service. I have already recommended it to one of my friends.</p>\n",
+              "clientRatting": 4,
+              "clientThumbnail": {
+                  "node": {
+                      "sourceUrl": "https://staging.optimalvirtualemployee.com.au/wp-content/uploads/2025/10/matt.webp",
+                      "title": "matt"
+                  }
+              },
+              "clientVideo": {
+                  "title": "Matt Lonergan",
+                  "url": "https://hire-ove.s3.ap-south-1.amazonaws.com/Matt+Lonergan.mp4"
+              }
+          },
+          {
+              "clientName": "Matthew Clews",
+              "clientDesignation": "MD, Sea Side Media",
+              "clientDescription": "<p>The Project managers took a lot of time to understand our project before coming up with a contract or what they thought we needed. I had the reassurance from the start that the project managers knew what type of project I wanted and what my needs were. That is reassuring, and that&#8217;s why we chose OVE.</p>\n",
+              "clientRatting": 4,
+              "clientThumbnail": {
+                  "node": {
+                      "sourceUrl": "https://staging.optimalvirtualemployee.com.au/wp-content/uploads/2025/10/matthew.webp",
+                      "title": "matthew"
+                  }
+              },
+              "clientVideo": {
+                  "title": "Matthew Clews",
+                  "url": "https://hire-ove.s3.ap-south-1.amazonaws.com/Matthew+Clews.mp4"
+              }
+          }
+      ]
+  };
   const [nav1, setNav1] = useState<Slider | null>(null);
   const [nav2, setNav2] = useState<Slider | null>(null);
   const sliderRef1 = useRef<Slider | null>(null);
@@ -79,7 +149,7 @@ function OurClientSay({ wochts }: any) {
       <Slider {...baseSettings} asNavFor={nav2 ?? undefined} ref={sliderRef1}>
         {wochts?.wochtsClients?.map((client: any, index: number) => (
           <div key={index} className="p-4">
-            <div className="dark:bg-gray-800 grid border rounded-lg divide-x lg:grid-cols-2 shadow-lg">
+            <div className="bg-white dark:bg-gray-800 grid border rounded-lg divide-x lg:grid-cols-2 shadow-lg">
               {client.clientVideo && (
                 <div className="aspect-video p-2">
                   <video controls muted className="rounded-lg aspect-video w-full h-auto">
@@ -125,7 +195,7 @@ function OurClientSay({ wochts }: any) {
         {wochts?.wochtsClients?.map((client: any, index: number) => (
           <div key={index}>
             <div
-              className={`mx-2 items-center cursor-pointer border rounded-md shadow ${
+              className={`mx-2 bg-white items-center cursor-pointer border rounded-md shadow ${
                 index === currentSlide
                   ? "border-oveblue bg-oveblue/10"
                   : "border-gray-200"

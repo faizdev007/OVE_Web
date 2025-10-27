@@ -64,7 +64,7 @@ export default function HirePageComponent({hireData}:any) {
                     <Image src={'/assets/black.png'} alt="compare" width={1000} height={1000} className="w-full" />
                 </div>
             </div>
-            <section className="relative bg-gray-100">
+            <section className="relative bglbLG py-12">
                 <div className="bg-black hidden">
                     <Image
                     src="/assets/gray.webp"
