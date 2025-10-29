@@ -8,8 +8,8 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [activeIndex, setActiveIndex] = useState(false);
-  const [roleSlugs, setRoleSlugs] = useState<string[]>([]);
-  const [SkillSlugs, setSkillSlugs] = useState<string[]>([]);
+  const [roleSlugs, setRoleSlugs] = useState<object[]>([]);
+  const [SkillSlugs, setSkillSlugs] = useState<object[]>([]);
 
   useEffect(() => { 
     // Fetch role-based slugs on component mount
@@ -17,8 +17,9 @@ export default function Header() {
       try {
         const data = await RoleBaseSlug();
         const link2 = await SkillBaseSlug();
-        const slugs = data?.category?.hires?.nodes.map(node => node.slug) || [];
-        const slugs2 = link2?.category?.hires?.nodes.map(node => node.slug) || [];
+        console.log(data);
+        const slugs = data?.category?.hires?.nodes.map(node => node) || [];
+        const slugs2 = link2?.category?.hires?.nodes.map(node => node) || [];
         setRoleSlugs(slugs);
         setSkillSlugs(slugs2);
       }
@@ -45,14 +46,17 @@ export default function Header() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
             </svg>),
       menuCategory:'Hire',
-      urls:roleSlugs.length > 0 ? roleSlugs.map(slug => {
-        const name = slug.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-        return { name, url: `/hire/${slug}`, context:null, icon:null };
+      urls:roleSlugs.length > 0 ? Object(roleSlugs).map((menu:any) => {
+        const name = menu?.title;
+        return { name, url: `/hire/${menu?.slug}`, context:null, icon:null };
       }) : [
-        {name:'Full-stack Developer',url:'/full_stack_developer', context:null, icon:null },
-        {name:'Front-End Developer',url:'/front_end_developer', context:null, icon:null },
-        {name:'Back-End Developer',url:'/back_end_developer', context:null, icon:null },
-        {name:'Database Engineer',url:'/database_engineer', context:null, icon:null },
+        {name:'Full-stack Developer',url:'/hire/full-stack-developer', context:null, icon:null },
+        {name:'Back-end Developers',url:'/hire/back-end-developers', context:null, icon:null },
+        {name:'Front-end Developers',url:'/hire/front-end-developers', context:null, icon:null },
+        {name:'Cloud Engineers',url:'/hire/cloud-engineers', context:null, icon:null },
+        {name:'Mobile Developer',url:'/hire/mobile-developer', context:null, icon:null },
+        {name:'AI Engineers',url:'/hire/ai-engineers', context:null, icon:null },
+        {name:'Blockchain Developers',url:'/hire/blockchain-developers', context:null, icon:null },
       ]
     },
     {
@@ -62,17 +66,22 @@ export default function Header() {
             </svg>
           ),
       menuCategory:'Hire',
-      urls:SkillSlugs.length > 0 ? SkillSlugs.map(slug => {
-        const name = slug.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-        return { name, url: `/hire/${slug}`, context:null, icon:null };
+      urls:SkillSlugs.length > 0 ? Object(SkillSlugs).map((menu:any) => {
+        const name = menu.title;
+        return { name, url: `/hire/${menu?.slug}`, context:null, icon:null };
       }) : [
-        {name:'React Developer',url:'/react_developer', context:null, icon:null },
-        {name:'Laravel Developer',url:'/laravel_developer', context:null, icon:null },
-        {name:'AI Developer',url:'/ai_developer', context:null, icon:null },
-        {name:'Mobile Developer',url:'/mobile_developer', context:null, icon:null },
+        {name:'Alpine.js Developer',url:'/hire/alpine-js-developer', context:null, icon:null },
+        {name:'Python Developer',url:'/hire/python-developer', context:null, icon:null },
+        {name:'Laravel Developer',url:'/hire/laravel-developer', context:null, icon:null },
+        {name:'Jupyter Developer',url:'/hire/jupyter-developer', context:null, icon:null },
+        {name:'Jest Developer',url:'/hire/jest-developer', context:null, icon:null },
+        {name:'JavaScript Developer',url:'/hire/javascript-developer', context:null, icon:null },
+        {name:'Java Developer',url:'/hire/java-developer', context:null, icon:null },
       ]
     }
   ];
+
+  console.log(hiremenu);
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -87,6 +96,7 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  
 
   return (
       <header
@@ -155,7 +165,7 @@ export default function Header() {
                 <div key={key}>
                   <h2 className="border-b-2 menuheading font-bold flex gap-2">{single.menuTitle}</h2>
                   <div className="grid gap-2 py-2">
-                    {single.urls.map((url, i) => (
+                    {single.urls.map((url:any, i:number) => (
                       <div key={i} >
                         <a href={url.url} className="hover:text-blue-600 flex dark:hover:text-blue-300 text-sm gap-2 py-2 hover:underline">
                           <span className='text-gray-500 font-mono'>{single.menuCategory && single.menuCategory}</span>{url.icon && <img src={url.icon} alt="icon"/>}<span className='text-md'>{url.name}</span>
@@ -205,7 +215,7 @@ export default function Header() {
                   <div key={i}>
                     <h2 className="border-b-2 font-bold flex gap-2">{menu.menuTitle}</h2>
                     <div className="grid gap-2 py-2">
-                      {menu.urls.map((url, i) => (
+                      {menu.urls.map((url:any, i:number) => (
                         <div key={i}>
                           <a href={url.url} className="hover:text-blue-600 flex dark:hover:text-blue-300 text-sm gap-1 hover:underline">
                             <span className='text-gray-500 font-mono'>{menu.menuCategory && menu.menuCategory}</span>{url.icon && <img src={url.icon} alt="icon"/>}<span className='text-md'>{url.name}</span>
