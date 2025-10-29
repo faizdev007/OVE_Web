@@ -150,9 +150,9 @@ function OurClientSay({ wochts }: any) {
       <Slider {...baseSettings} asNavFor={nav2 ?? undefined} ref={sliderRef1}>
         {wochts?.wochtsClients?.map((client: any, index: number) => (
           <div key={index} className="p-4">
-            <div className="bg-white dark:bg-gray-800 grid border rounded-lg divide-x lg:grid-cols-2 shadow-lg">
+            <div className="bg-white dark:bg-gray-800 grid border rounded-lg lg:divide-x lg:grid-cols-2 shadow-lg">
               {client.clientVideo && (
-                <div className="aspect-video p-2">
+                <div className="p-2">
                   <video controls muted className="rounded-lg aspect-video w-full h-auto">
                     <source src={client.clientVideo.url} type="video/mp4" />
                     Your browser does not support the video tag.
