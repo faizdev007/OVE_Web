@@ -208,7 +208,7 @@ export default function Header() {
                       {menu.urls.map((url, i) => (
                         <div key={i}>
                           <a href={url.url} className="hover:text-blue-600 flex dark:hover:text-blue-300 text-sm gap-1 hover:underline">
-                            <span className='text-gray-800 font-mono'>{menu.menuCategory && menu.menuCategory}</span>{url.icon && <img src={url.icon} alt="icon"/>}<span className='text-md'>{url.name}</span>
+                            <span className='text-gray-500 font-mono'>{menu.menuCategory && menu.menuCategory}</span>{url.icon && <img src={url.icon} alt="icon"/>}<span className='text-md'>{url.name}</span>
                           </a>
                           {url?.context && <p className='font-normal text-xs'>{url?.context}</p>}  
                         </div>
