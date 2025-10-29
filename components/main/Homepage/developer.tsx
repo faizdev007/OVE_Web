@@ -266,7 +266,7 @@ export default function DevelopersSlider({hire}:any) {
               {developerList.map((dev, index) => (
                 <div key={index} className="px-1 py-2">
                   <div
-                    className="cardLG gap-4 flex flex-col justify-around mt-25 aspect-[1/1.2] text-white relative rounded-xl shadow-md hover:shadow-lg"
+                    className="developercard gap-4 flex flex-col justify-around mt-25 aspect-[1/1.2] text-white relative rounded-xl shadow-md hover:shadow-lg"
                     
                   >
                     <div className="relative w-2/3 flex items-center justify-center aspect-[3/1] mx-auto">

@@ -29,6 +29,7 @@
   --bgblue2rLG: linear-gradient(84.74deg,#124ec6 29%,#0b2051 93%);
   --bglightblueLG: linear-gradient(180deg,rgba(235, 235, 235, 0.68) 0%, rgba(196, 214, 255, 0.588) 60%);
   --cardLG: linear-gradient(130deg,#112d5b 0%,#133689 69%);
+  --developercard: linear-gradient(180deg,rgba(17, 45, 91, 1) 0%, rgba(75, 97, 153, 1) 69%);
 }
 
 nav a:hover {
@@ -77,6 +78,9 @@ nav a:hover {
   background: var(--cardLG);
 }
 
+.developercard{
+  background: var(--developercard);
+}
 
 
 
