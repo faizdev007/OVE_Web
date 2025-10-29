@@ -68,6 +68,14 @@ nav a:hover {
   background: var(--bgblue2LG);
 }
 
+.menuheading{
+  background: var(--cardLG);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  border-bottom: 1px solid #727272;
+}
+
 .bgb2rLG{
   background: var(--bgblue2rLG);
 }

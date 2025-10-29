@@ -8,8 +8,6 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [activeIndex, setActiveIndex] = useState(false);
-  const [serviceOpen, setServiceOpen] = useState(false);
-  const [companyOpen, setCompanyOpen] = useState(false);
   const [roleSlugs, setRoleSlugs] = useState<string[]>([]);
   const [SkillSlugs, setSkillSlugs] = useState<string[]>([]);
 
@@ -42,7 +40,7 @@ export default function Header() {
         {name:'Hire Dedicated Development Teams',context:'Agile development teams custom built to deliver digital experiences',url:'#',icon:'../assets/menuicons/ico_agile.svg'},
       ]
     },{
-      menuTitle:'Role Base Hiring',
+      menuTitle:'Hiring by Role',
       icon:(<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5">
               <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
             </svg>),
@@ -58,7 +56,7 @@ export default function Header() {
       ]
     },
     {
-      menuTitle:'Skill Base Hiring',
+      menuTitle:'Hiring by Skill',
       icon:(<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5">
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
             </svg>
@@ -150,24 +148,29 @@ export default function Header() {
           <div
             onMouseEnter={() => { setShowDropdown(true); setActiveIndex(true); }}
             onMouseLeave={() => { setShowDropdown(false); setActiveIndex(false); }}
-            className="absolute rounded-md w-full drop-shadow left-0 top-full bg-white dark:bg-gray-700 shadow-lg py-4"
+            className="absolute rounded-md w-full drop-shadow left-0 top-full bg-white dark:bg-gray-700 shadow-lg py-2"
           >
             <div className="relative px-4 py-2 grid md:grid-cols-3 gap-4 sm:px-6 lg:px-8 mx-auto">
               {hiremenu.map((single, key) => (
                 <div key={key}>
-                  <h2 className="border-b-2 font-bold flex gap-2">{single.menuTitle}</h2>
+                  <h2 className="border-b-2 menuheading font-bold flex gap-2">{single.menuTitle}</h2>
                   <div className="grid gap-2 py-2">
                     {single.urls.map((url, i) => (
                       <div key={i} >
                         <a href={url.url} className="hover:text-blue-600 flex dark:hover:text-blue-300 text-sm gap-2 py-2 hover:underline">
                           <span className='text-gray-600 font-mono'>{single.menuCategory && single.menuCategory}</span>{url.icon && <img src={url.icon} alt="icon"/>}<span className='text-md'>{url.name}</span>
                         </a>
-                        {url?.context && <p className='font-light'>{url?.context}</p>}  
+                        {url?.context && <p className='font-normal text-xs'>{url?.context}</p>}  
                       </div>
                     ))}
                   </div>
                 </div>
               ))}
+            </div>
+            <div className='m-2'>
+              <a href="/hire" className="bg-btnblue hover:bg-btnblue/80 text-white border-2 border-btnblue px-4 py-2 rounded-md transition">
+                View All Services
+              </a>
             </div>
           </div>
         </div>
@@ -193,7 +196,7 @@ export default function Header() {
               <button onClick={() => setMenuOpen(false)} className="text-2xl font-bold">×</button>
             </div>
 
-            <a href="/" className="block hover:text-blue-400 transition hidden">Home</a>
+            <a href="/" className=" hover:text-blue-400 transition hidden">Home</a>
 
             <details className="group">
               <summary className="cursor-pointer hover:text-blue-400 transition">Services</summary>
@@ -204,10 +207,10 @@ export default function Header() {
                     <div className="grid gap-2 py-2">
                       {menu.urls.map((url, i) => (
                         <div key={i}>
-                          <a href={url.url} className="hover:text-blue-600 flex dark:hover:text-blue-300 text-sm gap-2 py-2 hover:underline">
+                          <a href={url.url} className="hover:text-blue-600 flex dark:hover:text-blue-300 text-sm gap-1 hover:underline">
                             <span className='text-gray-600 font-mono'>{menu.menuCategory && menu.menuCategory}</span>{url.icon && <img src={url.icon} alt="icon"/>}<span className='text-md'>{url.name}</span>
                           </a>
-                          {url?.context && <p className='font-light'>{url?.context}</p>}  
+                          {url?.context && <p className='font-normal text-xs'>{url?.context}</p>}  
                         </div>
                       ))}
                     </div>
@@ -226,13 +229,13 @@ export default function Header() {
               href="/contact-us"
               className="block text-center border-2 border-btnblue hover:bg-btnblue/90 px-4 py-2 rounded-md"
             >
-              Get Started
+              Schedule A Call
             </a>
             <a
               href="/contact-us"
               className="block text-center bg-btnblue hover:bg-btnblue/90 text-white px-4 py-2 rounded-md"
             >
-              Hire Developer
+              Start Hiring
             </a>
           </div>
         </div>
