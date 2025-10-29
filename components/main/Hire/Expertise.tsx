@@ -47,7 +47,7 @@ export default function Expertise( {Expertise} : any) {
                 return (
                       <div
                         key={index}
-                        className={`border-oveblue bg-boxFill rounded py-2 px-4 shadow-sm shadow-oveblue transition-all cursor-pointer ${open ? "border-b-4" : ""}`}
+                        className={`border-oveblue bg-gray-800 rounded py-2 px-4 shadow-sm shadow-oveblue transition-all cursor-pointer ${open ? "border-b-4" : ""}`}
                         onClick={() => toggle(index)}
                         aria-expanded={open}
                         >

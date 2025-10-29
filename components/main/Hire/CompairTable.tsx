@@ -76,7 +76,7 @@ const CTable = ({PriceTable}:any) =>{
                 <h2 className="text-[42px] font-bold headingtext"><span dangerouslySetInnerHTML={{ __html: PriceTable?.title ? PriceTable?.title : 'Still Wasting Weeks Recruiting Hire Full-Stack Developer ?' }}/></h2>
                 <p className="text-[16px]"><span dangerouslySetInnerHTML={{__html:PriceTable?.subtitle ? PriceTable?.subtitle : 'Skip the hiring mess. Get top-tier python talent from us under 48 hours'}}/></p>
                 <div className="overflow-x-hidden w-full table-auto">
-                    <div className="overflow-x-auto bg-gray-900 text-white p-6 rounded-lg shadow">
+                    <div className="overflow-x-auto bg-gray-700 text-white p-6 rounded-lg shadow">
                         <table className="min-w-[900px] w-full table-auto border-collapse">
                             <thead>
                             <tr>
@@ -86,9 +86,9 @@ const CTable = ({PriceTable}:any) =>{
                                         key={index}
                                         className={`py-4 px-6 text-left text-lg font-bold ${
                                         index === 0
-                                        ? 'text-white relative border-gray-800 bg-gray-700 rounded-t-md'
+                                        ? 'text-white relative border-gray-800 bg-gray-800 rounded-t-md'
                                         :
-                                        index === 1 ? 'bg-oveblue text-white border-blue-700 rounded-t-lg relative' : 'border-x rounded-t-lg relative bg-gray-700 border-gray-800'
+                                        index === 1 ? 'bg-oveblue text-white border-blue-700 rounded-t-lg relative' : 'border-x rounded-t-lg relative bg-gray-800 border-transparent'
                                         }`}
                                     >
                                         {index === 1 && (
@@ -110,10 +110,10 @@ const CTable = ({PriceTable}:any) =>{
                                         key={i}
                                         className={`py-4 px-6 align-top text-sm whitespace-pre-line ${
                                             i === 0
-                                            ? ' font-semibold border-s border-b border-gray-700'
+                                            ? ' font-semibold border-s border-b border-gray-900'
                                             : i === 1
                                             ? 'text-md border-x-2 border-oveblue border-b font-bold'
-                                            : 'border-x border-b border-gray-700'
+                                            : 'border-x border-b border-gray-900'
                                         }`}
                                         >
                                         {colValue}

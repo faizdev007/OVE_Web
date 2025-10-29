@@ -81,7 +81,7 @@ export default function RolePage({PageData}:any) {
         <CTA CTA={PageData?.cta?.two} />
       </div>
 
-      <div className="relative">
+      <div className="relative bglbLG">
         <div className="bg-oveblue dark:hidden hidden">
           <Image src={'/assets/offWhite.png'} alt="compare" width={1000} height={1000} className="w-full" />
         </div>
