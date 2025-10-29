@@ -4,9 +4,9 @@ import Image from "next/image";
 
 const HeroSection = ({hire}:any) => (
     <>
-        <section className="bg-black pt-32 xl:h-max lg:flex gap-2 dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
+        <section className="hiredefault pt-32 xl:h-max lg:flex gap-2 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
             <div className="flex lg:w-[60%] flex-col h-full lg:mt-6 justify-between gap-8 items-center md:items-start py-6">
-                <h1 className="text-oveblue md:text-6xl text-4xl font-bold">Hire <span dangerouslySetInnerHTML={{ __html: hire?.title ?? 'Full-Stack Developer' }}/></h1> 
+                <h1 className="md:text-6xl text-4xl font-bold">Hire <span dangerouslySetInnerHTML={{ __html: hire?.title ?? 'Full-Stack Developer' }}/></h1> 
                 <div dangerouslySetInnerHTML={{ __html: hire?.content ?? '' }}  className="md:text-xl"/>
                 <a href="/contact-us" className="bg-oveblue p-2 rounded w-max md:text-xl hover:bg-blue-700 px-6 font-bold border-5 border-oveblue/90 cursor-pointer flex gap-2 items-center hover:border-oveblue/50">Hire <span dangerouslySetInnerHTML={{ __html: hire?.title ?? 'Full-Stack Developer' }}/>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-7 font-bold">
@@ -29,7 +29,7 @@ const HeroSection = ({hire}:any) => (
                 </div>
             </div>
             <div className="lg:w-[40%] lg:flex hidden relative mb-5 justify-center">
-                <div className="z-30 flex flex-col justify-end">
+                <div className="z-30 flex-col justify-end hidden">
                     <div className="absolute z-20 bottom-0">
                         <Image src={'/assets/hire/bg2.webp'} alt="PBG" width={500} height={500} priority className="w-auto h-auto rounded-r-xl"/>
                     </div>
