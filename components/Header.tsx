@@ -178,7 +178,7 @@ export default function Header() {
               ))}
             </div>
             <div className='m-2'>
-              <a href="/hire" className="bg-btnblue hover:bg-btnblue/80 text-white border-2 border-btnblue px-4 py-2 rounded-md transition">
+              <a href="/hire" className="hover:bg-btnblue/90 hover:text-white border-2 border-btnblue text-btnblue px-4 py-2 rounded-md transition">
                 View All Services
               </a>
             </div>
