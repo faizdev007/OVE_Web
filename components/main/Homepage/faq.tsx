@@ -54,18 +54,23 @@ export default function FaqSection({FAQ}:any) {
 
   return (
     <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }}  className='py-12 headingtext dark:py-12 relative dark:bg-gray-700'>
-        <h2 className="xl:text-5xl md:text-3xl text-2xl font-bold mb-6 text-center">
+        <h2 className="xl:text-5xl lg:hidden md:text-3xl text-2xl font-bold mb-6 text-center">
           Frequently Asked Questions
         </h2>
-        <section className="relative px-4 py-6 sm:px-6 lg:px-8 mx-auto flex flex-col lg:flex-row items-center gap-12">
+        <p className='lg:hidden block lg:text-2xl font-bold text-center'>In the digital age, AI-driven hiring is the heartbeat of your recruitment success.</p>
+        <section className="relative px-4 py-6 sm:px-6 lg:px-8 mx-auto flex flex-col lg:flex-row gap-12">
         {/* Left Image */}
-        <div className="w-full hidden lg:w-1/3 justify-center">
+        <div className="w-full lg:w-2/3 lg:block hidden justify-center">
+            <h2 className="xl:text-5xl lg:block hidden md:text-3xl text-2xl font-bold mb-6">
+              Frequently Asked Questions
+            </h2>
+            <p className='lg:block hidden text-2xl font-bold mb-6'>In the digital age, AI-driven hiring is the heartbeat of your recruitment success.</p>
             <Image
             src="/assets/faqvector.webp"
             alt="FAQ Character"
             width={400}
             height={400}
-            className="object-contain"
+            className="object-contain lg:block hidden"
             />
         </div>
 
@@ -75,15 +80,13 @@ export default function FaqSection({FAQ}:any) {
             {faqlist.map((item:any, index:number) => (
                 <div
                 key={index}
-                className={`border-2 bg-white border-oveblue hover:border-oveblue/50 px-4 rounded-2xl py-4 shadow-sm transition-all duration-20 cursor-pointer ${
-                    activeIndex === index ? 'border-b-5' : ''
-                }`}
+                className={`bg-white border border-gray-300 cursor-pointer duration-20 hover:border-black/50 px-4 py-4 rounded-2xl shadow-sm transition-all`}
                 onClick={() => toggle(index)}
                 >
                 <div className="flex justify-between items-center gap-2">
                     <span className="font-bold md:text-xl text-black">{item.question}</span>
                     <div className=''>
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={`size-7 text-oveblue font-bold transition-transform duration-300 ${
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={`size-7 text-gray-400 font-bold transition-transform duration-300 ${
                           activeIndex === index ? 'rotate-135' : ''
                       }`}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -92,7 +95,7 @@ export default function FaqSection({FAQ}:any) {
                 </div>
                 
                 <div
-                    className={`overflow-hidden transition-all border-t border-gray-400 duration-500 ease-in-out ${
+                    className={`overflow-hidden transition-all border-t border-gray-300 duration-500 ease-in-out ${
                         activeIndex === index ? 'max-h-40 opacity-100 mt-2' : 'max-h-0 opacity-0'
                     }`}
                     >

@@ -59,8 +59,9 @@ nav a:hover {
 }
 
 .bglbLG{
-  background: #c4d6ff96;
+  background: linear-gradient(180deg,#ecf2ff 43%,#dde6ff 100%);
 }
+/* background: #c4d6ff96; */
 
 .bgb2LG{
   background: var(--bgblue2LG);

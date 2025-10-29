@@ -232,9 +232,6 @@ export default async function Home() {
       {/* Developers Section */}
       <DevelopersSlider />
 
-      {/* Hire By */}
-      <HireBy/>
-
       {/* Hiring Process */}
       <section className="relative py-12">
         <div className="bg-black hidden">
@@ -305,7 +302,7 @@ export default async function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="relative py-12">
+      <section className="relative bglbLG py-12">
         <div className="bg-black hidden">
           <Image
             src="/assets/gray.webp"
