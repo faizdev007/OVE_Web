@@ -32,9 +32,9 @@ export default function TrustedBySection({trustedbysection}: any) {
         <span dangerouslySetInnerHTML={{__html:trustedbysection?.subtitle ?? 'Trusted by Companies That Shape the Future From Fortune 500 leaders to next-gen disruptors, our developers power innovation across industries — with speed, skill, and accountability at the core'}}/>
       </div>
       {/* Logos */}
-      <div className="flex flex-wrap justify-center sm:gap-10 gap-4 items-center">
+      <div className="lg:flex grid grid-cols-2 flex-wrap justify-center sm:gap-10 gap-4 items-center">
         {logos.map((company:any, i:number) => (
-          <div key={i} className="aspect-[4/1] flex justify-center items-center">
+          <div key={i} className="aspect-[4/1] p-2 flex justify-center items-center">
             <img src={company.url} alt={company.title} width={120} height={120} className="object-container hover:grayscale w-auto md:h-12 lg:h-14 2xl:h-18" />
           </div>
         ))}

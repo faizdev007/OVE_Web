@@ -29,7 +29,6 @@ export default function AIBlock(){
             <div className="relative z-20 mx-auto">
                 <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1.5, ease: "easeOut" }} viewport={{ once: true }} className="xl:text-4xl md:text-3xl text-2xl font-bold text-center text-white mb-12"> <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1, ease: "easeOut" }}>🚀</motion.span> <span className="AiBlockText">10x Faster Hiring with AI</span></motion.h2>
                 <p className="xl:text-4xl md:text-3xl text-2xl font-bold text-center text-white mb-12">Welcome to AI-Accelerated Hiring</p>
-                <h3 className="font-semibold text-xl pt-6 mb-2 text-white text-center underline">Why Our AI Screening Changes Everything</h3>
                 <div className="text-white flex lg:flex-row flex-col pt-2">
                     <div className="flex lg:w-1/2 w-full items-center justify-center">
                         <motion.div initial={{ opacity: 0}} whileInView={{ opacity: 1}} transition={{ duration: 1.7, ease: "easeOut" }} viewport={{ once: true }} className="aspect-auto border border-gray-800 shadow-lg w-[300] h-[300] rounded-full overflow-hidden mb-10 flex justify-center items-center mx-auto">
@@ -37,6 +36,7 @@ export default function AIBlock(){
                         </motion.div>
                     </div>
                     <div className="">
+                        <h3 className="font-semibold text-xl pt-6 mb-2 text-white underline">Why Our AI Screening Changes Everything</h3>
                         <ul className="list-disc pl-6 lg:text-2xl text-lg space-y-3 text-white">
                             {aipoints.map((item, i) => (
                                 <motion.li initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: i, ease: "easeOut" }} viewport={{ once: true }} key={i}>
