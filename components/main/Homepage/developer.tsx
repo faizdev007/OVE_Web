@@ -182,7 +182,7 @@ export default function DevelopersSlider({hire}:any) {
         setSettings({ ...baseSettings, slidesToShow: 4, slidesToScroll: 1 });
       } else if (width >= 769) {
         setSettings({ ...baseSettings, slidesToShow: 3, slidesToScroll: 1 });
-      } else if (width >= 426) {
+      } else if (width >= 485) {
         setSettings({ ...baseSettings, slidesToShow: 2, slidesToScroll: 1 });
       } else if (width >= 350) {
         setSettings({ ...baseSettings, slidesToShow: 1, slidesToScroll: 1 });
