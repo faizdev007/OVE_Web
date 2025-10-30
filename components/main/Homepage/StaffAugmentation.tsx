@@ -31,7 +31,7 @@ export default function StaffAugment(){
 
                 <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1.5, ease: "easeOut" }} viewport={{ once: true }}>
                     <div className='w-full flex justify-center mt-10'>  
-                        <a href={'/contact-us'} className='lg:w-1/3 w-1/2 cursor-pointer text-center hover:bg-btnblue/90 drop-shadow shadow hover:shadow-xl bg-btnblue text-white lg:p-3 p-2 xl:text-3xl text-nowarp font-bold rounded'>{'Hire a talent'}</a>
+                        <a href={'/contact-us'} className='lg:w-1/3 w-1/2 capitalize cursor-pointer text-center hover:bg-btnblue/90 drop-shadow shadow hover:shadow-xl bg-btnblue text-white lg:p-3 p-2 xl:text-3xl text-nowarp font-bold rounded'>{'Hire a talent'}</a>
                     </div>
                 </motion.div>
             </div>
