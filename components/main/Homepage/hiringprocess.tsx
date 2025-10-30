@@ -32,7 +32,7 @@ export default function HiringProcess({hiringprocessdata}: any)
     <>
         <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }}  className="relative dark:bg-gray-900 pb-12 dark:py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto text-center">
-                <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                <h2 className="xl:text-6xl md:text-4xl text-3xl font-bold text-center headingtext mb-12 headingtext">
                     <span dangerouslySetInnerHTML={{__html:hiringprocessdata?.title ?? 'Our Comprehensive Hiring Process'}}/>
                 </h2>
                 <div className="text-lg text-gray-600 dark:text-gray-300 mb-12">

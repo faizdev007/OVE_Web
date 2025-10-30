@@ -31,6 +31,7 @@
   --cardLG: linear-gradient(130deg,#112d5b 0%,#133689 69%);
   --developercard: linear-gradient(180deg,rgba(17, 45, 91, 1) 0%, rgba(75, 97, 153, 1) 69%);
   --hireherobg: url('../public/assets/hire/hiredefault.webp');
+  --AiBlockbg: url('../public/assets/BG.webp');
 }
 
 nav a:hover {
@@ -74,6 +75,12 @@ nav a:hover {
   background-clip: text;
   color: transparent;
   border-bottom: 1px solid #727272;
+}
+
+.AiBlockBg{
+  background: var(--AiBlockbg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .bgb2rLG{

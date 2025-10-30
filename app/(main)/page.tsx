@@ -1,4 +1,5 @@
 import OurClientSay from "@/components/main/Hire/OurClientSay";
+import AIBlock from "@/components/main/Homepage/AIBlock";
 import "@/components/main/Homepage/customstyle.css";
 
 import DevelopersSlider from "@/components/main/Homepage/developer";
@@ -7,6 +8,8 @@ import Herosection from "@/components/main/Homepage/hero";
 import HireBy from "@/components/main/Homepage/hireby";
 import HiringProcess from "@/components/main/Homepage/hiringprocess";
 import OurProjectsSlider from "@/components/main/Homepage/projects";
+import StaffAugment from "@/components/main/Homepage/StaffAugmentation";
+import TrustedBadges from "@/components/main/Homepage/TrustedBadges";
 import TrustedBySection from "@/components/main/Homepage/trustedby2";
 import WhyChooseUs from "@/components/main/Homepage/whyus";
 import { fetchGraphQL } from "@/lib/graphqlClient";
@@ -232,8 +235,13 @@ export default async function Home() {
       {/* Developers Section */}
       <DevelopersSlider />
 
+      <section className="relative py-20 AiBlockBg">
+        <div className="absolute top-0 bottom-0 start-0 end-0 bg-black opacity-50 z-10"></div>
+        <AIBlock/>
+      </section>
+
       {/* Hiring Process */}
-      <section className="relative py-12">
+      <section className="relative py-20">
         <div className="bg-black hidden">
           <Image
             src="/assets/gray.webp"
@@ -246,7 +254,15 @@ export default async function Home() {
         <HiringProcess hiringprocessdata={data.hiringProcess}/>
       </section>
 
-      <section className="relative bglbLG py-12">
+      <section className="relative bglbLG py-20">
+        <StaffAugment/>
+      </section>
+
+      <section className="relative bglbLG py-20">
+        <TrustedBadges/>
+      </section>
+
+      <section className="relative bglbLG py-20">
           <div className="bg-black hidden">
               <Image
               src="/assets/gray.webp"
@@ -260,7 +276,7 @@ export default async function Home() {
       </section>
 
       {/* Trusted By Section */}
-      <section className="relative py-12 bg-headerblue">
+      <section className="relative py-20 bg-headerblue">
         <div className="bg-gray-100 hidden">
           <Image
             src="/assets/black.png"
@@ -274,7 +290,7 @@ export default async function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="relative py-12">
+      <section className="relative py-20">
         <div className="bg-black hidden">
           <Image
             src="/assets/gray.webp"
@@ -288,7 +304,7 @@ export default async function Home() {
       </section>
 
       {/* Projects */}
-      <section className="relative py-12 bgb2LG">
+      <section className="relative py-20 bgb2LG">
         <div className="bg-gray-100 hidden">
           <Image
             src="/assets/black.png"
@@ -302,7 +318,7 @@ export default async function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="relative bglbLG py-12">
+      <section className="relative bglbLG py-20">
         <div className="bg-black hidden">
           <Image
             src="/assets/gray.webp"

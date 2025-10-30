@@ -3,6 +3,7 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import { redirect } from "next/navigation"
  
 const inter = Inter({ subsets: ['latin'] })
  
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
 }
  
 export default function GlobalNotFound() {
+  redirect("/hire"); // redirect to home if not found
   return (
     <html lang="en" className={inter.className}>
       <body>
