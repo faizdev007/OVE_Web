@@ -86,9 +86,9 @@ const CTable = ({PriceTable}:any) =>{
                                         key={index}
                                         className={`py-4 px-6 text-left text-lg font-bold ${
                                         index === 0
-                                        ? 'text-white relative border-gray-800 bg-gray-800 rounded-t-md'
+                                        ? 'text-white relative border-gray-800 bg-blue-800 rounded-t-md'
                                         :
-                                        index === 1 ? 'bg-oveblue text-white border-blue-700 rounded-t-lg relative' : 'border-x rounded-t-lg relative bg-gray-800 border-transparent'
+                                        index === 1 ? 'bg-blue-800 text-white border-blue-800 rounded-t-lg relative' : 'border-x rounded-t-lg relative bg-blue-800 border-transparent'
                                         }`}
                                     >
                                         {index === 1 && (
@@ -103,7 +103,7 @@ const CTable = ({PriceTable}:any) =>{
                             </thead>
                             <tbody>
                             {rowsdata.map((row:any, idx:number) => (
-                                <tr key={idx} className={`border-t ${(idx%2) == 0 ? '' : 'bg-gray-200 text-black'}`}>
+                                <tr key={idx} className={`border-t ${(idx%2) == 0 ? 'bg-[#e5e7eb] text-black' : 'bg-white text-black'}`}>
                                     {row.map((colValue:string, i:number) => (
                                         colValue !== null &&
                                         <td

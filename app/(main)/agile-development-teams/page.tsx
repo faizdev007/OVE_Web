@@ -15,6 +15,7 @@ import HiringProcess from "@/components/main/Homepage/hiringprocess";
 import TrustedBySection from "@/components/main/Homepage/trustedby2";
 import { fetchGraphQL } from "@/lib/graphqlClient";
 import Image from "next/image";
+import WSF from "@/components/main/Hire/WhySearchFor";
 
 // ----------------------
 // ✅ Type Definitions
@@ -92,6 +93,20 @@ type AgileDevelopmentPageDataType = {
   serviceFaq: {
     faqList: { question: string; answer: string }[];
   };
+  WhyHire:{
+    title:string;
+    description:string;
+    image:{
+        node:{
+            sourceUrl:string;
+            title:string;
+        }
+    }
+    qna:{
+        question:string;
+        answer:string;
+    }
+    };
 };
 
 // ----------------------
@@ -181,6 +196,20 @@ async function getAgileDevelopmentPageData(): Promise<AgileDevelopmentPageDataTy
                 faqQuestion
             }
             }
+            whyHireFormOve{
+            whyHireTitle
+            whyHireDiscription
+            whyHireImage{
+                node{
+                sourceUrl
+              title
+                }
+            }
+            whyHireQna{
+                question
+                answer
+            }
+            }
         }
     }
   `;
@@ -250,6 +279,12 @@ async function getAgileDevelopmentPageData(): Promise<AgileDevelopmentPageDataTy
             answer: faq.faqAnswer,
             })) || [],
         },
+        WhyHire: {
+            title:page.whyHireFormOve.whyHireTitle,
+            description:page.whyHireFormOve.whyHireDiscription,
+            image:page.whyHireFormOve.whyHireImage,
+            qna:page.whyHireFormOve?.whyHireQna ?? [],
+        }
     };
 }
 
@@ -279,6 +314,10 @@ export default async function AgileDevelopmentTeams() {
 
             {/* Developers Section */}
             <DevelopersSlider />
+
+            <div className="relative">
+                <WSF/>
+            </div>
 
             <section className="relative bgb2rLG py-12">
                 <CTA CTA={data.cta.ctaOneContent}/>
