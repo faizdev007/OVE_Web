@@ -7,7 +7,7 @@ export default function StaffAugment(){
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-12 text-center">Expert staffing solutions across technical and specialized roles.</p>
             <div className="mt-10">
                 <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease: "easeOut" }} viewport={{ once: true }} className="cardbLG overflow-hidden max-w-4xl shadow-md hover:shadow-xl mb-6 mx-auto rounded-xl border">
-                    <a href="#" className="lg:flex gap-4 divide-x">
+                    <a href="/staff-augmentation" className="lg:flex gap-4 divide-x">
                         <div className="aspect-video lg:w-1/3 w-full">
                             <img src={'../assets/staffaugment/pic1.webp'} className="w-full object-center object-cover" width={400} height={200}/>
                         </div>
@@ -18,7 +18,7 @@ export default function StaffAugment(){
                     </a>
                 </motion.div>
                 <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1.4, ease: "easeOut" }} viewport={{ once: true }} className="cardbLG overflow-hidden max-w-4xl shadow-md hover:shadow-xl mb-6 mx-auto rounded-xl border">
-                    <a href="#" className="lg:flex gap-4 divide-x">
+                    <a href="/agile-development-teams" className="lg:flex gap-4 divide-x">
                         <div className="aspect-video lg:w-1/3 w-full">
                             <img src={'../assets/staffaugment/pic2.webp'} className="w-full object-center object-cover" width={400} height={200}/>
                         </div>

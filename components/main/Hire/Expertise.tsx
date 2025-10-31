@@ -38,7 +38,7 @@ export default function Expertise( {Expertise} : any) {
               <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease: "easeOut" }} viewport={{ once: true }} className="mt-4 text-lg mb-4 page-content">
                   <span dangerouslySetInnerHTML={{ __html: description  as string }} />
               </motion.div>
-              <motion.div className="aspect-[2/0.5]">
+              <motion.div className="aspect-[2/0.5] mt-6">
                 <img src={'../assets/hire/expertise.webp'} width={500} className="w-full" height={200} alt={'Coder'}/>
               </motion.div>
             </div>
