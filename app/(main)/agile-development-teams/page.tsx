@@ -307,13 +307,13 @@ export default async function AgileDevelopmentTeams() {
             {/* Hero Section */}
             <HeroForHire hire={data}/>
 
+            {/* Developers Section */}
+            <DevelopersSlider />
+
             <section className="relative py-20 AiBlockBg">
                 <div className="absolute top-0 bottom-0 start-0 end-0 bg-black opacity-50 z-10"></div>
                 <AIBlock />
             </section>
-
-            {/* Developers Section */}
-            <DevelopersSlider />
 
             <div className="relative">
                 <WSF/>

@@ -4,8 +4,8 @@ import Image from "next/image";
 
 const HeroSection = ({hire}:any) => (
     <>
-        <section className="hiredefault pt-32 xl:h-max lg:flex gap-2 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
-            <div className="flex lg:w-[60%] flex-col h-full lg:mt-6 justify-between gap-8 items-center md:items-start py-6">
+        <section className="hiredefault h-screen lg:flex gap-2 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
+            <div className="flex lg:w-[60%] flex-col h-full lg:mt-6 justify-center gap-8 items-center md:items-start py-6">
                 <h1 className="md:text-6xl text-4xl font-bold">Hire <span dangerouslySetInnerHTML={{ __html: hire?.title ?? 'Full-Stack Developer' }}/></h1> 
                 <div dangerouslySetInnerHTML={{ __html: hire?.content ?? '' }}  className="md:text-xl"/>
                 <a href="/contact-us" className="bg-oveblue p-2 rounded w-max md:text-xl hover:bg-blue-700 px-6 font-bold border-5 border-oveblue/90 cursor-pointer flex gap-2 items-center hover:border-oveblue/50">Hire <span dangerouslySetInnerHTML={{ __html: hire?.title ?? 'Full-Stack Developer' }}/>
