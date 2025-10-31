@@ -1,8 +1,91 @@
 'use client';
 
+import { RoleBaseSlug, SkillBaseSlug } from "@/app/(main)/utils/CategorySlug";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function Footer() {
+
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [showDropdown, setShowDropdown] = useState(false);
+    const [activeIndex, setActiveIndex] = useState(false);
+    const [roleSlugs, setRoleSlugs] = useState<object[]>([]);
+    const [SkillSlugs, setSkillSlugs] = useState<object[]>([]);
+    
+    useEffect(() => { 
+        // Fetch role-based slugs on component mount
+        (async () => {
+          try {
+            const data = await RoleBaseSlug(8);
+            const link2 = await SkillBaseSlug(8);
+            const slugs = data?.category?.hires?.nodes.map(node => node) || [];
+            const slugs2 = link2?.category?.hires?.nodes.map(node => node) || [];
+            setRoleSlugs(slugs);
+            setSkillSlugs(slugs2);
+          }
+          catch (e) {
+            console.error('Failed to fetch role-based slugs', e);
+          }
+        })();
+    }, []);
+    
+    const hiremenu = [{
+        menuTitle:'How We Engage',
+        icon:null,
+        menuCategory:'',
+        urls:[
+        {name:'Staff Augmentation',context:'Elite AI-powered engineers embedded directly into your projects',url:'#',icon:'../assets/menuicons/ico_staff.svg'},
+        {name:'Hire Dedicated Development Teams',context:'Agile development teams custom built to deliver digital experiences',url:'#',icon:'../assets/menuicons/ico_agile.svg'},
+        ]
+    },{
+        menuTitle:'Hire By Role',
+        icon:'../assets/menuicons/ico_sol.svg',
+        menuCategory:'Hire',
+        urls:roleSlugs.length > 0 ? Object(roleSlugs).map((menu:any) => {
+        const name = menu?.title;
+        return { name, url: `/hire/${menu?.slug}`, context:null, icon:null };
+        }) : [
+        {name:'Full-stack Developer',url:'/hire/full-stack-developer', context:null, icon:null },
+        {name:'Back-end Developers',url:'/hire/back-end-developers', context:null, icon:null },
+        {name:'Front-end Developers',url:'/hire/front-end-developers', context:null, icon:null },
+        {name:'Cloud Engineers',url:'/hire/cloud-engineers', context:null, icon:null },
+        {name:'Mobile Developer',url:'/hire/mobile-developer', context:null, icon:null },
+        {name:'AI Engineers',url:'/hire/ai-engineers', context:null, icon:null },
+        {name:'Blockchain Developers',url:'/hire/blockchain-developers', context:null, icon:null },
+        ]
+    },
+    {
+        menuTitle:'Hire By Skill',
+        icon:'../assets/menuicons/ico_ai.svg',
+        menuCategory:'Hire',
+        urls:SkillSlugs.length > 0 ? Object(SkillSlugs).map((menu:any) => {
+        const name = menu.title;
+        return { name, url: `/hire/${menu?.slug}`, context:null, icon:null };
+        }) : [
+        {name:'Alpine.js Developer',url:'/hire/alpine-js-developer', context:null, icon:null },
+        {name:'Python Developer',url:'/hire/python-developer', context:null, icon:null },
+        {name:'Laravel Developer',url:'/hire/laravel-developer', context:null, icon:null },
+        {name:'Jupyter Developer',url:'/hire/jupyter-developer', context:null, icon:null },
+        {name:'Jest Developer',url:'/hire/jest-developer', context:null, icon:null },
+        {name:'JavaScript Developer',url:'/hire/javascript-developer', context:null, icon:null },
+        {name:'Java Developer',url:'/hire/java-developer', context:null, icon:null },
+        ]
+    },
+    {
+        menuTitle:'Quick Links',
+        icon:'../assets/menuicons/ico_ai.svg',
+        menuCategory:'Hire',
+        urls:[
+        {name:'Alpine.js Developer',url:'/hire/alpine-js-developer', context:null, icon:null },
+        {name:'Python Developer',url:'/hire/python-developer', context:null, icon:null },
+        {name:'Laravel Developer',url:'/hire/laravel-developer', context:null, icon:null },
+        {name:'Jupyter Developer',url:'/hire/jupyter-developer', context:null, icon:null },
+        {name:'Jest Developer',url:'/hire/jest-developer', context:null, icon:null },
+        {name:'JavaScript Developer',url:'/hire/javascript-developer', context:null, icon:null },
+        {name:'Java Developer',url:'/hire/java-developer', context:null, icon:null },
+        ]
+    }
+    ];
     
     const officelocation = [
         {

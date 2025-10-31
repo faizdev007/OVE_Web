@@ -73,7 +73,7 @@ const CTable = ({PriceTable}:any) =>{
     return (
         <>
             <section className="z-20 pb-12 dark:py-12 flex flex-col items-center gap-6 relative px-4 py-2 sm:px-6 lg:px-8 mx-auto">
-                <h2 className="text-[42px] font-bold headingtext"><span dangerouslySetInnerHTML={{ __html: PriceTable?.title ? PriceTable?.title : 'Still Wasting Weeks Recruiting Hire Full-Stack Developer ?' }}/></h2>
+                <h2 className="text-[42px] font-bold headingtext"><span dangerouslySetInnerHTML={{ __html: PriceTable?.title ? PriceTable?.title : 'Still Wasting Weeks Recruiting Developer ?' }}/></h2>
                 <p className="text-[16px]"><span dangerouslySetInnerHTML={{__html:PriceTable?.subtitle ? PriceTable?.subtitle : 'Skip the hiring mess. Get top-tier python talent from us under 48 hours'}}/></p>
                 <div className="overflow-x-hidden w-full table-auto">
                     <div className="overflow-x-auto bg-gray-700 text-white p-6 rounded-lg shadow">
@@ -103,7 +103,7 @@ const CTable = ({PriceTable}:any) =>{
                             </thead>
                             <tbody>
                             {rowsdata.map((row:any, idx:number) => (
-                                <tr key={idx} className="border-t">
+                                <tr key={idx} className={`border-t ${(idx%2) == 0 ? '' : 'bg-gray-200 text-black'}`}>
                                     {row.map((colValue:string, i:number) => (
                                         colValue !== null &&
                                         <td

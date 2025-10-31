@@ -112,7 +112,7 @@ export default function HireBy() {
     }
 
     return (
-        <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }}  className="bglbLG dark:bg-gray-800 headingtext relative px-4 py-12 sm:px-6 lg:px-8 mx-auto flex flex-col gap-10">
+        <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }}  className="headingtext relative px-4 py-12 sm:px-6 lg:px-8 mx-auto flex flex-col gap-10">
             <div className='container mx-auto'> 
                 {/* Heading */}
                 <h2 className="text-3xl font-bold mb-4">

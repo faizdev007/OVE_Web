@@ -53,7 +53,7 @@ export default function FaqSection({FAQ}:any) {
   };
 
   return (
-    <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }}  className='py-12 headingtext dark:py-12 relative dark:bg-gray-700'>
+    <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }}  className='headingtext dark:py-12 relative dark:bg-gray-700'>
         <h2 className="xl:text-5xl lg:hidden md:text-3xl text-2xl font-bold mb-6 text-center">
           Frequently Asked Questions
         </h2>

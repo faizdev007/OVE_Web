@@ -2,6 +2,7 @@
 import {motion} from 'framer-motion';
 
 const CTA = ({CTA}:any) => {
+    console.log(CTA);
     return(
         <>   
             <section className="text-white dark:py-12 flex flex-col items-center gap-6 relative px-4 sm:px-6 lg:px-8 mx-auto">

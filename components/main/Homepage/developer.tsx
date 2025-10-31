@@ -211,7 +211,7 @@ export default function DevelopersSlider({hire}:any) {
               {[...Array(10)].map((_, i) => (
                 <div className="px-1 py-2" key={i}>
                   <div
-                    className="bg-oveblue animate-pulse px-1 gap-4 flex flex-col justify-around mt-25 aspect-[1/1.2] text-white relative rounded-xl shadow-md"
+                    className="developercard animate-pulse px-1 gap-4 flex flex-col justify-around mt-25 aspect-[1/1.2] text-white relative rounded-xl shadow-md"
                   >
                     {/* Avatar placeholder */}
                     <div className="relative w-2/3 mb-5 flex items-center justify-center aspect-[3/1] mx-auto">

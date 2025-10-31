@@ -20,8 +20,7 @@ const stats = [
 
 export default function TrustedBySection({trustedbysection}: any) {
   const logos = trustedbysection?.logos.length !== 0 ? trustedbysection?.logos : companies;
-  const keymetrics = trustedbysection?.keyMetrics ?? stats;
-  const states = stats;
+  const keymetrics = trustedbysection?.keyMetrics.length !== 0 ?  trustedbysection?.keyMetrics : stats;
   return (
     <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }} className=" text-white relative px-4 pb-12 dark:py-12 sm:px-6 lg:px-8 mx-auto text-center flex flex-col gap-10">
       {/* Heading */}

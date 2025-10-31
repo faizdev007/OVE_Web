@@ -42,15 +42,46 @@ function SamplePrevArrow(props:any) {
 }
 
 const demodata = [
-  {title: 'Emily Johnson', slug: 'emily-johnson', content: '<p>Working with OVE allowed us to accelerate our p…s blended seamlessly with our in-house team.</p>\n', clientRating: {rating: 5}},
-  {title: 'Arjun Mehta', slug: 'arjun-mehta', content: '<p>Hiring through OVE was a game-changer. The cost…as the developers’ expertise and commitment.</p>\n', clientRating: {rating: 5}},
-  {title: 'Sophia Martinez', slug: 'sophia-martinez', content: '<p>The OVE team quickly understood our requirement…d our engineering team in weeks, not months.</p>\n', clientRating: {rating: 5}},
-  {title: 'James Carter', slug: 'james-carter', content: '<p><span data-teams="true"><i>Hiring remote talent…ms, without the hiring headaches.</i></span></p>\n', clientRating: {rating: 5}},
-  {title: 'Michael Roberts', slug: 'michael-roberts', content: '<p><span data-teams="true"><i>The developers feel …llent project delivery timelines.</i></span></p>\n', clientRating: {rating: 5}},
-  {title: 'David Lee', slug: 'david-lee', content: '<p><span data-teams="true"><i>We scaled our engine…municative, and extremely skilled</i></span></p>\n', clientRating: {rating: 5}},
-];
+      {
+          "title": "Emily Johnson",
+          "content": "<p>Working with OVE allowed us to accelerate our product roadmap. The developers blended seamlessly with our in-house team.</p>\n",
+          "designation": "Product Manager, E-Commerce Platform",
+          "rating": 5
+      },
+      {
+          "title": "Arjun Mehta",
+          "content": "<p>Hiring through OVE was a game-changer. The cost savings were significant, but what impressed us most was the developers’ expertise and commitment.</p>\n",
+          "designation": "Founder, FinTech Startup",
+          "rating": 5
+      },
+      {
+          "title": "Sophia Martinez",
+          "content": "<p>The OVE team quickly understood our requirements and delivered high-quality developers. We scaled our engineering team in weeks, not months.</p>\n",
+          "designation": "CTO, HealthTech Solutions",
+          "rating": 5
+      },
+      {
+          "title": "James Carter",
+          "content": "<p><span data-teams=\"true\"><i>Hiring remote talent through OVE saved us both time and cost. The developers delivered at the same standard as Silicon Valley teams, without the hiring headaches.</i></span></p>\n",
+          "designation": "VP of Engineering, Logistics Startup",
+          "rating": 5
+      },
+      {
+          "title": "Michael Roberts",
+          "content": "<p><span data-teams=\"true\"><i>The developers feel like an extension of our own team. OVE’s platform ensured smooth onboarding and excellent project delivery timelines.</i></span></p>\n",
+          "designation": "Engineering Director, E-Commerce Brand",
+          "rating": 5
+      },
+      {
+          "title": "David Lee",
+          "content": "<p><span data-teams=\"true\"><i>We scaled our engineering team within weeks without the overhead of local hiring. The developers are reliable, communicative, and extremely skilled</i></span></p>\n",
+          "designation": "Product Manager, SaaS Company",
+          "rating": 5
+      }
+  ]
 
 export default function TestimonialDev(ClientTestimonials:any) {
+    console.log(ClientTestimonials);
     const testimonials = ClientTestimonials?.ClientTestimonials ?? demodata;
     
     const [expended, setExpanded] = useState<number | null>(null);
