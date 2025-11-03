@@ -7,7 +7,7 @@ const HeroForHire = ({hire}:any) => {
     return (
     <>
         <section className="hiredefault h-screen py-6 lg:flex gap-2 dark:bg-gray-800 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
-            <div className="flex lg:w-[60%] flex-col h-full justify-center gap-8 items-center md:items-start py-6">
+            <div className="flex lg:w-[60%] flex-col h-full justify-center gap-16 items-center md:items-start py-6">
                 <div dangerouslySetInnerHTML={{ __html: hire?.content ?? '' }}  className="page-content"/>
                 <a href="/contact-us" className="bg-oveblue p-2 rounded w-max md:text-xl hover:bg-blue-700 px-6 font-bold border-5 border-oveblue/90 cursor-pointer flex gap-2 items-center hover:border-oveblue/50">{"Let's build your team"}
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-7 font-bold">

@@ -14,7 +14,9 @@ export default function RootLayout({
         <div className="fixed z-90 w-full">
           <Header/>
         </div>
-        {children}
+        <main id="main-content">
+          {children}
+        </main>
         <Footer/>
         {/* End page layout data */}
         <CookieBanner/>
