@@ -1,10 +1,32 @@
 'use client';
 
 import Image from "next/image";
+import { useEffect } from "react";
 
-const HeroSection = ({hire}:any) => (
-    <>
-        <section className="hiredefault h-screen lg:flex gap-2 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
+function RandomImageSelect() {
+    const images = [
+        '../assets/hire/herobg/bg1.webp',
+        '../assets/hire/herobg/bg2.webp',
+        '../assets/hire/herobg/bg3.webp',
+        '../assets/hire/herobg/bg4.webp',
+        '../assets/hire/herobg/bg5.webp',
+    ];
+    const selectHeroBlock = document.getElementById('HireHeroBG');
+    if (selectHeroBlock) {
+        const randomImg = images[Math.floor(Math.random() * images.length)];
+        selectHeroBlock.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${randomImg})`;
+        selectHeroBlock.style.backgroundSize = `cover`;
+        selectHeroBlock.style.backgroundRepeat = `no-repeat`;
+    }
+}
+
+const HeroSection = ({hire}:any) => {
+    useEffect(()=>{
+        RandomImageSelect();
+    },[]);
+
+    return  (<>
+        <section id="HireHeroBG" className="h-screen bg-headerblue lg:flex gap-2 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
             <div className="flex lg:w-[60%] flex-col h-full lg:mt-6 justify-center gap-8 items-center md:items-start py-6">
                 <h1 className="md:text-6xl text-4xl font-bold">Hire <span dangerouslySetInnerHTML={{ __html: hire?.title ?? 'Full-Stack Developer' }}/></h1> 
                 <div dangerouslySetInnerHTML={{ __html: hire?.content ?? '' }}  className="md:text-xl"/>
@@ -47,7 +69,7 @@ const HeroSection = ({hire}:any) => (
                 </div>
             </div>
         </section>
-    </>
-);
+    </>)
+};
 
 export default HeroSection;

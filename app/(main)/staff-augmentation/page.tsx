@@ -10,10 +10,8 @@ import "@/app/(main)/hire/custome.css";
 import DevelopersSlider from "@/components/main/Homepage/developer";
 import FaqSection from "@/components/main/Homepage/faq";
 import HireBy from "@/components/main/Homepage/hireby";
-import HiringProcess from "@/components/main/Homepage/hiringprocess";
 import TrustedBySection from "@/components/main/Homepage/trustedby2";
 import { fetchGraphQL } from "@/lib/graphqlClient";
-import Image from "next/image";
 import WSF from "@/components/main/Hire/WhySearchFor";
 
 // ----------------------

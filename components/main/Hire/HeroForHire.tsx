@@ -1,6 +1,7 @@
 'use client';
 
 import Image from "next/image";
+import { useEffect } from "react";
 
 const HeroForHire = ({hire}:any) => {
     return (
