@@ -26,8 +26,8 @@ const HeroSection = ({hire}:any) => {
     },[]);
 
     return  (<>
-        <section id="HireHeroBG" className="h-screen bg-headerblue lg:flex gap-2 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
-            <div className="flex lg:w-[60%] flex-col h-full lg:mt-6 justify-center gap-8 lg:gap-16 items-center md:items-start py-6">
+        <section id="HireHeroBG" className="py-20 bg-headerblue lg:flex gap-2 text-white relative px-4 sm:px-6 lg:px-8 mx-auto">
+            <div className="flex lg:w-[60%] flex-col h-full lg:mt-6 justify-center gap-10 items-center md:items-start py-6">
                 <div className="flex flex-col gap-8">
                     <h1 className="md:text-6xl text-4xl font-bold">Hire <span dangerouslySetInnerHTML={{ __html: hire?.title ?? 'Full-Stack Developer' }}/></h1> 
                     <div dangerouslySetInnerHTML={{ __html: hire?.content ?? '' }}  className="md:text-xl"/>
