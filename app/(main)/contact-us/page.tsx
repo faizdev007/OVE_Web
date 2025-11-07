@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { onlyNumber } from '@/app/globals'; // adjust path if needed
 import { useRouter } from 'next/navigation';
 import { motion } from "framer-motion";
+import { executeRecaptcha } from "@/lib/recaptcha";
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
@@ -15,10 +16,12 @@ export default function ContactPage() {
         message: ''
     });
 
+
     const [resMessage, setresMessage] = useState('');
     const [status, setStatus] = useState(false);
     const [loading, setLoading] = useState(true);
     const [MessageBlock, setMessageBlock] = useState(false);
+    const [message, setMessage] = useState("");
     const [error, setError] = useState<string | null>(null);
 
     const trustedbages = [
@@ -84,34 +87,55 @@ export default function ContactPage() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setStatus(true);
-        try {
-        const res = await fetch('/api/ContactFormSend', {
-            method: 'POST',
-            body: JSON.stringify(formData),
-            headers: {
-            'Content-Type': 'application/json',
-            },
+
+        const token = await executeRecaptcha("contact_form");
+        if (!token) {
+        setMessage("Failed to generate reCAPTCHA token.");
+        setLoading(false);
+        return;
+        }
+
+        const verifyResponse = await fetch("/api/verify-recaptcha", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token }),
         });
 
-        const result = await res.json();
-            if (res.ok) {
-                sessionStorage.setItem("thankyoucall", "true");
-                // router.push('/thank-you');
-                setresMessage('Message Send Successfully!');
-                setMessageBlock(true);
-                setStatus(false);
-                setFormData({ name: '', email: '', country: '', phone: '', message: '' });
-                window.location.href = "/thank-you";
-            } else {
-                setError('Failed to send message. Please try again later.');
+        const result = await verifyResponse.json();
+        if (result.success) {
+            try {
+            const res = await fetch('/api/ContactFormSend', {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers: {
+                'Content-Type': 'application/json',
+                },
+            });
+
+            const result = await res.json();
+                if (res.ok) {
+                    sessionStorage.setItem("thankyoucall", "true");
+                    // router.push('/thank-you');
+                    setresMessage('Message Send Successfully!');
+                    setMessageBlock(true);
+                    setStatus(false);
+                    setFormData({ name: '', email: '', country: '', phone: '', message: '' });
+                    window.location.href = "/thank-you";
+                } else {
+                    setError('Failed to send message. Please try again later.');
+                    setMessageBlock(true);
+                    setStatus(false);
+                }
+            } catch ({err}:any) {
+                setError(err.response?.data?.message || 'Failed to send message. Please try again later.');
                 setMessageBlock(true);
                 setStatus(false);
             }
-        } catch ({err}:any) {
-            setError(err.response?.data?.message || 'Failed to send message. Please try again later.');
-            setMessageBlock(true);
-            setStatus(false);
+        } else {
+            setMessage("❌ reCAPTCHA failed. Please try again.");
         }
+
+        
 
         setTimeout(()=>{
             setresMessage('');

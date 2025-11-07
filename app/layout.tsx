@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { generateMetadataFromSeo } from "./(main)/utils/seo";
 
 import { Geist, Geist_Mono, Manrope } from "next/font/google";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -92,6 +93,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <Script
+          src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+          strategy="beforeInteractive"
+        />
         {/* ✅ GTM script */}
         {/* <Script id="gtm-script" strategy="beforeInteractive">
           {`
