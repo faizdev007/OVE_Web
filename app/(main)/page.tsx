@@ -11,7 +11,7 @@ import OurProjectsSlider from "@/components/main/Homepage/projects";
 import StaffAugment from "@/components/main/Homepage/StaffAugmentation";
 import TrustedBadges from "@/components/main/Homepage/TrustedBadges";
 import TrustedBySection from "@/components/main/Homepage/trustedby2";
-import WhyChooseUs from "@/components/main/Homepage/whyus";
+import WhyChooseUs from "@/components/main/Homepage/whyChooseUs";
 import { fetchGraphQL } from "@/lib/graphqlClient";
 import Image from "next/image";
 
