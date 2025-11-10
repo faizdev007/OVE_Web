@@ -24,19 +24,19 @@ type AgileDevelopmentPageDataType = {
   title: string;
   content: string;
   aiBlock:{
-        titleOne:string;
-        titleTwo:string;
-        mainBlock:{
-        aiBlockImage:{
-            node:{
+    titleOne:string;
+    titleTwo:string;
+    mainBlock:{
+    aiBlockImage:{
+        node:{
             sourceUrl:string;
             title:string;
-            }
         }
-        aiBlockTextarea:string;
-        }
-        aiBlockBtnText:string;
-    };
+    }
+    aiBlockTextarea:string;
+    }
+    aiBlockBtnText:string;
+};
   seo: {
     opengraphUrl: string;
     opengraphTitle: string;
@@ -147,11 +147,11 @@ async function getAgileDevelopmentPageData(): Promise<AgileDevelopmentPageDataTy
               aiBlockBtnText
             }
             seo {
-            opengraphUrl
-            opengraphTitle
-            metaDesc
-            title
-            opengraphDescription
+                opengraphUrl
+                opengraphTitle
+                metaDesc
+                title
+                opengraphDescription
             }
             expertise{
             expertiseTitle
