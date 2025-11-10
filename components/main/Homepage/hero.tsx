@@ -18,7 +18,7 @@ export default function Herosection({herodata}: any)
             <div className={`w-full mx-auto max-w-7xl items-center`}>  
                 <div className='p-4 flex flex-col h-full md:justify-between justify-center gap-8 text-center'>
                     <video autoPlay muted loop playsInline className="hero-video">
-                        <source src={'/assets/videos/herobg.mp4'} type="video/mp4" />
+                        <source src={'/assets/videos/herobg.webm'} type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
                     <div className="overlay"></div>
