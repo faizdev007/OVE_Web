@@ -18,13 +18,13 @@ export default function StaffAugment(){
                     </a>
                 </motion.div>
                 <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1.4, ease: "easeOut" }} viewport={{ once: true }} className="cardbLG overflow-hidden max-w-4xl shadow-md hover:shadow-xl mb-6 mx-auto rounded-xl border">
-                    <a href="/agile-development-teams" className="lg:flex gap-4 divide-x">
+                    <a href="/hire-development-teams" className="lg:flex gap-4 divide-x">
                         <div className="aspect-video lg:w-1/3 w-full">
                             <img src={'../assets/staffaugment/pic2.webp'} className="w-full object-center object-cover" width={400} height={200}/>
                         </div>
                         <div className="p-8 flex-1 flex lg:flex-row flex-col text-center gap-6 items-center lg:justify-start justify-center text-white">
                             <img src={'../assets/staffaugment/Agile-Teams.webp'} className="w-[100px] object-center object-cover" width={50} height={50}/>
-                            <h3 className="lg:text-4xl text-2xl font-bold mb-4">Agile Development Teams</h3>
+                            <h3 className="lg:text-4xl text-2xl font-bold mb-4">Hire Development Teams</h3>
                         </div>
                     </a>
                 </motion.div>

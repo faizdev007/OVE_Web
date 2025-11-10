@@ -115,7 +115,7 @@ type AgileDevelopmentPageDataType = {
 async function getAgileDevelopmentPageData(): Promise<AgileDevelopmentPageDataType | null> {
     const QUERY = `
     query staffaugmentPageData {
-        page(id: "agile-development-teams",idType:URI){
+        page(id: "hire-development-teams",idType:URI){
             title
             content
             seo {
