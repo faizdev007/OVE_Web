@@ -23,6 +23,20 @@ import WSF from "@/components/main/Hire/WhySearchFor";
 type AgileDevelopmentPageDataType = {
   title: string;
   content: string;
+  aiBlock:{
+        titleOne:string;
+        titleTwo:string;
+        mainBlock:{
+        aiBlockImage:{
+            node:{
+            sourceUrl:string;
+            title:string;
+            }
+        }
+        aiBlockTextarea:string;
+        }
+        aiBlockBtnText:string;
+    };
   seo: {
     opengraphUrl: string;
     opengraphTitle: string;
@@ -118,6 +132,20 @@ async function getAgileDevelopmentPageData(): Promise<AgileDevelopmentPageDataTy
         page(id: "hire-development-teams",idType:URI){
             title
             content
+            aiBlock{
+              titleOne
+              titleTwo
+              mainBlock{
+                aiBlockImage{
+                  node{
+                    sourceUrl
+                    title
+                  }
+                }
+                aiBlockTextarea
+              }
+              aiBlockBtnText
+            }
             seo {
             opengraphUrl
             opengraphTitle
@@ -223,6 +251,7 @@ async function getAgileDevelopmentPageData(): Promise<AgileDevelopmentPageDataTy
         title: page.title,
         content: page.content,
         seo: page.seo,
+        aiBlock: page.aiBlock,
         expertise: {
             title: page.expertise.expertiseTitle ?? '',
             description: page.expertise.expertiseDescription ?? '',
@@ -312,7 +341,7 @@ export default async function AgileDevelopmentTeams() {
 
             <section className="relative py-20 AiBlockBg">
                 <div className="absolute top-0 bottom-0 start-0 end-0 bg-black opacity-50 z-10"></div>
-                <AIBlock />
+                <AIBlock aiBlock={data.aiBlock}/>
             </section>
 
             <div className="relative">

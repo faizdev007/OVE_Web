@@ -55,8 +55,6 @@ export default function HireBy() {
     }, []);
 
 
-    console.log(SkillCards);
-
     if(!RoleCards){
         return(
             <section className=" dark:bg-gray-800 text-white relative px-4 py-12 sm:px-6 lg:px-8 mx-auto flex flex-col gap-10">

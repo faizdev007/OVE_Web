@@ -27,6 +27,20 @@ type StaffAugmentPageDataType = {
     title: string;
     opengraphDescription: string;
   };
+    aiBlock:{
+        titleOne:string;
+        titleTwo:string;
+        mainBlock:{
+        aiBlockImage:{
+            node:{
+            sourceUrl:string;
+            title:string;
+            }
+        }
+        aiBlockTextarea:string;
+        }
+        aiBlockBtnText:string;
+    };
   cta: {
     ctaOneContent: {
       buttonText: string;
@@ -113,6 +127,20 @@ async function getStaffAugmentPageData(): Promise<StaffAugmentPageDataType | nul
             metaDesc
             title
             opengraphDescription
+            }
+            aiBlock{
+              titleOne
+              titleTwo
+              mainBlock{
+                aiBlockImage{
+                  node{
+                    sourceUrl
+                    title
+                  }
+                }
+                aiBlockTextarea
+              }
+              aiBlockBtnText
             }
             cta {
             ctaOneContent {
@@ -204,6 +232,7 @@ async function getStaffAugmentPageData(): Promise<StaffAugmentPageDataType | nul
         title: page.title,
         content: page.content,
         seo: page.seo,
+        aiBlock: page.aiBlock,
         cta: {
         ctaOneContent: {
             buttonText: page.cta?.ctaOneContent?.ctaButtonText ?? "",
@@ -285,7 +314,7 @@ export default async function StaffAugment() {
 
             <section className="relative py-20 AiBlockBg">
                 <div className="absolute top-0 bottom-0 start-0 end-0 bg-black opacity-50 z-10"></div>
-                <AIBlock />
+                <AIBlock aiBlock={data.aiBlock}/>
             </section>
 
             <div className="relative">

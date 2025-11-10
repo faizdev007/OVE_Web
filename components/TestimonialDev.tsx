@@ -81,7 +81,6 @@ const demodata = [
   ]
 
 export default function TestimonialDev(ClientTestimonials:any) {
-    console.log(ClientTestimonials);
     const testimonials = ClientTestimonials?.ClientTestimonials ?? demodata;
     
     const [expended, setExpanded] = useState<number | null>(null);

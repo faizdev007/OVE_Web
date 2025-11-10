@@ -19,6 +19,20 @@ import Image from "next/image";
 // ✅ Type Definitions
 // ----------------------
 type HomePageDataType = {
+  aiBlock:{
+      titleOne:string;
+      titleTwo:string;
+      mainBlock:{
+      aiBlockImage:{
+          node:{
+          sourceUrl:string;
+          title:string;
+          }
+      }
+      aiBlockTextarea:string;
+      }
+      aiBlockBtnText:string;
+  };
   hero: {
     title: string;
     description: string;
@@ -73,6 +87,20 @@ async function getHomePageData(): Promise<HomePageDataType | null> {
   const QUERY = `
     query HomePageData {
       home {
+        aiBlock{
+          titleOne
+          titleTwo
+          mainBlock{
+            aiBlockImage{
+              node{
+                sourceUrl
+                title
+              }
+            }
+            aiBlockTextarea
+          }
+          aiBlockBtnText
+        }
         homePage {
           homehero {
             heroTitle
@@ -146,6 +174,7 @@ async function getHomePageData(): Promise<HomePageDataType | null> {
   if (!home) return null;
 
   return {
+    aiBlock: home.aiBlock,
     hero: {
       title: home.homehero?.heroTitle,
       description: home.homehero?.heroDescription,
@@ -237,7 +266,7 @@ export default async function Home() {
 
       <section className="relative py-20 AiBlockBg">
         <div className="absolute top-0 bottom-0 start-0 end-0 bg-black opacity-50 z-10"></div>
-        <AIBlock/>
+        <AIBlock aiBlock={data.aiBlock}/>
       </section>
 
       {/* Hiring Process */}
