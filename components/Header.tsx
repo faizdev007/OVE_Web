@@ -33,8 +33,8 @@ export default function Header() {
       icon:null,
       menuCategory:'',
       urls:[
-        {name:'Staff Augmentation',context:'Elite AI-powered engineers embedded directly into your projects',url:'#',icon:'../assets/menuicons/ico_staff.svg'},
-        {name:'Hire Dedicated Development Teams',context:'Agile development teams custom built to deliver digital experiences',url:'#',icon:'../assets/menuicons/ico_agile.svg'},
+        {name:'Staff Augmentation',context:'Elite AI-powered engineers embedded directly into your projects',url:'/staff-augmentation',icon:'../assets/menuicons/ico_staff.svg'},
+        {name:'Hire Dedicated Development Teams',context:'Agile development teams custom built to deliver digital experiences',url:'/hire-development-teams',icon:'../assets/menuicons/ico_agile.svg'},
       ]
     },{
       menuTitle:'Hire By Role',
@@ -156,7 +156,7 @@ export default function Header() {
                   <div className="grid gap-2 py-2">
                     {single.urls.map((url:any, i:number) => (
                       <div key={i} >
-                        <a href={url.url} className="hover:text-blue-600 flex dark:hover:text-blue-300 text-sm gap-2 py-0.5 hover:underline">
+                        <a href={url.url} className="hover:text-blue-600 flex dark:hover:text-blue-300 text-sm gap-1 py-0.5 hover:underline">
                           <span className='text-gray-500 font-mono'>{single.menuCategory && single.menuCategory}</span>{url.icon && <img src={url.icon} alt="icon"/>}<span className='text-md'>{url.name}</span>
                         </a>
                         {url?.context && <p className='font-normal text-xs'>{url?.context}</p>}  
@@ -165,11 +165,11 @@ export default function Header() {
                   </div>
                 </div>
               ))}
-            </div>
-            <div className='m-2'>
+            <div className='py-2'>
               <a href="/hire" className="hover:bg-btnblue/90 hover:text-white border-2 border-btnblue text-btnblue px-4 py-2 rounded-md transition">
                 View All Services
               </a>
+            </div>
             </div>
           </div>
         </div>
