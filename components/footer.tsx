@@ -30,17 +30,9 @@ export default function Footer() {
     }, []);
     
     const hiremenu = [{
-        menuTitle:'How We Engage',
-        icon:null,
-        menuCategory:'',
-        urls:[
-        {name:'Staff Augmentation',context:'Elite AI-powered engineers embedded directly into your projects',url:'#',icon:'../assets/menuicons/ico_staff.svg'},
-        {name:'Hire Dedicated Development Teams',context:'Agile development teams custom built to deliver digital experiences',url:'#',icon:'../assets/menuicons/ico_agile.svg'},
-        ]
-    },{
         menuTitle:'Hire By Role',
         icon:'../assets/menuicons/ico_sol.svg',
-        menuCategory:'Hire',
+        menuCategory:'',
         urls:roleSlugs.length > 0 ? Object(roleSlugs).map((menu:any) => {
         const name = menu?.title;
         return { name, url: `/hire/${menu?.slug}`, context:null, icon:null };
@@ -57,7 +49,7 @@ export default function Footer() {
     {
         menuTitle:'Hire By Skill',
         icon:'../assets/menuicons/ico_ai.svg',
-        menuCategory:'Hire',
+        menuCategory:'',
         urls:SkillSlugs.length > 0 ? Object(SkillSlugs).map((menu:any) => {
         const name = menu.title;
         return { name, url: `/hire/${menu?.slug}`, context:null, icon:null };
@@ -74,15 +66,11 @@ export default function Footer() {
     {
         menuTitle:'Quick Links',
         icon:'../assets/menuicons/ico_ai.svg',
-        menuCategory:'Hire',
+        menuCategory:'',
         urls:[
-        {name:'Alpine.js Developer',url:'/hire/alpine-js-developer', context:null, icon:null },
-        {name:'Python Developer',url:'/hire/python-developer', context:null, icon:null },
-        {name:'Laravel Developer',url:'/hire/laravel-developer', context:null, icon:null },
-        {name:'Jupyter Developer',url:'/hire/jupyter-developer', context:null, icon:null },
-        {name:'Jest Developer',url:'/hire/jest-developer', context:null, icon:null },
-        {name:'JavaScript Developer',url:'/hire/javascript-developer', context:null, icon:null },
-        {name:'Java Developer',url:'/hire/java-developer', context:null, icon:null },
+        {name:'About Us',url:'/about-us', context:null, icon:null },
+        {name:'Contact Us',url:'/contact-us', context:null, icon:null },
+        {name:'Privacy Policy',url:'/privacy-policy', context:null, icon:null },
         ]
     }
     ];
@@ -123,7 +111,26 @@ export default function Footer() {
                 <section className="dark:bg-gray-800 text-white relative px-4 md:py-10 py-2 sm:px-6 lg:px-8 mx-auto pt-10">
                     <div>
                         <h3 className="text-center hidden text-2xl md:text-3xl lg:text-4xl xl-text-5xl 2xl:text-6xl font-bold mb-8">OUR OFFICE LOCATIONS</h3>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-4 divide-gray-600 md:divide-y-0 px-4">
+                        <div className="lg:flex w-full gap-6">
+                            
+                            {hiremenu.map((menu, i) => (
+                            <div className="flex-1 mt-8" key={i}>
+                                <h2 className="border-b-2 font-bold flex gap-2">{menu.menuTitle}</h2>
+                                <div className="grid gap-3 py-2">
+                                {menu.urls.map((url:any, i:number) => (
+                                    <div key={i}>
+                                    <a href={url.url} className="hover:text-blue-600 flex dark:hover:text-blue-300 text-sm gap-1 hover:underline">
+                                        <span className='text-gray-500 font-mono'>{menu.menuCategory && menu.menuCategory}</span>{url.icon && <img src={url.icon} alt="icon"/>}<span className='text-md'>{url.name}</span>
+                                    </a>
+                                    {url?.context && <p className='font-normal text-xs'>{url?.context}</p>}  
+                                    </div>
+                                ))}
+                                </div>
+                            </div>
+                            ))}
+                        </div>
+                        <hr className="border border-gray-100/20 mt-10"></hr>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-4 divide-gray-600 md:divide-y-0 lg:px-4">
                             {officelocation.map((location,key)=>(
                                 <div key={key} className="flex flex-col justify-between px-4 py-6 gap-2" aria-labelledby={location.name}>
                                     <div className="flex gap-2 mb-4 items-center">
@@ -145,15 +152,15 @@ export default function Footer() {
                     </div>
                 </section>
                 <div className="blackgradiant dark:bg-gray-800 flex flex-col md:flex-row gap-4 text-center md:text-start justify-between items-center text-white relative px-4 py-6 sm:px-6 lg:px-8 mx-auto">
-                    <div className="text-xs">
-                        @ Copywrite {new Date().getUTCFullYear()} Optimal Virtual Employee. All Rights Reserved.
-                    </div>
                     <div>
                         <nav className="flex gap-3">
                             <a href="https://www.facebook.com/Optimal-virtual-Employee-2093585584194627/" aria-label="facebook"><Image src={'/assets/sociallinks/facebook_white.webp'} width={100} className="transform transition-all duration-300 hover:scale-105 object-container h-8 w-8" height={100} alt="facebook"/></a>
                             <a href="https://www.linkedin.com/company/optimal-virtual-employee-ove/" aria-label="linkedin"><Image src={'/assets/sociallinks/linkedin_white.webp'} className="transform transition-all duration-300 hover:scale-105 object-container h-8 w-8" width={100} height={100} alt="linkedin"/></a>
                             <a href="https://twitter.com/OptimalVE" aria-label="X"><Image src={'/assets/sociallinks/twitter_white.webp'} className="transform transition-all duration-300 hover:scale-105 object-container h-8 w-8" width={100} height={100} alt="youtube"/></a>
                         </nav>
+                    </div>
+                    <div className="text-xs">
+                        @ Copywrite {new Date().getUTCFullYear()} Optimal Virtual Employee. All Rights Reserved.
                     </div>
                 </div>
             </div>
