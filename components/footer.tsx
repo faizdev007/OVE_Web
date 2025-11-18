@@ -118,7 +118,7 @@ export default function Footer() {
                                 <div className="grid xl:grid-cols-2 gap-3 py-2">
                                     {menu.urls.map((url:any, i:number) => (
                                         <div key={i}>
-                                            <a href={url.url} className="hover:text-blue-600 flex text-gray-400 dark:hover:text-blue-300 gap-1 hover:underline">
+                                            <a href={url.url} className="hover:text-gray-500 flex text-gray-300 dark:hover:text-gray-300 gap-1 hover:underline">
                                                 {url.icon && <img src={url.icon} alt="icon"/>}<span className='text-md'>{url.name}</span>
                                             </a>
                                             {url?.context && <p className='font-normal text-xs'>{url?.context}</p>}  
