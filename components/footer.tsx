@@ -115,7 +115,7 @@ export default function Footer() {
                             {hiremenu.map((menu, i) => (
                             <div className="flex-1 mt-8" key={i}>
                                 <h2 className="font-bold lg:text-xl flex gap-2 border-b pb-1 border-gray-100/20">{menu.menuTitle}</h2>
-                                <div className="grid xl:grid-cols-2 gap-3 py-2">
+                                <div className="grid gap-3 py-2">
                                     {menu.urls.map((url:any, i:number) => (
                                         <div key={i}>
                                             <a href={url.url} className="hover:text-gray-500 flex text-gray-300 dark:hover:text-gray-300 gap-1 hover:underline">
