@@ -107,29 +107,28 @@ export default function Footer() {
             <div className="bg-gray-100 dark:hidden hidden">
                 <Image src={'/assets/bgblack.webp'} alt="compare" width={1000} height={1000} className="w-full"/>
             </div>
-            <div className="gird divide-y-2 footerbg divide-gray-300 relative">
-                <section className="dark:bg-gray-800 text-white relative px-4 md:py-10 py-2 sm:px-6 lg:px-8 mx-auto pt-10">
+            <div className="gird footerbg relative">
+                <section className="container mx-auto dark:bg-gray-800 text-white relative px-4 md:py-10 py-2 sm:px-6 lg:px-8 mx-auto pt-10">
                     <div>
                         <h3 className="text-center hidden text-2xl md:text-3xl lg:text-4xl xl-text-5xl 2xl:text-6xl font-bold mb-8">OUR OFFICE LOCATIONS</h3>
-                        <div className="lg:flex w-full gap-6">
-                            
+                        <div className="lg:flex grid md:grid-cols-2 w-full gap-6">
                             {hiremenu.map((menu, i) => (
                             <div className="flex-1 mt-8" key={i}>
-                                <h2 className="border-b-2 font-bold flex gap-2">{menu.menuTitle}</h2>
-                                <div className="grid gap-3 py-2">
-                                {menu.urls.map((url:any, i:number) => (
-                                    <div key={i}>
-                                    <a href={url.url} className="hover:text-blue-600 flex dark:hover:text-blue-300 text-sm gap-1 hover:underline">
-                                        <span className='text-gray-500 font-mono'>{menu.menuCategory && menu.menuCategory}</span>{url.icon && <img src={url.icon} alt="icon"/>}<span className='text-md'>{url.name}</span>
-                                    </a>
-                                    {url?.context && <p className='font-normal text-xs'>{url?.context}</p>}  
-                                    </div>
-                                ))}
+                                <h2 className="font-bold lg:text-xl flex gap-2 border-b pb-1 border-gray-100/20">{menu.menuTitle}</h2>
+                                <div className="grid xl:grid-cols-2 gap-3 py-2">
+                                    {menu.urls.map((url:any, i:number) => (
+                                        <div key={i}>
+                                            <a href={url.url} className="hover:text-blue-600 flex text-gray-400 dark:hover:text-blue-300 gap-1 hover:underline">
+                                                {url.icon && <img src={url.icon} alt="icon"/>}<span className='text-md'>{url.name}</span>
+                                            </a>
+                                            {url?.context && <p className='font-normal text-xs'>{url?.context}</p>}  
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                             ))}
                         </div>
-                        <hr className="border border-gray-100/20 mt-10"></hr>
+                        <hr className="border border-b-0 border-gray-100/20 mt-10"></hr>
                         <div className="grid md:grid-cols-2 lg:grid-cols-4 divide-gray-600 md:divide-y-0 lg:px-4">
                             {officelocation.map((location,key)=>(
                                 <div key={key} className="flex flex-col justify-between px-4 py-6 gap-2" aria-labelledby={location.name}>
@@ -151,7 +150,7 @@ export default function Footer() {
                         </div>
                     </div>
                 </section>
-                <div className="blackgradiant dark:bg-gray-800 flex flex-col md:flex-row gap-4 text-center md:text-start justify-between items-center text-white relative px-4 py-6 sm:px-6 lg:px-8 mx-auto">
+                <div className="blackgradiant border-t border-gray-300 dark:bg-gray-800 flex flex-col md:flex-row gap-4 text-center md:text-start justify-between items-center text-white relative px-4 py-6 sm:px-6 lg:px-8 mx-auto">
                     <div>
                         <nav className="flex gap-3">
                             <a href="https://www.facebook.com/Optimal-virtual-Employee-2093585584194627/" aria-label="facebook"><Image src={'/assets/sociallinks/facebook_white.webp'} width={100} className="transform transition-all duration-300 hover:scale-105 object-container h-8 w-8" height={100} alt="facebook"/></a>
