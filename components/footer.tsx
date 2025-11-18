@@ -16,8 +16,8 @@ export default function Footer() {
         // Fetch role-based slugs on component mount
         (async () => {
           try {
-            const data = await RoleBaseSlug(8);
-            const link2 = await SkillBaseSlug(8);
+            const data = await RoleBaseSlug(5);
+            const link2 = await SkillBaseSlug(5);
             const slugs = data?.category?.hires?.nodes.map(node => node) || [];
             const slugs2 = link2?.category?.hires?.nodes.map(node => node) || [];
             setRoleSlugs(slugs);
