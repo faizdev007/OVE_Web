@@ -38,12 +38,10 @@ export default function Footer() {
         return { name, url: `/hire/${menu?.slug}`, context:null, icon:null };
         }) : [
         {name:'Full-stack Developer',url:'/hire/full-stack-developer', context:null, icon:null },
+        {name:'AI Engineers',url:'/hire/ai-engineers', context:null, icon:null },
         {name:'Back-end Developers',url:'/hire/back-end-developers', context:null, icon:null },
         {name:'Front-end Developers',url:'/hire/front-end-developers', context:null, icon:null },
         {name:'Cloud Engineers',url:'/hire/cloud-engineers', context:null, icon:null },
-        {name:'Mobile Developer',url:'/hire/mobile-developer', context:null, icon:null },
-        {name:'AI Engineers',url:'/hire/ai-engineers', context:null, icon:null },
-        {name:'Blockchain Developers',url:'/hire/blockchain-developers', context:null, icon:null },
         ]
     },
     {
@@ -54,13 +52,11 @@ export default function Footer() {
         const name = menu.title;
         return { name, url: `/hire/${menu?.slug}`, context:null, icon:null };
         }) : [
-        {name:'Alpine.js Developer',url:'/hire/alpine-js-developer', context:null, icon:null },
         {name:'Python Developer',url:'/hire/python-developer', context:null, icon:null },
         {name:'Laravel Developer',url:'/hire/laravel-developer', context:null, icon:null },
-        {name:'Jupyter Developer',url:'/hire/jupyter-developer', context:null, icon:null },
-        {name:'Jest Developer',url:'/hire/jest-developer', context:null, icon:null },
-        {name:'JavaScript Developer',url:'/hire/javascript-developer', context:null, icon:null },
         {name:'Java Developer',url:'/hire/java-developer', context:null, icon:null },
+        {name:'JavaScript Developer',url:'/hire/javascript-developer', context:null, icon:null },
+        {name:'Jupyter Developer',url:'/hire/jupyter-developer', context:null, icon:null },
         ]
     },
     {
