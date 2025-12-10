@@ -67,6 +67,8 @@ export default function HireBySec() {
             })) || []);
         })();
     }, []);
+
+    console.log(SkillTags);
     
     if(!RoleCards && !SkillTags) {
         return(

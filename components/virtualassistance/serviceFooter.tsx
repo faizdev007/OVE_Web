@@ -78,7 +78,7 @@ export default function ServiceFooter() {
                 </div>
                 <div className="flex flex-col md:flex-row gap-4 text-center md:text-start justify-between items-center text-black dark:text-white relative px-4 py-6 sm:px-6 lg:px-8 mx-auto">
                     <div className="text-xs">
-                        @ Copywrite {new Date().getUTCFullYear()} Optimal Virtual Employee. All Rights Reserved.
+                        @ Copyright {new Date().getUTCFullYear()} Optimal Virtual Employee. All Rights Reserved.
                     </div>
                     <div>
                         <nav className="flex gap-3">

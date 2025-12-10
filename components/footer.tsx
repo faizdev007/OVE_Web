@@ -155,7 +155,7 @@ export default function Footer() {
                         </nav>
                     </div>
                     <div className="text-xs">
-                        @ Copywrite {new Date().getUTCFullYear()} Optimal Virtual Employee. All Rights Reserved.
+                        @ Copyright {new Date().getUTCFullYear()} Optimal Virtual Employee. All Rights Reserved.
                     </div>
                 </div>
             </div>
