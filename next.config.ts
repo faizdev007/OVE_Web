@@ -31,9 +31,6 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   /* config options here */
-  eslint: {
-    ignoreDuringBuilds: true, // Ignore ESLint during build
-  },
   experimental: {
     globalNotFound: true,
   },
